@@ -921,7 +921,7 @@ Start Friend List
 .user-info h3 {
     font-size: 14px;
     font-weight: 600;
-    margin-top: 5px;	
+    margin-top: 5px;
 }
 .notifications .user-info h3 span {
 	text-transform: none;
@@ -1388,8 +1388,8 @@ Start Profile
 	z-index: 999 !important;
 }
 .contact_item {
-    padding: 7px 0;
-  /*  border-bottom: 1px solid #CCC; */
+    padding: 10px 0;
+    border-bottom: 1px solid #CCC;
     overflow: hidden;
 }
 .contact_item .contact_info {

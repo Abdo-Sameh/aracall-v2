@@ -4,15 +4,122 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <!-- <ion-navbar>
-    <ion-title>all-chats</ion-title>
-  </ion-navbar> -->
-
-</ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
+  <ion-fab right bottom style="right: 20px; bottom: 15px;">
+    <button ion-fab style="color:0c9fcb">
+	<ion-icon name="add">
+	</ion-icon>
+
+	</button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="newbc()"><img src="./assets/images/svg/002-broadcast-communications-tower.svg"  style="width:18px;height:18px"/><ion-label>{{'new-broadcast' | translate}}</ion-label></button>
+      <button ion-fab (click)="newMessage()"><img src="./assets/images/svg/email-new-envelope-closed-back-hand-drawn-outline.svg"  style="width:18px;height:18px"/><ion-label>{{'new-message' | translate}}</ion-label></button>
+
+    </ion-fab-list>
+  </ion-fab>
+
+  <!--====================Start Page Wrapper=======================-->
+  <main class="page">
+    <div class="bg_color">
+      <!--<header class="nav text_center">
+				<nav class="navigation">
+					<ul>
+						<li><a (click)="group()"><i class="ion-ios-people"></i></a></li>
+						<li><a href="chats.html" class="active"><i class="ion-chatboxes"></i></a></li>
+						<li><a href="contacts.html"><i class="ion-android-list"></i></a></li>
+					</ul>
+				</nav>
+				<div class="search"><a href="#"><i class="ion-ios-search-strong"></i></a></div>
+				<div class="menu"><a href="#"><i class="ion-android-more-vertical"></i></a></div>
+			</header>-->
+      <div class="contacts">
+        <div class="container">
+          <ion-refresher (ionRefresh)="doRefresh($event);">
+            <ion-refresher-content refreshingSpinner="circles">
+            </ion-refresher-content>
+          </ion-refresher>
+          <div class="contact_item online" *ngFor="let p of chats;let i=index">
+            <div *ngIf="p.unread == 1 && p.group_name == null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
+
+              <div (click)="openchat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call">
+                  <img src="./assets/images/blocked.png" *ngIf="p.is_blocked == true && p.type == 'single'" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+
+
+                </div>
+                <div class="contact_info">
+                  <h3>{{p.title}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+              <!-- <a href="#"   (click)="delete_chat_by_id(i,p.cid)" style="position:absolute;top:5px;right:5px;"><img src="../../assets/images/svg/rubbish-bin.svg"  style="width:18px;height:18px"/></a> -->
+
+            </div>
+            <!-- //Contact Item -->
+            <div *ngIf="p.unread == 1 && p.group_name != null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
+              <div (click)="openchat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" *ngIf="p.is_blocked == true" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call"> </div>
+                <div class="contact_info">
+                  <h3>{{p.group_name}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+              <!-- <a href="#"   (click)="delete_chat_by_id(i,p.cid)" style="position:absolute;top:5px;right:5px;"><img src="../../assets/images/svg/rubbish-bin.svg" class="mr-15" style="width:18px;height:18px"/></a> -->
+
+            </div>
+            <!-- //Contact Item -->
+            <div *ngIf="p.unread == 0 && p.group_name == null" style="position:relative;">
+              <div (click)="openchat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call">
+                  <img src="./assets/images/blocked.png" *ngIf="p.is_blocked == true && p.type == 'single'" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+                </div>
+                <div class="contact_info">
+                  <h3>{{p.title}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+              <!-- <a href="#"   (click)="delete_chat_by_id(i,p.cid)" style="position:absolute;top:5px;right:5px;"><img src="../../assets/images/svg/rubbish-bin.svg"  style="width:18px;height:18px"/></a> -->
+
+            </div>
+            <!-- //Contact Item -->
+            <div *ngIf="p.unread == 0 && p.group_name != null" style="position:relative;">
+              <div (click)="openchat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call">
+                  <img src="./assets/images/blocked.png" *ngIf="p.is_blocked == true && p.type == 'single'" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+                </div>
+                <div class="contact_info">
+                  <h3>{{p.group_name}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+              <!-- <a href="#"   (click)="delete_chat_by_id(i,p.cid)" style="position:absolute;top:5px;right:5px;"><img src="../../assets/images/svg/rubbish-bin.svg"  style="width:18px;height:18px"/></a> -->
+
+            </div>
+            <!-- //Contact Item -->
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </main>
 </ion-content>

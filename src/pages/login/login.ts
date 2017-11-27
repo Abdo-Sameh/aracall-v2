@@ -45,7 +45,7 @@ export class LoginPage {
         if (this.responseData.status != 0) {
           console.log(localStorage.setItem('userData', JSON.stringify(this.responseData)));
           console.log(localStorage.setItem('userName', JSON.stringify(this.responseData.name)));
-          console.log(localStorage.setItem('userDataID', JSON.stringify(this.responseData.id)));
+          console.log(localStorage.setItem('userid', JSON.stringify(this.responseData.id)));
           console.log(localStorage.setItem('userAvatar', this.responseData.avatar));
           console.log(localStorage.setItem('userCover', JSON.stringify(this.responseData.cover)));
           console.log(localStorage.setItem('loggedIn', "1"));

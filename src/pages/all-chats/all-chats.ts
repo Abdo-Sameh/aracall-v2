@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { SingleChatProvider } from './../../providers/single-chat/single-chat';
 
 /**
  * Generated class for the AllChatsPage page.
@@ -11,14 +12,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-all-chats',
   templateUrl: 'all-chats.html',
+  styleUrls: ['../../assets/main.css', '../../assets/ionicons.min.css']
 })
 export class AllChatsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  chats
+  constructor(public singleChat: SingleChatProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AllChatsPage');
+    this.singleChat.getConversations().subscribe(data => {
+      this.chats = data;
+    })
   }
 
 }
