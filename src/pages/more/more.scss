@@ -1,0 +1,19 @@
+page-more {
+  .toolbar-background-md {
+    background-color: #5c0632 !important;
+  }
+
+  .toolbar-title-md {
+    color: white !important;
+  }
+
+  .settings_items li a span {
+    margin-left: 10px;
+    top: -3px !important;
+    position: relative;
+  }
+
+  .settings_items > li > a > span {
+    margin-left: 25px !important;
+  }
+}

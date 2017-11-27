@@ -1,0 +1,8 @@
+{
+  "name": "aracall-v2",
+  "app_id": "c1cd053d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
