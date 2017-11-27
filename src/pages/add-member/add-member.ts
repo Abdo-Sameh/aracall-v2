@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the AddMemberPage page.
@@ -11,6 +11,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-add-member',
   templateUrl: 'add-member.html',
+  styleUrls : ['../../assets/main.css']
 })
 export class AddMemberPage {
 

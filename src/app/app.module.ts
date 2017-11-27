@@ -8,6 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SignaturePadModule } from 'angular2-signaturepad';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -50,6 +51,7 @@ import { FriendsProvider } from '../providers/friends/friends';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    SignaturePadModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

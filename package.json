@@ -28,6 +28,7 @@
     "@ionic/storage": "2.1.3",
     "@ngx-translate/core": "^9.0.1",
     "@ngx-translate/http-loader": "^2.0.0",
+    "angular2-signaturepad": "^2.6.1",
     "cordova-plugin-geolocation": "^3.0.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
