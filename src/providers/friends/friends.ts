@@ -58,4 +58,11 @@ export class FriendsProvider {
       })
     })
   }
+
+  profileDetailsApiCall(userid, theUserId) {
+    return this.http.get(this.serverURL + this.KEY + '/profile/details?userid=' + userid + '&the_userid=' + theUserId + '&the_userid=' + theUserId)
+    .map((res: any) => res.json());
+
+  }
+
 }

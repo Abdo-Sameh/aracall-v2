@@ -1,7 +1,6 @@
 //import { FirebaseProvider } from './../../providers/firebase/firebase2';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Geolocation } from '@ionic-native/geolocation';
 import { Http } from '@angular/http'
 import { TabsPage } from './../tabs/tabs';

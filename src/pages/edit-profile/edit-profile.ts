@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, Platform, Loading, ToastController, LoadingController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { SettingsProvider } from './../../providers/settings/settings';
