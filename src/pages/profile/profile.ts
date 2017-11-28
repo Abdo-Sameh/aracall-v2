@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { SettingsProvider } from './../../providers/settings/settings';
 
+import { EditProfilePage } from '../../pages/edit-profile/edit-profile';
+
+
 /**
  * Generated class for the ProfilePage page.
  *
@@ -22,6 +25,7 @@ export class ProfilePage {
   userId
   constructor(public alert: AlertController, public settings: SettingsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.get_user_status();
+    this.get_online_status();
     this.getUserData();
   }
 
@@ -41,6 +45,12 @@ export class ProfilePage {
       console.log(res)
       this.userStatus = res.chat_status;
 
+    })
+  }
+
+  get_online_status() {
+    this.settings.get_user_chat_online_status().subscribe(res => {
+      this.onlineStatus = res.online_status;
     })
   }
 
@@ -69,10 +79,18 @@ export class ProfilePage {
 
   onChange(online_status) {
     console.log(online_status)
-    this.settings.set_user_chat_online_status(this.userId, online_status).subscribe(res => {
+    this.settings.set_user_chat_online_status(online_status).subscribe(res => {
       console.log(res)
       this.onlineStatus = res.online_status
     })
+  }
+
+  editProfilePage() {
+    this.navCtrl.push(EditProfilePage);
+  }
+
+  back() {
+    this.navCtrl.pop();
   }
 
 }

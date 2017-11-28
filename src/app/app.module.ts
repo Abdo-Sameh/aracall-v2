@@ -6,9 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SignaturePadModule } from 'angular2-signaturepad';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { FilePath } from '@ionic-native/file-path';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -26,6 +30,9 @@ import { BroadcastPage } from './../pages/broadcast/broadcast';
 import { MorePage } from './../pages/more/more';
 import { AudioHandlerPage } from './../pages/audio-handler/audio-handler';
 import { AddMemberPage } from './../pages/add-member/add-member';
+import { ChatSettingsPage } from './../pages/chat-settings/chat-settings';
+import { NotificationSettingsPage } from './../pages/notification-settings/notification-settings';
+import { BlockedUsersPage } from './../pages/blocked-users/blocked-users';
 // import { RecordingPage } from '../pages/recording/recording';
 import { SearchPage } from '../pages/search/search'
 import { TabsPage } from '../pages/tabs/tabs';
@@ -39,13 +46,12 @@ import { GroupChatProvider } from '../providers/group-chat/group-chat';
 import { SettingsProvider } from '../providers/settings/settings';
 import { FriendsProvider } from '../providers/friends/friends';
 
-
 @NgModule({
   declarations: [
     MyApp,
     LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,7 @@ import { FriendsProvider } from '../providers/friends/friends';
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
-        deps: [Http]
+        deps: [HttpClient]
       }
     })
   ],
@@ -65,12 +71,16 @@ import { FriendsProvider } from '../providers/friends/friends';
   entryComponents: [
     MyApp, LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
+    Camera,
+    FilePath,
+    FileTransfer,
+    File,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     SingleChatProvider,
@@ -81,5 +91,5 @@ import { FriendsProvider } from '../providers/friends/friends';
 })
 export class AppModule { }
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/lang/', '.json');
+  return new TranslateHttpLoader(http, 'assets/lang/', '.json');
 }

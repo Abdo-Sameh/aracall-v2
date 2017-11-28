@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { SettingsProvider } from '../../providers/settings/settings';
 
 import { ProfilePage } from './../profile/profile';
 import { ChatSettingsPage } from '../chat-settings/chat-settings';
@@ -20,7 +21,7 @@ import { LoginPage } from './../login/login';
 })
 export class MorePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public settings: SettingsProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -36,10 +37,11 @@ export class MorePage {
     // this.database.signout();
     this.navCtrl.push(LoginPage);
   }
+
   chatSettings() {
-    // this.database.get_user_chat_settings(this.userid).subscribe(res => {
-    //   this.navCtrl.push(ChatSettingsPage, { 'settings': res })
-    // })
+    this.settings.get_user_chat_settings().subscribe(res => {
+      this.navCtrl.push(ChatSettingsPage, { 'settings': res })
+    })
   }
 
   notificationSettings() {

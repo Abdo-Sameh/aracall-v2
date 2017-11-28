@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 import { GroupChatProvider } from './../../providers/group-chat/group-chat';
 
 import { CreateGroupPage } from './../create-group/create-group';
@@ -20,7 +20,7 @@ import { GroupChatPage } from './../group-chat/group-chat';
 export class AllGroupsPage {
   chats = [];
   chatsCount
-  constructor(public groupChat: GroupChatProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public app: App, public groupChat: GroupChatProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.getConversations();
   }
 
@@ -30,7 +30,7 @@ export class AllGroupsPage {
   }
 
   newGroup() {
-    this.navCtrl.push(CreateGroupPage)
+    this.app.getRootNav().push(CreateGroupPage);
   }
 
   getConversations() {

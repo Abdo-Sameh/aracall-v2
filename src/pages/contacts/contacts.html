@@ -10,7 +10,7 @@
     <div class="bg_color">
       <div class="contacts">
         <div class="container">
-          <div class="contact_item online" *ngFor="let p of friends" (click)="goTochatPage(p.userid)">
+          <div class="contact_item online" *ngFor="let p of friendsList" (click)="goTochatPage(p.userid)">
             <div class="contact_img">
               <img [src]="p.avatar" style="border-radius:50%" alt="Arab Call" title="Arab Call">
             </div>

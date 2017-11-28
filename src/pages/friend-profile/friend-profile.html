@@ -4,15 +4,42 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header class="header_title">
 
-  <ion-navbar>
-    <ion-title>friend-profile</ion-title>
-  </ion-navbar>
+  <div class="container">
+    <div class="back_btn">
+      <a href="#" (click)="back()"><img src="./assets/images/svg/left-arrow-angle.svg" style="width:20px;height:20px;margin-left:40px;color: white;"/></a>
+    </div>
+    <div class="page_title text-center">
+      <h3 style=" font-size: 19px;">{{'profile' | translate}}</h3>
+    </div>
+  </div>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <main class="page">
+    <div class="user_cover" [ngStyle]="{'background-image': 'url('+ cover +')' }">
+      <div class="friend-cover flex-v-center flex-h-center">
+        <img src={{img}} alt="">
+        <h3 class="btn btn-theme btn-xs">{{name}}</h3>
+      </div>
+    </div>
+    <div class="contact-options flex-h-center mt-20">
+      <p style="width: 80%;text-align:center; font-weight: 600;">{{status}}</p>
+      <a href="#" class="c-option flex-v-center flex-h-center">
+        <i class="fa fa-phone"></i> <span (click)="VoiceCall()">{{'voice-call' | translate}}</span>
+      </a>
+      <a href="#" class="c-option flex-v-center flex-h-center">
+        <i class="fa fa-envelope"></i> <span (click)="SendMessage()" >{{'send-message' | translate}}</span>
+      </a>
+      <a href="#" class="c-option flex-v-center flex-h-center">
+        <i class="fa fa-video-camera"></i> <span (click)="VideoCall()">{{'video-call' | translate}}</span>
+      </a>
+      <a href="#" class="c-option flex-v-center flex-h-center">
+        <i class="fa fa-ban"></i> <span (click)="Block(Friend_Id)">{{'block-friend' | translate}}</span>
+      </a>
+    </div>
+  </main>
 </ion-content>

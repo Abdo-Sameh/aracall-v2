@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
 
 /*
   Generated class for the FriendsProvider provider.
@@ -30,8 +31,31 @@ export class FriendsProvider {
   }
 
   getAllBlocked() {
-    return this.http.get(this.serverURL + this.KEY + '/all/blocked?userid=' + userId)
-      .map((res: any) => res.json());
+    return this.http.get(this.serverURL + this.KEY + '/all/blocked?userid=' + userId).map((res: any) => res.json());
   }
 
+  getfriendprofile(userID) {
+    return new Promise(resolve => {
+      this.http.get(this.serverURL + this.KEY + '/profile/details?userid=' + userID).subscribe(data => {
+        let data1 = data.text();
+        data = JSON.parse(data1);
+        resolve(data);
+      })
+    })
+  }
+
+  getFriends() {
+    return new Observable(observer => {
+      let urlSearchParams = new URLSearchParams();
+      urlSearchParams.append('userid', userId)
+      let body = urlSearchParams.toString();
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+      this.http.post(this.serverURL + this.KEY + '/profile/friends', body, { headers: headers }).subscribe(data => {
+        let data1 = data.text();
+        data = JSON.parse(data1);
+        observer.next(data);
+      })
+    })
+  }
 }

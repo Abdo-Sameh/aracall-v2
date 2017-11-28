@@ -24,7 +24,7 @@ export class SignaturePage {
     'canvasHeight': 900,
   };
   public signatureImage: string;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

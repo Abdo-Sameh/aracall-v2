@@ -27,4 +27,29 @@ export class GroupChatProvider {
     return this.http.get(this.serverURL + this.KEY + '/chat/get/messages?cid=' + cid + "&userid=" + userId).map((res: any) => res.json());
   }
 
+  createGroup(group_name, users, text) {
+    let urlSearchParams = new URLSearchParams();
+    for (let index = 0; index < users.length; index++) urlSearchParams.append('theuserid[' + index + ']', users[index])
+    urlSearchParams.append('userid', userId)
+    urlSearchParams.append('text', text)
+    urlSearchParams.append('group_name', group_name)
+    urlSearchParams.append('group_admin', userId)
+    urlSearchParams.append('group_avatar', '')
+    let body = urlSearchParams.toString();
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post(this.serverURL + this.KEY + '/chat/send/message', body, { headers: headers }).map((res: any) =>
+      res.json())
+  }
+
+  set_group_name(cid, group_name) {
+    return this.http.get(this.serverURL + this.KEY + '/chat/messages/set/group_name?cid=' + cid + "&group_name=" + group_name)
+      .map((res: any) => res.json())
+  }
+
+  set_group_admin(cid) {
+    return this.http.get(this.serverURL + this.KEY + '/chat/messages/add/group/admin?cid=' + cid + '&group_admin=' + userId)
+    .map((res: any) => { res.json() })
+  }
+
 }
