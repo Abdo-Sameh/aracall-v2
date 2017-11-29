@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Headers, URLSearchParams } from '@angular/http';
+import { Loading } from 'ionic-angular';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 
 /*
   Generated class for the SingleChatProvider provider.
@@ -11,6 +13,7 @@ import { Http, Headers, URLSearchParams } from '@angular/http';
 */
 let userId;
 declare var firebase;
+declare var cordova: any;
 var config = {
   apiKey: "AIzaSyD301e1goVdXYuQb6jujSI3uPJabnpcFAI",
   authDomain: "arabcall-a9e54.firebaseapp.com",
@@ -25,7 +28,7 @@ export class SingleChatProvider {
   serverURL = 'http://192.168.1.252/arabface/api/'
   KEY = '89129812'
 
-  constructor(public httpClient: HttpClient, public http: Http) {
+  constructor(private transfer: FileTransfer, public httpClient: HttpClient, public http: Http) {
     console.log('Hello SingleChatProvider Provider');
     userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     firebase.initializeApp(config);
@@ -33,7 +36,47 @@ export class SingleChatProvider {
 
   check_chat_history(other_userid) {
     return this.http.get(this.serverURL + this.KEY + '/chat/messages/check/chat/history?userid=' + userId + '&other_userid=' + other_userid)
-    .map((res: any) => res.json());
+      .map((res: any) => res.json());
+  }
+
+  sendMessage(cid, theuserid, text, image) {
+    let uploading, message, targetPath;
+    var filename = image;
+    if (image === null) {
+      return '';
+    } else {
+      targetPath = cordova.file.dataDirectory + image;
+    }
+    var url, options;
+
+    url = this.serverURL + this.KEY + 'chat/send/message';
+    options = {
+      fileKey: "image",
+      fileName: filename,
+      chunkedMode: false,
+      mimeType: "multipart/form-data",
+      params: { 'image': filename, 'userid': userId, 'cid': cid, 'theuserid': theuserid, 'text': text }
+    };
+
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    let loading: Loading
+    fileTransfer.upload(targetPath, url, options, true).then(data => {
+      loading.dismissAll()
+      let response = JSON.parse(data.response);
+      alert(response['id']);
+      alert(response['text']);
+      if (response['status'] == 0) {
+        //this.presentToast('Error while uploading file.');
+      } else {
+        firebase.database().ref('one2one/' + cid + '/messages').push({
+          'reciever_id': theuserid, 'message_id': response['id'], 'type': 'single', 'message': text, 'is_read': false,
+          'is_received': false, 'text': text, 'audio': '', 'video': '', 'image': response['image'], 'file': '', 'location': '', 'emoji': ''
+        });
+      }
+    }, err => {
+      //this.presentToast('Error while uploading file.');
+    });
   }
 
   getConversations() {

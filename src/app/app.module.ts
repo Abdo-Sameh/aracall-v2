@@ -13,6 +13,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
+import { FileOpener } from '@ionic-native/file-opener';
+import { FileChooser } from '@ionic-native/file-chooser';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -80,6 +82,7 @@ import { FriendsProvider } from '../providers/friends/friends';
     Camera,
     FilePath,
     FileTransfer,
+    FileChooser,
     File,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,

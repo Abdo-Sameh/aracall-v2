@@ -33,7 +33,7 @@
           <div class="contact_item online" *ngFor="let p of chats;let i=index">
             <div *ngIf="p.unread == 1 && p.group_name == null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
 
-              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked, p.user1)">
                 <div class="contact_img">
                   <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
 
@@ -49,7 +49,7 @@
             </div>
             <!-- //Contact Item -->
             <div *ngIf="p.unread == 1 && p.group_name != null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
-              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked, p.user1)">
                 <div class="contact_img">
                   <img src="./assets/images/group.png" *ngIf="p.is_blocked == true" style="border-radius:50%" alt="Arab Call" title="Arab Call">
                   <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call"> </div>
@@ -61,8 +61,8 @@
               </div>
             </div>
             <!-- //Contact Item -->
-            <div *ngIf="p.unread == 0 && p.group_name == null" style="position:relative;">
-              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+            <div *ngIf="p.unread != 1 && p.group_name == null" style="position:relative;">
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked, p.user1)">
                 <div class="contact_img">
                   <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
 
@@ -77,8 +77,8 @@
               </div>
             </div>
             <!-- //Contact Item -->
-            <div *ngIf="p.unread == 0 && p.group_name != null" style="position:relative;">
-              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+            <div *ngIf="p.unread != 1 && p.group_name != null" style="position:relative;">
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked, p.user1)">
                 <div class="contact_img">
                   <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
 

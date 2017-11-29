@@ -30,6 +30,7 @@ export class AllChatsPage {
     console.log('ionViewDidLoad AllChatsPage');
     this.singleChat.getConversations().subscribe(data => {
       this.chats = data;
+      console.log(data);
     })
   }
 
@@ -41,7 +42,7 @@ export class AllChatsPage {
     this.navCtrl.push(SearchPage)
   }
 
-  openChat(index, type, data, title, avatar, is_blocked) {
+  openChat(index, type, cid, title, avatar, is_blocked, user1) {
     if (type == 'multiple') {
       this.groupChat.usersCoversation(this.chats[index].cid).subscribe(res => {
         console.log(res)
@@ -52,7 +53,7 @@ export class AllChatsPage {
       })
 
     } else {
-      this.app.getRootNav().push(ChatHandlerPage, { data, title, avatar, 'is_blocked': is_blocked });
+      this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1 });
     }
   }
 
