@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading } from 'ionic-angular';
-import { Camera } from '@ionic-native/camera';
-import { FileTransfer } from '@ionic-native/file-transfer';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
@@ -11,6 +11,7 @@ import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
 import { SignaturePage } from '../signature/signature';
+import { RecordingPage } from '../recording/recording';
 /**
  * Generated class for the ChatHandlerPage page.
  *
@@ -28,6 +29,7 @@ export class ChatHandlerPage {
   lastImage: string = null;
   loading: Loading
   lastonline
+  friendData
   emojitext
   remoteavatar
   the_userId
@@ -38,6 +40,7 @@ export class ChatHandlerPage {
     this.the_userId = navParams.get('user1');
     this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
       console.log(res)
+      this.friendData = res;
       this.currentUserID = res.id;
       console.log(this.currentUserID)
       this.lastonline = res.profile_info[0].value;
@@ -69,7 +72,7 @@ export class ChatHandlerPage {
     console.log(this.currentUserID)
     this.remoteavatar = this.navParams.get('avatar');
     this.navCtrl.push(FriendProfilePage, {
-      'currentUserID': this.currentUserID, id: this.navParams.get('data'), title: this.navParams.get('title'), remoteavatar: this.remoteavatar
+      data: this.friendData
     });
   }
 
@@ -80,6 +83,7 @@ export class ChatHandlerPage {
         {
           text: 'Library',
           handler: () => {
+            alert("lib");
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
@@ -105,22 +109,24 @@ export class ChatHandlerPage {
 
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
+      alert(imagePath);
       // Special handling for Android library
       if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
         this.filePath.resolveNativePath(imagePath)
           .then(filePath => {
             let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
-            let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
-            this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+            let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
+            this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
           });
       } else {
         alert("else");
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-        this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+        this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
 
       }
     }, (err) => {
+      alert(err);
       this.presentToast('Error while selecting image.');
     });
   }
@@ -132,13 +138,16 @@ export class ChatHandlerPage {
     return newFileName;
   }
 
-  copyFileToLocalDir(namePath, currentName, newFileName) {
+  copyFileToLocalDir(namePath, currentName, newFileName, type) {
+    alert(namePath);
+    alert(currentName);
+    alert(newFileName);
+    alert(type);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
-      this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage);
+      this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type);
     }, error => {
       alert(error);
-
       this.presentToast('Error while storing file.');
     });
   }
@@ -173,6 +182,10 @@ export class ChatHandlerPage {
     });
   }
 
+  recordPage() {
+    this.navCtrl.push(RecordingPage);
+  }
+
   chooseFile() {
     this.fileChooser.open()
       .then(uri => {
@@ -180,15 +193,18 @@ export class ChatHandlerPage {
         if (this.platform.is('android')) {
           this.filePath.resolveNativePath(uri)
             .then(filePath => {
+              alert(filePath);
               let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+              alert(correctPath);
               let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
-              this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+              alert(currentName);
+              this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
             });
         } else {
           alert("else");
           var currentName = uri.substr(uri.lastIndexOf('/') + 1);
           var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
-          this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+          this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
         }
       }).catch(e => alert(e));
   }

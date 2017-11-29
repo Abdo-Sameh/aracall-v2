@@ -22,8 +22,8 @@
   <main class="page">
     <div class="user_cover" [ngStyle]="{'background-image': 'url('+ cover +')' }">
       <div class="friend-cover flex-v-center flex-h-center">
-        <img src={{img}} alt="">
-        <h3 class="btn btn-theme btn-xs">{{name}}</h3>
+        <img src={{data.avatar}} alt="">
+        <h3 class="btn btn-theme btn-xs">{{data.name}}</h3>
       </div>
     </div>
     <div class="contact-options flex-h-center mt-20">

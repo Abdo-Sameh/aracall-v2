@@ -15,6 +15,7 @@ import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
 import { FileChooser } from '@ionic-native/file-chooser';
+import { Media, MediaObject } from '@ionic-native/media';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -85,6 +86,7 @@ import { FriendsProvider } from '../providers/friends/friends';
     FileTransfer,
     FileChooser,
     File,
+    Media,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     SingleChatProvider,

@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { Loading } from 'ionic-angular';
-import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FilePath } from '@ionic-native/file-path';
 
 /*
   Generated class for the SingleChatProvider provider.
@@ -41,46 +42,65 @@ export class SingleChatProvider {
       .map((res: any) => res.json());
   }
 
-  sendMessage(cid, theuserid, text, image) {
-    let uploading, message, targetPath;
+  sendMessage(cid, theuserid, text, image, type) {
+    let message, targetPath;
     var filename = image;
     if (image === null) {
       return '';
     } else {
       targetPath = cordova.file.dataDirectory + image;
+      alert('targetPaht' + targetPath)
     }
     var url, options;
 
-    url = this.serverURL + this.KEY + 'chat/send/message';
+    url = this.serverURL + this.KEY + '/chat/send/message';
     options = {
-      fileKey: "image",
+      fileKey: type,
       fileName: filename,
       chunkedMode: false,
       mimeType: "multipart/form-data",
-      params: { 'image': filename, 'userid': userId, 'cid': cid, 'theuserid': theuserid, 'text': text }
+      params: { 'userid': userId, 'cid': cid, 'theuserid': theuserid, 'text': text }
     };
-
+    if(type == 'image')
+      options['params'].image = filename
+    else if(type == 'file')
+      options['params'].file = filename
+    alert(options['params'].cid)
+    alert(options['params'].theuserid)
+    alert(options['params'].userid)
     const fileTransfer: FileTransferObject = this.transfer.create();
-
-    let loading: Loading
+    alert('ay 7aga');
+    // let loading: Loading
+    alert(targetPath);
+    alert(url);
+    alert(fileTransfer);
     fileTransfer.upload(targetPath, url, options, true).then(data => {
-      loading.dismissAll()
+      alert('ay 7aga 2');
+      // loading.dismissAll()
       let response = JSON.parse(data.response);
       alert(response['id']);
       alert(response['text']);
       if (response['status'] == 0) {
         //this.presentToast('Error while uploading file.');
       } else {
+        let fileType = '', img = '';
+        if(type == 'image')
+          img = response['image']
+        else if(type == 'file')
+          fileType = response['file']
 
         firebase.database().ref('one2one/' + cid + '/messages').push({
           'sender_id': userId, 'id': response['id'], 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
-          'text': '', 'audio': '', 'video': '', 'call_duration': '', 'image': response['image'], 'file': '', 'location': '', 'emoji': ''
+          'text': '', 'audio': '', 'video': '', 'call_duration': '', 'image': img, 'file': fileType, 'location': '', 'emoji': ''
         });
 
       }
-    }, err => {
+    }).catch( err => {
+      alert('ay 7aga error');
+      alert(err);
       //this.presentToast('Error while uploading file.');
     });
+    alert('------------------');
   }
 
   getConversations() {

@@ -7,12 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>recording</ion-title>
+    <ion-title>{{'recording' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <p>
+    <button (click)="startRecording()" class="buttton-start-recording">
+    <ion-icon name="microphone"></ion-icon>
+    Start recording
+  </button>
+  </p>
+  <p>
+    <button (click)="stopRecording()" class="buttton-stop-recording">
+    <ion-icon name="mic-off"></ion-icon>
+    Stop recording
+  </button>
+  </p>
+  <!-- <p>
+    <button (click)="startPlayback()" class="buttton-start-playback">
+    <ion-icon name="play"></ion-icon>
+    Start playback
+  </button>
+  </p> -->
+  <!-- <p>
+    <button (click)="stopPlayback()" class="buttton-stop-playback">
+    <ion-icon name="square"></ion-icon>
+    Stop playback
+  </button>
+  </p> -->
+  <p>
+    <button (click)="send()" class="buttton-stop-playback">
+    Send
+  </button>
+  </p>
 </ion-content>
