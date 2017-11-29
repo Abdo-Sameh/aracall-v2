@@ -175,8 +175,22 @@ export class ChatHandlerPage {
 
   chooseFile() {
     this.fileChooser.open()
-      .then(uri => alert(uri))
-      .catch(e => alert(e));
+      .then(uri => {
+        alert(uri);
+        if (this.platform.is('android')) {
+          this.filePath.resolveNativePath(uri)
+            .then(filePath => {
+              let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+              let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+              this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+            });
+        } else {
+          alert("else");
+          var currentName = uri.substr(uri.lastIndexOf('/') + 1);
+          var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
+          this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
+        }
+      }).catch(e => alert(e));
   }
 
 

@@ -33,9 +33,10 @@ import { MorePage } from './../pages/more/more';
 import { AudioHandlerPage } from './../pages/audio-handler/audio-handler';
 import { AddMemberPage } from './../pages/add-member/add-member';
 import { ChatSettingsPage } from './../pages/chat-settings/chat-settings';
+import { NewChatPage } from './../pages/new-chat/new-chat';
 import { NotificationSettingsPage } from './../pages/notification-settings/notification-settings';
 import { BlockedUsersPage } from './../pages/blocked-users/blocked-users';
-// import { RecordingPage } from '../pages/recording/recording';
+import { RecordingPage } from '../pages/recording/recording';
 import { SearchPage } from '../pages/search/search'
 import { TabsPage } from '../pages/tabs/tabs';
 import { AllChatsPage } from './../pages/all-chats/all-chats';
@@ -53,7 +54,7 @@ import { FriendsProvider } from '../providers/friends/friends';
     MyApp,
     LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +74,7 @@ import { FriendsProvider } from '../providers/friends/friends';
   entryComponents: [
     MyApp, LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage
   ],
   providers: [
     StatusBar,

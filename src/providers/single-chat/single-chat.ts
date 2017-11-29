@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { Loading } from 'ionic-angular';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
@@ -69,10 +71,12 @@ export class SingleChatProvider {
       if (response['status'] == 0) {
         //this.presentToast('Error while uploading file.');
       } else {
+
         firebase.database().ref('one2one/' + cid + '/messages').push({
-          'reciever_id': theuserid, 'message_id': response['id'], 'type': 'single', 'message': text, 'is_read': false,
-          'is_received': false, 'text': text, 'audio': '', 'video': '', 'image': response['image'], 'file': '', 'location': '', 'emoji': ''
+          'sender_id': userId, 'id': response['id'], 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'text': '', 'audio': '', 'video': '', 'call_duration': '', 'image': response['image'], 'file': '', 'location': '', 'emoji': ''
         });
+
       }
     }, err => {
       //this.presentToast('Error while uploading file.');
