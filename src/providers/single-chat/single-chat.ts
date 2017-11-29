@@ -31,6 +31,11 @@ export class SingleChatProvider {
     firebase.initializeApp(config);
   }
 
+  check_chat_history(other_userid) {
+    return this.http.get(this.serverURL + this.KEY + '/chat/messages/check/chat/history?userid=' + userId + '&other_userid=' + other_userid)
+    .map((res: any) => res.json());
+  }
+
   getConversations() {
     return new Observable(observer => {
       let headers = new Headers();

@@ -50,8 +50,9 @@ export class AllGroupsPage {
     console.log(this.chats[index]);
     this.groupChat.usersCoversation(this.chats[index].cid).subscribe(res => {
       console.log(res);
-      this.navCtrl.push(GroupChatPage, {
-        'chat': res,
+      this.app.getRootNav().push(GroupChatPage, {
+        'messages': res,
+        'group' : this.chats[index],
       })
     })
   }
