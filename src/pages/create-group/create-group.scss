@@ -1,3 +1,30 @@
 page-create-group {
+  $loading-md-background: red;
+  $loading-md-spinner-color: red;
 
+  .container {
+    width: 100% !important;
+  }
+
+  .searchbar-md .searchbar-input {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14) !important;
+  }
+
+  .scroll-content {
+    // margin-bottom: 60px !important;
+  }
+
+  .toolbar-title-md {
+    font-size: 1.5rem !important;
+  }
+
+  .user {
+    border-bottom: 0 !important;
+    padding-left: 45px !important;
+  }
+
+  .user .checkbox {
+    left: 1px !important;
+    top: 15px !important;
+  }
 }

@@ -4,15 +4,98 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <!-- <ion-navbar>
-    <ion-title>all-chats</ion-title>
-  </ion-navbar> -->
-
-</ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
+  <ion-fab right bottom style="right: 20px; bottom: 15px;">
+    <button ion-fab style="color:0c9fcb">
+	<ion-icon name="add">
+	</ion-icon>
+
+	</button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="newBroadcast()"><img src="./assets/images/svg/002-broadcast-communications-tower.svg"  style="width:18px;height:18px"/><ion-label>{{'new-broadcast' | translate}}</ion-label></button>
+      <button ion-fab (click)="newMessage()"><img src="./assets/images/svg/email-new-envelope-closed-back-hand-drawn-outline.svg"  style="width:18px;height:18px"/><ion-label>{{'new-message' | translate}}</ion-label></button>
+
+    </ion-fab-list>
+  </ion-fab>
+
+  <!--====================Start Page Wrapper=======================-->
+  <main class="page">
+    <div class="bg_color">
+      <div class="contacts">
+        <div class="container">
+          <ion-refresher (ionRefresh)="doRefresh($event);">
+            <ion-refresher-content refreshingSpinner="circles">
+            </ion-refresher-content>
+          </ion-refresher>
+          <div class="contact_item online" *ngFor="let p of chats;let i=index">
+            <div *ngIf="p.unread == 1 && p.group_name == null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
+
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call">
+                  <img src="./assets/images/blocked.png" *ngIf="p.is_blocked == true && p.type == 'single'" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+                </div>
+                <div class="contact_info">
+                  <h3>{{p.title}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- //Contact Item -->
+            <div *ngIf="p.unread == 1 && p.group_name != null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" *ngIf="p.is_blocked == true" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call"> </div>
+                <div class="contact_info">
+                  <h3>{{p.group_name}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- //Contact Item -->
+            <div *ngIf="p.unread == 0 && p.group_name == null" style="position:relative;">
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call">
+                  <img src="./assets/images/blocked.png" *ngIf="p.is_blocked == true && p.type == 'single'" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+                </div>
+                <div class="contact_info">
+                  <h3>{{p.title}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- //Contact Item -->
+            <div *ngIf="p.unread == 0 && p.group_name != null" style="position:relative;">
+              <div (click)="openChat(i,p.type,p.cid,p.title,p.avatar,p.is_blocked)">
+                <div class="contact_img">
+                  <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+
+                  <img [src]="p.avatar" style="border-radius:50%" *ngIf="p.is_blocked == false" alt="Arab Call" title="Arab Call">
+                  <img src="./assets/images/blocked.png" *ngIf="p.is_blocked == true && p.type == 'single'" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+                </div>
+                <div class="contact_info">
+                  <h3>{{p.group_name}}</h3>
+                  <p>{{p.message}}</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- //Contact Item -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </ion-content>

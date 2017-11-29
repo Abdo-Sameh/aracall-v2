@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, App } from 'ionic-angular';
+import { FriendsProvider } from '../../providers/friends/friends';
+import { SingleChatProvider } from '../../providers/single-chat/single-chat';
+
+import { ChatHandlerPage } from '../chat-handler/chat-handler';
+import { NewChatPage } from '../new-chat/new-chat';
 
 /**
  * Generated class for the ContactsPage page.
@@ -13,12 +18,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'contacts.html',
 })
 export class ContactsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  friendsList
+  constructor(public app: App, public singleChat: SingleChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsPage');
+    let loading = this.loadingctrl.create({
+      showBackdrop: false
+    });
+    loading.present();
+    this.friends.getFriends().subscribe(data => {
+      loading.dismiss();
+      this.friendsList = data;
+    });
+  }
+
+  goTochatPage(other_userid) {
+    this.singleChat.check_chat_history(other_userid).subscribe(res => {
+      if (res.status == 1) {
+        this.app.getRootNav().push(ChatHandlerPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
+      } else {
+        this.app.getRootNav().push(NewChatPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
+      }
+    })
   }
 
 }

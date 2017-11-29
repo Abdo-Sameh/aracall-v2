@@ -352,13 +352,15 @@
 
   "block-friend" : "Block friend",
 
-
+  "view-profile" : "View Profile",
 
   "tag-people-in-your-post" : "Tag people in your post",
 
   "manage-ban-filters": "Manage ban filters",
 
   "save": "Save",
+
+  "online-status" : "Online status",
 
   "separate-by-comma": "Separate them with comma(,)",
 
@@ -1352,6 +1354,16 @@
   "admin-dashboard-desc": "See statistics about your social site right from here",
 
   "online-members": "Online Members",
+
+  "online" : "Online",
+
+  "profile-picture" : "Profile picture",
+
+  "change-picture" : "Change picture",
+
+  "busy" : "Busy",
+
+  "invisible" : "Invisible",
 
   "view-members": "View Members",
 

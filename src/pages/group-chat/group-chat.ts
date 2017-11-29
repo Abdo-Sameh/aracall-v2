@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+
+import { GroupInfoPage } from '../../pages/group-info/group-info';
 
 /**
  * Generated class for the GroupChatPage page.
@@ -13,12 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'group-chat.html',
 })
 export class GroupChatPage {
-
+  group
+  messages
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.group = navParams.get('group');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupChatPage');
+  }
+
+  goToGroupInfo() {
+    this.navCtrl.push(GroupInfoPage, { 'group': this.group })
   }
 
 }

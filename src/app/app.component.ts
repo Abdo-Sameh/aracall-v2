@@ -13,7 +13,7 @@ export class MyApp {
 
   constructor(translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
-      translate.setDefaultLang("en");
+      translate.setDefaultLang('en');
       platform.setDir('ltr', true);
       // this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main.css');
 

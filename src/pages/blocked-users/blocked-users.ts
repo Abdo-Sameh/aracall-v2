@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { FriendsProvider } from '../../providers/friends/friends'
 
 /**
  * Generated class for the BlockedUsersPage page.
@@ -13,12 +14,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'blocked-users.html',
 })
 export class BlockedUsersPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  blocked
+  constructor(public toastCtrl: ToastController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.getAllBlocked();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BlockedUsersPage');
   }
 
+  getAllBlocked() {
+    this.friends.getAllBlocked().subscribe(res => {
+      this.blocked = res;
+    });
+  }
+
+  unblockUser(id, index) {
+    this.friends.unblockUser(id).subscribe(res => {
+      if (res.status == 1) {
+        let toast = this.toastCtrl.create({
+          message: 'User unblocked successfully',
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+        this.blocked.splice(index, 1);
+      }
+    });
+  }
+
+  back() {
+    this.navCtrl.pop();
+  }
 }

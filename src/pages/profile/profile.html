@@ -4,15 +4,70 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header class="header_title">
 
-  <ion-navbar>
-    <ion-title>profile</ion-title>
-  </ion-navbar>
+  <div class="container">
+    <div class="back_btn">
+      <a href="#" (click)="back()"><img src="./assets/images/svg/left-arrow-angle.svg" style="width:20px;height:20px;margin-left:40px;color: white;"/></a>
+    </div>
+    <div class="page_title text-center">
+      <h3 style=" font-size: 19px; ">{{'profile' | translate}}</h3>
+    </div>
+
+  </div>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <main class="page">
+    <!-- Start Menu Settings -->
+    <div class="settings">
+
+      <div class="settings_items">
+        <div class="container">
+          <div class="account">
+
+            <div class="">
+              <form action="#" method="post">
+                <div class="form-group mt-20 mb-15">
+                  <div class="file-input flex-v-center">
+                    <img src={{user.avatar}} style="width:140px;margin:auto;" alt="">
+                    <input id="profile-upload" type="file" class="hide">
+                  </div>
+                </div>
+                <h1 style="text-align:center;font-size:22px">{{user.first_name }} {{ user.last_name}}</h1>
+
+                <div class="form-group mb-15">
+                  <label for="status">{{'status' | translate}}</label><a href="#" (click)="changeStatus()" style="    padding: 4px 0px 2px 13px;
+									margin-bottom: 10px;" class="btn btn-theme btn-sm pull-right"><img src="./assets/images/svg/edit.svg" class="mr-15" style="width:14px;height:14px"/></a>
+                  <div class="clearfix"></div>
+                  <textarea class="form-control" id="status" disabled>{{userStatus}}</textarea>
+                </div>
+                <div class="form-group mb-15">
+                  <label class="pull-left" for="online_status">{{'online-status' | translate}}</label>
+                  <div class="ion-record pull-right" *ngIf="onlineStatus == 'online'" style="color:green;"> {{'online' | translate}}</div>
+                  <div class="ion-record pull-right" *ngIf="onlineStatus == 'busy'" style="color:red;"> {{'busy' | translate}}</div>
+                  <div class="ion-record pull-right" *ngIf="onlineStatus == 'invisible'" style="color:rgb(124, 124, 124);"> {{'invisible' | translate}}</div>
+
+                  <select class="form-control" [(ngModel)]="newOnlineStatus" [ngModelOptions]="{standalone :true}" (change)="onChange(newOnlineStatus)" id="online_status">
+										<option value='0'>{{'online' | translate}}</option>
+										<option value='1'>{{'busy' | translate}}</option>
+										<option value='2'>{{'invisible' | translate}}</option>
+									</select>
+                </div>
+
+                <div class="form-group mt-30 mb-30">
+                  <input type="submit" (click)="editProfilePage()" value="Edit Profile" class="btn btn-theme">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
 
 </ion-content>
