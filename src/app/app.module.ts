@@ -16,7 +16,8 @@ import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { Media, MediaObject } from '@ionic-native/media';
-
+import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
+import { Diagnostic } from '@ionic-native/diagnostic';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { SignaturePage } from '../pages/signature/signature'
@@ -62,6 +63,7 @@ import { FriendsProvider } from '../providers/friends/friends';
     IonicModule.forRoot(MyApp),
     HttpModule,
     SignaturePadModule,
+    EmojiPickerModule.forRoot(),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -92,6 +94,7 @@ import { FriendsProvider } from '../providers/friends/friends';
     SingleChatProvider,
     GroupChatProvider,
     SettingsProvider,
+    Diagnostic,
     FriendsProvider
   ]
 })

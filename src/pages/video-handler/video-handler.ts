@@ -1,7 +1,7 @@
-import { TabsPage } from './../tabs/tabs';
-import { ContactsPage } from './../contacts/contacts';
+import { TabsPage } from '../tabs/tabs';
+import { ContactsPage } from '../contacts/contacts';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
-import { ChatHandlerPage } from './../chathandler/chathandler';
+import { ChatHandlerPage } from '../chat-handler/chat-handler';
 import { Component,ViewChild } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import {Subscription} from "rxjs";

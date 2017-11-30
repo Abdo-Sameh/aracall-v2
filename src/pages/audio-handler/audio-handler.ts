@@ -1,6 +1,6 @@
-import { TabsPage } from './../tabs/tabs';
-import { ContactsPage } from './../contacts/contacts';
-import { ChatHandlerPage } from './../chathandler/chathandler';
+import { TabsPage } from '../tabs/tabs';
+import { ContactsPage } from '../contacts/contacts';
+import { ChatHandlerPage } from '../chat-handler/chat-handler';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { Component,ViewChild } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
