@@ -41,6 +41,26 @@ export class SingleChatProvider {
     return this.http.get(this.serverURL + this.KEY + '/chat/messages/check/chat/history?userid=' + userId + '&other_userid=' + other_userid)
       .map((res: any) => res.json());
   }
+  display_single_chat_messages(cid){
+  return  new Observable(observer => {
+  firebase.database().ref('one2one/'+cid+'/messages').orderByChild('time').on('value',function(snapshot) {
+        observer.next(snapshot.val())
+       })
+  })
+ }
+  send_message(cid, theuserid, text)
+  {
+      let url=this.serverURL + this.KEY + '/chat/send/message?text='+text+'&cid='+cid+ '&theuserid='+theuserid
+      console.log(url)
+      return this.http.get(url).do((res: Response) => {
+        console.log(res.json())
+        firebase.database().ref('one2one/' + cid + '/messages').push({
+          'sender_id': userId, 'id':'1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'text': text, 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': '', 'file': '', 'location': '', 'emoji': ''
+        });
+    }).map((res: Response) => res.json());
+
+  }
 
   sendMessage(cid, theuserid, text, image, type) {
     let message, targetPath;
@@ -91,7 +111,8 @@ export class SingleChatProvider {
 
         firebase.database().ref('one2one/' + cid + '/messages').push({
           'sender_id': userId, 'id': response['id'], 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
-          'text': '', 'audio': '', 'video': '', 'call_duration': '', 'image': img, 'file': fileType, 'location': '', 'emoji': ''
+          'text': '', 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
+
         });
 
       }

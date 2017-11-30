@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading } from 'ionic-angular';
+import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading ,LoadingController} from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -7,11 +7,15 @@ import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
 
+import {AudioHandlerPage}  from '../audio-handler/audio-handler'
+import {VideoHandlerPage}  from '../video-handler/video-handler'
+
 import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
 import { SignaturePage } from '../signature/signature';
 import { RecordingPage } from '../recording/recording';
+import {SettingsProvider} from '../../providers/settings/settings'
 /**
  * Generated class for the ChatHandlerPage page.
  *
@@ -25,6 +29,8 @@ declare var cordova: any;
   styleUrls: ['../../assets/main.css', '../../assets/ionicons.min.css']
 })
 export class ChatHandlerPage {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+@ViewChild('input1') private myinput: ElementRef;
   currentUserID
   lastImage: string = null;
   loading: Loading
@@ -34,29 +40,88 @@ export class ChatHandlerPage {
   remoteavatar
   the_userId
   cid
+  logined_user
+  username
+  chats = []
+  msgs = []
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
-    this.cid = navParams.get('cid');
-    this.the_userId = navParams.get('user1');
-    this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
-      console.log(res)
-      this.friendData = res;
-      this.currentUserID = res.id;
-      console.log(this.currentUserID)
-      this.lastonline = res.profile_info[0].value;
-      // this.database.get_user_chat_settings(this.currentUserID).subscribe(res => {
-      //   this.settings[0].last_seen_status = res.last_seen_status
-      //   this.settings[0].read_receipt = res.read_receipt_status
-      // })
-      // console.log(res)
+  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController,public Settings:SettingsProvider,  public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+      this.cid = navParams.get('cid');
+      this.remoteavatar = this.navParams.get('avatar');
+      this.the_userId = navParams.get('user1');
+      this.logined_user=localStorage.getItem('userid').replace(/[^0-9]/g, "");
+      this.username= this.navParams.get('title');
+      let loading = loadingctrl.create({
+      showBackdrop: false
+      });
+      loading.present();
+
+      this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
+       console.log(res)
+           this.currentUserID = res.id;
+           console.log(this.currentUserID)
+           this.lastonline = res.profile_info[0].value;
+           this.Settings.get_user_chat_settings().subscribe(res => {
+             this.settings[0].last_seen_status = res.last_seen_status
+             this.settings[0].read_receipt = res.read_receipt_status
+           })
+           console.log(res)
     });
 
+    this.singleChat.display_single_chat_messages(this.cid).subscribe((res)=>{
+         if(res){
+             for (let key in res){
+               console.log(key)
+             res[key].time = this.edittime(Date.now(),res[key].time)
+             this.chats.push( res[key])
+             console.log(this.chats)
+         }
+         loading.dismiss()
+     };
+         });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatHandlerPage');
-  }
 
+  }
+  edittime(current, previous) {
+     var msPerMinute = 60 * 1000;
+     var msPerHour = msPerMinute * 60;
+     var msPerDay = msPerHour * 24;
+     var msPerWeek = 7 * msPerDay;
+     var msPerMonth = msPerDay * 30;
+     var msPerYear = msPerDay * 365;
+
+     var elapsed = current - previous;
+
+     if (elapsed < msPerMinute) {
+       return 'now';
+     }
+
+     else if (elapsed < msPerHour) {
+       return Math.round(elapsed / msPerMinute) + ':minutes ago';
+     }
+
+     else if (elapsed < msPerDay) {
+       return Math.round(elapsed / msPerHour) + ':hours ago';
+     }
+     else if (elapsed < msPerWeek) {
+       return Math.round(elapsed / msPerDay) + ':days ago';
+     }
+     else if (elapsed < msPerMonth) {
+       return Math.round(elapsed / msPerWeek) + ':weeks ago';
+     }
+
+
+
+     else if (elapsed < msPerYear) {
+       return Math.round(elapsed / msPerMonth) + ':months ago';
+     }
+
+     else {
+       return Math.round(elapsed / msPerYear) + ':years ago';
+     }
+   }
   dropdown() {
 
     $(document).on('click', '.type-message .toggle-arrow', function() {
@@ -207,6 +272,10 @@ export class ChatHandlerPage {
           this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
         }
       }).catch(e => alert(e));
+  }
+  send(cid = this.cid , userid = this.logined_user , text = this.emojitext) {
+    this.singleChat.send_message(cid,userid,text).subscribe((res)=>{console.log(res)});
+    this.emojitext = ''
   }
 
 

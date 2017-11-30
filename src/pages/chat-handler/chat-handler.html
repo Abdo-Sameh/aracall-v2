@@ -22,8 +22,9 @@
       <ion-title>
         <img [src]="remoteavatar" width="25" height="25" style="margin-right:5px;float:left;" alt="">
         <div style="float:left;text-align:left;">
-          <span style="font-size: 14px;position: relative;top: -6px;">{{title}}</span>
-          <!-- <h5 *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null" style="color: #ededed;font-size: 10px;position: relative;top: -21px;">{{lastonline}}</h5> -->
+          <span style="font-size: 14px;position: relative;top: -6px;">{{username}}</span>
+          <h5 *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null" style="color: #ededed;font-size: 10px;position: relative;top: -9px;">{{lastonline}}</h5>
+
         </div>
 
       </ion-title>
@@ -32,10 +33,11 @@
 
     <div class="headerico" style="background:none;box-shadow:none;"></div>
     <div>
-      <ion-icon class="headerico" name="ios-videocam" *ngIf="is_blocked==false" (click)="video()" style="margin-left: -10px;"></ion-icon>
+      <ion-icon class="headerico" name="ios-videocam"  (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
     </div>
     <div>
-      <ion-icon class="headerico" name="ios-call" *ngIf="is_blocked==false" (click)="call()"></ion-icon>
+      <ion-icon class="headerico" name="ios-call"  (click)="call()" style="background-color:#fff"></ion-icon>
+
     </div>
   </ion-navbar>
 </ion-header>
@@ -58,50 +60,120 @@
     <div class="chat_room">
 
       <div class="chat_room_body">
-        <div class="container">
-          <div *ngFor="let p of msgs" (click)="d(p)">
-            <div class="sender_msg" *ngIf="p.from_me == false">
-              <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
-                <h4>{{title}}
-									</h4>
-                <img [src]="p.image" style=" width: 500px;height: 200px;">
-                <time>{{p.time}}</time>
-              </div>
-              <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
-                <h4>{{title}}</h4>
-                <p>{{p.text}}</p>
-                <time>{{p.time}}</time>
-              </div>
-              <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
-                <h4>{{'you' | translate}}</h4>
-                <a href="{{p.avatar}}"> {{p.avatar}}</a>
-                <time>{{p.time}}</time>
-              </div>
-            </div>
-            <div class="reciever_msg" *ngIf="p.from_me == true">
-              <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
-                <h4>{{'you' | translate}}</h4>
-                <img [src]="p.image" style="width: 500px;height: 200px;">
-                <time>{{p.time}}</time>
-              </div>
-              <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">
-                <h4>{{'you' | translate}}</h4>
-                <p>{{p.text}}</p>
-                <time>{{p.time}}</time>
-              </div>
-              <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
-                <h4>{{'you' | translate}}</h4>
-                <a href="{{p.avatar}}"> {{p.avatar}}</a>
-                <time>{{p.time}}</time>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+           <div class="container">
+             <!-- <section class="chat_body"> -->
+             <!-- Messages -->
+             <div class="msgs">
+               <!-- <p>ddddd{{y}}</p> -->
 
-  </main>
-  <ion-footer>
+               <div *ngFor="let p of chats" >
+                 <div class="sender_msg" *ngIf="p.from_me == false">
+                   <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
+                     <h4>{{title}}
+   									</h4>
+                     <img [src]="p.image" style=" width: 500px;height: 200px;">
+                     <!--<i class="ion-android-checkbox-outline"></i>-->
+                     <time>{{p.time}}</time>
+                     <!--
+   							<i *ngIf="p.is_read==false" class="ion-android-done">
+   							</i>
+   							<i *ngIf="p.is_read==true" class="ion-android-done-all">seen </i>
+   							 -->
+                   </div>
+
+                   <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
+                     <h4>{{title}}</h4>
+                     <p>{{p.text}}</p>
+                     <!--<i class="ion-android-checkbox-outline"></i>-->
+                     <time>{{p.time}}</time>
+                     <!--
+   							<i *ngIf="p.is_read==false" class="ion-android-done">
+   							</i>
+   							<i *ngIf="p.is_read==true" class="ion-android-done-all">seen </i> -->
+
+                   </div>
+                   <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
+                     <h4>{{'you' | translate}}</h4>
+                     <!-- <p>{{p.text}}</p> -->
+                     <a href="{{p.avatar}}"> {{p.avatar}}</a>
+                     <!--<i class="ion-android-checkbox-outline"></i>-->
+                     <time>{{p.time}}</time>
+                     <!--
+   							<i *ngIf="p.is_read==false" class="ion-android-done">
+   							</i>
+   								<i *ngIf="p.is_read==true" class="ion-android-done-all">seen </i> -->
+
+                   </div>
+                   <!-- <ion-icon (click)="d()"  name="ios-archive-outline"></ion-icon>
+   								</ion-icon> -->
+
+                 </div>
+                 <!-- //Sender -->
+
+                 <!-- Reciever -->
+                 <div class="reciever_msg" *ngIf="p.from_me == true">
+                   <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
+                     <h4>{{'you' | translate}}</h4>
+                     <img [src]="p.image" style="width: 500px;height: 200px;">
+                     <!--<i class="ion-android-checkbox-outline"></i>-->
+                     <time>{{p.time}}</time>
+
+                     <!-- <i *ngIf="p.is_read==false" class="ion-android-done">
+   							</i>
+   							<i *ngIf="p.is_read==true" class="ion-android-done-all">seen </i> -->
+
+                   </div>
+
+                   <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">
+                     <h4>{{'you' | translate}}</h4>
+                     <p>{{p.text}}</p>
+                     <!-- <a href="{{p.text}}"> {{p.text}}</a> -->
+                     <!--<i class="ion-android-checkbox-outline"></i>-->
+                     <time>{{p.time}}</time>
+                     <!--
+   							<i *ngIf="p.is_read==false" class="ion-android-done">
+   							</i>
+   							<i *ngIf="p.is_read==true" class="ion-android-done-all">seen </i> -->
+
+                   </div>
+                   <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
+                     <h4>{{'you' | translate}}</h4>
+                     <!-- <p>{{p.text}}</p> -->
+                     <!-- <a href="/images/myw3schoolsimage.jpg" download>
+   									Try it Yourself »
+   								</a> -->
+                     <a href="{{p.avatar}}"> {{p.avatar}}</a>
+                     <!--<i class="ion-android-checkbox-outline"></i>-->
+                     <time>{{p.time}}</time>
+
+                     <!-- <i *ngIf="p.is_read==false" class="ion-android-done">
+   							</i>
+   							<i *ngIf="p.is_read==true" class="ion-android-done-all">seen </i>
+   							 -->
+                   </div>
+
+                   <!-- <ion-icon (click)="d(p.id)"  name="ios-archive-outline">
+   								</ion-icon>	 -->
+                 </div>
+
+               </div>
+               <!-- Sender -->
+
+               <!-- //Reciever -->
+
+
+
+
+             </div>
+
+             <!-- </section> -->
+           </div>
+         </div>
+
+       </div>
+
+     </main>
+     <ion-footer>
 
 
     <div class="message-box" *ngIf='is_blocked == false || !is_blocked'>
@@ -115,7 +187,8 @@
           </div>
           <div class="toggle-icons" style="justify-content:space-around!important;padding-right:10px;">
             <a (click)="presentActionSheet()" href="#"><img style="width:19px;height:19px;"  src="./assets/images/svg/006-image.svg"/></a>
-            <a href="#" (click)="chooseFile()"><img style="width:19px;height:19px;"  src="./assets/images/svg/005-video.svg"/></a>
+            <a href="#" (click)="chooseFile()"><img style="width:19px;height:19px;"  src="./assets/images/svg/share.svg"/></a>
+
             <!-- <img name="s" (click)="toggled = !toggled" style="width:19px;height:19px;" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" src="./assets/images/svg/001-happiness.svg" /> -->
 
             <a href="#" (click)="location()"><img style="width:19px;height:19px;"  src="./assets/images/svg/004-placeholder.svg"/></a>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { GroupInfoPage } from '../../pages/group-info/group-info';
@@ -15,6 +15,7 @@ import { GroupInfoPage } from '../../pages/group-info/group-info';
   templateUrl: 'group-chat.html',
 })
 export class GroupChatPage {
+
   group
   messages
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -26,6 +27,7 @@ export class GroupChatPage {
   }
 
   goToGroupInfo() {
+
     this.navCtrl.push(GroupInfoPage, { 'group': this.group })
   }
 
