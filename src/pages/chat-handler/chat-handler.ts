@@ -69,17 +69,13 @@ export class ChatHandlerPage {
       console.log(res)
     });
 
-    this.singleChat.display_single_chat_messages(this.cid).subscribe((res) => {
-      if (res) {
-        for (let key in res) {
-          console.log(key)
-          res[key].time = this.edittime(Date.now(), res[key].time)
-          this.chats.push(res[key])
-          console.log(this.chats)
-        }
-        loading.dismiss()
-      };
-    });
+    this.singleChat.display_single_chat_messages(this.cid).subscribe((res)=>{
+             for (let key in res) {
+              res[key].time = this.edittime(Date.now() , res[key].time)
+              this.chats.push(res[key])
+              }
+              loading.dismiss()
+              });
   }
 
   ionViewDidLoad() {
@@ -255,6 +251,7 @@ export class ChatHandlerPage {
     })
   }
 
+
   recordCallbackFunction = (filePath) => {
     return new Promise((resolve, reject) => {
       if (this.platform.is('android')) {
@@ -271,37 +268,66 @@ export class ChatHandlerPage {
         // var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
         // this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
       }
-  });
-}
+    });
+  }
 
 
-chooseFile() {
-  this.fileChooser.open()
-    .then(uri => {
-      // alert(uri);
-      if (this.platform.is('android')) {
-        this.filePath.resolveNativePath(uri)
-          .then(filePath => {
-            // alert(filePath);
-            let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
-            // alert(correctPath);
-            let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
-            // alert(currentName);
-            this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
-          });
-      } else {
-        alert("else");
-        var currentName = uri.substr(uri.lastIndexOf('/') + 1);
-        var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
-        this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
-      }
-    }).catch(e => alert(e));
-}
+  chooseFile() {
+    this.fileChooser.open()
+      .then(uri => {
+        // alert(uri);
+        if (this.platform.is('android')) {
+          this.filePath.resolveNativePath(uri)
+            .then(filePath => {
+              // alert(filePath);
+              let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+              // alert(correctPath);
+              let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+              // alert(currentName);
+              this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+            });
+        } else {
+          alert("else");
+          var currentName = uri.substr(uri.lastIndexOf('/') + 1);
+          var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
+          this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+        }
+      }).catch(e => alert(e));
+  }
 
-send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
-  this.singleChat.send_message(cid, userid, text).subscribe((res) => { console.log(res) });
-  this.emojitext = ''
-}
+  send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
+    this.singleChat.send_message(cid, userid, text).subscribe((res) => {
+      this.emojitext = '';
+    });
+  }
 
+  call() {
+    let loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
+    loading1.present();
+    this.singleChat.remoteid(this.username).then(data => {
+      let number = Math.floor(Math.random() * 1000000000);
+      this.singleChat.sendnumber(data, number, 'audio');
+      let avatar = this.remoteavatar;
+      loading1.dismiss()
+      this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
 
+    })
+
+  }
+
+  video() {
+    let loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
+    loading1.present();
+    let number = Math.floor(Math.random() * 1000000000);
+    this.singleChat.remoteid(this.username).then(data => {
+      this.singleChat.sendnumber(data, number, 'video');
+      let avatar = this.remoteavatar;
+      loading1.dismiss()
+      this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
+    })
+  }
 }

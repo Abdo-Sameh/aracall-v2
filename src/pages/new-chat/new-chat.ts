@@ -51,29 +51,25 @@ export class NewChatPage {
     this.logined_user = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.username = this.navParams.get('title');
     this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
-      console.log(res)
-      this.currentUserID = res.id;
-      console.log(this.currentUserID)
-      this.lastonline = res.profile_info[0].value;
-      this.Settings.get_user_chat_settings().subscribe(res => {
-        this.settings[0].last_seen_status = res.last_seen_status
-        this.settings[0].read_receipt = res.read_receipt_status
-      })
-      console.log(res)
-    });
-    this.singleChat.display_single_chat_messages(this.cid).subscribe((res) => {
-      if (res) {
-        // this.msgs = res
-        for (let key in res) {
-          res[key].time = this.edittime(Date.now(), res[key].time)
-          // console.log(this.chats)
-          this.chats.push(res[key])
+     console.log(res)
+         this.currentUserID = res.id;
+         console.log(this.currentUserID)
+         this.lastonline = res.profile_info[0].value;
+         this.Settings.get_user_chat_settings().subscribe(res => {
+           this.settings[0].last_seen_status = res.last_seen_status
+           this.settings[0].read_receipt = res.read_receipt_status
+         })
+         console.log(res)
+  });
+  this.singleChat.display_single_chat_messages(this.cid).subscribe((res)=>{
+           for (let key in res){
+           res[key].time = this.edittime(Date.now(),res[key].time)
+           console.log(this.chats)
+           this.chats.push( res[key])
+            }
 
-        }
-
-      };
-    });
-  }
+       });
+}
 
   ionViewDidLoad() {
 

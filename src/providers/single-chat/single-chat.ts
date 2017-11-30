@@ -17,6 +17,10 @@ import { FilePath } from '@ionic-native/file-path';
 let userId;
 declare var firebase;
 declare var cordova: any;
+let myname ;
+let alert1,downloadURL,avatar,name ; let signupres ; let signupresult ;
+let userID; let cids ; let result = [] ; let friends ; let result5 = []; let msgs ; let chatid = [] ; let insideget ;
+let friends2 ;let addchat ;  let getremote  ; let remoteid ; let result34 ; let apichat ; let firebasemsgs ; let apimsgs ;
 var config = {
   apiKey: "AIzaSyD301e1goVdXYuQb6jujSI3uPJabnpcFAI",
   authDomain: "arabcall-a9e54.firebaseapp.com",
@@ -30,7 +34,7 @@ var config = {
 export class SingleChatProvider {
   serverURL = 'http://192.168.1.252/arabface/api/'
   KEY = '89129812'
-
+friends2
   constructor(private transfer: FileTransfer, public httpClient: HttpClient, public http: Http) {
     console.log('Hello SingleChatProvider Provider');
     userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
@@ -124,7 +128,51 @@ export class SingleChatProvider {
       //this.presentToast('Error while uploading file.');
     });
   }
+  user = new Observable(observer => {
+firebase.auth().onAuthStateChanged(function(user) {
 
+ if (user) {
+
+   // User is signed in.
+   var displayName = user.displayName;
+
+   var email = user.email;
+   var emailVerified = user.emailVerified;
+   var photoURL = user.photoURL;
+   var isAnonymous = user.isAnonymous;
+   var uid = user.uid;
+   var providerData = user.providerData;
+
+   observer.next("logged")
+   observer.next({name:displayName})
+ } else {
+
+  observer.next("not here")
+ }
+});
+
+}) ;
+  sendnumber(id, number, type) {
+    remoteid = id;
+    firebase.database().ref(id + '/incoming').set({ number, type: type });
+
+    this.getprofile().then(data => {
+      result34 = data;
+      console.log(result34)
+      firebase.database().ref(id + '/call_status/caller_data').set({ avatar: result34.avatar, name: result34.name });
+    })
+
+  }
+  getprofile() {
+    return new Promise(resolve => {
+      this.http.get( this.serverURL + this.KEY + "/profile/details?userid=" + userId).subscribe(data => {
+        let data1 = data.text();
+        data = JSON.parse(data1);
+        resolve(data);
+      })
+    })
+
+  }
   getConversations() {
     return new Observable(observer => {
       let headers = new Headers();
@@ -141,7 +189,177 @@ export class SingleChatProvider {
       })
     })
   }
+  remoteid(title) {
 
+  return new Promise (resolve => {
+
+     let body = new URLSearchParams() ;
+    body.append('userid' , userId )
+    let body1 = body.toString() ;
+   let  headers = new Headers();
+     headers.append('Content-Type', 'application/x-www-form-urlencoded');
+      this.http.post(this.serverURL + this.KEY + '/profile/friends' , body1 , {headers : headers}).subscribe(data => {
+    let data1 = data.text() ;
+    data = JSON.parse(data1) ;
+     friends2 = data ;
+    for (let i = 0 ; i < friends2.length;  i ++ ){
+
+    if(friends2[i].name == title) {
+
+        resolve(friends2[i].userid)
+    }
+}
+})
+
+  })
+
+}
+  placelistener (number) {
+     return new Observable (observer => {
+    firebase.database().ref('/' +number).on('child_added' , function (data) {
+
+      observer.next(data.val())
+    })
+
+
+    })
+  }
+
+  incominglistener() {
+
+      return new Observable (observer => {
+
+
+      firebase.database().ref(userID +'/incoming').on('value' , function(snapshot) {
+
+        observer.next(snapshot.val())
+      })
+    })
+  }
+  writetodb (number,data) {
+
+  firebase.database().ref(number).push(data) ;
+
+  }
+
+  // mutesound()
+  // {
+  //   alert
+  //   for (var i = 0, l = audioTracks.length; i < l; i++) {
+  //     audioTracks[i].enabled = !audioTracks[i].enabled;
+  //   }
+
+  // }
+
+  endcall () {
+  firebase.database().ref(remoteid + '/incoming').set({0 : "undefined"}) ;
+
+  }
+
+  callee_accept_set (id , value) {
+    if(id == undefined) {
+    firebase.database().ref(userID + '/call_status/callee_accept').set(value); }
+    else {firebase.database().ref(id + '/call_status/callee_accept').set(value); }
+  }
+  callee_deny_set (id , value) {
+    if(id == undefined){
+    firebase.database().ref(userID + '/call_status/callee_deny').set(value); }else{
+      firebase.database().ref(id + '/call_status/callee_deny').set(value);
+    }
+  }
+  calee_recieved_set (id , value) {
+    if(id == undefined){firebase.database().ref(userID + '/call_status/callee_recieved').set(value);  }else{
+    firebase.database().ref(id + '/call_status/callee_recieved').set(value);  }
+  }
+  callee_end_set (value) {
+    firebase.database().ref(userID + '/call_status/callee_end').set(value);
+  }
+  caller_end_set (id,value) {
+  firebase.database().ref(id + '/call_status/caller_end').set(value);
+  }
+  callee_accept_listen (id) {
+  return new Observable (observer => {
+
+
+      firebase.database().ref(id + '/call_status/callee_accept').on('value' , function(snapshot) {
+
+        observer.next(snapshot.val())
+      })
+    })
+  }
+  callee_deny_listen (id) {
+  return new Observable (observer => {
+
+
+      firebase.database().ref(id + '/call_status/callee_deny').on('value' , function(snapshot) {
+
+        observer.next(snapshot.val())
+      })
+    })
+  }
+  callee_recieved_listen (id) {
+  return new Observable (observer => {
+
+
+      firebase.database().ref(id + '/call_status/callee_recieved').on('value' , function(snapshot) {
+
+        observer.next(snapshot.val())
+      })
+    })
+  }
+  callee_end_listen (id) {
+    return new Observable (observer => {
+
+
+      firebase.database().ref(id + '/call_status/callee_end').on('value' , function(snapshot) {
+  console.log('calee end listen is fired from database')
+        observer.next(snapshot.val())
+      })
+    })
+  }
+  caller_end_listen () {
+  return new Observable (observer => {
+
+
+      firebase.database().ref(userID + '/call_status/caller_end').on('value' , function(snapshot) {
+  console.log('caller end listen fired')
+        observer.next(snapshot.val())
+      })
+    })
+  }
+  set_userid (id) {
+    userID = id.toString() ;
+    console.log('userid is set to' + userID)
+  }
+  set_incoming (id,value) {
+    if(id == undefined){
+  firebase.database().ref(userID + '/incoming').set(value)
+    }else {
+  firebase.database().ref(id + '/incoming').set(value)
+    }
+
+  }
+  set_active (value) {
+    firebase.database().ref(userID + '/active').set(value)
+  }
+  caller_data_listen () {
+    return new Observable (observer => {
+
+
+      firebase.database().ref(userID + '/call_status/caller_data').on('value' , function(snapshot) {
+
+        observer.next(snapshot.val())
+      })
+    })
+  }
+  set_caller_data (id) {
+    if(id == undefined){
+   firebase.database().ref(userID + '/call_status/caller_data').set({0 : "undefined"})
+    }else {
+      firebase.database().ref(id + '/call_status/caller_data').set({0 : "undefined"})
+    }
+
+  }
   // addchats() {
   //   return new Observable(observer => {
   //

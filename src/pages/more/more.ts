@@ -34,6 +34,12 @@ export class MorePage {
 
   signout() {
     localStorage.setItem('userid', '')
+    localStorage.setItem('loggedIn', "0" );
+    localStorage.setItem('userName', "" );
+    localStorage.setItem('userAvatar', "" );
+    localStorage.setItem('userData', "" );
+    localStorage.setItem('userDataID', "" );
+    localStorage.setItem('userCover', "" );
     // this.database.signout();
     this.navCtrl.push(LoginPage);
   }
