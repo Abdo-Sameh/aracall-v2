@@ -3,7 +3,7 @@
 =============================*/
 
 /*----Start Reset Css----*/
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -17,8 +17,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -29,7 +29,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -86,7 +86,7 @@ main.page {
 	width: 100%;
 	/*max-width: 768px;*/
 	margin: 0 auto;
-	min-height: 100vh;  
+	min-height: 100vh;
 }
 .container {
 	width: 94%;
@@ -379,11 +379,11 @@ nav.navigation ul li i {
 }
 .contact_item .contact_info p {
 	font-size: 12px;
-	white-space: nowrap; 
-    width: 100%; 
+	white-space: nowrap;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-} 
+}
 .online .contact_img img:after {
 	position: absolute !important;
 	bottom: 0;
@@ -440,7 +440,7 @@ Start Menu Settings
 
 }
 .settings_items ul {
-	
+
 }
 .settings_items li {
 	padding: 10px 4%;
@@ -526,7 +526,7 @@ Start Menu Settings
 	display: inline-block;
 	width: auto;
 	color: #FFF;
-	background-color: #5c0632; 
+	background-color: #5c0632;
 }
 .contact_info {
 	overflow: hidden;
@@ -633,7 +633,7 @@ Start Menu Settings
 	display: block;
 }
 .chat_room header {
-	
+
 }
 .chat_room header h3.name {
 	float: left;
@@ -673,11 +673,11 @@ Start Menu Settings
 	border-radius: 50%;
 }
 .chat_room_body {
-	
+
 	overflow: hidden;
 	margin-top: 55px;
 	background-color: #EEE;
-	  
+
 }
 .chat_room_body .msgs {
 	background-color: #EEE;
@@ -786,7 +786,7 @@ Start Menu Settings
 	padding: 10px 3%;
 	/*overflow: hidden;*/
     /*margin: 20px 3% 0;*/
-	position: relative ; 
+	position: relative ;
 }
 .chat_room_body .typing form {
 	overflow: hidden;
@@ -879,7 +879,7 @@ Start Menu Settings
     display: block;
 }
 .chat_body {
-	
+
 }
 /*====================================
  //End Chat Room
@@ -971,7 +971,7 @@ Start Menu Settings
     right: 0;
     width: 100%;
     max-width: 768px;
-    margin: 0 auto; 
+    margin: 0 auto;
 	background: #DDD;
 	padding: 20px 0;
 	z-index: 10;

@@ -1,6 +1,5 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, Platform, ToastController,AlertController ,Loading ,LoadingController} from 'ionic-angular';
-
+import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController, ModalController, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -166,7 +165,7 @@ export class ChatHandlerPage {
         {
           text: 'Library',
           handler: () => {
-            alert("lib");
+            // alert("lib");
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
@@ -202,14 +201,14 @@ export class ChatHandlerPage {
             this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
           });
       } else {
-        alert("else");
+        // alert("else");
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
 
       }
     }, (err) => {
-      alert(err);
+      // alert(err);
       this.presentToast('Error while selecting image.');
     });
   }
@@ -230,7 +229,7 @@ export class ChatHandlerPage {
       this.lastImage = newFileName;
       this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type);
     }, error => {
-      alert(error);
+      // alert(error);
       this.presentToast('Error while storing file.');
     });
   }
@@ -254,15 +253,17 @@ export class ChatHandlerPage {
     });
   }
 
-  myCallbackFunction = (image) => {
+  myCallbackFunction = (filePath) => {
     return new Promise((resolve, reject) => {
-      // this.database.upload_image(image).then(data => {
-      //   imagelink = data;
-      //   resolve(data);
-      //   console.log(data)
-      //   this.send();
-      // })
-      // this.feeds.unshift(post);
+      if (this.platform.is('android')) {
+        // alert(filePath);
+        let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+        // alert(correctPath);
+        let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+        // alert(currentName);
+        this.copyFileToLocalDir(correctPath, currentName, currentName, 'image');
+
+      }
     });
   }
 
@@ -308,7 +309,7 @@ export class ChatHandlerPage {
               this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
             });
         } else {
-          alert("else");
+          // alert("else");
           var currentName = uri.substr(uri.lastIndexOf('/') + 1);
           var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
           this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');

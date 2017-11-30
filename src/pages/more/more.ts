@@ -41,7 +41,8 @@ export class MorePage {
     localStorage.setItem('userDataID', "" );
     localStorage.setItem('userCover', "" );
     // this.database.signout();
-    this.navCtrl.push(LoginPage);
+
+    this.navCtrl.setRoot(LoginPage);
   }
 
   chatSettings() {

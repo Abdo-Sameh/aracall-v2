@@ -21,16 +21,16 @@
       <ion-title>
         <div style="float:left;text-align:left;">
           <div style="margin-right:5px;float:left;width:25px;height:25px;"> </div>
-          <span (click)="goToGroupInfo()" style="font-size:16px;text-align:center;position:relative;">{{title}}</span>
+          <span (click)="goToGroupInfo()" style="font-size:16px;text-align:center;position:relative;">{{group.title}}</span>
         </div>
       </ion-title>
     </div>
     <ion-icon class="headerico" name="ios-call" (click)="missingRequirments()"></ion-icon>
     <ion-icon class="headerico" name="ios-videocam" (click)="missingRequirments()"></ion-icon>
 
-    <h5 style="color:gray;margin-top:11px;margin-left:30px">
-      {{lastonline}}
-    </h5>
+    <!-- <h5 style="color:gray;margin-top:11px;margin-left:30px">
+      {{group.time}}
+    </h5> -->
 
   </ion-navbar>
 

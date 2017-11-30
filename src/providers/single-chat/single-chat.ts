@@ -29,10 +29,9 @@ var config = {
   storageBucket: "arabcall-a9e54.appspot.com",
   messagingSenderId: "1094528086232"
 };
-
 @Injectable()
 export class SingleChatProvider {
-  serverURL = 'http://192.168.1.252/arabface/api/'
+  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
   KEY = '89129812'
 friends2
   constructor(private transfer: FileTransfer, public httpClient: HttpClient, public http: Http) {
@@ -87,7 +86,7 @@ friends2
       return '';
     } else {
       targetPath = cordova.file.dataDirectory + image;
-      // alert('targetPaht' + targetPath)
+      // alert('targetPaht ' + targetPath)
     }
     var url, options;
 
@@ -108,7 +107,7 @@ friends2
     // alert(options['params'].userid)
     const fileTransfer: FileTransferObject = this.transfer.create();
     // alert('ay 7aga');
-    // let loading: Loading
+    let loading: Loading
     // alert(targetPath);
     // alert(url);
     // alert(fileTransfer);
@@ -137,7 +136,7 @@ friends2
       }
     }).catch(err => {
       // alert('ay 7aga error');
-      alert(err);
+      alert('Error while uploading file');
       //this.presentToast('Error while uploading file.');
     });
   }
