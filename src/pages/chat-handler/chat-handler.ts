@@ -69,16 +69,12 @@ export class ChatHandlerPage {
     });
 
     this.singleChat.display_single_chat_messages(this.cid).subscribe((res)=>{
-         if(res){
-             for (let key in res){
-               console.log(key)
-             res[key].time = this.edittime(Date.now(),res[key].time)
-             this.chats.push( res[key])
-             console.log(this.chats)
-         }
-         loading.dismiss()
-     };
-         });
+             for (let key in res) {
+              res[key].time = this.edittime(Date.now() , res[key].time)
+              this.chats.push(res[key])
+              }
+              loading.dismiss()
+              });
   }
 
   ionViewDidLoad() {
@@ -274,9 +270,40 @@ export class ChatHandlerPage {
       }).catch(e => alert(e));
   }
   send(cid = this.cid , userid = this.logined_user , text = this.emojitext) {
-    this.singleChat.send_message(cid,userid,text).subscribe((res)=>{console.log(res)});
-    this.emojitext = ''
+    this.singleChat.send_message(cid,userid,text).subscribe((res)=>{
+      this.emojitext = '';
+  });
+}
+call() {
+  let  loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
+    loading1.present();
+    this.singleChat.remoteid(this.username).then(data => {
+    let number = Math.floor(Math.random() * 1000000000);
+      this.singleChat.sendnumber(data, number, 'audio');
+      let avatar = this.remoteavatar;
+      loading1.dismiss()
+      this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
+
+    })
+
   }
 
+  video() {
+  let  loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
+    loading1.present();
+    let number = Math.floor(Math.random() * 1000000000);
+    this.singleChat.remoteid(this.username).then(data => {
+      this.singleChat.sendnumber(data, number, 'video');
+      let avatar = this.remoteavatar;
+      loading1.dismiss()
+      this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
 
+    })
+
+
+  }
 }

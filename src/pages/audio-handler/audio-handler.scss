@@ -1,3 +1,58 @@
 page-audio-handler {
+.local-video {
+    width: 100%;
+    object-fit: unset;
+    height: 100vh;
+    float: right;
+    position: absolute;
+}
+.self-video {
+position: absolute  ;
 
+    float: left;
+    z-index: 1111;
+    width: 25%;
+}
+.scroll-content p {
+    // margin-top: -95px;
+    // z-index: 999;
+    // position: relative;
+    // z-index: 999;
+    // position: absolute;
+    // bottom: 23%;
+    // margin: auto;
+    // float: none;
+    // left: 2%;
+    // right: 0;
+    // text-align: center;
+}
+ion-icon {
+    position: absolute;
+    left: 4%;
+    top: 3%;
+    font-size: 25px !important;
+}
+img{
+    //     position: absolute;
+    // width: 46px;
+    //     bottom: 10%;
+}
+.incoming-button {
+
+    position: absolute;
+    bottom: 15%;
+    left: 28%;
+}
+.incoming-button .accept {
+        float: left;
+}
+.incoming-button .deny {
+    margin-left: 156%;
+    float: right;
+    position: absolute;
+
+}
+.incoming-button img {
+    width: 46px;
+}
 }
