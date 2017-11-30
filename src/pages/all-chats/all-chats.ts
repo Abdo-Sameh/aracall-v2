@@ -28,7 +28,6 @@ export class AllChatsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AllChatsPage');
-
     this.singleChat.getConversations().subscribe(data => {
       this.chats = data;
       console.log(data);
@@ -49,10 +48,7 @@ export class AllChatsPage {
         console.log(res)
         this.app.getRootNav().push(GroupChatPage, {
           'messages': res,
-          'chatUserName': this.chats[index].group_name,
-          'group_admin': this.chats[0].group_admin,
-          'cid': this.chats[index].cid,
-          'group_cover' : this.chats[index].group_cover
+          'group' : this.chats[index],
         })
       })
 

@@ -24,6 +24,7 @@
         <div style="float:left;text-align:left;">
           <span style="font-size: 14px;position: relative;top: -6px;">{{username}}</span>
           <h5 *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null" style="color: #ededed;font-size: 10px;position: relative;top: -9px;">{{lastonline}}</h5>
+
         </div>
 
       </ion-title>
@@ -36,6 +37,7 @@
     </div>
     <div>
       <ion-icon class="headerico" name="ios-call"  (click)="call()" style="background-color:#fff"></ion-icon>
+
     </div>
   </ion-navbar>
 </ion-header>
@@ -173,6 +175,7 @@
      </main>
      <ion-footer>
 
+
     <div class="message-box" *ngIf='is_blocked == false || !is_blocked'>
 
       <form >
@@ -185,6 +188,7 @@
           <div class="toggle-icons" style="justify-content:space-around!important;padding-right:10px;">
             <a (click)="presentActionSheet()" href="#"><img style="width:19px;height:19px;"  src="./assets/images/svg/006-image.svg"/></a>
             <a href="#" (click)="chooseFile()"><img style="width:19px;height:19px;"  src="./assets/images/svg/share.svg"/></a>
+
             <!-- <img name="s" (click)="toggled = !toggled" style="width:19px;height:19px;" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" src="./assets/images/svg/001-happiness.svg" /> -->
 
             <a href="#" (click)="location()"><img style="width:19px;height:19px;"  src="./assets/images/svg/004-placeholder.svg"/></a>

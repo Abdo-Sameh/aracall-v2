@@ -15,6 +15,7 @@ import {VideoHandlerPage}  from '../video-handler/video-handler'
 
 import { SignaturePage } from '../signature/signature';
 
+
 /**
  * Generated class for the NewChatPage page.
  *

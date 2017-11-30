@@ -6,15 +6,16 @@ import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
+
 import {AudioHandlerPage}  from '../audio-handler/audio-handler'
 import {VideoHandlerPage}  from '../video-handler/video-handler'
+
 import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
 import { SignaturePage } from '../signature/signature';
 import { RecordingPage } from '../recording/recording';
 import {SettingsProvider} from '../../providers/settings/settings'
-
 /**
  * Generated class for the ChatHandlerPage page.
  *
@@ -276,5 +277,6 @@ export class ChatHandlerPage {
     this.singleChat.send_message(cid,userid,text).subscribe((res)=>{console.log(res)});
     this.emojitext = ''
   }
+
 
 }

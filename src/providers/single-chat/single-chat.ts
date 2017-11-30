@@ -61,6 +61,7 @@ export class SingleChatProvider {
     }).map((res: Response) => res.json());
 
   }
+
   sendMessage(cid, theuserid, text, image, type) {
     let message, targetPath;
     var filename = image;
@@ -111,6 +112,7 @@ export class SingleChatProvider {
         firebase.database().ref('one2one/' + cid + '/messages').push({
           'sender_id': userId, 'id': response['id'], 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
           'text': '', 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
+
         });
 
       }
