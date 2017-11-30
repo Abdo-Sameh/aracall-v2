@@ -1,0 +1,1940 @@
+{
+  "welcome-to-site": "Welcome to our new social network",
+
+  "validation-required": "The :attribute field is required",
+
+  "validation-min": "The :attribute must be a minimum of :min",
+
+  "validation-max": "The :attribute field must be a maximum of :max",
+
+  "validation-between": "The :attribute field must be a between :min and :max",
+
+  "validation-alphanum": "The :attribute field can only consist of alphanumeric only",
+
+  "validation-integer": "The :attribute field can only consist of integer only",
+
+  "validation-alpha": "The :attribute field can only consist of alphabets only",
+
+  "validation-numeric": "The :attribute field can only consist of numbers only",
+
+  "validation-url": "The :attribute field must be a valid url",
+
+  "validation-email": "The :attribute field must be a valid email",
+
+  "validation-unique": "The :attribute already exist",
+
+  "validation-date": "The :attribute field is not a valid date instance",
+
+  "validation-predefined-words": "The value given is not accepted for :attribute field",
+
+  "validation-username": "The :attribute field already exist",
+
+  "write-post": "Write Post",
+
+  "unsave-group": "Unsave",
+
+  "edit-post": "Edit Post",
+
+  "delete-post": "Delete Post",
+
+	"share-message" : "Do you want to share this post on your timeline ?",
+
+	"share-response" : "Shared successfully",
+
+  "january": "January",
+
+  "february": "February",
+
+  "march": "March",
+
+  "april": "April",
+
+  "may": "May",
+
+  "june": "June",
+
+  "july": "July",
+
+  "august": "August",
+
+  "september": "September",
+
+  "october": "October",
+
+  "november": "November",
+
+  "december": "December",
+
+
+  "additional-pages": "Addition Pages",
+
+  "contact": "Contact",
+
+  "disclaimer": "Disclaimer",
+
+  "faq": "Faq",
+
+  "about": "About",
+
+  "terms": "Terms and Conditions",
+
+  "pages": "Pages",
+
+  "support-no-categories": "No categories created! Add new",
+
+  "error-occurred": "An error occurred",
+
+  "annoucement-created": "Annoucement successfully created",
+
+  "annoucement-updated": "Annoucement successfully updated",
+
+  "annoucement-deleted": "Annoucement successfully deleted",
+
+  "help-category-created": "Category successfully created",
+
+  "help-category-deleted": "Category successfully deleted with support questions",
+
+  "support-created": "Support  topic successfully added",
+
+  "support-deleted": "Support  topic successfully deleted",
+
+  "support-updated": "Support  topic successfully updated",
+
+  "category-updated": "Category topic successfully updated",
+
+
+
+  "general-image-error": "Failed to process your image",
+
+  "general-settings-info": "Manage your first, last name and city e.t.c",
+
+  "user-roles": "User Roles",
+
+  "page-not-found": "Page Not Found",
+
+  "go-home": "Go Home",
+
+  "all": "All",
+
+  "menu": "Menu",
+
+  "admin": "Admin",
+
+  "moderator": "Moderator",
+
+  "editor": "Editor",
+
+  "public": "Public",
+
+  "private": "Private",
+
+  "users": "Users",
+
+  "dashboard": "Dashboard",
+
+  "settings": "Settings",
+
+  "site-manager": "Site Manager",
+
+  "appearance": "Appearance",
+
+  "plugins-manager": "Plugins Manager",
+
+  "tools": "Tools",
+
+  "user-manager": "User Manager",
+
+  "language-manager": "Languages",
+
+  "language-packs": "Packs",
+
+  "phrase-manager": "Phrase Manager",
+
+  "add-phrase": "Add Phrase",
+
+  "create": "Create",
+
+  "create-language-pack": "Create a pack",
+
+  "import-language-pack": "Import  pack",
+
+  "update-language-phrases": "Update phrases",
+
+  "manage-language-packs": "Manage language packs",
+
+  "manage-phrases": "Manage Phrases",
+
+  "language-title": "Language title",
+
+  "create-language-pack-desc": "Create a new language pack, select a base language, give it a unique language id and title",
+
+  "create-from": "Create from",
+
+  "language-id": "Language ID",
+
+  "edit-language": "Edit Language",
+
+  "save-language": "Save language",
+
+  "phrase-manager-desc": "Manage each phrases in this language, you can also search or switch to other languages pack",
+
+  "variable": "Variable",
+
+  "language": "Language",
+
+  "original": "Original",
+
+  "save-phrases": "Save phrases",
+
+  "search": "Search",
+
+  "search-phrase-placeholder": "Search for phrases in this language",
+
+  "shared-your-post" : "shared your post",
+
+  "country-manager": "Country Manager",
+
+  "manage-countries": "Manage countries",
+
+  "add-state-province": "Add State / Provinces",
+
+  "add-country": "Add Country",
+
+  "country-name": "Country name",
+
+  "save-state-province": "Save state/province",
+
+  "state/provinces": "State/Provinces",
+
+  "manage-states": "Manage States",
+
+  "pages-manager": "Pages Manager",
+
+  "blocks-manager": "Blocks Manager",
+
+  "update-system": "Update System",
+
+  "update-system-message": "System database tables and core settings updated",
+
+  "all-pages": "All Pages",
+
+  "my-pages": "My Pages",
+
+  "all-groups": "All Groups",
+
+  "groups-member": "Member",
+
+  "my-groups": "My Groups",
+
+  "leave-group": "Leave",
+
+  "no-event-display": "No events found here",
+
+  "external-link": "External link",
+
+  "no-feeds-found" : "No feeds found",
+
+  "add": "Add",
+
+  "new-broadcast" : "New Broadcast",
+
+	"new-message" : "New Message",
+
+  "add-video": "Add Video",
+
+  "edit-video": "Edit Video",
+
+  "search-here": "Search here ...",
+
+  "add-new-photo": "Add new photo",
+
+  "create-new-album": "Create new album",
+
+  "create-album": "Create Album",
+
+  "send": "Send",
+
+  "friends-only": "Friends only",
+
+  "only-me": "Only me",
+
+  "who-can-see-latest-profile-visitors": "Who can see my latest profile visitors ?",
+
+  "who-can-send-message": "who can send you messages ?",
+
+  "someone-started-following-you": "Someone followed you",
+
+  "you-are-mentioned": "You are Mentioned",
+
+  "you-are-tagged": "You are tagged",
+
+  "comment-on-your-post": "Commented on your post",
+
+  "trending": "Trending",
+
+  "edit-group": "Edit",
+
+  "save-group": "Save",
+
+  "type-a-message" : "Type a message ...",
+
+  "create-group": "Create group",
+
+  "create-event": "Create event",
+
+  "stop-notifications": "Stop notifications",
+
+  "add-member-to-group": "Add members",
+
+  "replied-on-your-comment": "replied on your comment",
+
+  "mentioned-you-in-post" : "mentioned you in this post",
+
+  "like-your-item": "like your posts,photos e.t.c",
+
+  "share-your-item": "shared your posts",
+
+  "posts": "Posts",
+
+  "add-you-as" : "add you as",
+
+  "all-events": "All",
+
+  "request-sent" : "Request sent",
+
+  "invites": "Invites",
+
+  "invited-you-to-event" : "invited you to event",
+
+  "started-following-you" : "started following you",
+
+  "yours": "Yours",
+
+  "past-events": "Past",
+
+  "birthdays": "Birthdays",
+
+  "blocks-manager-description": "Manage pages blocks list, you can select which page with the dropdown list and drag and drop blocks from left to the right",
+
+  "page-blocks": " page blocks",
+
+  "edit": "Edit",
+
+  "go": "Go",
+
+  "chat-settings" : "Chat Settings",
+
+  "notifications-settings" : "Notifications Settings",
+
+  "blocked-users" : "Blocked Users",
+
+  "signout" : "Logout",
+
+  "mute-notifications" : "Mute notifications",
+
+  "group-info" : "Group Info",
+
+  "participants" : "Participants",
+
+  "group-admin" : "Group admin",
+
+  "view-group-info" : "View group info",
+
+	"clear-conversation" : "Clear conversation",
+
+	"report-conversation" : "Report conversation",
+
+  "handwrite-a-message" : "handwrite a message",
+
+  "voice-call" : "Voice call",
+
+  "video-call" : "Video call",
+
+  "block-friend" : "Block friend",
+
+  "view-profile" : "View Profile",
+
+  "tag-people-in-your-post" : "Tag people in your post",
+
+  "manage-ban-filters": "Manage ban filters",
+
+  "save": "Save",
+
+  "online-status" : "Online status",
+
+  "separate-by-comma": "Separate them with comma(,)",
+
+  "ban-filters": "Ban filters",
+
+  "usernames": "Usernames",
+
+  "emails": "Emails",
+
+  "ip-address": "Ip Address",
+
+  "display-names": "Display Names",
+
+  "words": "Words",
+
+  "profile-visitors": "Profile Visitors",
+
+  "latest-profile-visitors": "Latest Profile Visitors",
+
+  "custom-fields": "Custom Fields",
+
+  "categories": "Categories",
+
+  "fields": "Fields",
+
+  "custom-fields-categories": "Custom Fields Categories",
+
+  "add-category": "Add Category",
+
+  "title": "Title",
+
+  "all-albums": "All Albums",
+
+  "my-albums": "My Albums",
+
+  "all-photos": "All Photos",
+
+  "my-photos": "My Photos",
+
+  "slug": "Slug",
+
+  "add-custom-field-category": "Add Custom Field Category",
+
+  "category-slug": "Category Slug",
+
+  "category-title": "Category Title",
+
+  "edit-custom-field-category": "Edit custom field category",
+
+  "save-category": "Save category",
+
+  "add-new-custom-field": "Add New Custom Field",
+
+  "custom-field-title": "Custom field title",
+
+  "custom-field-title-description": "Enter your custom field title for each language pack you have added",
+
+  "custom-field-description-note": "Give your custom field description for each language pack you have added",
+
+  "custom-field-type": "Custom Field Type",
+
+  "custom-field-type-description": "Select a type for your custom field, <strong>If you choose Selection, the selection data content must be seperated by comma (,)</strong>",
+
+  "include-in-registration": "Include in Form",
+
+  "include-in-registration-description": "Set if you want this custom field to be included in the registration form",
+
+  "required": "Required",
+
+  "invalid-email" : "Invalid email",
+
+  "custom-field-required-description": "Set if you want this custom field to be required in the form",
+
+  "add-field": "Add Field",
+
+  "add-new-custom-field-note": "Add new custom field with its details correctly",
+
+  "edit-custom-field": "Edit Custom Field",
+
+  "custom-field-category": "Custom Field Category",
+
+  "custom-field-category-description": "Select a category for this custom field",
+
+  "custom-field-description": "Custom Field Description",
+
+  "type": "Type",
+
+  "show-in-form": "Show in form",
+
+  "save-field": "Save Field",
+
+  "category-title-description": "Add custom field category title in each language pack you have added",
+
+
+  "emails-manager": "Emails Manager",
+
+  "email-templates": "Email templates",
+
+  "email-settings-desc": "Notification emails are sent to your users as they engage in different aspect of the community, with this form you can customize the emails",
+
+  "email": "Email",
+
+  "from-name": "From Name",
+
+  "email-from-name-desc": "Enter the name you want the emails from system come from in the field",
+
+  "from-address": "From Address",
+
+  "email-from-address-desc": "Enter the address you want the emails from the system to come from in the field",
+
+  "email-driver": "Email Driver",
+
+  "email-driver-desc": "Select a driver for the emails to get sent through, when you select SMTP server make sure you setup other settings below",
+
+  "smtp-host": "SMTP Host",
+
+  "email-smtp-host-desc": "Enter your SMTP Host, for example localhost",
+
+  "smtp-username": "SMTP Username",
+
+  "email-smtp-username-desc": "Enter your SMTP Username in the field",
+
+  "smtp-password": "SMTP Password",
+
+  "email-smtp-password-desc": "Enter your SMTP Password in the field",
+
+  "smtp-port": "SMTP Port",
+
+  "email-smtp-port-desc": "Default 25, Also common once is 587",
+
+  "use-ssl": "Use SSL or TLS",
+
+  "none": "None",
+
+  "use-ssl-desc": "Set if you want to use ssl or tls in the dropdown ",
+
+  "email-queue": "Email Queue",
+
+  "email-queue-desc": "Select if you want to send immediately or after some time with email queue, please read about how to set up email queue from our official documentation",
+
+  "use-built-in-mail": "Use built in php mail() function",
+
+  "send-email-through-smtp": "Send Email through SMTP Server",
+
+  "email-settings": "Email Setings",
+
+  "email-templates-desc": "Notification emails are sent to your users as they engage in different aspect of the community, with this form you can customize the emails",
+
+  "general": "General",
+
+  "media": "Media",
+
+  "manage": "Manage",
+
+  "delete-account-description": "To delete your account, enter your current password, please note that you cannot undo this action",
+
+  "block-description": "Once you block someone, that person can no longer see things you post on your timeline, tag you, invite you to events or groups, start a conversation with you, or add you as a friend. This doesn't include apps, games or groups you both participate in.",
+
+  "save-settings": "Save settings",
+
+  "general-settings-description": "Manage general settings like site title,description,keywords and more settings you can find below",
+
+  "upload-site-logo": "Upload site logo",
+
+  "site-logo-description": "Change your site logo right from here and effective in all part of your site <br/><strong>Maximum Width: 200px <br/> Maximum Height: 70px</strong>",
+
+  "choose-logo": "Choose logo",
+
+  "theme-settings": "Theme Settings",
+
+  "privacy-settings-info": "Control who can view your profile e.t.c",
+
+  "blocking-settings-info": "You can block someone from contacting you",
+
+  "notification-settings-info": "Control what are notifications you receive",
+
+  "theme-settings-description": "Control your site appearance with new logo, select good site column and more settings you can find below",
+
+  "frontend-column-type": "Frontend Type Of Column",
+
+  "frontend-column-type-description": "Select your desired column type for your frontend, please note that mobile will always have one column and admin panel theme may not follow this setting",
+
+  "two-column": "Two Columns",
+
+  "three-column": "Three Columns",
+
+  "homepage-design": "Home Page Design",
+
+  "homepage-design-description": "Select your desired home page design type and set other settings available on the right site",
+
+  "splash-design": "Splash Design",
+
+  "regular-design": "Regular Design",
+
+  "theme-settings-changed": "Theme settings changed successfully",
+
+  "your-site-title": "Your Site title",
+
+  "your-site-title-desc": "Set your site title with this field",
+
+  "your-site-title-separator": "Your Site title Separator",
+
+  "set-your-timezone": "Select your timezone",
+
+  "set-your-timezone-desc": "Select default timezone for your users",
+
+  "enable-captcha": "Enable Captcha In Forms",
+
+  "enable-captcha-desc": "You can disable or enable captcha in forms with this option",
+
+  "captcha": "Captcha",
+
+  "send-invite": "Invite",
+
+  "enable-session-timeout": "Enable Session Timeout",
+
+  "enable-session-timeout-desc": "Option to enable or disable session timeout, this also give members security over there account",
+
+  "minutes": "Minutes",
+
+  "hour": "Hour",
+
+  "hours": "Hours",
+
+  "like": "Like",
+
+  "share": "Share",
+
+  "later-in-month": "Later in this month",
+
+  "going": "Going",
+
+  "might-be-going": "might be going",
+
+  "is-going-to": "is going to",
+
+  "not-going": "Not going",
+
+  "add-you-as-admin": "add you as admin",
+
+  "added-you-to-group" : "added you to group",
+
+  "post-on-timeline": "posted on your wall",
+
+  "write-comment": "Write comment ...",
+
+  "made-you-moderator" : "made you moderator of",
+
+  "user-settings-description": "Manage user settings, control who can register,manage welcome signup step, account activation e.t.c",
+
+  "enable-user-registration": "Enable user registration",
+
+  "enable-user-registration-desc": "You can disable or enable new registration to your network",
+
+  "enable-welcome-signup-step": "Enable Welcome Signup Step",
+
+  "enable-welcome-signup-step-desc": "With welcome step, your new members can provide their profile photo and also invite their friends",
+
+  "enable-user-account-activation": "Enable User account activation",
+
+  "enable-user-account-activation-desc": "Enable user must activate there account through email",
+
+  "enable-birthdate": "Enable Birth Date",
+
+  "thinking-about": "Thinking about",
+
+  "type-what-you-feel": "Type what you feel",
+
+  "enable-birthdate-desc": "With this option you can enable birth date feature and events",
+
+  "birthdate-minimum-age": "Birth Date Minimum Age To Register",
+
+  "birthdate-minimum-age-desc": "Set user minimum age they must have to register, to disable set it to Zero (0)",
+
+  "enable-login-trial": "Enable Login Trial Limit",
+
+  "enable-login-trial-desc": "With this settings you can enable login trial limit and you can control the settings below",
+
+  "login-trial-limit": "Set Login Trial Limit",
+
+  "login-trial-limit-desc": "Set the number of times your members can try to login before waiting",
+
+  "login-trial-wait-time": "Set Login Trial Wait Time",
+
+  "media-settings-description": "Manage photos, videos and files upload by your members ",
+
+  "maximum-upload-image-size": "Maximum Upload Image Size",
+
+  "maximum-upload-image-size-desc": "Set maximum upload image size by your members, to add more size please contact us",
+
+  "enable-support-for-animated-image": "Enable Support For Animated Images",
+
+  "enable-support-for-animated-image-desc": "Enable or disable support for animated images",
+
+  "enable-video-upload-support": "Enable Video Upload Support",
+
+  "enable-video-upload-support-desc": "Enable or Disable video upload by your members",
+
+  "maximum-upload-video-size": "Maximum Upload Video Size",
+
+  "maximum-upload-video-size-desc": "Set maximum upload video size by your members, to add more size please contact us",
+
+  "maximum-upload-audio-size": "Maximum Upload Audio Size",
+
+  "maximum-upload-audio-size-desc": "Set maximum upload audio size by your members, to add more size please contact us",
+
+  "enable-file-attachment-upload": "Enable Attachment Upload",
+
+  "enable-file-attachment-upload-desc": "Enable or Disable attachment files upload by your members",
+
+  "maximum-file-attacment-upload-size": "Maximum Upload Attachment Size",
+
+  "maximum-file-attacment-upload-size-desc": "Set maximum upload attachment files size by your members, to add more size please contact us",
+
+  "email-hash-expire-time": "Email Hash Expire Time",
+
+  "registration": "Registration",
+
+  "registration-settings-description": "Options to control your member signup into your network",
+
+  "install-new": "Install New",
+
+  "manage-plugins": "Manage Plugins",
+
+  "activate": "Activate",
+
+  "delete": "Delete",
+
+  "update": "Update",
+
+  "by": "By",
+
+  "people-like-this": "People like this",
+
+  "version": "Version",
+
+  "visit-plugin-site": "Visit plugin site",
+
+  "plugins": "Plugins",
+
+  "description": "Description",
+
+  "deactivate": "Deactivate",
+
+  "plugin-deactivated": ":name plugin has been successfully deactivated",
+
+  "plugin-activated": ":name plugin has been successfully activated",
+
+  "plugin-updated": ":name plugin has been successfully updated",
+
+  "plugin-settings-saved": ":name plugin settings successfully saved",
+
+  "plugin-removed": ":name plugin has been removed successfully",
+
+  "install-new-plugin": "Install New Plugin",
+
+  "install-plugin": "Install Plugin",
+
+
+
+  "are-you-sure": "Are you sure you want to perform this action?",
+
+
+
+  "yes": "Yes",
+
+  "no": "No",
+
+
+
+  "account-status": "Account status",
+
+  "account-completion": "Account completion",
+
+  "add-display-picture": "Add Display picture",
+
+  "add-birth-date": "Add Birth Date",
+
+  "add-friends": "Add Friends",
+
+  "friends": "Friends",
+
+  "edit-profile-details": "Edit Profile Details",
+
+  "add-cover-photo": "Add Cover Photo",
+
+  "general-settings": "General Settings",
+
+  "update-password": "Update Password",
+
+  "notification-settings": "Notifications Settings",
+
+  "privacy-settings": "Privacy Settings",
+
+  "photo": "Photo",
+
+  "whats-happening": "What is on your mind?",
+
+  "themes": "Themes",
+
+  "frontend": "Frontend",
+
+  "backend": "Backend",
+
+  "mobile": "Mobile",
+
+  "active": "Active",
+
+  "preview": "Preview",
+
+  "name": "Name",
+
+  "author": "Author",
+
+  "action": "Action",
+
+  "login": "Login",
+
+
+
+  "welcome": "Welcome",
+
+  "add-picture": "Add Picture",
+
+  "invite-friend": "Invite Friends",
+
+  "add-people": "Add People",
+
+  "signup-activation-success": "Thanks for signup to our social network, a confirm email has been sent to the email address you provided",
+
+
+
+  "failed-to-upload-file": "Failed to upload file, try again",
+
+  "upload-file-not-valid-image": "Failed: You have uploaded unsupported image file (jpg,jpeg,gif,png)",
+
+  "upload-file-not-valid-video": "Failed: You have uploaded unsupported video file (mp4)",
+
+  "upload-file-not-valid-audio": "Failed: You have uploaded unsupported audio file (mp3)",
+
+  "upload-file-not-valid-file": "Failed: Unsupported file(exe,txt,zip,rar,doc,mp3,jpg,png,css,psd,pdf,ppt,pptx,xls,xlsx,html,docx,fla,avi,mp4)",
+
+  "upload-file-size-error": "Failed : Maximum File size you can upload is :size",
+
+  "upload-image-size-error": "Failed : Maximum Image size you can upload is :size",
+
+  "upload-video-size-error": "Failed : Maximum Video size you can upload is :size",
+
+  "upload-audio-size-error": "Failed : Maximum Audio size you can upload is :size",
+
+
+
+  "news-feed": "News Feed",
+
+  "messages": "Messages",
+
+  "my-profile": "My Profile",
+
+  "find-friends": "Find Friends",
+
+  "account-settings": "Account Setings",
+
+  "get-help": "Get Help",
+
+  "my-pages": "My Pages",
+
+  "first_name": "First Name",
+
+  "last_name": "Last Name",
+
+
+
+  "feeling": "Feeling",
+
+  "eating": "Eating",
+
+  "drinking": "Drinking",
+
+  "exercising": "Exercising",
+
+  "listening-to": "Listening to",
+
+  "reading": "Reading",
+
+  "meeting": "Meeting",
+
+  "looking-for": "Looking for",
+
+  "watching": "Watching",
+
+
+
+  "in": "In",
+
+
+  "welcome-to-social": "Welcome to our network",
+
+
+
+  "join-network": "Join our network",
+
+  "reset-password": "Reset Password",
+
+
+
+  "day": "Day",
+
+  "month": "Month",
+
+  "year": "Year",
+
+  "confirm-default-message": "Are you sure you want to perform this action",
+
+  "cancel": "Cancel",
+
+
+
+  "user-profile-card": "User Profile Card",
+
+  "delete-comment-question": "Do you want to delete this comment ?",
+
+  "delete-comment": "Delete comment",
+
+  "user-permissions": "User Permissions",
+
+  "successfully-done": "Action successfully done",
+
+  "user-role-error": "Failed to add user role, maybe it exists already",
+
+  "level-title": "Level Title",
+
+  "access-admin": "Access Admin",
+
+  "actions": "Actions",
+
+  "maybe": "Maybe",
+
+  "add-new-role": "Add New Role",
+
+  "permissions": "Permissions",
+
+  "save-role": "Save Role",
+
+
+
+  "to-our-network": "to our network",
+
+  "welcome-note": "Connect with your friends. Discover new people, make new friends and socialize. Keep in touch with your friends, chat, mention e.t.c",
+
+  "signup-for-account": "Sign up for account",
+
+  "username-email-address": "User Name",
+
+  "forgot": "Forgot?",
+
+  "your-password": "Password",
+
+  "password": "Password",
+
+  "sign-in": "Sign in",
+
+  "remember-me": "Remember me",
+
+  "login-with-facebook": "Login with Facebook",
+
+  "login-with-twitter": "Login with Twitter",
+
+  "latest-members": "Latest Members",
+
+  "copyright": "Copyright ",
+
+  "all-right-reserved": "All rights reserved.",
+
+  "powered-by": "Powered by",
+
+  "languages": "Language:",
+
+  "forgot-password": "Help, I forgot my password",
+
+  "your-email-address": "Your Email Address",
+
+  "request-new-password": "Request New Password",
+
+  "link-has-expired": "This link you followed has expired",
+
+  "your-first-name": "Your First Name",
+
+  "your-last-name": "Your Last Name",
+
+  "choose-username": "Choose Username",
+
+  "choose-password": "Choose Password",
+
+  "confirm-password": "Confirm Password",
+
+  "select-country": "Select Country",
+
+  "enter-text-below": "Enter text below...",
+
+  "signup": "Sign up",
+
+  "date-of-birth": "Date Of Birth",
+
+  "explore": "Explore",
+
+  "logout": "Logout",
+
+  "account-menu": "Account Menu",
+
+  "change-your-password": "Change Your Password",
+
+  "notifications": "Notifications",
+
+  "privacy": "Privacy",
+
+  "first-name": "First Name",
+
+  "last-name": "Last Name",
+
+  "gender": "Gender",
+
+  "bio": "Bio",
+
+  "change-language": "Change Language",
+
+  "select-language": "Select Language",
+
+  "change-photo": "Change Photo",
+
+  "select-image": "Select Image",
+
+  "male": "Male",
+
+  "female": "Female",
+
+  "change-password-info": "To change your password, provide your old password and choose a new password",
+
+  "current-password": "Current Password",
+
+  "new-password": "New Password",
+
+  "confirm-new-password": "Confirm New Password",
+
+  "change": "Change",
+
+  "site-notifications": "Site Notifications",
+
+  "email-notifications": "Email Notifications",
+
+  "save-details": "Save Details",
+
+  "profile": "Profile",
+
+  "edit-profile": "Edit Profile",
+
+  "videos": "Videos",
+
+  "photos": "Photos",
+
+  "my-videos": "My Videos",
+
+  "all-videos": "All",
+
+  "top-videos": "Top",
+
+  "top": "Top",
+
+  "featured": "Featured",
+
+  "featured-videos": "Featured",
+
+  "find-people": "Find People",
+
+  "no-post-show": "No Posts to Show",
+
+  "where-are-you": "Where are you?",
+
+  "photos-selected": "Photo(s) selected",
+
+  "video-selected": "Video selected",
+
+  "files-selected": "Files Selected",
+
+  "tag-people-in-post": "Tag people in your post",
+
+  "post": "Post",
+
+  "load-more": "Load More",
+
+  "other-people": "other people",
+
+  "view-previous-comments": "View previous comments",
+
+  "reply": "Reply",
+
+  "view-previous-replies": "View previous replies",
+
+  "download-file": "Download file",
+
+  "no-people-found": "No people found",
+
+  "no-new-notifications": "No new notifications",
+
+  "changed-profile-picture": "changed profile picture",
+
+  "changed-profile-cover": "changed profile cover",
+
+  "home": "Home",
+
+  "no-pages-found": "No pages found here",
+
+  "no-videos-found": "No videos found here",
+
+  "no-groups-found": "No groups found here",
+
+  "discover": "Discover",
+
+  "core-plugins": "Core Plugins",
+
+  "unknown-error": "Something went wrong, please try again",
+
+  "view-more": "View More",
+
+  "static-pagers": "Static Pages",
+
+  "manage-static-pages": "Manage Static Pages",
+
+  "password-match-error": "Failed! , Please make sure the passwords match",
+
+  "password-reset-request-sent": "Password request successfully sent. Check your email to verify your request.",
+
+  "password-reset-error": "You have provided invalid email address, try again",
+
+  "login-error": "Failed to login: Invalid username or password",
+
+  "invalid-captcha-code": "Invalid captcha code",
+
+  "save-continue": "Save & Continue",
+
+  "skip": "Skip",
+
+  "add-picture-note": "Let your friends find you easily by changing  your look ",
+
+  "choose-photo": "Choose Photo",
+
+  "what-about-you": "What about you?",
+
+  "save-country": "Save country",
+
+  "choose-message": "Choose Message",
+
+  "language-pack": "Language Pack",
+
+  "placeholders": "Placeholders",
+
+  "subject": "Subject",
+
+  "message-body": "Message Body",
+
+  "save-changes": "Save changes",
+
+  "everyone": "Everyone",
+
+  "location-message": "Where are you now ?",
+
+  "your-location": "Your location",
+
+  "friends-followers": "Friends or Followers",
+
+  "followers": "Followers",
+
+  "following": "Followings",
+
+  "likes": "Likes",
+
+  "default-profile-privacy": "Default User Profile Privacy",
+
+  "default-profile-privacy-desc": "Set the default profile privacy for your users",
+
+  "who-can-see-profile": "Who can see my profile ?",
+
+  "who-can-see-profile-desc": "Set who can view your profile timeline, photos,videos e.t.c",
+
+  "turn-on-friend-requests": "Turn On Friend Requests",
+
+  "who-can-post-profile": "Who can post on your timeline?",
+
+  "who-can-post-profile-desc": "Set who can post on your timeline",
+
+  "default-birthdate-privacy": "Default Birth Date Privacy",
+
+  "default-birthdate-privacy-desc": "Set the default Birth Date privacy",
+
+  "who-can-see-birthdate": "Who can see your birth date ?",
+
+  "who-can-see-birthdate-desc": "Set who can see your birth date on your profile",
+
+  "followers-only": "Followers only",
+
+  "see-all-results": "See all results",
+
+  "something-went-wrong-error": "Something went wrong, please try again",
+
+  "undo": "Undo",
+
+  "drag-to-position-cover": "Drag to position cover",
+
+  "change-cover": "Change cover",
+
+  "upload-photo": "Upload Photo",
+
+  "reposition": "Reposition",
+
+  "profile-is-private": "This profile is private, you not allow to view it",
+
+  "block-user-warning": "Are you sure you want to block user, you will no longer see anything from this user?",
+
+  "blocked-members": "Blocked Members",
+
+  "no-members-to-display": "No Members to display here",
+
+  "unblock": "Unblock",
+
+  "block": "Block",
+
+  "unfollow": "Unfollow",
+
+  "block-user": "Block User",
+
+  "report": "Report",
+
+  "report-profile": "Report Profile",
+
+  "report-reason": "Reason",
+
+  "symbol": "Symbol",
+
+  "for-example": "For example",
+
+  "icon": "Icon",
+
+  "dimensions": "Dimensions",
+
+  "width": "Width",
+
+  "height": "Height",
+
+  "category": "Category",
+
+  "remove": "Remove",
+
+  "change-icon": "Change Icon",
+
+
+
+  "message": "Message",
+
+
+
+  "ajax-long-polling": "Ajax Long Polling",
+
+  "pusher-driver": "Pusher Driver",
+
+  "pusher-driver-desc": "Set your preferred pusher driver ",
+
+  "ajax-polling-interval": "Ajax Polling Check Interval",
+
+  "ajax-polling-interval-desc": "Set Ajax polling check interval time, please this setting is required for ajax long polling pusher driver",
+
+  "seconds": "Seconds",
+
+  "minute": "Minute",
+
+
+
+  "people": "People",
+
+  "see-all": "See All",
+
+  "no-body": "Nobody",
+
+
+
+  "list-limit": "Lists Limit",
+
+  "list-limit-desc": "Set the number of items to display",
+
+
+
+  "profile-fields": "Profile Fields",
+
+  "user-fields": "User Fields",
+
+  "members": "Members",
+
+  "add-member": "Add Member",
+
+  "manage-members": "Manage Members",
+
+  "manage-members-desc": "Manage members, edit, delete e.t.c and also filter with active, non-active , banned or verified members",
+
+  "active-members": "Active Members",
+
+  "non-active": "Non-Active",
+
+  "banned": "Banned",
+
+  "verified": "Verified",
+
+  "country": "Country",
+
+  "avatar": "Avatar",
+
+  "username": "Username",
+
+  "email-address": "Email Address",
+
+  "activated": "Activated",
+
+  "activate-account": "Activate your account",
+
+  "resend-activation-link": "Resend Activation Link",
+
+  "failed-to-send-activation-link": "Failed to send activation link, please check provided email address",
+
+  "add-auto-follow-accounts": "Add Auto Follow Accounts",
+
+  "add-auto-follow-accounts-desc": "Add auto follow accounts for new members using their username seperated with comma (,)",
+
+  "payments": "Payment Gateway",
+
+  "send-me-notifications-when": "Send me notifications when",
+
+  "payments-settings-description": "Set up available payment gateway and default currency use ",
+
+  "default-currency-desc": "Select the preferred currency and note that not all payment gateway support it",
+
+  "default-currency": "Default Currency",
+
+
+  "enable-paypal": "Enable PayPal Payment Gateway",
+
+  "enable-paypal-desc": "With this option you can enable or disable paypal payment options for your members",
+
+  "paypal-corporate-email": "PayPal Gateway Corporate Email Address",
+
+  "paypal-corporate-email-desc": "Set paypal payment gateway corporate email address",
+
+  "paypal-notification-email": "Paypal Gateway Notification Email Address",
+
+  "paypal-notification-email-desc": "Set Paypal Gateway Notification email address",
+
+  "enable-stripe": "Enable Stripe Payment Gateway",
+
+  "enable-stripe-desc": "With this option you can enable or disable stripe payment options for your members",
+
+  "stripe-secret-key": "Stripe Secret Key",
+
+  "enable-store-notifications": "Enable store notifications",
+
+  "stripe-secret-key-desc": "Set your stripe secret key",
+
+  "stripe-publishable-key": "Stripe Publishable Key",
+
+  "stripe-publishable-key-desc": "Set your stripe publishable key",
+
+  "enable-paypal-sandbox-desc": "With this option you can enable or disable paypal sandbox for fake test payments",
+
+  "enable-paypal-sandbox": "Enable PayPal Sandbox",
+
+  "go-to-admincp": "Go to Admincp",
+
+  "customize": "Customize",
+
+  "customize-theme": "Customize Theme",
+
+  "direction": "Direction",
+
+  "choose-file": "Choose File",
+
+  "import-language": "Import Language",
+
+  "export-language-pack": "Export Language Pack",
+
+  "manage-language-phrases": "Manage Language Phrases",
+
+  "edit-language-pack": "Edit Language Pack",
+
+  "admin-dashboard": "Admin Dashboard",
+
+  "admin-dashboard-desc": "See statistics about your social site right from here",
+
+  "online-members": "Online Members",
+
+  "online" : "Online",
+
+  "profile-picture" : "Profile picture",
+
+  "change-picture" : "Change picture",
+
+  "busy" : "Busy",
+
+  "invisible" : "Invisible",
+
+  "view-members": "View Members",
+
+  "statistics": "Statistics",
+
+  "quick-links": "Quick Links",
+
+  "server-statistics": "Server Statistics",
+
+  "add-profile-fields": "Add Profile fields",
+
+  "city": "City",
+
+  "state": "State",
+
+  "allow-change-username": "Allow Change Of Username",
+
+  "allow-change-username-desc": "Allow your members to change username, you can also set if verify badge should be removed upon change of username below",
+
+  "remove-verify-badge-change-username": "Remove Verify Badge Upon Changes to Username",
+
+  "remove-verify-badge-change-username-desc": "Set if you want verify badge remove when any verified member changes username",
+
+  "username-is-in-use": "The username is in use by other members",
+
+  "loose-verified-warning": "Note: When you change your username, you loose verified badge as well",
+
+  "change-username": "Change Username",
+
+  "allow-change-email": "Allow Change Of Email Address",
+
+  "allow-change-email-desc": "Allow your members to change their email address",
+
+  "email-address-is-in-use": "The Email Address is in yse by other members",
+
+  "change-email-address": "Change Email Address",
+
+  "from": "From",
+
+  "overview": "Overview",
+
+  "mutual-friends": "Mutual Friends",
+
+  "nill": "Nill",
+
+  "remove-friend": "Remove friend",
+
+  "timeline": "Timeline",
+
+  "to-our": "to",
+
+  "read-more": "Read More",
+
+  "delete-my-account": "Delete my account",
+
+  "delete-account-info": "To delete your account provide your current password and note that you cannot undo this action",
+
+  "invalid-password": "You have entered an invalid password, try again",
+
+  "with": "with",
+
+  "choose-language": "Choose Language",
+
+  "404-not-found": "404 Not Found",
+
+  "page-not-available": "Sorry, this page isn't available",
+
+  "page-not-available-note": "The link you followed may be broken, or the page may have been removed.",
+
+  "enable-debug": "Enable Debug",
+
+  "enable-debug-desc": "Use this option when you are testing, to show you proper errors",
+
+  "enable-https": "Enable HTTPS",
+
+  "enable-https-desc": "Please confirm your server is enabled with https before enabling this option",
+
+  "unsave": "Unsave",
+
+  "successfully-uploaded": "Successfully uploaded",
+
+  "save-post": "Save",
+
+  "unsave-post": "Unsave",
+
+  "successfully-saved": "Successfully saved",
+
+  "successfully-unsaved": "Successfully removed",
+
+  "saved": "Saved",
+
+  "upload": "Upload",
+
+  "uploading": "Uploading ...",
+
+  "no-saved-content": "You don't have any content saved here",
+
+  "enable-profile-design": "Enable Profile Design",
+
+  "enable-profile-design-desc": "Use this option to enable or disable profile design",
+
+  "design-your-profile": "Design your profile",
+
+  "design-your-page": "Design your page",
+
+  "background-image": "Background Image",
+
+  "background-position": "Background Position",
+
+  "left": "Left",
+
+  "center": "Center",
+
+  "right": "Right",
+
+  "background-color": "Background color",
+
+  "background-image-style": "Background Image Style",
+
+  "dont-repeat": "Don't repeat",
+
+  "gift-shop": "Gift Shop",
+
+  "dont-like-post": "I don't like this post",
+
+  "get-notifications": "Get notifications",
+
+  "comment": "Comment",
+
+  "online-friends": "Online Friends",
+
+  "like-your-page": "like your page",
+
+  "view-your-profile": "view your profile",
+
+  "accepted-friend-request": "accept your friend request",
+
+  "repeat-hor-ver": "Repeat Horizontally & Vertically",
+
+  "repeat-horizontally": "Repeat horizontally",
+
+  "repeat-vertically": "Repeat vertically",
+
+  "link-color": "Link color",
+
+  "transparent-color": "Transparent color",
+
+  "save-design": "Save Design",
+
+  "user-account-settings": "User Account Settings",
+
+  "user-saved-page": "User saved page",
+
+
+
+  "manage-posts": "Manage Posts",
+
+  "manage-photos": "Manage Photos",
+
+  "publisher": "Publisher",
+
+  "time": "Time",
+
+  "view": "View",
+
+  "verification-request": "Verification Request",
+
+  "verification-request-desc": "Enable or Disable if you want your members to request verification from their account settings",
+
+  "verify-requested": "Verification requested",
+
+  "request-verification": "Request verification",
+
+  "verification-requests": "Verification Requests",
+
+  "verification-questions": "Verification Questions",
+
+  "verification-question": "Verification Question",
+
+  "account-verification": "Account Verification",
+
+  "select-the-input-type": "Select the input type",
+
+  "submit-answer": "Submit answer",
+
+  "select-if-user-or-page": "Select if the question is for user or page",
+
+  "enter-question": "Enter Question",
+
+  "add-verification-question": "Add Verification Question",
+
+  "enter-the-verification-question": "Enter the verification question",
+
+  "question-added": "Question added",
+
+  "question-was-not-added": "Question was not added",
+
+  "entity": "Entity",
+
+  "ignore": "Ignore",
+
+  "approve": "Approve",
+
+  "static-pages": "Static Pages",
+
+  "add-new-page": "Add New Page",
+
+  "add-page-to-footer-link": "Add Page Link To Footer",
+
+  "page-tags": "Page Tags",
+
+  "page-content": "Page Content",
+
+  "add-page-to-explore-menu": "Add Page Link to Explore Menu",
+
+  "page-title": "Page Title",
+
+  "page-already-exists": "Page already exists",
+
+  "title-field-required": "Title field is required",
+
+  "footer-links": "Footer Links",
+
+  "explore-menu": "Explore Menu",
+
+  "save-page": "Save Page",
+
+  "shutdown-site": "Shutdown Website",
+
+  "shutdown-site-desc": "Enable to shutdown website for maintenance purpose though you can access admin",
+
+  "shutdown-message": "Shutdown Message",
+
+  "shutdown-message-desc": "Set Shutdown message for your member to know whats happening",
+
+  "website-offline": "We are off ",
+
+  "offline": "Offline",
+
+  "status": "Status",
+
+  "offline-message": "We will be back shortly",
+
+  "mailing-list": "Mailing List",
+
+  "mail-to": "Mail to",
+
+  "mail-subject": "Mail Subject",
+
+  "mail-body": "Mail Body",
+
+  "all-members": "All Members",
+
+  "selected-members": "Selected Members",
+
+  "non-active-members": "Non Active Members",
+
+  "send-mail": "Send Mail",
+
+  "non-active-for-last": "Non active members for the last ",
+
+  "mail-sent-successfully": "Mail sent successfully",
+
+  "mail-not-sent": "Something went wrong , please try again",
+
+  "google-analytics-code-desc": "Paste your Google analytics code in the textarea",
+
+  "something-went-wrong": "We got confused , try again or reload your page",
+
+  "ago": "ago",
+
+  "from-now": "from now",
+
+  "any-moment": "any moment now",
+
+  "less-than-minute": "less than a minute",
+
+  "about-minute": "about a minute",
+
+  "about-hour": "about an hour",
+
+  "a-day": "a day",
+
+  "days": "days",
+
+  "about-month": "about a month",
+
+  "months": "months",
+
+  "about-year": "about a year",
+
+  "years": "years",
+
+  "more": "More",
+
+  "html-content": "HTML Content",
+
+  "html-content-desc": "Enter the html content to display in the box",
+
+  "box-title": "Box Title",
+
+  "box-title-desc": "If you have title for the displayed box enter it here",
+
+  "current-version": "Current Version",
+
+
+
+  "site-keywords": "Site Keywords",
+
+  "site-description": "Site Description",
+
+
+
+  "mutual": "Mutual",
+
+  "page-name-desc": "Page name can only contain Alphanumeric and appear in the page url",
+
+  "continue": "Continue",
+
+  "translator": "Translator",
+
+  "upload-site-favicon": "Upload Site Favicon",
+
+  "see-translation": "See translation",
+
+  "last-seen": "Last seen",
+
+  "enable-profile-lastseen": "Enable Profile Last Seen",
+
+  "owner": "Owner",
+
+
+
+  "profile-questions": "Profile Questions",
+
+  "enable-email-notifications": "Enable Email Notifications",
+
+  "about-i": "about",
+
+  "site-editor": "Site Editor",
+
+  "layout": "Layout",
+
+  "theme": "Theme",
+
+  "edit-page-info": "Edit Page Info",
+
+  "edit-column": "Edit Column",
+
+  "available-blocks": "Available Blocks",
+
+  "footer": "Footer",
+
+  "header": "Header",
+
+  "edit-widget": "Edit Widget",
+
+  "new-page": "New Page",
+
+  "main-header": "Main Header",
+
+  "core": "Core",
+
+  "main-footer": "Main Footer",
+
+  "save-and-preview": "Save and Preview",
+
+  "landing-page": "Landing Page",
+
+  "signup-activate": "Signup Activate",
+
+  "edit-other-languages": "Edit other languages",
+
+  "page-keywords": "Page Keywords",
+
+  "available-menus": "Available Menus",
+
+  "add-link": "Add Link",
+
+  "menu-structure": "Menu Structure",
+
+  "menu-location": "Menu Location",
+
+  "location": "Location",
+
+  "main-menu": "Main Menu",
+
+  "location": "Location",
+
+  "whats-happening": "What is on your mind?",
+
+  "Photo": "Photo",
+
+  "pages": "Pages",
+
+  "forums": "Forums",
+
+  "groups": "Groups",
+
+  "events": "Events",
+
+  "contact-us": "Contact Us",
+
+  "footer-menu": "Footer Menu",
+
+  "menu-title": "Menu Title",
+
+  "link": "Link",
+
+  "open-new-window": "Open in new Window",
+
+  "add-menu-item": "Add Menu Item",
+
+  "instructions": "Instructions",
+
+  "menu-drag-instruction": "From here you can manage, arrange each menu items in the selected menu location. From the left you can <strong>Drag menu items</strong> here",
+
+  "ajaxify": "Ajaxify",
+
+  "edit-menu": "Edit Menu",
+
+  "login-with": "Login with",
+
+  "account-page": "Account Page",
+
+  "user-profile-page": "User Profile Page",
+
+  "notifications-page": "Notifications Page",
+
+  "friend-requests-page": "Friend Requests Page",
+
+  "friend-requests": "Friend Requests",
+
+  "no-friend-requests": "No friend requests",
+
+  "suggestions": "Suggestion",
+
+  "add-friend": "Add friend",
+
+  "posted-in-group": "posted in group",
+
+  "liked-your-post": "like your post",
+
+  "make-comment-on-your-post": "make comment on your post",
+
+  "make-comment-on-your-video": "make comment on your video",
+
+  "liked-your-video": "like your video",
+
+  "people-like this": "People like this",
+
+  "invite-friends": "Invite friends",
+
+  "people-you-may-know-page": "People you may know Page",
+
+  "search-page": "Search Page",
+
+  "task-scheduler": "Task Scheduler",
+
+  "user-connections": "User connections",
+
+  "header-account-menu": "Header account menu",
+
+  "social-authentication": "Social Athentication",
+
+  "social-authentication-widget-desc": "Displays Social Authentication links",
+
+  "login-widget-desc": "Displays a Login form",
+
+  "signup-widget-desc": "Displays a Sign Up form",
+
+  "no-saved-post": "You have not saved any post yet, you can save post from post any post menu",
+
+  "layout-editor": "Layout Editor",
+
+  "menu-editor": "Menu Editor",
+
+  "set-as-active": "Set Active",
+
+  "landing": "Landing",
+
+  "view-post": "View Post",
+
+  "not-profile-page": "This is not a profile page",
+
+  "latest-games": "Latest Games",
+
+  "latest-member": "Latest Member",
+
+  "explore-more": "Explore More Games",
+
+  "create-account": "Create Account",
+
+  "join": "Join",
+
+  "Trials": "Trials",
+
+  "clear-temp-data": "Clear Temporary Data",
+
+  "temp-cleared-message": "Temporary Data Cleared",
+
+  "enable-avatar-upload": "Enable avatar upload",
+
+  "enable-avatar-upload-desc": "Enable/disable user to upload avatar on registration",
+
+  "arabface_footer": "Arabface",
+  "arabface_footer2": "Arabface",
+
+  "adv_footer": "Advertising",
+  "adv_footer2": "Advertising",
+
+  "about_footer": "About",
+
+  "press_news_footer": "Press and News",
+
+  "business_title": "Business",
+
+  "adv_policy_footer": "Advertising Policies",
+  "adv_policy_footer2": "Advertising Policies",
+
+  "informations_footer": "Enquiries and Information",
+
+  "legal_title_footer": "Legal",
+
+  "terms_services_footer": "Terms of Services",
+  "terms_services_footer2": "Terms of Services",
+
+  "privacy_footer": "Privacy Policy",
+
+  "copy_rights_footer": "Copyright",
+
+  "help_footer": "Help",
+
+  "support_footer": "Support",
+
+  "contact_footer": "Contact",
+
+  "chat_us_footer": "Chat with us",
+
+  "copyrights": "© Arabface 2017, All rights reserved.",
+
+  "chat_us_url": "chat-with-us",
+
+  "support_url": "support",
+
+  "adv_url": "advertising",
+
+  "adv_policy_url": "advertising-policy",
+
+  "enquiries_and_information_url": "enquiries-and-information",
+
+  "terms_services_url": "terms-services",
+
+  "privacy_url": "privacy",
+
+  "copyrights_url": "copy-rights",
+
+  "upload_photo": "Photo",
+
+  "check_in": "Check In",
+
+  "create_poll": "Create Poll",
+
+  "upload_video": "Video",
+
+  "date_of-birth": "Date Of Birth",
+
+  "livestreamMediaType": "Livestream Media Type",
+
+  "setupNewLivestreams": "Setup NewL ivestreams",
+
+  "ongoingLivestreams": "Ongoing Livestreams"
+
+}

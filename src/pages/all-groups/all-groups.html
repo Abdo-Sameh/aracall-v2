@@ -1,0 +1,77 @@
+<!--
+  Generated template for the AllGroupsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+  <!--====================Start Page Wrapper=======================-->
+  <main class="page">
+    <div class="bg_color">
+      <div class="contacts">
+        <div class="container">
+          <div *ngIf="chatsCount== 0 ">
+            <p class="well " style="font-size:20px;font-weight:500;margin:10px;color:#5c0632;text-align:center;padding:10px">{{'there-are-no-groups' | translate}} </p>
+          </div>
+          <div *ngIf="chatsCount != 0 ">
+            <div class="contact_item online" *ngFor="let p of chats; let i = index">
+              <div *ngIf="p.unread == 1 && p.group_name == null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
+                <div (click)="openGroupChat(i)">
+                  <div class="contact_img">
+                    <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+                  </div>
+                  <div class="contact_info">
+                    <h3>{{p.title}}</h3>
+                    <p>{{p.message}}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- //Contact Item -->
+              <div *ngIf="p.unread == 1 && p.group_name != null " class="contact_item online" (click)="makeMessageRead(i)" style="background:#ddd;opacity:55%">
+                <div (click)="openGroupChat(i)">
+                  <div class="contact_img">
+                    <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+                  </div>
+                  <div class="contact_info">
+                    <h3>{{p.group_name}}</h3>
+                    <p>{{p.message}}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- //Contact Item -->
+              <div *ngIf="p.unread == 0 && p.group_name == null" style="position:relative;">
+                <div (click)="openGroupChat(i)">
+                  <div class="contact_img">
+                    <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+                  </div>
+                  <div class="contact_info">
+                    <h3>{{p.title}}</h3>
+                    <p>{{p.message}}</p>
+
+                  </div>
+                </div>
+              </div>
+              <!-- //Contact Item -->
+              <div *ngIf="p.unread == 0 && p.group_name != null" style="position:relative;">
+                <div (click)="openGroupChat(i)">
+                  <div class="contact_img">
+                    <img src="./assets/images/group.png" style="border-radius:50%" *ngIf="p.type == 'multiple' " alt="Arab Call" title="Arab Call">
+                  </div>
+                  <div class="contact_info">
+                    <h3>{{p.group_name}}</h3>
+                    <p>{{p.message}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="add-btn" (click)="newGroup()" style="width: 56px;
+					height: 56px;">
+            <a href="#" data-toggle="modal" data-target="#add_modal"><img src="./assets/images/svg/adding-users.svg" class="mr-15" style="width:20px;height:20px ;margin-left:15px;margin-top:17px"/></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</ion-content>

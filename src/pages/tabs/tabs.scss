@@ -1,0 +1,37 @@
+page-tabs {
+  .tabs-md .tabbar {
+    background-color: #5c0632 !important;
+  }
+
+  .tabs-md .tab-button-icon {
+    color: #FFF !important;
+  }
+
+  .tabs-md .tab-button {
+    position: relative;
+  }
+
+  .tabs-md .tab-button[aria-selected=true]:after {
+    position: absolute;
+    content: '';
+    display: block;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    border-width: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+  }
+
+  .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    font-size: 32px;
+  }
+
+  .tabs-md .tab-button-icon {
+    font-size: 32px;
+  }
+}

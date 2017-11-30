@@ -1,0 +1,101 @@
+<!--
+  Generated template for the GroupInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header_title">
+
+  <div class="container">
+    <div class="back_btn">
+      <a href="#" (click)="back()"><img src="./assets/images/svg/left-arrow-angle.svg" style="width:20px;height:20px;margin-left:40px;color: white;"/></a>
+    </div>
+    <div class="page_title text-center">
+      <h3 style="    font-size: 1.3rem;">{{'group-info' | translate}}</h3>
+    </div>
+  </div>
+
+</ion-header>
+
+
+<ion-content>
+
+  <section class="bg_grey full_vh ">
+    <div class="user_cover" [ngStyle]="{ 'background-image': 'url('  + group_cover + ')'}">
+      <div class="profile-editors" style="top:48px;right:45px;bottom:auto;">
+        <div class="file-input file-input-profile">
+          <label for="profile-upload">
+              <i class="fa fa-camera"></i>
+            </label>
+          <input (click)="presentActionSheet()" id="profile-upload" name="avatar">
+        </div>
+      </div>
+      <div (click)="openEditPage()" class="profile-editors" style="bottom:15;right:25px;">
+        <a href="#" class="btn btn-theme btn-sm"><i class="ion-edit"></i></a>
+      </div>
+      <div class="group-cover-info" style="position:absolute;bottom:15px;left:25px;">
+        <p *ngIf="customized_group_name.length != 0">{{customized_group_name[0]}}</p>
+        <p *ngIf="customized_group_name.length == 0">{{group.group_name}}</p>
+      </div>
+    </div>
+    <form class="list-group list-group-theme">
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading pull-left mt-5">{{'mute-notifications' | translate}}</h4>
+        <div class="pull-right">
+          <div class="checkbox">
+            <input type="checkbox" id="check_1">
+            <label for="check_1"></label>
+          </div>
+        </div>
+        <span class="clearfix"></span>
+      </a>
+
+    </form>
+    <div class="container">
+      <div class="users-list panel panel-theme">
+        <span (click)="add_member_to_group()" href="#" style="top:5px;right:5px;padding: 4px; float:right"><img src="./assets/images/svg/add-user.svg" class="mr-15" style="width:30px;height:30px;font-weight:500"/></span>
+
+        <h3 class="title-theme">{{'participants' | translate}} ({{numberOfParticipants}})</h3>
+        <div *ngIf="userid != group_admin">
+          <div class="user-item" style="position:relative;" *ngFor="let member of groupMembers; let i = index">
+            <div class="pull-left">
+              <div class="user-img">
+                <a href="#"><img src={{member.avatar}} /></a>
+              </div>
+              <div class="user-info pull-left">
+                <h3><a href="#" (click)="goTochatPage(member.userid)">{{member.first_name }}  {{ member.last_name}}</a></h3>
+                <p>{{member.chat_status}}</p>
+              </div>
+            </div>
+            <div class="pull-right">
+              <a *ngIf="member.userid == group.group_admin" href="#">{{'group-admin' | translate}}</a>
+            </div>
+          </div>
+        </div>
+        <!-- //user-item -->
+        <div *ngIf="userid == group_admin">
+          <div class="user-item" style="position:relative;" *ngFor="let member of groupMembers; let i = index">
+            <div class="pull-left">
+              <div class="user-img">
+                <a href="#"><img src={{member.avatar}} /></a>
+              </div>
+              <div class="user-info pull-left">
+                <h3><a href="#" (click)="goTochatPage(member.userid)">{{member.first_name }}  {{ member.last_name}}</a></h3>
+                <p>{{member.chat_status}}</p>
+              </div>
+
+
+            </div>
+            <div class="pull-right">
+              <a (click)="deleteMember(i,member.userid)" href="#" *ngIf="member.userid != group_admin"><img src="./assets/images/svg/rubbish-bin.svg" class="mr-15" style="width:17px;height:17px"/></a>
+            </div>
+            <div class="pull-right">
+              <h6 *ngIf="member.userid == group.group_admin" href="#" style="color:#5c0632;font-weight:400" class="btn  btn-xs">{{'group-admin' | translate}}</h6>
+            </div>
+          </div>
+          <!-- //user-item -->
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-content>

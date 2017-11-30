@@ -1,0 +1,991 @@
+/*============================
+ Start Global
+=============================*/
+
+/*----Start Reset Css----*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*----//End Reset Css------*/
+
+/* BODY FONT - Applies to everything */
+@font-face {
+    font-family: 'Montserrat';
+    src:url('../fonts/lato.eot');
+    src:url('../fonts/lato.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/lato.woff') format('woff'),
+        url('../fonts/lato.ttf') format('truetype'),
+        url('../fonts/lato.svg#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*End Font*/
+* {
+	box-sizing: border-box;
+	box-sizing: -webkit-border-box;
+}
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+}
+body {
+    font-family: 'lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #535353;
+    background-color: #5c0632;
+    margin: 0;
+    padding:0;
+}
+
+main.page {
+	width: 100%;
+	/*max-width: 768px;*/
+	margin: 0 auto;
+	min-height: 100vh;  
+}
+.container {
+	width: 94%;
+	margin:0 auto;
+}
+.text_center {
+	text-align: center;
+}
+/*============================
+ //End Global
+=============================*/
+
+.full_vh {
+	height: 100vh;
+}
+.bg_color {
+	background-color: #5c0632;
+}
+.flex {
+	display: flex;
+	display: -webkit-flex;
+}
+.flex img {
+	margin: auto;
+}
+
+
+
+.login_logo {
+	margin: auto;
+	text-align: center;
+}
+.login_logo img {
+	margin: 40px auto;
+}
+.login_form {
+	padding-top: 50px;
+}
+.login_form form {
+
+}
+.form_input {
+	margin-bottom: 15px;
+}
+.form_input input {
+	color: #EEE;
+	width: 100%;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	padding:0 10px;
+	border-radius: 3px;
+	border: 1px solid #AAA;
+	background-color: #5c0632;
+}
+.form_input input[type=submit] {
+	background-color: #ffd800;
+	color: #555;
+	cursor: pointer;
+}
+.form_input input::-moz-placeholder {
+  color: #CCC;
+  opacity: 1;
+}
+.form_input input:-ms-input-placeholder {
+  color: #CCC;
+}
+.form_input input::-webkit-input-placeholder {
+  color: #CCC;
+}
+.form_input input:focus {
+	border: 1px solid #AAA;
+	box-shadow: 0 0 3px #EEE;
+}
+.pserator_or {
+	position: relative;
+	margin: 30px 0;
+	height: 40px;
+}
+.pserator_or:after {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 1px;
+	right: 0;
+	left: 0;
+	top: 20px;
+	background-color: #AAA;
+	z-index: 1;
+}
+.pserator_or h3 {
+	position: absolute;
+	height: 40px;
+	width: 80px;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	background-color: #5c0632;
+	color: #AAA;
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+	z-index: 10;
+}
+.crt_acont {
+	margin: 30px auto;
+}
+.crt_acont a {
+	color: #FFF;
+	width: 100%;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	padding:0 10px;
+	border-radius: 3px;
+	border: 1px solid #AAA;
+	background-color: rgba(255,255,255,.3);
+}
+.profile_img {
+	width: 150px;
+    height: 150px;
+    border: 4px solid #EEE;
+    border-radius: 50%;
+    margin: 40px auto;
+    color: #EEE;
+    font-size: 120px;
+    display: block;
+    text-align: center;
+    line-height: 150px;
+}
+
+
+
+/*=========================
+Start Call Page
+===========================*/
+.call {
+	margin: auto;
+	width: 95%;
+}
+.red_bg {
+	background-color: #d81919;
+}
+.caller_img {
+	margin-bottom: 20px;
+}
+.caller_img img {
+	width: 150px;
+	height: 150px;
+	border: 5px solid rgba(255,255,255,.3);
+	border-radius: 50%;
+}
+.caller_name {
+	margin-bottom: 25px;
+}
+.caller_name h2 {
+	color: #EEE;
+	font-weight: 400;
+	font-size: 20px;
+}
+.call_time {
+	margin-bottom: 50px;
+}
+.call_time span {
+	color: #EEE;
+	font-size: 18px;
+}
+ul.actions {
+	overflow: hidden;
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 0;
+}
+ul.actions li {
+	width: 33.33333%;
+	float: left;
+}
+ul.actions li i {
+	display: block;
+	border: 2px solid #EEE;
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	color: #EEE;
+	font-size: 50px;
+	margin: auto;
+}
+/*=========================
+//End Call Page
+===========================*/
+
+
+
+
+/*=========================
+Start Contacts Page
+===========================*/
+header.nav {
+	overflow: hidden;
+}
+nav.navigation {
+	width: 70%;
+	float: left;
+	margin: 10px 0;
+}
+nav.navigation ul {
+	width: 100%;
+}
+nav.navigation ul li {
+	width: 33.3333%;
+	float: left;
+	position: relative;
+}
+nav.navigation ul li a {
+	position: relative;;
+	display: block;
+}
+nav.navigation ul li a.active:after {
+    position: absolute;
+    content: '';
+    display: block;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    border-width: 15px 15px 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+    width: 0px;
+    height: 0px;
+    margin: 0 auto -10px;
+
+}
+nav.navigation ul li i {
+	display: block;
+	margin: auto;
+	text-align: center;
+	color: #EEE;
+	font-size: 30px;
+}
+.search, .menu {
+	float: left;
+	width: 15%;
+	margin: 10px 0;
+}
+.search i, .menu i {
+	display: block;
+	margin: auto;
+	text-align: center;
+	color: #EEE;
+	font-size: 30px;
+}
+.contacts {
+	background-color: #FFF;
+}
+.contact_item {
+	padding: 7px 0;
+	border-bottom: 1px solid #CCC;
+	overflow: hidden;
+}
+.contact_item:last-child {
+	border-bottom: none;
+}
+.contact_item .contact_img {
+	width: 25%;
+	float: left;
+}
+.contact_item .contact_img img {
+	width: 50px;
+	height: 50px;
+	margin: auto;
+	text-align: center;
+    float: none;
+    display: block;
+    position: relative;
+}
+.contact_item .contact_info {
+	width: 75%;
+	float: left;
+}
+.contact_item .contact_info h3 {
+	color: #212121;
+	font-weight: 400;
+	font-size: 16px;
+}
+.contact_item .contact_info p {
+	font-size: 12px;
+	white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+.online .contact_img img:after {
+	position: absolute !important;
+	bottom: 0;
+	right: 0;
+    font-family: "Ionicons";
+    content: "\f360";
+    font-size: 14px;
+    color: #FFF;
+    background-color: #080;
+}
+.contact_item .contact_info time {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 10px;
+}
+/*=========================
+//End Contacts Page
+===========================*/
+
+
+
+
+/*=========================
+Start Menu Settings
+===========================*/
+.settings {
+	min-height: 100vh;
+	background-color: #e5e5e5;
+}
+.settings .title {
+	position: relative;
+	padding: 10px 0;
+}
+.settings .title h3 {
+	color: #EEE;
+	font-size: 20px;
+	margin: 0;
+}
+.settings .title i {
+	position: absolute;
+	left: 3%;
+	top: 10px;
+	color: #5c0632;
+	font-size: 20px;
+	width: 30px;
+	height: 30px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #EEE;
+	border-radius: 50%
+}
+.settings_items {
+
+}
+.settings_items ul {
+	
+}
+.settings_items li {
+	padding: 10px 4%;
+	border-bottom: 1px solid #CCC;
+}
+.settings_items li a {
+	color: #5c0632;
+	font-size: 18px;
+	display: block;
+	position: relative;
+}
+.settings_items li a i{
+	width: 30px;
+    height: 30px;
+    line-height: 34px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    font-size: 28px;
+}
+.settings_items li a span {
+	margin-left: 20px;
+
+}
+/*=========================
+//End Menu Settings
+===========================*/
+
+.account {
+	max-width: 250px;
+	width: 100%;
+	margin:40px auto 0;
+	overflow: hidden;
+}
+.profile {
+	clear: both;
+    overflow: hidden;
+    position: relative;
+}
+.account .img_side {
+	width: 40%;
+	float: left;
+}
+.account .img_side img {
+	width: 100%;
+	border: 3px solid #EEE;
+	border-radius: 3px;
+}
+.account .text_side {
+	width: 60%;
+	float: left;
+}
+.account .text_side h3 {
+	margin-top: 70px;
+  	color: #5c0632;
+  	font-size: 12px;
+    margin-left: 5px;
+}
+.account_form {
+	width: 100%;
+	overflow: hidden;
+    margin-top: 25px;
+}
+.field {
+ 	margin-bottom: 15px;
+}
+.field label {
+	display: block;;
+	margin-bottom: 3px;
+	color: #5c0632
+}
+.field input {
+	display: block;
+	width: 100%;
+	border: 1px solid #5c0632;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	color: #555;
+}
+.field input[type=submit] {
+	display: inline-block;
+	width: auto;
+	color: #FFF;
+	background-color: #5c0632; 
+}
+.contact_info {
+	overflow: hidden;
+	position: relative;
+}
+.top_part {
+	background-image: url(../images/blur_img.png);
+	display: flex;
+	height: 300px;
+}
+.context {
+	margin: auto;
+	text-align: center;
+	width: 94%;
+	max-width: 280px;
+}
+.context img {
+	display: block;
+	width: 100px;
+	height: 100px;
+	border: 5px solid rgba(255,255,255,0.3);
+	border-radius: 50%;
+	margin: 0 auto 15px;
+}
+.context h2 {
+	color: #FFF;
+}
+.context p {
+	color: #FFF;
+	font-size: 12px;
+}
+.bottom_part {
+	background-color: #EEE;
+}
+.options {
+	width: 94%;
+	max-width: 280px;
+	margin: 30px auto 10px;
+}
+.options ul {
+
+}
+.options ul li {
+	width: 50%;
+	float: left;
+	margin-bottom: 15px;
+	height: 40px;
+    line-height: 40px;
+}
+.options li a {
+	display: block;
+	color: #5c0632;
+	position: relative;
+}
+.options li a i {
+	border-radius: 50%;
+	background-color: #FFF;
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+    font-size: 20px;
+}
+.options li a span {
+	margin-left: 45px;
+}
+
+
+/*====================================
+ Start Chat Room
+====================================*/
+.chat_room {
+    background-color: #FFF;
+}
+.chat_room header {
+	overflow: hidden;
+	padding: 10px 0;
+	background-color: #5c0632;
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    max-width: 768px;
+    margin: 0 auto;
+}
+.chat_room header .back_btn {
+	float: left;
+	display: inline-block;
+	width: 20%;
+}
+.chat_room header .back_btn a {
+	color: #5c0632;
+	font-size: 16px;
+	background-color: #FFF;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	border-radius: 50%;
+	display: block;
+}
+.chat_room header {
+	
+}
+.chat_room header h3.name {
+	float: left;
+	text-align: center;
+	color: #FFF;
+	font-size: 18px;
+	margin: 0 auto;
+	width: 40%;
+}
+.chat_room header ul {
+	width: 40%;
+	float: right;
+	text-align: right;
+	overflow: hidden;
+}
+.chat_room header ul li {
+	display: inline-block;
+	text-align: center;
+	margin: 0 5px;
+}
+.chat_room header ul li a {
+	display: block;
+	color: #FFF;
+	font-size: 18px;
+}
+.chat_room header ul li a:last-child {
+	font-size: 21px;
+}
+.chat_room header ul li a.with_bg_brdr {
+	color: #5c0632;
+	font-size: 16px;
+	background-color: #FFF;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	border-radius: 50%;
+}
+.chat_room_body {
+	
+	overflow: hidden;
+	margin-top: 55px;
+	background-color: #EEE;
+	  
+}
+.chat_room_body .msgs {
+	background-color: #EEE;
+	padding: 20px 5% 20px;
+	margin-bottom: 78px;
+	overflow: hidden;;
+}
+.chat_room_body .msgs .sender_msg {
+	width: 90%;
+	float: left;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.chat_room_body .msgs .sender_msg .sender {
+	position: relative;
+}
+.chat_room_body .msgs .sender_msg .sender:before {
+    position: absolute;
+    content: '';
+    display: block;
+    bottom: 0;
+    left: -20px;
+    text-align: center;
+    border-width: 20px 20px 20px 20px;
+    border-style: solid;
+    border-color: transparent transparent #FFF;
+    width: 0px;
+    height: 0px;
+}
+.chat_room_body .msgs .reciever_msg {
+	width: 90%;
+	float: right;
+	text-align: right;
+	position: relative;
+	margin-bottom: 10px;
+}
+.chat_room_body .msgs .reciever_msg .reciever {
+	position: relative;
+}
+.chat_room_body .msgs .reciever_msg .reciever:after {
+	position: absolute;
+    content: '';
+    display: block;
+    bottom: 0;
+    right: -20px;
+    text-align: center;
+    border-width: 20px 20px 20px 20px;
+    border-style: solid;
+    border-color: transparent transparent #FFF;
+    width: 0px;
+    height: 0px;
+}
+.chat_room_body .msgs .reciever_msg time,
+.chat_room_body .msgs .sender_msg time {
+	font-size: 12px;
+}
+
+.chat_room_body .msgs .msg_box {
+	padding: 7px;
+	background-color: #FFF;
+	border-radius: 10px;
+	height: auto;
+}
+.chat_room_body .msgs .msg_box h4 {
+	font-weight: 700;
+	color: #444;
+}
+.chat_room_body .msgs .msg_box p {
+	font-size: 13px;
+	color: #777;
+}
+.chat_room_body .typing {
+	height: 82px;
+	width: 92%;
+	background-color: #FFF;
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    /*max-width: 768px;
+    margin: 0 auto;*/
+}
+.typing {
+	height: 82px;
+	width: 100%;
+	background-color: #FFF;
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    /*max-width: 768px;
+    margin: 0 auto;*/
+}
+.chat_room_body .typing .typing_box {
+	background-color: #EEE;
+	height: 86px;
+	padding: 10px 3%;
+	/*overflow: hidden;*/
+    /*margin: 20px 3% 0;*/
+}
+.typing .typing_box {
+	background-color: #EEE;
+	height: 86px;
+	padding: 10px 3%;
+	/*overflow: hidden;*/
+    /*margin: 20px 3% 0;*/
+	position: relative ; 
+}
+.chat_room_body .typing form {
+	overflow: hidden;
+	width: 100%;
+}
+.typing form {
+	overflow: hidden;
+	width: 100%;
+}
+.chat_room_body .typing form .input {
+	width: calc(100% - 50px);
+	float: left;
+	position: relative;
+}
+.typing form .input {
+	width: calc(100% - 50px);
+	float: left;
+	position: relative;
+}
+.chat_room_body .typing form .input input {
+	width: 100%;
+	display: block;
+	height: 40px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 7px;
+	border-radius: 4px;
+	border: none;
+	background-color: #FFF;
+	box-shadow: 0 0 5px #AAA;
+}
+.typing form .input input {
+	width: 100%;
+	display: block;
+	height: 40px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 7px;
+	border-radius: 4px;
+	border: none;
+	background-color: #FFF;
+	box-shadow: 0 0 5px #AAA;
+}
+.chat_room_body .typing form .input i {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    color: #d2d2d2;
+    font-size: 24px;
+}
+.typing form .input i {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    color: #d2d2d2;
+    font-size: 24px;
+}
+.chat_room_body .typing form .button {
+	width: 50px;
+	float: left;
+	text-align: center;
+}
+.typing form .button {
+	width: 50px;
+	float: left;
+	text-align: center;
+}
+.chat_room_body .typing form .button button {
+	text-align: center;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+.typing form .button button {
+	text-align: center;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+.chat_room_body .typing form .button button i {
+	color: #5c0632;
+    font-size: 28px;
+    padding-top: 4px;
+    display: block;
+}
+.typing form .button button i {
+	color: #5c0632;
+    font-size: 28px;
+    padding-top: 4px;
+    display: block;
+}
+.chat_body {
+	
+}
+/*====================================
+ //End Chat Room
+====================================*/
+/********************CHAT***************************/
+.chat {
+	position: relative;
+	padding: 25px 0 90px;
+	overflow: hidden;
+}
+.chat>div {
+	width: 85%;
+	float: left;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+.chat .user_img {
+	width: 60px;
+	height: 60px;
+	float: left;
+}
+.chat .user_img img {
+	width: 100%;
+	height: 100%;
+}
+.chat .text_box {
+	width: calc(100% - 85px);
+	float: left;
+	margin-left: 25px;
+	position: relative;
+}
+.chat .text_box:before {
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: -20px;
+    border: 10px solid transparent;
+    border-right-color: #8f064e;
+}
+.chat .text_box p {
+    background: #8f064e;
+    border-radius: 5px;
+    line-height: 20px;
+	padding: 12px;
+    color: #EEE;
+}
+.chat .text_box i {
+	color: #8f064e;
+	font-size: 12px;
+	margin-right: 5px;
+}
+.chat .text_box time {
+	color: #8f064e;
+	font-size: 12px;
+}
+.chat .right_side,
+.chat .right_side .user_img,
+.chat .right_side .text_box,
+.chat .right_side .text_box i,
+.chat .right_side .text_box time {
+	float: right;
+}
+.chat .right_side .text_box {
+	margin-right: 25px;
+	margin-left: 0;
+}
+.chat .right_side .text_box:before {
+	right: -20px;
+	left: auto;
+	border-left-color: #5c0632;
+	border-right-color: transparent;
+
+}
+.chat .right_side .text_box p {
+    background: #5c0632;
+}
+.chat .right_side .text_box i {
+	margin-right: 0;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+.chat .right_side .text_box time {
+	margin-top: 3px;
+}
+.message-box {
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto; 
+	background: #DDD;
+	padding: 20px 0;
+	z-index: 10;
+}
+.message-box form button i,
+.search-form button i {
+	color: #5c0632;
+}
+/*****************************CHAT**********************************/
+.back_btn a {
+	color: #fff;
+}
+::-webkit-scrollbar {
+	width: 0;
+	background-color: transparent;
+	display: none;
+}

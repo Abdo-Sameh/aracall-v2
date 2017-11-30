@@ -1,0 +1,26 @@
+page-group-info {
+  .user_cover {
+    background-size: cover;
+  }
+
+  .user-info h3 {
+    font-size: 12px !important;
+  }
+
+  .group-cover-info p {
+    color: #fff;
+    background: #5c0632;
+    display: inline;
+    padding: 6px 20px;
+    border-radius: 4px;
+    font-size: 17px;
+  }
+
+  .user-item img {
+    border-radius: 50%;
+  }
+
+  .user-img {
+    border-radius: 50%;
+  }
+}

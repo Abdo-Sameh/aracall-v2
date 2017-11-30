@@ -1,0 +1,50 @@
+<!--
+  Generated template for the BroadcastPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'broadcast' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar type="text" (ionInput)="onInput($event)"></ion-searchbar>
+  <form #userForm="ngForm" (ngSubmit)="onclick(userForm.value)">
+    <main class="page">
+      <div class="bg_color">
+        <div class="contacts">
+          <div class="container">
+            <div class="contact_item online user" *ngFor="let p of friendsnames">
+              <div class="contact_img">
+                <img [src]="p.avatar" style="border-radius:50%" alt="Arab Call" title="Arab Call">
+              </div>
+              <div class="contact_info">
+                <h3>{{p.name}}</h3>
+              </div>
+              <ion-checkbox (ngModel)=p.name [name]="p.userid"></ion-checkbox>
+            </div>
+            <!-- //Contact Item -->
+          </div>
+        </div>
+      </div>
+      <div class="typing">
+        <div class="message-box">
+          <div class="input-group" style="width:85%;margin-left:7.5%">
+            <input type="text" class="form-control" placeholder="Type Message......" name="msg" [(ngModel)]="message">
+            <span class="input-group-btn">
+							<button class="btn btn-default" type="submit" style="margin-top: -26px"><ion-icon name="md-send"></ion-icon></button>
+						</span>
+          </div>
+          <!-- /input-group -->
+        </div>
+      </div>
+    </main>
+
+  </form>
+</ion-content>

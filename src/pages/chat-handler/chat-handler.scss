@@ -1,0 +1,146 @@
+page-chat-handler {
+  .rec-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0 !important;
+    background: rgba(0,0,0,0.41);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  .rec-btn.open {
+    opacity: 1;
+  }
+
+  .rec {
+    width: 35px;
+    height: 35px;
+    font-size: 0;
+    background-color: red;
+    border: 0;
+    border-radius: 35px;
+    margin: 18px;
+    outline: none;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 5px 0 rgba(173,0,0,.3);
+    }
+
+    65% {
+      box-shadow: 0 0 5px 13px rgba(173,0,0,.3);
+    }
+
+    90% {
+      box-shadow: 0 0 5px 13px rgba(173,0,0,0);
+    }
+  }
+
+  .scroll-content {
+    margin-top: 4px !important;
+  }
+
+  .page {
+    background-color: #EEE !important;
+  }
+
+  ion-icon {
+    font-size: 31px;
+  }
+
+  .toolbar-md {
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  ion-header {
+    background-color: blue !important;
+  }
+
+  .toolbar-background-md {
+    border-color: #5c0632 !important;
+    background: #5c0632 !important;
+  }
+
+  .title {
+    width: 90%;
+    text-align: center;
+  }
+
+  .toolbar-title-md {
+    color: #fff !important;
+    overflow: visible!important;
+    height: 27px;
+    padding-top: 18px;
+  }
+
+  .toolbar-title-md {
+    font-size: 1.5rem !important;
+  }
+
+  .headerico {
+    float: right;
+    color: #fff;
+    margin-top: 0;
+    margin-right: 25px;
+    margin-bottom: 5px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    color: #5c0632;
+    -webkit-box-shadow: 0 0 2px #fff;
+    box-shadow: 0 0 2px #fff;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 30px;
+    position: relative;
+    top: -14px;
+  }
+
+  .headerico.ion-ios-videocam {
+    margin-right: 0;
+  }
+
+  ion-footer {
+    position: fixed !important;
+  }
+
+  .imgpicker ion-icon {
+    right: 50px;
+  }
+
+  emoji-picker {
+    transform: translate(13px, -60px)!important;
+    bottom: 24px;
+    left: auto;
+  }
+
+  .open > .dropdown-menu {
+    margin-top: 70px !important;
+  }
+
+  .dropdown-menu > li > a {
+    display: block !important;
+    // padding: 3px 20px !important;
+    clear: both !important;
+    font-weight: 600 !important;
+    line-height: 3 !important;
+    color: #333 !important;
+    white-space: nowrap !important;
+  }
+
+  .headerico {
+    background: none;
+    box-shadow: none;
+  }
+}

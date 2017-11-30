@@ -1,0 +1,49 @@
+page-contacts {
+  .header-icons {
+    float: right;
+    margin: 30px -6px 30px !important;
+  }
+
+  .header-icons ion-icon {
+    width: 48px;
+    margin-top: 6px;
+    font-size: 28px;
+  }
+
+  .header-search {
+    width: 85%;
+    float: left;
+    margin-top: 11px;
+  }
+
+  ion-icon {
+    color: white !important;
+    //width : 33px  ;
+  }
+
+  .contact_item {
+    border-bottom: 1 solid #CCC !important;
+  }
+
+  .searchbar-md .searchbar-input {
+    background-color: #5c0632 !important;
+    color: white !important;
+  }
+
+  ion-header {
+    background-color: #5c0632 !important;
+  }
+
+  .icon icon-md ion-md-search {
+    width: 30px !important;
+  }
+
+  .searchbar-input-container {
+    margin-top: 18px;
+    margin-left: 63px;
+  }
+
+  .toolbar-title-md {
+    font-size: 1.5rem !important;
+  }
+}

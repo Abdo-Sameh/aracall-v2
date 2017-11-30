@@ -1,0 +1,52 @@
+<!--
+  Generated template for the EditProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'edit-profile' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="    background-color: #e5e5e5;">
+
+  <div class="container">
+    <form>
+      <div class="form-group mt-20">
+        <label for="profile-upload">{{'profile-picture' | translate}}:</label>
+        <div class="file-input flex-v-center">
+          <img [src]=user.avatar width="80" alt="">
+          <label (click)="presentActionSheet()" class="btn btn-theme btn-xs ml-20"> {{'change-picture' | translate}}
+          </label>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="first_name">{{'first-name' | translate}}:</label>
+        <input type="text" [(ngModel)]="user.first_name" [ngModelOptions]="{standalone :true }" class="form-control" id="first_name">
+      </div>
+      <div class="form-group">
+        <label for="last_name">{{'last-name' | translate}}:</label>
+        <input type="text" [(ngModel)]="user.last_name" [ngModelOptions]="{standalone :true }" class="form-control" id="last_name">
+      </div>
+      <div class="form-group">
+        <label for="user_name">{{'username' | translate}}:</label>
+        <input type="text" [(ngModel)]="user.username" [ngModelOptions]="{standalone :true }" class="form-control" id="user_name">
+      </div>
+      <div class="form-group">
+        <label for="email">{{'email-address' | translate}}:</label>
+        <input type="email" [(ngModel)]="user.email_address" [ngModelOptions]="{standalone :true }" class="form-control" id="email">
+      </div>
+
+      <div class="form-group mt-30 mb-30">
+        <button type="submit" (click)="save()" class="btn btn-theme">{{'save' | translate}}</button>
+      </div>
+    </form>
+  </div>
+
+</ion-content>

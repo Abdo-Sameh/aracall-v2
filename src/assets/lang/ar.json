@@ -1,0 +1,4797 @@
+{
+
+	"delete-friend-request" : "هل تريد فعلا عدم قبول هذا الصديق ؟",
+
+	"welcome-to-site": "مرحبا بكم في شبكة اجتماعية جديدة لدينا",
+
+	"validation-required": "ال :attribute مطلوب الميدان",
+
+	"validation-min": "ال :attribute يجب أن يكون الحد الأدنى لل :min",
+
+	"validation-max": "ال :attribute يجب أن يكون حقل كحد أقصى :max",
+
+	"validation-between": "ال :attribute يجب أن يكون حقل بين :min و :max",
+
+	"validation-alphanum": "ال :attribute المجال يمكن أن تتكون فقط من أبجدية فقط",
+
+	"validation-integer": "ال :attribute المجال يمكن أن تتكون فقط من عدد صحيح فقط",
+
+	"validation-alpha": "ال :attribute المجال يمكن أن تتكون فقط من الحروف الهجائية فقط",
+
+	"validation-numeric": "ال :attribute المجال يمكن أن تتكون من أرقام فقط فقط",
+
+	"validation-url": "ال :attribute يجب أن يكون حقل رابط صحيح",
+
+	"validation-email": "ال :attribute يجب أن يكون حقل البريد الإلكتروني الصحيح",
+
+	"validation-unique": "ال :attribute موجود مسبقا",
+
+	"validation-date": "ال :attribute الميدان هو ليس تاريخا مثيل صالح",
+
+	"validation-predefined-words": "لم يتم قبول قيمة معينة ل :attribute حقل، مجال",
+
+	"january": "يناير",
+
+	"february": " فبراير",
+
+	"march": "مارس",
+
+	"april": "أبريل",
+
+	"may": "مايو",
+
+	"june": "يونيو",
+
+	"july": "يوليو",
+
+	"august": "أغسطس",
+
+	"september": "سبتمبر",
+
+	"october": "أكتوبر",
+
+	"november": "سبتمبر",
+
+	"december": "ديسمبر",
+
+	"additional-pages": "الصفحات بالإضافة إلى ذلك",
+
+	"contact": "اتصال",
+
+	"disclaimer": "إخلاء مسؤولية",
+
+	"faq": "التعليمات",
+
+	"about": "حول",
+
+	"terms": "الأحكام والشروط",
+
+	"support-no-categories": "لا يوجد فئات! اضف جديد",
+
+	"error-occurred": "حدث خطأ",
+
+	"annoucement-created": "إعلان إنشاء بنجاح",
+
+	"annoucement-updated": "تحديث إعلان بنجاح",
+
+	"annoucement-deleted": "الإعلان حذف بنجاح",
+
+	"help-category-created": "فئة إنشاؤها بنجاح",
+
+	"help-category-deleted": "فئة حذف بنجاح مع أسئلة الدعم",
+
+	"support-created": "دعم الموضوع بإضافة بنجاح",
+
+	"support-deleted": "دعم موضوع حذف بنجاح",
+
+	"support-updated": "تحديث دعم موضوع بنجاح",
+
+	"category-updated": "تحديث فئة الموضوع بنجاح",
+
+	"go-home": "اذهب للمنزل",
+
+	"dashboard": "لوحة أجهزة القياس",
+
+	"settings": "إعدادات",
+
+	"site-manager": "مدير الموقع",
+
+	"appearance": "مظهر",
+
+	"plugins-manager": "مدير الإضافات",
+
+	"tools": "أدوات",
+
+	"user-manager": "إدارة المستخدمين",
+
+	"language-manager": "اللغات",
+
+	"language-packs": "حزم",
+
+	"phrase-manager": "مدير العبارة",
+
+	"add-phrase": "إضافة العبارة",
+
+	"create-language-pack": "إنشاء حزمة",
+
+	"import-language-pack": "حزمة الاستيراد",
+
+	"update-language-phrases": "عبارات التحديث",
+
+	"manage-language-packs": "إدارة حزم اللغات",
+
+	"manage-phrases": "إدارة جمل",
+
+	"language-title": "عنوان اللغات",
+
+	"create-language-pack-desc": "إنشاء حزمة لغة جديدة، حدد اللغة الأساسية، وإعطائها هوية لغة فريدة من نوعها وعنوان",
+
+	"create-from": "خلق من",
+
+	"language-id": "ID اللغة",
+
+	"edit-language": "تحرير اللغة",
+
+	"save-language": "حفظ اللغة",
+
+	"phrase-manager-desc": "إدارة كل العبارات في هذه اللغة، يمكنك أيضا البحث أو التحول إلى لغات أخرى حزمة",
+
+	"variable": "متغير",
+
+	"language": "لغة",
+
+	"original": "أصلي",
+
+	"save-phrases": "حفظ العبارات",
+
+	"search": "البحث عن",
+
+	"week" : "اسبوع",
+
+	"weeks" : "اسابيع",
+
+	"search-phrase-placeholder": "البحث عن العبارات في هذه اللغة",
+
+	"country-manager": "المدير القطري",
+
+	"manage-countries": "إدارة الدول",
+
+	"post-on-timeline" : "نشر علي صفحتك الشخصية",
+
+	"add-state-province": "إضافة ولاية / المحافظات",
+
+	"add-country": "إضافة البلد",
+
+	"country-name": "اسم الدولة",
+
+	"save-state-province": "حفظ الدولة / المقاطعة",
+
+	"state/provinces": "الدولة / المحافظات",
+
+	"manage-states": "إدارة الأمريكية",
+
+	"pages-manager": "صفحات مدير",
+
+	"blocks-manager": "مدير كتل",
+
+	"update-system": "تحديث النظام",
+
+	"update-system-message": "نظام جداول قاعدة البيانات والإعدادات الأساسية تجديد",
+
+	"blocks-manager-description": "إدارة قائمة كتل الصفحات، يمكنك تحديد أي صفحة مع القائمة المنسدلة والسحب والإسقاطكتل من اليسار إلى اليمين",
+
+	"page-blocks": " كتل الصفحة",
+
+	"edit": "تحرير",
+
+	"new-broadcast" : "بث جديد",
+
+	"new-message" : "رسالة جديدة",
+
+	"type-a-message" : "اكتب رسالة ...",
+
+	"go": "اذهب",
+
+	"chat-settings" : "اعدادات الدردشة",
+
+  "notifications-settings" : "اعدادات الاشعارات",
+
+  "blocked-users" : "المحظورين",
+
+  "signout" : "تسجيل الخروج",
+
+	"mute-notifications" : "غلق صوت الاشعارات",
+
+  "group-info" : "معلومات المجموعة",
+
+  "participants" : "المشاركين",
+
+  "group-admin" : "مشرف المجموعة",
+
+	"view-group-info" : "عرض معلومات المجموعة",
+
+	"clear-conversation" : "مسح المحادثة",
+
+	"report-conversation" : "التبليغ عن المحادثة",
+
+	"handwrite-a-message" : "كتابة رسالة باليد",
+
+	"voice-call" : "مكالمة صوتية",
+
+  "video-call" : "مكالمة فيديو",
+
+  "block-friend" : "حظر صديق",
+
+	"manage-ban-filters": "إدارة مرشحات الحظر",
+
+	"save": "حفظ",
+
+	"separate-by-comma": "بفصلها باستخدام فاصلة (،)",
+
+	"ban-filters": "مرشحات الحظر",
+
+	"usernames": "أسماء المستخدمين",
+
+	"emails": "رسائل البريد الإلكتروني",
+
+	"ip-address": "عنوان بروتوكول الإنترنت",
+
+	"display-names": "أسماء العرض",
+
+	"words": "كلام",
+
+	"custom-fields": "الحقول المخصصة",
+
+	"categories": "أقسام",
+
+	"fields": "مجالات",
+
+	"custom-fields-categories": "الحقول المخصصة الفئات",
+
+	"add-category": "إضافة فئة",
+
+	"title": "العنوان",
+
+	"slug": "سبيكة",
+
+	"add-custom-field-category": "إضافة حقل مخصص الفئة",
+
+	"category-slug": "فئة سبيكة",
+
+	"category-title": "تصنيف العنوان",
+
+	"edit-custom-field-category": "تحرير الفئة الحقل المخصص",
+
+	"save-category": "حفظ الفئة",
+
+	"add-new-custom-field": "إضافة جديد حقل مخصص",
+
+	"custom-field-title": "عنوان الحقل المخصص",
+
+	"custom-field-title-description": "أدخل عنوان الحقل المخصص لكل حزمة اللغة التي أضفتها",
+
+	"custom-field-description-note": "أعط وصف الحقل المخصص لكل حزمة اللغة التي أضفتها",
+
+	"custom-field-type": "نوع الحقل المخصص",
+
+	"custom-field-type-description": "اختر نوع للالحقل المخصص الخاص بك، <strong> إذا اخترت التحديد، يجب فصل محتوى البيانات الاختيار عن طريق فاصلة (،) </ قوي>",
+
+	"include-in-registration": "تدرج في نموذج",
+
+	"include-in-registration-description": "تعيين إذا كنت تريد هذا الحقل المخصص لإدراجها في استمارة التسجيل",
+
+	"required": "مطلوب",
+
+	"custom-field-required-description": "تعيين إذا كنت تريد هذا الحقل المخصص لازما في شكل",
+
+	"add-field": "إضافة حقل",
+
+	"add-new-custom-field-note": "إضافة حقل مخصص جديد مع تفاصيلها بشكل صحيح",
+
+	"edit-custom-field": "تحرير حقل مخصص",
+
+	"custom-field-category": "حقل مخصص الفئة",
+
+	"custom-field-category-description": "حدد فئة لهذا الحقل المخصص",
+
+	"custom-field-description": "حقل مخصص الوصف",
+
+	"type": "اكتب",
+
+	"show-in-form": "تظهر في شكل",
+
+	"save-field": "حفظ الميدان",
+
+	"category-title-description": "إضافة العرف فئة حقل العنوان في كل حزمة اللغة التي أضفتها",
+
+	"emails-manager": "مدير البريد الإلكتروني",
+
+	"email-templates": "قوالب البريد الإلكتروني",
+
+	"email-settings-desc": "يتم إرسال إشعارات بالبريد الإلكتروني للمستخدمين أثناء انخراطها في جوانب مختلفة من المجتمع، مع هذا النموذج يمكنك تخصيص رسائل البريد الإلكتروني",
+
+	"email": "البريد الإلكتروني",
+
+	"from-name": "من الاسم",
+
+	"email-from-name-desc": "أدخل الاسم الذي تريد رسائل البريد الإلكتروني من نظام تأتي من في الميدان",
+
+	"from-address": "من العناوين",
+
+	"email-from-address-desc": "أدخل عنوان تريد رسائل البريد الإلكتروني من النظام لتأتي من في الميدان",
+
+	"email-driver": "البريد الإلكتروني سائق",
+
+	"email-driver-desc": "حدد برنامج تشغيل لرسائل البريد الإلكتروني للحصول على إرسالها عبر، عند تحديد خادم SMTP تأكد من أنك الإعداد الإعدادات الأخرى أدناه",
+
+	"smtp-host": "SMTP المضيف",
+
+	"email-smtp-host-desc": "أدخل المضيف SMTP، على سبيل المثال المضيف المحلي",
+
+	"smtp-username": "SMTP اسم المستخدم",
+
+	"email-smtp-username-desc": "أدخل SMTP الخاص اسم المستخدم في مجال",
+
+	"smtp-password": "SMTP كلمة المرور",
+
+	"email-smtp-password-desc": "أدخل كلمة المرور الخاصة بك SMTP في مجال",
+
+	"smtp-port": "ميناء SMTP",
+
+	"email-smtp-port-desc": "افتراضي 25، أيضا المشتركة مرة واحدة هو 587",
+
+	"use-ssl": "استخدام SSL أو TLS",
+
+	"none": "لا شيء",
+
+	"use-ssl-desc": "تعيين إذا كنت ترغب في استخدام SSL أو TLS في القائمة المنسدلة ",
+
+	"email-queue": "البريد الإلكتروني قائمة الانتظار",
+
+	"email-queue-desc": "حدد ما إذا كنت تريد إرسال فورا أو بعد بعض الوقت مع طابور البريد الإلكتروني، يرجى قراءة حول كيفية إعداد قائمة انتظار البريد الإلكتروني من وثائق رسمية لدينا",
+
+	"use-built-in-mail": "استخدام المدمج في البريد PHP وظيفة ()",
+
+	"send-email-through-smtp": "إرسال البريد الإلكتروني من خلال خادم SMTP",
+
+	"email-settings": "إعدادات البريد الإلكتروني",
+
+	"general": "الإعدادات العامة",
+
+	"users": "المستعمل",
+
+	"media": "وسائل الإعلام",
+
+	"manage": "إدارة",
+
+	"general-settings-info" : "يمكنك تغيير اسمك الاول والاخير والمدينه ...الخ",
+
+	"save-settings": "احفظ التغييرات",
+
+	"general-settings-description": "إدارة الإعدادات العامة مثل عنوان الموقع والوصف والكلمات الرئيسية والمزيد من الإعدادات التي يمكن أن تجد أدناه",
+
+	"upload-site-logo": "شعار موقع تحميل",
+
+	"choose-logo": "اختيار شعار",
+
+	"theme-settings": "إعدادات موضوع",
+
+	"theme-settings-description": "السيطرة على مظهر موقعك مع الشعار الجديد، اختيار جيد عمود الموقع ومزيد من الإعدادات التي يمكن أن تجد أدناه ",
+
+	"frontend-column-type": "الواجهة النوع من العمود",
+
+	"frontend-column-type-description": "حدد نوع العمود المطلوب لالواجهة، يرجى ملاحظة أن المحمول دائما عمود واحد وموضوع لوحة الادارة قد لا تتبع هذا الإعداد",
+
+	"two-column": "عمودين",
+
+	"three-column": "ثلاثة أعمدة",
+
+	"homepage-design": "تصميم الصفحة الرئيسية",
+
+	"homepage-design-description": "حدد المطلوب الصفحة الرئيسية نوع التصميم وتعيين إعدادات أخرى متوفرة على الموقع الصحيح",
+
+	"splash-design": "دفقة تصميم",
+
+	"regular-design": "تصميم منتظم",
+
+	"theme-settings-changed": "تغيير إعدادات موضوع بنجاح",
+
+	"your-site-title": "عنوان الموقع الخاص بك",
+
+	"your-site-title-desc": "تعيين عنوان موقع الويب الخاص بك مع هذا المجال",
+
+	"your-site-title-separator": "لديك فاصل عنوان الموقع",
+
+	"set-your-timezone": "اختيار التوقيت",
+
+	"set-your-timezone-desc": "حدد التوقيت الافتراضي للمستخدمين",
+
+	"enable-captcha": "تمكين كلمة التحقق في أشكال",
+
+	"enable-captcha-desc": "يمكنك تعطيل أو تمكين CAPTCHA بأشكال مع هذا الخيار",
+
+	"captcha": "CAPTCHA",
+
+	"enable-session-timeout": "تمكين مهلة جلسة",
+
+	"enable-session-timeout-desc": "الخيار لتمكين أو تعطيل مهلة جلسة، وهذا أيضا إعطاء أمن أفراد على حساب هناك",
+
+	"minutes": "دقيقة",
+
+	"hour": "ساعة",
+
+	"hours": "ساعات",
+
+	"delete-comment" : "حذف التعليق",
+
+	"delete-comment-question" : "هل تريد حذف هذا التعليق ؟",
+
+	"user-settings-description": "إدارة إعدادات المستخدم والتحكم الذين يمكن تسجيل وإدارة ترحيب خطوة الاشتراك، وتفعيل الحساب الخ",
+
+	"enable-user-registration": "تمكين تسجيل المستخدم",
+
+	"enable-user-registration-desc": "يمكنك تعطيل أو تمكين تسجيل جديد إلى الشبكة الخاصة بك",
+
+	"enable-welcome-signup-step": "تمكين الترحيب اشترك الخطوة",
+
+	"enable-welcome-signup-step-desc": "مع خطوة مرحب بها، يمكن للأعضاء الجديد الخاص توفير الصورة الشخصية وكذلك دعوة أصدقائهم",
+
+	"enable-user-account-activation": "تمكين تفعيل حساب المستخدم",
+
+	"enable-user-account-activation-desc": "تمكين المستخدم يجب تفعيل الحساب هناك عن طريق البريد الالكتروني",
+
+	"enable-birthdate": "تمكين تاريخ الميلاد",
+
+	"share-message" : "هل تريد مشاركة هذا المنشور علي صحفتك ؟",
+
+	"share-response" : "تمت المشاركة بنجاح",
+
+	"enable-birthdate-desc": "مع هذا الخيار يمكنك تمكين ميزة تاريخ الميلاد والمناسبات",
+
+	"birthdate-minimum-age": "تاريخ الولادة الحد الأدنى للسن للتسجيل",
+
+	"birthdate-minimum-age-desc": "تعيين حد أدنى للسن المستخدم يجب أن لديهم للتسجيل، لتعطيل تعيين إلى صفر (0)",
+
+	"enable-login-trial": "تمكين تسجيل الدخول محاكمة الحد",
+
+	"enable-login-trial-desc": "مع هذه الإعدادات يمكنك تمكين الحد محاكمة تسجيل الدخول ويمكنك التحكم في الإعدادات أدناه",
+
+	"login-trial-limit": "تعيين تسجيل الدخول محاكمة الحد",
+
+	"login-trial-limit-desc": "تعيين عدد المرات أعضاء الخاص بك يمكن أن يحاول الدخول الي الانتظار",
+
+	"login-trial-wait-time": "مجموعة تسجيل الدخول محاكمة وقت الانتظار",
+
+	"media-settings-description": "إدارة الصور والفيديو وتحميل الملفات من قبل أعضاء الخاص بك ",
+
+	"maximum-upload-image-size": "الحد الأقصى لحجم تحميل الصور",
+
+	"maximum-upload-image-size-desc": "تعيين الحد الأقصى لحجم تحميل صورة عن طريق أعضاء الخاص بك، لإضافة مزيد من الحجم يرجى الاتصال بنا",
+
+	"enable-support-for-animated-image": "تمكين دعم للصور المتحركة",
+
+	"enable-support-for-animated-image-desc": "تمكين أو تعطيل دعم الصور المتحركة",
+
+	"enable-video-upload-support": "تمكين تحميل الفيديو دعم",
+
+	"enable-video-upload-support-desc": "تمكين أو تعطيل تحميل الفيديو من قبل أعضاء الخاص بك",
+
+	"maximum-upload-video-size": "الحد الأقصى لتحميل فيديو الحجم",
+
+	"maximum-upload-video-size-desc": "تعيين الحد الأقصى لحجم تحميل الفيديو من قبل أعضاء الخاص بك، لإضافة مزيد من الحجم يرجى الاتصال بنا",
+
+	"enable-file-attachment-upload": "تمكين تحميل المرفقات",
+
+	"enable-file-attachment-upload-desc": "تمكين أو تعطيل الملفات المرفقة تحميل من قبل أعضاء الخاص بك",
+
+	"maximum-file-attacment-upload-size": "الحد الأقصى لتحميل المرفق الحجم",
+
+	"maximum-file-attacment-upload-size-desc": "تعيين الحد الأقصى الملفات المرفقة تحميل حجم من قبل أعضاء الخاص بك، لإضافة مزيد من الحجم يرجى الاتصال بنا",
+
+	"install-new": "تثبيت جديد",
+
+	"manage-plugins": "إدارة الإضافات",
+
+	"activate": "فعل",
+
+	"delete": "حذف",
+
+	"update": "تحديث",
+
+	"by": "بواسطة",
+
+	"version": "الإصدار",
+
+	"send-me-notifications-when" : "يرسل الي التطبيق الاشعارات عندما ",
+
+	"visit-plugin-site": "زيارة موقع المساعد",
+
+	"plugins": "الإضافات",
+
+	"description": "الوصف",
+
+	"deactivate": "تعطيل",
+
+	"plugin-deactivated": ":name تم إلغاء تنشيط المساعد بنجاح",
+
+	"plugin-activated": ":name تم تفعيل البرنامج المساعد بنجاح",
+
+	"plugin-updated": ":name تم تحديث البرنامج المساعد بنجاح",
+
+	"plugin-settings-saved": ":name حفظ إعدادات البرنامج المساعد بنجاح",
+
+	"plugin-removed": ":name تمت إزالة المساعد بنجاح",
+
+	"install-new-plugin": "تثبيت البرنامج المساعد الجديد",
+
+	"install-plugin": "تثبيت البرنامج المساعد",
+
+	"are-you-sure": "هل أنت متأكد أنك تريد تنفيذ هذا الإجراء؟",
+
+	"yes": "نعم",
+
+	"no": "لا",
+
+	"account-status": "حالة الحساب",
+
+	"themes": "الموضوعات",
+
+	"frontend": "الواجهة الأمامية",
+
+	"backend": "الخلفية",
+
+	"mobile": "التليفون المحمول",
+
+	"active": "نشط",
+
+	"preview": "معاينة",
+
+	"name": "الاسم",
+
+	"author": "مؤلف",
+
+	"action": "إجراء",
+
+	"welcome": "أهلا بك",
+
+	"add-picture": "إضافة صورة",
+
+	"invite-friend": "دعوة الأصدقاء",
+
+	"add-people": "أضف أشخاصا",
+
+	"failed-to-upload-file": "فشل لتحميل الملف، حاول مرة أخرى",
+
+	"news-feed": "أخر الأخبار",
+
+	"messages": "رسائل",
+
+	"my-profile": "ملفي الشخصي",
+
+	"find-friends": "البحث عن أصدقاء",
+
+	"account-settings": "إعدادات الحساب",
+
+	"get-help": "الحصول على مساعدة",
+
+	"first_name": "الاسم الأول",
+
+	"last_name": "الاسم الاخير",
+
+	"profile-picture" : "الصورة الشخصية",
+
+	"change-picture" : "تغيير الصورة",
+
+	"feeling": "أشعر ب",
+
+	"eating": "أتناول طعام",
+
+	"drinking": "أتناول مشروب",
+
+	"exercising": "أتمرن",
+
+	"listening-to": "استمع إلى",
+
+	"reading": "أقرأ",
+
+	"meeting": "اجتمع ب",
+
+	"looking-for": "أبحث عن",
+
+	"watching": "اشاهد",
+
+	"in": "في",
+
+	"welcome-to-social": "مرحبا بكم في شبكتنا",
+
+	"header_email_template_title": "رأس",
+
+	"header_email_template_description": "وهذا يمكن أن تضاف إلى رسائل البريد الإلكتروني الأخرى باستخدام [رأس] نائبا",
+
+	"header_email_template_subject": "",
+
+	"header_email_template_message": "مرحبا",
+
+	"footer_email_template_title": "تذييل",
+
+	"footer_email_template_description": "وهذا يمكن أن تضاف إلى رسائل البريد الإلكتروني الأخرى باستخدام [تذييل] نائبا",
+
+	"footer_email_template_subject": "",
+
+	"footer_email_template_message": "",
+
+	"custom_field-category_1439649759_title": "هذا هو ",
+
+	"forgot-password_email_template_title": "هل نسيت كلمة المرور",
+
+	"forgot-password_email_template_description": "وقالب البريد الإلكتروني كلمة السر نسيت أرسل هذا عندما يرغب المستخدم إعادة تعيين كلمة المرور",
+
+	"forgot-password_email_template_subject": "إعادة تعيين كلمة المرور الخاصة بك",
+
+	"feed-comment-limit": "مجموعة علف تعليق لكل صفحة",
+
+	"feed-comment-limit-desc": "تعيين عدد من التعليقات لإظهار كل صفحة",
+
+	"allow-feed-editing": "السماح تغذية التحرير",
+
+	"allow-feed-editing-desc": "إذا كنت تريد تمكين أعضاء لديك خيار لتعديل مشاركاتك تغذيتهم",
+
+	"feed-limit": "تغذية حد لكل صفحة",
+
+	"feed-limit-desc": "تعيين عدد من الوظائف خلاصة للعرض في كل صفحة",
+
+	"video": "فيديو",
+
+	"image": "صورة",
+
+	"delete-post": "حذف المنشور",
+
+	"edit-post": "تعديل المنشور",
+
+	"edited": "تحرير",
+
+	"share-warning-message": "هل تريد حقا أن حصة هذا على الجدول الزمني الخاص بك؟",
+
+	"feed-success-shared": "تمت مشاركة آخر تغذية بنجاح على الجدول الزمني الخاص بك",
+
+	"enable-feed-text-limit": "تمكين تغذية حدود النص",
+
+	"enable-feed-text-limit-desc": "هل ترغب في الحد من النص المرسلة بواسطة أعضاء الخاص بك، يمكنك تمكين أو تعطيل هذه الميزة هنا",
+
+	"maximum-feed-text-limit": "مجموعة تغذية حدود النص",
+
+	"maximum-feed-text-limit-desc": "قمت بتعيين الحد النص في الأرقام على سبيل المثال 150200300 الخ",
+
+	"maximum-feed-text-display": "تعيين الحد الأقصى لتغذية النص المطلوب عرضه قبل أكثر زر",
+
+	"maximum-feed-text-display-desc": "تعيين عدد من الكلمات لعرضها في تغذية قبل أكثر زر",
+
+	"allow-feed-sharing": "تمكين مشاركة الأعلاف",
+
+	"allow-feed-sharing-desc": "الخيار لتمكين أو تعطيل تقاسم الأعلاف من قبل أعضاء الخاص بك",
+
+	"enable-feed-notifications": "تمكين إخطارات الأعلاف",
+
+	"enable-feed-subscribing-desc": "الخيار لتمكين إخطارات الأعلاف، وهذا المشترك السيارات الحصول على إشعارات حول تحديثات للتغذية مثل تعليق الخ",
+
+	"get-notifications": "الحصول على الاشعارات",
+
+	"notification-settings-info" : "تحكم في الاشعارات التي تأتي اليك",
+
+	"stop-notifications": "أوقف الإشعارات",
+
+	"share": "مشاركة",
+
+	"feed-successfully-posted": "وقد تم نشر حالتك بنجاح",
+
+	"can-tag-users": "مستخدمي البطاقات",
+
+	"can-upload-file": "تحميل الملفات",
+
+	"can-upload-photos": "تحميل الصور",
+
+	"can-upload-video": "تحميل فيديو",
+
+	"general-image-error": "فشل في تلتقط صورتك",
+
+	"user-roles": "أدوار المستخدمين",
+
+	"all": "جميع",
+
+	"menu": "قائمة الطعام",
+
+	"admin": "المشرف",
+
+	"moderator": "وسيط",
+
+	"editor": "محرر",
+
+	"add-you-as-admin" : "قام باضافتك كمدير",
+
+	"posted-in-group" : "قام بالنشر في مجموعة",
+
+	"public": "عام",
+
+	"private": "خاص",
+
+	"no-feeds-found" : "لا توجد منشورات للعرض",
+
+	"email-templates-desc": "يتم إرسال إشعارات بالبريد الإلكتروني للمستخدمين أثناء انخراطها في جوانب مختلفة من المجتمع، مع هذا النموذج يمكنك تخصيص رسائل البريد الإلكتروني",
+
+	"email-hash-expire-time": "البريد الإلكتروني تجزئة تنتهي الوقت",
+
+	"registration": "التسجيل",
+
+	"registration-settings-description": "خيارات للسيطرة على الاشتراك الخاص بك عضوا في الشبكة",
+
+	"account-completion": "الانتهاء الحساب",
+
+	"add-display-picture": "إضافة صور العرض",
+
+	"add-birth-date": "إضافة تاريخ الميلاد",
+
+	"add-friends": "اضف اصدقاء",
+
+	"edit-profile-details": "تعديل تفاصيل الملف",
+
+	"add-cover-photo": "إضافة صورة الغلاف",
+
+	"general-settings": "الإعدادات العامة",
+
+	"update-password": "تحديث كلمة المرور",
+
+	"notification-settings": "إعدادات الإخطارات",
+
+	"privacy-settings": "إعدادات الخصوصية",
+
+	"privacy-settings-info" : "تحكم في من يمكنه رؤية صفحتك الشخصية ... الخ",
+
+	"login": "تسجيل الدخول",
+
+	"signup-activation-success": "شكرا لاشتراك في الشبكة الاجتماعية لدينا، وقد تم إرسال البريد الإلكتروني تأكيد إلى عنوان البريد الإلكتروني الذي قدم",
+
+	"join-network": "انضم إلى شبكتنا",
+
+	"reset-password": "اعادة تعيين كلمة السر",
+
+	"password" : "كلمة المرور",
+
+	"day": "يوم",
+
+	"month": "شهر",
+
+	"year": "سنة",
+
+	"confirm-default-message": "هل أنت متأكد أنك تريد تنفيذ هذا الإجراء",
+
+	"cancel": "إلغاء",
+
+	"user-profile-card": "الملف الشخصي للمستخدم بطاقة",
+
+	"user-permissions": "ضوابط العضو",
+
+	"successfully-done": "تم بنجاح",
+
+	"cancel-friend-request" : "هل تريد الغاء طلب الصداقة ؟",
+
+	"user-role-error": "فشل لإضافة دور المستخدم، ربما كان موجودا بالفعل",
+
+	"level-title": "مستوى العنوان",
+
+	"access-admin": "وصول المشرف",
+
+	"actions": "تطبيقات",
+
+	"add-new-role": "إضافة دور جديد",
+
+	"permissions": "ضوابط",
+
+	"save-role": "حفظ دور",
+
+	"save-group" : "حفظ المجموعة",
+
+	"custom_field-category_1447632024_title": "موقع",
+
+	"custom_field-category_1447632047_title": "الهوايات",
+
+	"custom_field-category_1447632076_title": "روابط الاجتماعية",
+
+	"albums": "ألبومات",
+
+	"photos": "الصور",
+
+	"photo-manager": "مدير الصور",
+
+	"photo_category_1447963248_title": "حيوان",
+
+	"photo_category_1447963248_description": "صور الحيوانات",
+
+	"photo_category_1447963652_title": "الأنيق",
+
+	"photo_category_1447963652_description": "أنيقة صور",
+
+	"relationship-setting-description": "علاقة السيطرة بين أعضاء الخاص بك مع الطريقة الصحيحة إما متابعة، نظام صديق أو كليهما الخ",
+
+	"relationship-method": "الطريقة العلاقة",
+
+	"relationship-method-desc": "اختر طريقة علاقة لأعضائك",
+
+	"follow-system": "اتبع النظام",
+
+	"friend-system": "صديق النظام",
+
+	"friend-follow-system": "صديق مع نظام المتابعة",
+
+	"friendship-verification": "التأكيد الصداقة",
+
+	"verify-friendship": "تحقق من الصداقة",
+
+	"unverify-friendship": "سجل إثبات ملكية الصداقة",
+
+	"follow": "متابعة",
+
+	"unfollow": "أشخاص تتابعهم",
+
+	"add-friend": "اضف صديق",
+
+	"friends": "الاصدقاء",
+
+	"request-sent": "تم ارسال الطلب",
+
+	"friend-cancel-warning": "هل أنت متأكد أنك تريد إلغاء طلب صداقة؟",
+
+	"friend-remove-warning": "هل تريد حقا أن تحذف من قائمة صديقك؟",
+
+	"respond-to-friend-requests": "الرد على طلبات الصداقة",
+
+	"delete-request": "حذف طلب",
+
+	"confirm": "تأكيد",
+
+	"no-friend-requests": "لا توجد طلبات صداقة",
+
+	"friend-requests": "طلبات الصداقة",
+
+	"respond-to-request": "الرد على طلب",
+
+	"see-all-friend-request": "الاطلاع على كل طلبات صديق",
+
+	"people-suggestion": "أشخاص قد تعرفهم",
+
+	"people-suggestion-limit": "كم من الناس لمشاهدة",
+
+	"people-suggestion-limit-desc": "تعيين عدد من الناس لتظهر في القطعة",
+
+	"recently-became-friend-with": "أصبحت في الآونة الأخيرة مع صديق ",
+
+	"follow-you_email_template_title": "جديد أتباع البريد الإلكتروني",
+
+	"follow-you_email_template_description": "هذا هو موضع ترحيب قالب البريد الإلكتروني عندما أرسلت مستخدم الحصول على أتباع جديدة",
+
+	"follow-you_email_template_message": "<P> [رأس] لديك أتباع جدد من [تابعا اسم] في [-عنوان الموقع] [LOGIN_LINK] ادخل لترى folllowers الجديدة [تذييل] </ P>",
+
+	"emoticons": "الرموز الانفعالية",
+
+	"add-emoticons": "إضافة التعبيرية",
+
+	"manage-emoticons": "إدارة المشاعر",
+
+	"emoticon": "التعبيرات",
+
+	"sticker": "ملصقا",
+
+	"stickers": "ملصقات",
+
+	"edit-emoticon": "تحرير التعبيرات",
+
+	"save-emoticon": "حفظ التعبيرات",
+
+	"search-emoticons": "المشاعر البحث",
+
+	"custom_field_1451264296_title": "رابط الموقع",
+
+	"custom_field_1451264296_description": "ما هو رابط موقعك",
+
+	"create-group": "إنشاء مجموعة",
+
+	"manage-groups": "إدارة المجموعات",
+
+	"custom_field-category_1451414312_title": "الاختبار فقط",
+
+	"ads-manager": "إعلانات مدير",
+
+	"ads": "الإعلانات",
+
+	"create-ads": "إنشاء الإعلانات",
+
+	"ads-plan": "الإعلانات خطط",
+
+	"page_category_1451480396_title": "الماس",
+
+	"page_category_1451480396_description": "مع هذه الخطة يمكنك إنشاء حركة جيدة لموقعك",
+
+	"page_category_1451480465_title": "الماس",
+
+	"page_category_1451480465_description": "مع هذه الخطة يمكنك إنشاء حركة جيدة لموقعك",
+
+	"ads_plan_1451480559_title": "الماس",
+
+	"ads_plan_1451480559_description": "مع هذه الخطة يمكنك إنشاء حركة جيدة لموقعك",
+
+	"ads_plan_1451480577_title": "الماس",
+
+	"ads_plan_1451480577_description": "مع هذه الخطة يمكنك إنشاء حركة جيدة لموقعك",
+
+	"ads_plan_1451480671_title": "الماس تغيير",
+
+	"ads_plan_1451480671_description": "مع هذه الخطة يمكنك إنشاء حركة جيدة لموقعك",
+
+	"ads_plan_1451482272_title": "ذهب",
+
+	"ads_plan_1451482272_description": "الذهب هو لالمعلمون في الإعلان",
+
+	"ads_plan_1451489254_title": "Diasjaldjalskdj",
+
+	"ads_plan_1451489254_description": "هذا هو الوصف الثاني",
+
+	"validation-username": "ال :attribute الوجود الميداني بالفعل",
+
+	"to-our-network": "لشبكتنا",
+
+	"welcome-note": "تواصل مع أصدقائك. اكتشاف أشخاص جدد وتكوين صداقات جديدة واجتماعيا. البقاء على اتصال مع أصدقائك، والدردشة، أذكر الخ ",
+
+	"signup-for-account": "الاشتراك في حساب",
+
+	"username-email-address": "اسم المستخدم / عنوان البريد الإلكتروني",
+
+	"forgot": "نسيت؟",
+
+	"your-password": "كلمة السر خاصتك",
+
+	"sign-in": "تسجيل الدخول",
+
+	"remember-me": "تذكرنى",
+
+	"ok" : "موافق",
+
+	"login-with-facebook": "تسجيل الدخول باستخدام الفيسبوك",
+
+	"login-with-twitter": "تسجيل الدخول عبر تويتر",
+
+	"latest-members": "أحدث الأعضاء",
+
+	"copyright": "حقوق التأليف والنشر © 2015",
+
+	"all-right-reserved": "جميع الحقوق محفوظة.",
+
+	"powered-by": "مدعوم من",
+
+	"languages": "لغة:",
+
+	"forgot-password": "هل نسيت كلمة المرور؟",
+
+	"your-email-address": "عنوان بريدك الإلكتروني",
+
+	"request-new-password": "طلب كلمة مرور جديدة",
+
+	"link-has-expired": "هذا الرابط الذي يليه قد انتهت صلاحيتها",
+
+	"your-first-name": "الاسم الأول",
+
+	"your-last-name": "اسمك الاخير",
+
+	"choose-username": "اختر اسم المستخدم",
+
+	"choose-password": "اختيار كلمة المرور",
+
+	"select-country": "اختر الدولة",
+
+	"enter-text-below": "إدخال النص أدناه ...",
+
+	"signup": "سجل",
+
+	"date-of-birth": "تاريخ الميلاد",
+
+	"explore": "إستكشاف",
+
+	"logout": "تسجيل خروج",
+
+	"account-menu": "القائمة حساب",
+
+	"change-your-password": "تغيير كلمة المرور",
+
+	"notifications": "الإشعارات",
+
+	"privacy": "الخصوصية",
+
+	"first-name": "الاسم الأول",
+
+	"last-name": "الاسم الاخير",
+
+	"gender": "جنس",
+
+	"bio": "السيرة الذاتية",
+
+	"change-language": "غير اللغة",
+
+	"select-language": "اختار اللغة",
+
+	"change-photo": "تغيير صور",
+
+	"select-image": "اختر صورة",
+
+	"male": "ذكر",
+
+	"female": "أنثى",
+
+	"change-password-info": "لتغيير كلمه المرور الخاصه بك , اكتب كلمه المرور القديمه واختار كلمه مرور جديده",
+
+	"current-password": "كلمة السر الحالية",
+
+	"new-password": "كلمة السر الجديدة",
+
+	"confirm-new-password": "تأكيد كلمة السر الجديدة",
+
+	"change": "تغيير",
+
+	"site-notifications": "موقع الإخطارات",
+
+	"email-notifications": "ارسال الاشعارات الى البريد الالكترونى",
+
+	"save-details": "حفظ تفاصيل",
+
+	"profile": "الملف الشخصي",
+
+	"edit-profile": "تعديل الملف الشخصي",
+
+	"videos": "أفلام الفيديو",
+
+	"find-people": "ايجاد الناس",
+
+	"no-post-show": "لا يوجد ردود لعرض",
+
+	"where-are-you": "أين أنت؟",
+
+	"photos-selected": "صور (ة) المختارة",
+
+	"video-selected": "اختيار الفيديو",
+
+	"files-selected": "ملفات مختارة",
+
+	"tag-people-in-post": "العلامة الناس في مشاركتك",
+
+	"load-more": "حمل أكثر",
+
+	"other-people": "أشخاص آخرين",
+
+	"view-previous-comments": "عرض التعليقات السابقة",
+
+	"reply": "رد",
+
+	"view-previous-replies": "البحث عن ردود السابقة",
+
+	"download-file": "تحميل الملف",
+
+	"no-people-found": "لا وجدوا أن",
+
+	"no-new-notifications": "لا توجد إشعارات جديدة",
+
+	"changed-profile-picture": "تحديث صورة صفحته الشخصية",
+
+	"changed-profile-cover": "تم تغيير الغلاف الشخصى",
+
+	"home": "الصفحة الرئيسية",
+
+	"discover": "اكتشف",
+
+	"core-plugins": "الإضافات الأساسية",
+
+	"unknown-error": "حدث خطأ، يرجى المحاولة مرة أخرى",
+
+	"view-more": "عرض المزيد",
+
+	"static-pagers": "صفحات ثابتة",
+
+	"manage-static-pages": "إدارة الصفحات الثابتة",
+
+	"password-match-error": "باءت بالفشل! يرجى التأكد من تطابق كلمات المرور",
+
+	"password-reset-request-sent": "أرسلت طلب كلمة المرور بنجاح. تحقق من بريدك الالكتروني للتحقق من طلبك.",
+
+	"password-reset-error": "كنت قد قدمت عنوان بريد إلكتروني غير صالح، حاول مرة أخرى",
+
+	"invalid-captcha-code": "كود الكابتشا غير صالح",
+
+	"save-continue": "حفظ ومتابعة",
+
+	"skip": "تخطى",
+
+	"add-picture-note": "السماح لأصدقائك تجد لك بسهولة عن طريق تغيير مظهرك",
+
+	"choose-photo": "اختيار صور",
+
+	"what-about-you": "ماذا عنك؟",
+
+	"save-country": "حفظ البلاد",
+
+	"choose-message": "اختيار رسالة",
+
+	"language-pack": "حزمة اللغة",
+
+	"placeholders": "النائبة",
+
+	"subject": "الموضوع",
+
+	"message-body": "نص الرسالة",
+
+	"save-changes": "حفظ التغيرات",
+
+	"everyone": "كل شخص",
+
+	"friends-followers": "الأصدقاء أو المتابعون",
+
+	"default-profile-privacy": "العضو افتراضي الخصوصية",
+
+	"default-profile-privacy-desc": "تعيين خصوصية الوضع الافتراضي للمستخدمين",
+
+	"who-can-see-profile": "من يمكنه رؤية صفحتك الشخصية ؟",
+
+	"who-can-see-profile-desc": "تعيين الأشخاص الذين يمكنهم عرض ملف التعريف الخاص بك زمني والصور والفيديو وغيرها",
+
+	"turn-on-friend-requests": "بدوره على طلبات الصداقة",
+
+	"who-can-post-profile": "من يستطيع النشر علي صحفتك الشخصية ؟",
+
+	"who-can-post-profile-desc": "تعيين الذين يمكن إضافة وقتك على الانترنت",
+
+	"default-birthdate-privacy": "افتراضي تاريخ الميلاد الخصوصية",
+
+	"default-birthdate-privacy-desc": "تعيين الافتراضي تاريخ الميلاد الخصوصية",
+
+	"who-can-see-birthdate": "من يمكنه رؤية تاريخ ميلادك ؟",
+
+	"who-can-see-birthdate-desc": "مجموعة من يمكنه رؤية تاريخ ميلادك في ملفك الشخصي",
+
+	"followers-only": "المتابعون فقط",
+
+	"see-all-results": "عرض كل النتائج",
+
+	"something-went-wrong-error": "حدث خطأ، يرجى المحاولة مرة أخرى",
+
+	"undo": "فك",
+
+	"drag-to-position-cover": "اسحب لتغطية الموقف",
+
+	"change-cover": "تغيير الغلاف",
+
+	"upload-photo": "حمل الصورة",
+
+	"reposition": "إعادة",
+
+	"profile-is-private": "هذا الملف هو خاص، لا يسمح لمشاهدته.",
+
+	"block-user-warning": "هل أنت متأكد أنك تريد منع المستخدم، والتي لم تعد ترى أي شيء من هذا المستخدم؟",
+
+	"blocked-members": "الأعضاء المحظورين",
+
+	"no-members-to-display": "لا يوجد أعضاء لعرض هنا",
+
+	"unblock": "رفع الحظر",
+
+	"block" : "حظر",
+
+	"search-here" : "ابحث هنا ...",
+
+	"block-user": "حظر المستخدم",
+
+	"remove-friend" : "حذف الصديق",
+
+	"report-profile": "الملف التقرير",
+
+	"symbol": "رمز",
+
+	"for-example": "على سبيل المثال",
+
+	"icon": "رمز",
+
+	"dimensions": "أبعاد",
+
+	"width": "العرض",
+
+	"height": "ارتفاع",
+
+	"category": "فئة",
+
+	"remove": "إزالة",
+
+	"change-icon": "تغيير أيقونة",
+
+	"message": "الرسالة",
+
+	"ajax-long-polling": "اياكس الاقتراع طويل",
+
+	"pusher-driver": "سائق تاجر مخدرات",
+
+	"pusher-driver-desc": "ضبط سائق انتهازي المفضلة ",
+
+	"ajax-polling-interval": "اياكس الاقتراع تحقق الفاصل",
+
+	"ajax-polling-interval-desc": "تعيين اياكس الاقتراع التحقق في الوقت الفاصل، يرجى مطلوب هذا الإعداد لاياكس الاقتراع طويلة سائق تاجر مخدرات",
+
+	"seconds": "ثواني",
+
+	"minute": "دقيقة",
+
+	"successfully-uploaded" : "تم الرفع بنجاح",
+
+	"people": "الناس",
+
+	"see-all": "رؤية جميع",
+
+	"no-body": "لا أحد",
+
+	"list-limit": "قوائم حد",
+
+	"list-limit-desc": "ضبط عدد من العناصر لعرضه",
+
+	"profile-fields": "حقول الملف الشخصي",
+
+	"user-fields": "الحقول المستخدم",
+
+	"members": "أعضاء",
+
+	"add-member": "إضافة الأعضاء",
+
+	"manage-members": "إدارة الأعضاء",
+
+	"manage-members-desc": "إدارة الأعضاء، تحرير، حذف الخ وتصفية أيضا مع غير نشط، الأعضاء النشطين، المحظورة أو التحقق منها",
+
+	"active-members": "الأعضاء النشطين",
+
+	"non-active": "غير نشط",
+
+	"banned": "حظرت",
+
+	"verified": "التحقق",
+
+	"country": "بلد",
+
+	"avatar": "الصورة الرمزية",
+
+	"username": "اسم االمستخدم",
+
+	"email-address": "عنوان البريد الإلكتروني",
+
+	"activated": "تنشيط",
+
+	"activate-account": "فعل حسابك",
+
+	"resend-activation-link": "إعادة إرسال رابط التفعيل",
+
+	"failed-to-send-activation-link": "فشل في إرسال رابط التفعيل، يرجى التحقق من عنوان البريد الإلكتروني الذي قدم",
+
+	"add-auto-follow-accounts": "إضافة حسابات متابعة السيارات",
+
+	"add-auto-follow-accounts-desc": "إضافة حسابات متابعة السيارات للأعضاء الجدد باستخدام اسم المستخدم الخاص بهم فصل مع فاصلة (،)",
+
+	"payments": "بوابة الدفع",
+
+	"payments-settings-description": "انشاء بوابة الدفع المتاحة واستخدام العملة الافتراضية ",
+
+	"default-currency-desc": "حدد العملة المفضلة ونلاحظ أنه ليست كل الدعم بوابة الدفع هو",
+
+	"default-currency": "افتراضي العملات",
+
+	"enable-paypal": "تمكين باي بال بوابة الدفع",
+
+	"enable-paypal-desc": "مع هذا الخيار يمكنك تمكين أو تعطيل خيارات الدفع باي بال لأعضائك",
+
+	"paypal-corporate-email": "باي بال بوابة عنوان البريد الإلكتروني للشركات",
+
+	"paypal-corporate-email-desc": "مجموعة بوابة الدفع باي بال عنوان البريد الإلكتروني للشركات",
+
+	"paypal-notification-email": "باي بال عنوان العبارة إشعار البريد الإلكتروني",
+
+	"paypal-notification-email-desc": "تعيين باي بال بوابة إعلام عنوان البريد الإلكتروني",
+
+	"enable-stripe": "تمكين الشريط بوابة الدفع",
+
+	"enable-stripe-desc": "مع هذا الخيار يمكنك تمكين أو تعطيل خيارات الدفع شريط لأعضائك",
+
+	"stripe-secret-key": "شريط سر مفتاح",
+
+	"stripe-secret-key-desc": "تعيين مفتاح سري شريط بك",
+
+	"stripe-publishable-key": "شريط للنشر مفتاح",
+
+	"stripe-publishable-key-desc": "وضع شريط مفتاح للنشر الخاص بك",
+
+	"enable-paypal-sandbox-desc": "مع هذا الخيار يمكنك تمكين أو تعطيل رمل باي بال للدفع اختبار وهمية",
+
+	"enable-paypal-sandbox": "تمكين باي بال رمل",
+
+	"go-to-admincp": "انتقل إلى لوحة تحكم المنتدى",
+
+	"customize": "تخصيص",
+
+	"customize-theme": "تخصيص موضوع",
+
+	"direction": "اتجاه",
+
+	"choose-file": "اختر ملف",
+
+	"import-language": "استيراد اللغة",
+
+	"export-language-pack": "تصدير حزمة اللغة",
+
+	"manage-language-phrases": "إدارة اللغة جمل",
+
+	"edit-language-pack": "تحرير حزمة اللغة",
+
+	"add-plan": "إضافة خطة",
+
+	"plan-quantity-desc": "إعطاء خطتك كمية التي يجب أن تصل قبل إعلان وقف تظهر مثل 20 نقرات أو 1000 الانطباع وقف الإعلانات من الظهور",
+
+	"plan-type": "نوع الخطة",
+
+	"clicks": "نقرات",
+
+	"impression": "الانطباع",
+
+	"plan-name": "اسم الخطة",
+
+	"plan-description": "خطة الوصف",
+
+	"plan-price": "خطة الأسعار",
+
+	"plan-quantity": "خطة الكمية",
+
+	"edit-plan": "تحرير خطة",
+
+	"save-plan": "حفظ خطة",
+
+	"ads-setting-description": "التحكم في إعدادات الإعلانات المساعد حق من هنا",
+
+	"manage-ads": "إدارة الإعلانات",
+
+	"select-plan": "حدد خطة",
+
+	"campaign-name": "اسم الحملة",
+
+	"where-member-should-go": "حيث يجب أن تذهب إلى عضو عند النقر الاعلانات؟",
+
+	"select-page": "اختر الصفحة",
+
+	"my-website": "موقعي",
+
+	"add-catchy-headline": "إضافة جذاب العنوان والصورة ووصف",
+
+	"give-headline": "تعطي عنوانا",
+
+	"give-description": "تعطي وصفا",
+
+	"bid-type": "المزايدة النوع",
+
+	"cost-per-click": "تكلفة النقرة (CPC)",
+
+	"cost-per-impression": "التكلفة لكل ظهور (CPM)",
+
+	"bid-plan": "خطة المزايدة",
+
+	"horizontal": "أفقي",
+
+	"vertical": "عمودي",
+
+	"target-audience": "الجمهور المستهدف",
+
+	"all-countries": "كل البلدان",
+
+	"save-activate": "حفظ وتنشيط",
+
+	"save-ads": "حفظ الإعلانات",
+
+	"ads-create-default-error": "حدث خطأ في إنشاء الإعلان، حاول مرة أخرى ..",
+
+	"ads-created-success": "تم إنشاء إعلاناتك بنجاح",
+
+	"campaigns": "الحملات",
+
+	"plan": "خطة",
+
+	"usage": "استعمال",
+
+	"impressions": "انطباعات",
+
+	"paid": "دفع",
+
+	"status": "الحالة",
+
+	"edit-ads": "تحرير الإعلانات",
+
+	"transaction-details": "تفاصيل الصفقه",
+
+	"activate-ads": "تنشيط الإعلانات",
+
+	"amount": "كمية",
+
+	"ads-payment-cancel": "تم إلغاء دفع للإعلانات المحدد، يمكنك المحاولة مرة أخرى من خلال الذهاب الى ",
+
+	"ads-payment-success": "شكرا لجعل الدفع، تم الدفع بنجاح، قريبا سيتم تفعيل إعلاناتك",
+
+	"creator": "الخالق",
+
+	"inactive": "غير نشط",
+
+	"refresh-ad-quantity": "تحديث الإعلان الكمية",
+
+	"ads-save-success": "تم حفظ إعلاناتك بنجاح",
+
+	"ads-image-not-found": "تقديم صورة لإعلاناتك",
+
+	"ads-type": "إعلانات النوع",
+
+	"ads-type-description": "تحديد نوع الإعلانات للعرض",
+
+	"page": "صفحة",
+
+	"website": "موقع الكتروني",
+
+	"side-ads-block": "إعلانات الجانب بلوك",
+
+	"sponsored": "برعاية",
+
+	"enable-post-inline-ads": "تمكين الإعلانات في كل قوائم",
+
+	"enable-post-inline-ads-desc": "مع هذا الخيار يمكنك تمكين عرض الإعلانات في وظائف أو الأعلاف",
+
+	"render-ads-after-post-number": "تقديم الإعلانات بعد عدد آخر",
+
+	"render-ads-after-post-number-desc": "تعيين عدد من الوظائف ليكون العرض قبل تقديم أي إعلانات",
+
+	"ads-quantity-deduction-per-click": "كمية خصم لكل النقرات",
+
+	"ads-quantity-deduction-per-click-desc": "المبلغ المحدد للخطة كمية لإزالة النقرات على الإعلانات المستخدم",
+
+	"ads-quantity-deduction-per-impression": "كمية خصم لكل الانطباعات",
+
+	"ads-quantity-deduction-per-impression-desc": "المبلغ المحدد للخطة الكمية خصم على جعل كل الانطباعات على الإعلانات",
+
+	"new-message": "رسالة جديدة",
+
+	"who-can-send-message": "من يمكنه ارسال رسالة شخصية لك ؟",
+
+	"who-can-see-latest-profile-visitors" : "من يمكنه رؤية اخر زوار لصفحتك الشخصية ؟",
+
+	"default-send-message-privacy": "ضبط رسالة إرسال الخصوصية",
+
+	"default-send-message-privacy-desc": "تعيين الخصوصية الافتراضية لمن يمكن للمستخدم رسائل الدردشة",
+
+	"who-can-see-send-message-desc": "تعيين الأشخاص الذين يمكنهم إرسال رسائل إليك من خلال التعريف الخاص بك أو الدردشة",
+
+	"sending": "إرسال....",
+
+	"write-a-message": "اكتب رسالة..",
+
+	"chat": "دردشة",
+
+	"online": "عبر الانترنت",
+
+	"busy": "مشغول",
+
+	"invisible": "خفي",
+
+	"groups": "المجموعات",
+
+	"groups-member" : "المجموعات المشترك بها",
+
+	"search-friends": "ابحث عن أصدقاء",
+
+	"no-friends-online": "ليس صديقا غير متواجد",
+
+	"conversations": "المحادثات",
+
+	"to": "إلى",
+
+	"type-a-friend-name": "إدخال اسم صديق",
+
+	"delete-conversation": "حذف المحادثة",
+
+	"send": "إرسال",
+
+	"press-enter-to-send": "دخول الصحافة لإرسال",
+
+	"write-comment": "أكتب تعليقا....",
+
+	"comment-inserted-successfully": "لقد تم اضافة تعليقك بنجاح",
+
+	"comment-setting-description": "إدارة إعدادات تعليق البرنامج المساعد، وتمكين أو تعطيل الردود في التعليق، وتعيين عدد من الردود على عرض في وقت الخ",
+
+	"enable-comment-replies": "تمكين تعليق الردود",
+
+	"enable-comment-replies-desc": "مع هذا الخيار يمكنك تمكين أو تعطيل الردود في تعليق",
+
+	"comment-replies-limit": "تعليق مشاركات الحد",
+
+	"comment-replies-limit-desc": "تعيين عدد من الردود على عرض في وقت واحد",
+
+	"like-your-comment": "أحب تعليقك",
+
+	"dislike-your-comment": "كره تعليقك",
+
+	"whats-happening": "بماذا تفكر؟",
+
+	"view-post": "رؤية المنشور",
+
+	"like-your-post": "أحب رسالتك",
+
+	"dislike-your-post": "كره رسالتك",
+
+	"make-comment-on-your-post": "قام بالتعليق على منشورك",
+
+	"comment-on-his-post": "علق على :ad بعد",
+
+	"comment-on-post": "علق على :name بعد",
+
+	"replied-to-your-comment": "رد على هذا التعليق",
+
+	"shared-your-post": "شارك منشورك",
+
+	"tag-you-in-post": "باسمك في هذا المنصب",
+
+	"profile-visitors" : "زوار الصفحة الشخصية",
+
+	"retrieving-link-details": "استرجاع تفاصيل الرابط",
+
+	"latest-profile-visitors" : "أحدث زوار الصفحة الشخصية",
+
+	"feed-no-longer-show": "وهذه الوظيفة لم تعد تظهر لك.",
+
+	"see-less-post-like-this": "انظر آخر أقل مثل هذا",
+
+	"hide-this-post": "إخفاء هذا المنصب",
+
+	"feed-page": "تغذية الصفحة",
+
+	"posted-on-timeline": "نشر على الحائط الخاص بك",
+
+	"feed-real-time-update": "تمكين الخلاصات الحقيقي تحديث",
+
+	"feed-real-time-update-desc": "مع التحديث تغذية في الوقت الحقيقي، على كل إخطار الصفحة حول يغذي جديدة من الأصدقاء هي عرض أو loading..etc",
+
+	"feed-real-time-update-interval": "إطعام الوقت الحقيقي الفاصل الزمني للتحديث",
+
+	"feed-real-time-update-interval-desc": "تعيين فترة من الزمن لتغذية التحديثات في الوقت الحقيقي إذا تمكين أعلاه",
+
+	"new-feeds": "تغذيات جديدة",
+
+	"failed-to-post": "فشل إلى آخر، يرجى المحاولة مرة أخرى ..",
+
+	"getstarted": "بدء",
+
+	"enable-getstarted": "خطوات تمكين تبدأ",
+
+	"enable-getstarted-desc": "تمكين احصل على الخطوات التي بعد الاشتراك لأعضاء لإكمال البيانات الشخصية الخاصة بهم",
+
+	"group-title": "عنوان المجموعة",
+
+	"group-name": "اسم المجموعة",
+
+	"group-name-desc": "اسم المجموعة تظهر في عنوان الموقع مجموعة",
+
+	"posts": "المشاركات",
+
+	"comment" :"تعليق",
+
+	"join-group": "إنضم للمجموعة",
+
+	"leave-group": "غادر المجموعة",
+
+	"group-public-note": "يمكن لأي شخص رؤية المجموعة وأعضائها وظائفهم.",
+
+	"group-private-note": "أعضاء فقط يمكن العثور على مجموعة ويرى المشاركات.",
+
+	"group-who-can-post": "من يستطيع الرد على هذه المجموعة؟",
+
+	"moderators-admins": "المشرفين والمسؤولين",
+
+	"admins": "مدراء",
+
+	"group-who-can-add-member": "من يمكنه اضافة أعضاء الي هذه المجموعة",
+
+	"discussion": "نقاش",
+
+	"group-members": "أعضاء المجموعة",
+
+	"member": "الأعضاء",
+
+	"made-you-moderator-of": "جعلك مشرف ",
+
+	"add-member-to-group": "أضف عضو إلى المجموعة",
+
+	"is-already-group-member": "المستخدم المحدد هو بالفعل عضو في هذه المجموعة",
+
+	"member-added-successfully": "وأضاف عضو بنجاح",
+
+	"invited-you-to-event" : "دعاك الي الحدث",
+
+	"added-you-to-group": "اضافك الى هذه المجموعة",
+
+	"added" : "تمت الاضافة",
+
+	"Marketing" : "تسويق",
+
+	"recommended": "موصى به",
+
+	"yours": "خاصة بك",
+
+	"no-groups-found": "لم يتم العثور على مجموعات. يمكنك إنشاء لك",
+
+	"group-profile": "الملف المجموعة",
+
+	"group-suggestions": "اقتراحات المجموعة",
+
+	"suggestions" : "أشخاص قد تعرفهم",
+
+	"group-setting-description": "إدارة إعدادات مجموعة هنا",
+
+	"enable-group-posts-in-timeline": "تمكين المجموعة المشاركات في أخرالأخبار ",
+
+	"enable-group-posts-in-timeline-desc": "تمكين أو تعطيل عرض المشاركات المجموعة في أخبار الصفحة تغذية أعضائك",
+
+	"discover-hashtag": "اكتشاف تتجه المشاركات مع #hashtags",
+
+	"trending-hashtags": "تتجه #hashtags",
+
+	"trending-hashtag-limit": "تعيين عدد من الإمالة #hashtags لعرضه",
+
+	"trending-hashtag-limit-desc": "ضبط عدد تتجه #hashtags لعرضه",
+
+	"trending": "الشائع",
+
+	"like": "أعجبنى",
+
+	"dislike": "لم يعجبنى",
+
+	"like-setting-description": "إدارة مثل الإضافات الإعدادات من هنا، يمكنك تعطيل / تمكين خيارات كراهية الخ",
+
+	"enable-dislike-desc": "مع هذا الخيار يمكنك تمكين أو تعطيل استخدام ميزة كراهية مثل المساعد",
+
+	"enable-dislike": "تمكين غير معجب",
+
+	"people-who-dislikes": "الناس الذين لا يروق هذا",
+
+	"people-who-likes": "الناس الذي يحب هذا",
+
+	"people-like-this": "الأشخاص الذين أعجبوا بالصفحة",
+
+	"enable-dislike-notification": "إعلام لا يروق لك",
+
+	"enable-dislike-notification-desc": "مع هذا الخيار يمكنك تعيين إذا كنت تريد أعضاء الخاص بك لتلقي الإخطارات كراهية وعندما تمكن عضو لديك الخيار في إعدادات الخصوصية لتعطيله",
+
+	"mention-you-in-post": "قام بذكرك فى تعليق",
+
+	"see-all-notifications": "رؤية جميع الإشعارات",
+
+	"mark-as-read": "علامة مقروء",
+
+	"read": "اقرأ",
+
+	"made-you-moderator" : "جعلك مشرف",
+
+	"add-you-as" : "جعلك",
+
+	"send-site-notification-when": "أرسل لي الإخطارات الموقع عندما",
+
+	"someone-started-following-you": "قام شخص بمتابعتك",
+
+	"you-are-mentioned": "تمت الإشارة إليك فى المنشور",
+
+	"you-are-tagged": "اشار اليك فى منشور",
+
+	"comment-on-your-post": "قام شخص بالتعليق على مشاركتك",
+
+	"reply-on-your-comment": "قام شخص بالرد على تعليقك",
+
+	"like-your-item": "اعجب شخص بمشاركاتك",
+
+	"share-your-item": "قام شخص بمشاركة منشوراتك",
+
+	"dislike-your-item": "لم يعجبني مشاركاتك والصور .....إلخ",
+
+	"send-email-notification-when": "أرسل لي صديق عندما الإخطارات",
+
+	"page-manager": "مدير الصفحة",
+
+	"lists": "قوائم",
+
+	"manage-categories": "إدارة الفئات",
+
+	"add-sub-category": "إضافة التصنيف الفرعي",
+
+	"category-desc": "الفئة الوصف",
+
+	"edit-category": "تحرير الفئة",
+
+	"pages": "الصفحات",
+
+	"page-i-like": "صفحات أنا أحب",
+
+	"my-pages": "صفحاتي",
+
+	"create": "انشاء",
+
+	"friends-only" : "الاصدقاء فقط",
+
+	"only-me" : "انا فقط",
+
+	"create-a-page": "إصنع صفحة",
+
+	"page-categories": "الصفحة الفئات",
+
+	"create-page": "انشئ صفحة",
+
+	"timeline": "صفحة المشاركات",
+
+	"likes": "اعجابات",
+
+	"select-category": "اختر الفئة",
+
+	"page-name": "اسم الصفحة",
+
+	"page-description": "الصفحة الوصف",
+
+	"page-roles": "الأدوار الصفحة",
+
+	"page-successfully-saved": "وقد حفظ المعلومات الصفحة بنجاح",
+
+	"page-information": "معلومات الصفحة",
+
+	"add-role": "إضافة دور:",
+
+	"save-roles": "حفظ الأدوار",
+
+	"manage-pages": "إدارة الصفحات",
+
+	"page-url": "URL الصفحة",
+
+	"url" : "الرابط",
+
+	"go-back-page": "العودة إلى الصفحة",
+
+	"page-invite-friends": "الصفحة دعوة الأصدقاء",
+
+	"page-profile": "الملف الشخصي ل",
+
+	"invite": "يدعو",
+
+	"invite-you-to-like": "دعوتك لمثل ",
+
+	"invite-friends": "دعوة الأصدقاء",
+
+	"page-recent-photos": "الصفحة الأخيرة صور",
+
+	"recent-photos": "الأخيرة صور",
+
+	"made-you-role-of": "جعلك <b>:role</b> من ",
+
+	"no-page-found": "لم يتم العثور على الصفحة ",
+
+	"page-suggestions": "الصفحة اقتراحات",
+
+	"pages-you-may-like": "صفحات قد تعجبك",
+
+	"default-photo-album-privacy": "افتراضي صور الألبوم الخصوصية",
+
+	"default-photo-album-privacy-desc": "تعيين الصورة الافتراضية ألبوم الخصوصية، إذا قمت بتمكين دليل الصورة أنه من الجيد أن يترك للجمهور",
+
+	"friends-or-followers": "أصدقاء / المتابعون",
+
+	"my-photos": "صوري",
+
+	"create-new-album": "إنشاء ألبوم جديد",
+
+	"friends-photos": "الأصدقاء صور",
+
+	"album-title": "عنوان الالبوم",
+
+	"album-description": "ألبوم الوصف",
+
+	"album-privacy": "ألبوم الخصوصية",
+
+	"create-album": "إنشاء البوم",
+
+	"successfully-upload-album-photos": "تحميل الصور بنجاح إلى الألبوم المحدد",
+
+	"photo-listing-per-page": "صور العرض لكل صفحة",
+
+	"photo-listing-per-page-desc": "تعيين عدد من الصور لعرضها في كل صفحة في القائمة",
+
+	"photo-album-listing-per-page": "ألبومات الصور قائمة لكل صفحة",
+
+	"photo-album-listing-per-page-desc": "تعيين عدد من الصور لعرضها في كل صفحة في القائمة",
+
+	"add-photos": "إضافة صور",
+
+	"created-by": "تم إنشاؤها بواسطة",
+
+	"edit-album": "تعديل الألبوم",
+
+	"uploading": "تحميل ....",
+
+	"save-album": "حفظ الألبوم",
+
+	"delete-album-message": "هل أنت متأكد أنك تريد حذف هذا الألبوم مع صور لها؟",
+
+	"all-photos": "جميع الصور",
+
+	"no-albums-found": "لا الالبومات تم العثور عليها، حاول مرة أخرى في وقت لاحق",
+
+	"no-photos-found": "العثور على أي صور هنا",
+
+	"profile-photos": "الصور الرمزية",
+
+	"timeline-photos": "صور جدول زمني",
+
+	"cover-photos": "صور الغلاف",
+
+	"add-photo-to-album": "وأضاف :count صور (ة) لألبوم: ",
+
+	"like-your-photo": "أحب صورتك",
+
+	"dislike-your-photo": "كره صورتك",
+
+	"commented-on-your-photo": "علق على صورتك",
+
+	"commented-on-this-photo": "وعلق على هذه الصورة",
+
+	"no-suggestions-for-now": "لا توجد اقتراحات هذا الوقت، يرجى المحاولة مرة أخرى في وقت لاحق",
+
+	"followers": "أشخاص مُتابعون لك",
+
+	"following": "أشخاص تتابعهم",
+
+	"user-friends": "قائمة الأصدقاء المستخدم",
+
+	"user-list-limit": "قائمة المستخدم الحد",
+
+	"user-list-limit-desc": "تعيين عدد من المستخدمين لعرضه",
+
+	"user-followers": "قائمة المتابعون المستخدم",
+
+	"user-following": "العضو القائمة التالية",
+
+	"report-reason": "تعطي سببا لتقريرك ...",
+
+	"report": "تقرير",
+
+	"report-content": "تقرير المحتوى",
+
+	"report-success": "شكرا لتقديم التقارير، ونحن سوف ننظر في ذلك ..",
+
+	"reports": "تقارير",
+
+	"manage-reports": "إدارة التقارير",
+
+	"delete-report": "حذف تقرير",
+
+	"take-action": "أبدي فعل",
+
+	"search-result-for": "نتائج البحث عن ",
+
+	"search-menu": "قائمة البحث",
+
+	"users-result": "المستخدمين نتيجة",
+
+	"search-placeholder": "العثور على أصدقاء، وصفحات ومجموعات .....إلخ",
+
+	"test-setting-description": "هذه هي لعبة إختبار إعدادات البرنامج المساعد",
+
+	"custom_field-category_1451828688_title": "المدرسة",
+
+	"admin-dashboard": "المشرف لوحة",
+
+	"admin-dashboard-desc": "الاطلاع على إحصاءات حول موقع اجتماعي حقك من هنا",
+
+	"online-members": "الأعضاء المتواجدون",
+
+	"view-members": "رأي الأعضاء",
+
+	"statistics": "إحصائيات",
+
+	"quick-links": "روابط سريعة",
+
+	"server-statistics": "الاحصائيات الخادم",
+
+	"add-profile-fields": "إضافة حقول الملف الشخصي",
+
+	"city": "المدينة",
+
+	"state": "حالة",
+
+	"allow-change-username": "السماح تغيير اسم المستخدم",
+
+	"allow-change-username-desc": "السماح لأعضاء الخاص بك لتغيير اسم المستخدم، يمكنك أيضا تعيين إذا تحقق شارة ينبغي إزالتها على تغيير اسم المستخدم أدناه",
+
+	"remove-verify-badge-change-username": "إزالة تحقق من شارة عند التغييرات على اسم المستخدم",
+
+	"remove-verify-badge-change-username-desc": "تعيين إذا كنت تريد التحقق من شارة إزالة عندما يتغير أي عضو مصدق اسم المستخدم",
+
+	"username-is-in-use": "اسم المستخدم قيد الاستخدام من قبل الأعضاء الآخرين",
+
+	"change-username": "تغيير اسم المستخدم",
+
+	"allow-change-email": "السماح تغيير عنوان البريد الإلكتروني",
+
+	"allow-change-email-desc": "السماح لأعضاء الخاص بك لتغيير عنوان بريدهم الإلكتروني",
+
+	"email-address-is-in-use": "عنوان البريد الإلكتروني قيد الاستخدام من قبل الأعضاء الآخرين",
+
+	"change-email-address": "تغيير البريد الالكتروني",
+
+	"from": "من عند",
+
+	"overview": "نظرة عامة",
+
+	"mutual-friends": "المشترك الأصدقاء",
+
+	"nill": "صفر",
+
+	"to-our": "إلى",
+
+	"read-more": "اقرأ المزيد",
+
+	"delete-my-account": "احذف حسابي",
+
+	"delete-account-info": "لحذف حسابك عليك تقديم كلمة السر الحالية ثم لاحظ أنه لا يمكنك التراجع عن هذا الإجراء",
+
+	"blocking-settings-info" : "يمكنك حظر بعض الاشخاص من التواصل معك",
+
+	"invalid-password": "لقد قمت بإدخال كلمة مرور غير صالحة، حاول مرة أخرى",
+
+	"with": "مع",
+
+	"choose-language": "اختر اللغة",
+
+	"404-not-found": "404 لم يتم العثور على",
+
+	"page-not-found" : "لم يتم العثور علي الصفحة",
+
+	"page-not-available-note": "الارتباط الذي تتبعه ربما يكون معطل، أو ربما تمت إزالة الصفحة.",
+
+	"enable-debug": "تمكين التصحيح",
+
+	"enable-debug-desc": "استخدم هذا الخيار عند الاختبار، لتظهر لك أخطاء المناسبة",
+
+	"enable-https": "تمكين HTTPS",
+
+	"enable-https-desc": "يتم تمكين الرجاء التأكد من الخادم الخاص بك ب https قبل تمكين هذا الخيار",
+
+	"create-ads-plan": "إنشاء خطة الإعلانات",
+
+	"running-ads": "تشغيل الإعلانات",
+
+	"views": "عدد المشاهدات",
+
+	"select-payment-method": "حدد طريقة الدفع",
+
+	"send-message": "أرسل رسالة",
+
+	"events-manager": "مدير الفعاليات",
+
+	"events": "أحداث",
+
+	"manage-category": "إدارة الفئة",
+
+	"find-events": "البحث عن أحداث",
+
+	"manage-events": "إدارة الأحداث",
+
+	"create-event": "إنشاء الحدث",
+
+	"upcoming": "القادمة",
+
+	"invites": "دعوات",
+
+	"past-events": "الأحداث الماضية",
+
+	"birthdays": "أعياد ميلاد",
+
+	"event-categories": "حدث الفئات",
+
+	"event-category": "فئة الحدث",
+
+	"location": "الموقع",
+
+	"address": "العنوان",
+
+	"event-title": "عنوان الحدث",
+
+	"time-am": "صباحا",
+
+	"time-pm": "مساء",
+
+	"start-time": "وقت البدء",
+
+	"end-time": "وقت الانتهاء",
+
+	"hosted-by": "استضافته ",
+
+	"at": "في",
+
+	"maybe": "ربما",
+
+	"invited": "دعوة",
+
+	"going": "ذاهب الى الحدث",
+
+	"not-going": "لن",
+
+	"save-event": "حفظ الحدث",
+
+	"no-event-display": "لم يتم العثور على أحداث",
+
+	"event": "حدث",
+
+	"write-on-his-wall": "الكتابة على :g الجدار",
+
+	"later-in-month": "هذا الشهر",
+
+	"birthdays-coming-up": "أعياد الميلاد القادمة حتى",
+
+	"check": "الاختيار",
+
+	"rsvp": "من فضلك، أرسل رد",
+
+	"might-be-going": "يمكن أن يحدث ل ",
+
+	"is-going-to": "يتوجه الى ",
+
+	"run-notifications": "تشغيل إشعارات",
+
+	"remind-birthdays": "تذكير أعياد الميلاد",
+
+	"is-having-birthday-today": "هو وجود يحتفل اليوم بعيد ميلاده",
+
+	"is-having-birthday-tomorrow": "هو وجود ميلاده غدا",
+
+	"is-happening-today": "يحدث اليوم",
+
+	"is-happening-tomorrow": "يحدث غدا",
+
+	"remind-events": "أذكر الأحداث أجبني",
+
+	"posted-on": "نشر على ",
+
+	"games-manager": "ألعاب مدير",
+
+	"games": "ألعاب",
+
+	"category-cover-image": "صورة الغلاف",
+
+	"find-games": "البحث عن الألعاب",
+
+	"your-games": "ألعاب بك",
+
+	"add-game": "إضافة لعبة",
+
+	"game-category": "لعبة التصنيف",
+
+	"game-title": "لعبة العنوان",
+
+	"game-name-helper": "يمكن أن تحتوي على اسم اللعبة فقط أبجدية وتظهر في لعبة رابط",
+
+	"game-name": "اسم اللعبة",
+
+	"select-game": "اختر لعبة (فقط فرنك سويسري ملف)",
+
+	"game-file": "لعبة الملف",
+
+	"or-embed-game-code": "أو تضمين لعبة مع رمز",
+
+	"dimension-optional": "البعد (اختياري)",
+
+	"game-dimension-note": "البعد تعمل فقط للألعاب محملة (فرنك سويسري الملفات)",
+
+	"select-logo": "حدد الشعار",
+
+	"game-logo": "لعبة الشعار",
+
+	"only-swf-file-allowed": "فقط فرنك سويسري يسمح الملفات، حاول مرة أخرى",
+
+	"provide-game-file-or-code": "توفير فرنك سويسري لعبة أو تضمين قانون",
+
+	"game_name": "اسم اللعبة",
+
+	"save-game": "حفظ لعبة",
+
+	"change-logo": "تغيير شعار",
+
+	"play-now": "العب الان",
+
+	"reviews": "التعليقات",
+
+	"playing-game": "لعب :title",
+
+	"go-back": "عُد",
+
+	"game-categories": "لعبة التصنيفات",
+
+	"no-games-found": "لم يتم العثور على ألعاب",
+
+	"visit": "زيارة",
+
+	"report-failure" : "تم التبليغ من قبل",
+
+	"players": "لاعب (ق)",
+
+	"played-by": "لعبت من قبل",
+
+	"manage-games": "إدارة الألعاب",
+
+	"game-permissions": "ضوابط اللعبة",
+
+	"game-permissions-desc": "السيطرة على ما يمكن القيام به أعضاء مع نظام اللعبة",
+
+	"can-create-game": "إضافة لعبة",
+
+	"can-embed-game": "يمكنك تضمين لعبة مع رمز",
+
+	"play-games": "ألعب لعبة",
+
+	"delete-photo": "حذف الصورة",
+
+	"set-as-profile-picture": "إضافة إلى صورة شخصية",
+
+	"more-results": "شاهد المزيد",
+
+	"results-from-posts": "النتائج من المشاركات",
+
+	"social-setting-description": "إدارة التكامل الاجتماعي بإعداد هنا، تعيين الخاص بك الفيسبوك وتويتر وغيرها كيه مفاتيح هنا",
+
+	"enable-facebook": "تمكين الفيسبوك",
+
+	"enable-twitter": "تمكين تويتر",
+
+	"enable-vk": "تمكين VK",
+
+	"login-with-vk": "تسجيل الدخول VK",
+
+	"login-with-g+": "تسجيل الدخول باسم G +",
+
+	"enable-g+": "تمكين G +",
+
+	"import-contacts": "استيراد جهات الاتصال",
+
+	"search-address-for-friends": "بحث دفتر العناوين الخاص بك للأصدقاء",
+
+	"search-address-for-friends-note": "واختيار خدمة فتح نافذة لتتمكن من تسجيل الدخول بشكل آمن واستيراد جهات الاتصال الخاصة بك",
+
+	"gmail-contacts": "جوجل اتصالات",
+
+	"try-other-services": "محاولة خدمات أخرى",
+
+	"invite-all": "دعوة جميع",
+
+	"facebook-friends": "الفيسبوك الأصدقاء",
+
+	"facebook-friends-note": "وفيما يلي الخاصة بك الفيسبوك أصدقاء الذين هم هنا",
+
+	"invite-other-friends": "دعوة باقي الأصدقاء",
+
+	"social-invite-friends": "الاجتماعي دعوة الأصدقاء",
+
+	"save-post": "حفظ",
+
+	"unsave-post": "الغاء الحفظ",
+
+	"unsave" : "الغاء الحفظ",
+
+	"unsave-event" : "الغاء الحفظ",
+
+	"All Categories" : "جميع الفئات",
+
+	"Wedding" : "حفل زفاف",
+
+	"Outing" : "نزهة",
+
+	"Party" : "حفلة",
+
+	"unsave-group" : "ازالة الحفظ",
+
+	"successfully-saved": "حفظ بنجاح",
+
+	"successfully-unsaved": "إزالة بنجاح",
+
+	"saved": "تم الحفظ",
+
+	"enable-profile-design": "تمكين تصميم الملف الشخصي",
+
+	"enable-profile-design-desc": "استخدم هذا الخيار لتمكين أو تعطيل تصميم الشخصية",
+
+	"design-your-profile": "تصميم ملفك الشخصي",
+
+	"design-your-page": "تصميم صفحتك",
+
+	"background-image": "الصورة الخلفية",
+
+	"background-position": "خلفية الوظيفة",
+
+	"left": "اليسار",
+
+	"center": "مركز",
+
+	"right": "الصحيح",
+
+	"background-color": "لون الخلفية",
+
+	"background-image-style": "صورة الخلفية ستايل",
+
+	"repeat-hor-ver": "كرر أفقيا ورأسيا",
+
+	"repeat-horizontally": "كرر أفقيا",
+
+	"repeat-vertically": "كرر عموديا",
+
+	"link-color": "اللون صلة",
+
+	"transparent-color": "لون شفاف",
+
+	"save-design": "حفظ التصميم",
+
+	"user-account-settings": "إعدادات حساب المستخدم",
+
+	"user-saved-page": "العضو صفحة محفوظة",
+
+	"manage-posts": "إدارة المشاركات",
+
+	"manage-photos": "إدارة الصور",
+
+	"publisher": "الناشر",
+
+	"time": "مرة",
+
+	"view": "عرض",
+
+	"verification-request": "طلب التحقق",
+
+	"verification-request-desc": "تمكين أو تعطيل إذا كنت تريد أعضاء الخاص بك لطلب التحقق من إعدادات حساباتهم",
+
+	"verify-requested": "تحقق المطلوب",
+
+	"request-verification": "طلب التحقق",
+
+	"verification-requests": "يطلب التحقق",
+
+	"entity": "كيان",
+
+	"ignore": "تجاهل",
+
+	"approve": "الموافقة",
+
+	"static-pages": "صفحات ثابتة",
+
+	"add-new-page": "إضافة صفحة جديدة",
+
+	"add-page-to-footer-link": "أضف الصفحة وصلة إلى تذييل",
+
+	"page-tags": "الصفحة الكلمات",
+
+	"page-content": "محتوى الصفحة",
+
+	"add-page-to-explore-menu": "إضافة رابط الصفحة لاستكشاف القائمة",
+
+	"page-title": "عنوان الصفحة",
+
+	"page-already-exists": "الصفحة موجود بالفعل",
+
+	"title-field-required": "مطلوب حقل العنوان",
+
+	"footer-links": "تذييل سريعة",
+
+	"explore-menu": "استكشاف القائمة",
+
+	"save-page": "احفظ الصفحة",
+
+	"shutdown-site": "اغلاق الموقع",
+
+	"shutdown-site-desc": "تمكين لإيقاف الموقع لغرض الصيانة على الرغم من أنك تستطيع الدخول المشرف",
+
+	"shutdown-message": "اغلاق رسالة",
+
+	"shutdown-message-desc": "ضبط رسالة إيقاف لعضو الخاص بك لمعرفة ما يحدث",
+
+	"website-offline": "نحن خارج ",
+
+	"offline": "حاليا",
+
+	"offline-message": "إننا سوف يعود قريبا",
+
+	"mailing-list": "قائمة بريدية",
+
+	"mail-to": "بريد إلى",
+
+	"mail-subject": "البريد الموضوع",
+
+	"mail-body": "البريد الجسم",
+
+	"all-members": "كل الأعضاء",
+
+	"selected-members": "الأعضاء المختارة",
+
+	"non-active-members": "غير الأعضاء النشطين",
+
+	"send-mail": "إرسال بريد",
+
+	"non-active-for-last": "أعضاء غير نشط لآخر ",
+
+	"mail-sent-successfully": "إرسال البريد بنجاح",
+
+	"mail-not-sent": "حدث خطأ، يرجى المحاولة مرة أخرى",
+
+	"google-analytics-code-desc": "لصق الخاص بك جوجل كود تحليلات في ناحية النص",
+
+	"something-went-wrong": "وصلنا الخلط، حاول مرة أخرى أو إعادة تحميل الصفحة الخاصة بك",
+
+	"ago": "منذ",
+
+	"location-message" : "أين انت الان ؟",
+
+	"your-location" : "موقعك الان",
+
+	"write-post" : "اكتب منشور",
+
+	"post" : "نشر",
+
+	"type-what-you-feel" : "بماذا تشعر ؟",
+
+	"tag-people-in-your-post" : "أشر الى اصدقائك فى المنشور",
+
+	"from-now": "من الان",
+
+	"any-moment": "أي لحظة الآن",
+
+	"less-than-minute": "أقل من دقيقة",
+
+	"about-minute": "حوالي دقيقة واحدة",
+
+	"about-hour": "حوالي ساعة",
+
+	"a-day": "يوم",
+
+	"days": "أيام",
+
+	"about-month": "حوالي شهر",
+
+	"months": "أشهر",
+
+	"about-year": "حوالي سنة",
+
+	"years": "سنوات",
+
+	"more": "أكثر",
+
+	"html-content": "HTML المحتوى",
+
+	"html-content-desc": "أدخل محتوى HTML ليتم عرضها في مربع",
+
+	"box-title": "المربع العنوان",
+
+	"box-title-desc": "إذا كان لديك عنوان لمربع عرض أدخله هنا",
+
+	"current-version": "النسخة الحالية",
+
+	"replies": "ردود",
+
+	"events-pages": "صفحات الأحداث",
+
+	"pin-to-top": "دبوس إلى أعلى الصفحة",
+
+	"unpin-from-top": "بفصل من أعلى",
+
+	"pinned-post": "المشاركة دبس",
+
+	"games-pages": "ألعاب الصفحات",
+
+	"game-profile": "الملف عبة",
+
+	"no-groups-found": "لم يتم العثور على مجموعات. يمكنك إنشاء لك",
+
+	"user-profile-groups": "الملف الشخصي للمستخدم المجموعات",
+
+	"discover-page": "اكتشاف الصفحة",
+
+	"manage-help": "إدارة مساعدة",
+
+	"helps": "يساعد",
+
+	"add-help": "إضافة تعليمات",
+
+	"content": "محتوى",
+
+	"tags": "الكلمات",
+
+	"help-category-add-note": "هل هذه الفئة مستقل دون يساعد؟ إضافة محتواه والعلامات أدناه",
+
+	"add": "إضافة",
+
+	"help-exists-already": "يبدو هذه المساعدة بالفعل موجود، حاول عنوان مختلف",
+
+	"modify-time": "آخر تعديل الوقت",
+
+	"help-and-knowledgebase": "المساعدة والمعرفة",
+
+	"find": "إيجاد",
+
+	"help-search-note": " ابحث في مساعدة والمعرفة",
+
+	"introduction": "المقدمة",
+
+	"help-introduction": "مساعدة مقدمة",
+
+	"not-result-found-help": "أي مساعدة جدت مع الكلمة",
+
+	"help-introduction-desc": "هذا هو المكان الذي يمكنك تحرير إدخال مساعدة في نظام المساعدة",
+
+	"user-profile-likes": "الملف الشخصي للمستخدم الاعجاب",
+
+	"not-contacts-found-from-social": "لم يتم العثور على من الخدمة المحددة الاتصالات",
+
+	"upgrade-settings-description": "إعداد التفاصيل الخاصة بك FTP تسجيل الدخول وغيرها من الأماكن هنا",
+
+	"system-upgrader": "ترقية نظام",
+
+	"upgrade-system": "نظام الترقية",
+
+	"move-lite-data": "نقل قاعدة بيانات لايت النسخة",
+
+	"select-downloaded-file": "حدد الملف الذي تم تنزيله",
+
+	"upload": "رفع",
+
+	"select-downloaded-file-info": "لتحميل أحدث نسخة تذهب إلى صفحة التحميل الخاص بك الموجود في <strong> http://www.crea8social.com </ قوي>",
+
+	"upload-successful": "تحميل ناجح",
+
+	"upgrade-version": "ترقية النسخة",
+
+	"new-files": "ملفات جديدة",
+
+	"no-new-files": "أية ملفات جديدة",
+
+	"following-files-will-be": "سيتم إضافة الملفات التالية على النظام الخاص بك",
+
+	"overwrite-files": "ملفات الكتابة",
+
+	"no-overwrite-files": "لا الملفات التي سيتم الكتابة",
+
+	"upgrade-now": "ترقية الآن",
+
+	"following-files-will-be-overwritten": "سيتم الكتابة فوق الملفات التالية يمكنك نسخ احتياطي أي لديك تحريرها",
+
+	"upgrade-warning-message": "هل هناك حاجة لملفات النسخ الاحتياطي لأنه سيتم تحديث كافة الملفات باستثناء الملفات الهامة مثل ملف config.php الخ",
+
+	"page-not-available": "عذرا، هذه الصفحة غير متوفرة",
+
+	"no-saved-content": "لم يكن لديك أي المحتوى المحفوظ هنا",
+
+	"dont-repeat": "لا تكرروا",
+
+	"site-keywords": "كلمات الموقع",
+
+	"site-description": "وصف الموقع",
+
+	"mutual": "متبادل",
+
+	"page-name-desc": "يمكن أن تحتوي على اسم الصفحة فقط أبجدية وتظهر في رابط الصفحة",
+
+	"continue": "استمر",
+
+	"translator": "مترجم",
+
+	"upload-site-favicon": "تحميل الموقع فافيكون",
+
+	"see-translation": "شاهد الترجمة",
+
+	"last-seen": "شوهد آخر مرة",
+
+	"enable-profile-lastseen": "تمكين الملف آخر تواجد في",
+
+	"owner": "مالك",
+
+	"can-create-ads": "يمكن إنشاء إعلانات",
+
+	"manage-announcement": "إدارة الإعلان",
+
+	"announcements": "إعلانات",
+
+	"add-new": "اضف جديد",
+
+	"add-announcement": "أضف إعلان",
+
+	"success": "نجاح",
+
+	"danger": "خطر",
+
+	"warning": "تحذير",
+
+	"info": "معلومات",
+
+	"display-options": "خيارات العرض",
+
+	"can-be-close": "يمكن أن تكون مغلقة",
+
+	"target-viewers": "المشاهدين الهدف",
+
+	"user-group": "مجموعة المستخدم",
+
+	"any": "Any",
+
+	"guests": "Guests",
+
+	"announcement": "إعلان",
+
+	"typing": "الكتابة",
+
+	"seen": "رأيت",
+
+	"comment-editor-error": "لا يمكنك ترك التعليق فارغا، حاول مرة أخرى",
+
+	"todays-birthdays": "أعياد ميلاد اليوم",
+
+	"today-birthdays": "اليوم عيد ميلاد",
+
+	"today-events": "أحداث اليوم",
+
+	"can-create-event": "يمكن أن تخلق الحدث",
+
+	"dont-like-post": "هذا المنشور لا يعجبنى",
+
+	"default-feed-privacy": "افتراضي تغذية الخصوصية",
+
+	"default-feed-privacy-desc": "تعيين الخصوصية تغذية الافتراضي لمحرر تغذية",
+
+	"thinking-about": "أفكر في",
+
+	"celebrating": "أحتفل",
+
+	"traveling-to": "أسافر الى",
+
+	"playing": "العب",
+
+	"create-poll": "إنشاء الإستطلاع",
+
+	"add-option": "إضافة خيار",
+
+	"ask-question": "اسأل سؤالا..",
+
+	"feed-poll-options-error": "يجب إضافة ما لا يقل عن اثنين من خيارات الاستطلاع",
+
+	"votes": "الأصوات",
+
+	"option": "خيار",
+
+	"enable-feed-poll": "تمكين نظام التصويت في تغذية",
+
+	"enable-feed-social-share": "تمكين مشاركة الاجتماعية للتغذية العامة",
+
+	"share-to-facebook": "حصة لالفيسبوك",
+
+	"share-to-twitter": "المشاركة في Twitter",
+
+	"share-to-googleplus": "حصة على + Google",
+
+	"share-to-linkedin": "حصة لينكدين",
+
+	"enable-multiple-section": "تمكين اختيار متعددة",
+
+	"can-create-poll": "يمكن إنشاء الإستطلاع",
+
+	"can-use-feeling": "يمكن استخدام ميزة الشعور",
+
+	"groups-manager": "مدير مجموعة",
+
+	"can-create-group": "يمكن إنشاء مجموعة",
+
+	"page-permission-error": "لم يكن لديك إذن",
+
+	"accepted-friend-request": "قام بقبول طلب الصداقة",
+
+	"started-following-you": "قام بمتابعتك",
+
+	"enable-email-notifications": "مجموعة دخول محاكمة وقت الانتظار",
+
+	"activities": "أنشطة",
+
+	"added-new": "وأضاف جديدة",
+
+	"activity-likes": "الإعجابات",
+
+	"this-blog-post": "هذا بلوق وظيفة",
+
+	"blog-post": "مشاركة مدونة",
+
+	"commented-on": " علق على",
+
+	"created-new": "خلقت جديدة",
+
+	"activity-event": "حدث",
+
+	"activity-game": "لعبة",
+
+	"activity-page": "صفحة",
+
+	"activity-group": "تجمع",
+
+	"became-friend-with": " أصبح صديق",
+
+	"is-following": "غير التالية",
+
+	"activity-log": "سجل النشاط",
+
+	"manage-blogs": "إدارة المدونات",
+
+	"add-new-blog": "إضافة جديدة بلوق",
+
+	"blog-title": "عنوان المدونة",
+
+	"blog-content": "بلوق المحتوى",
+
+	"preview-image": "معاينة الصورة",
+
+	"published": "نشرت",
+
+	"draft": "مسودة",
+
+	"edit-blog": "تحرير مدونة",
+
+	"written-by": "كتب بواسطة",
+
+	"last-update": "آخر تحديث:",
+
+	"blogs": "بلوق",
+
+	"allow-member-to-create-blog": "يسمح للدول الأعضاء لخلق بلوق",
+
+	"allow-member-to-create-blog-desc": "مع هذه الإعدادات يمكنك تمكين أو تعطيل القدرة لأعضاء لخلق بلوق",
+
+	"blog-entries-per-page": "مقالات بلوق لكل صفحة",
+
+	"default-blog-privacy": "افتراضي مدونة الخصوصية",
+
+	"can-create-blog": "يمكن إنشاء بلوق",
+
+	"blog-permissions": "ضوابط بلوق",
+
+	"write-new-entry": "إرسال إدخال جديد",
+
+	"my-blogs": "بلدي مدونات",
+
+	"search-blogs": "البحث في المدونات",
+
+	"find-blogs": "البحث في المدونات",
+
+	"posted-by": "أرسلت بواسطة",
+
+	"delete-blog": "حذف مدونة",
+
+	"blogs-list-empty": "لا بلوق وجدت هنا",
+
+	"user-profile-recent-blogs": "العضو الأخيرة للمدونات",
+
+	"latest-blogs": "أحدث المدونات",
+
+	"recent-blogs": "المدونات الأخيرة",
+
+	"shared-post": "المشتركة :name's بريد",
+
+	"shared-photo-post": "المشتركة :name's صورة فوتوغرافية",
+
+	"shared-video-post": "المشتركة :name's فيديو",
+
+	"shared-file-post": "المشتركة :name's ملف",
+
+	"apply": "تطبيق",
+
+	"add-category-desc": "إضافة فئة جديدة",
+
+	"add-category-title-desc": "اسم الفئة التي ستنشأ",
+
+	"add-tag": "إضافة علامة",
+
+	"add-tag-desc": "إضافة علامة جديدة",
+
+	"add-tag-title-desc": "اسم العلامة المراد إنشاؤها",
+
+	"add-tag-color-desc": "لون العلامة المراد إنشاؤها",
+
+	"all-categories": "جميع الفئات",
+
+	"all-tags": "كل الكلمات",
+
+	"bold": "جريء",
+
+	"bullet": "رصاصة",
+
+	"category-delete-not-exist": "الفئة التي تريد حذفها لا وجود له",
+
+	"categories-manager": "مدير الفئات",
+
+	"categories-manager-desc": "إضافة، عرض، تعديل، وحذف فئات المنتدى",
+
+	"color": "اللون",
+
+	"color-desc": "تحديد اللون (الأحمر على سبيل المثال، #FF0000)",
+
+	"create-thread": "إنشاء موضوع",
+
+	"create-topic": "إنشاء الموضوع",
+
+	"create-thread-category-desc": "حدد فئة للموضوع",
+
+	"create-thread-subject-desc": "أدخل موضوعا للموضوع",
+
+	"create-thread-post-desc": "يؤلف آخر للموضوع",
+
+	"create-thread-tags-desc": "(اختياري) أدخل بعض العبارات صالحة للموضوع، مفصولة بفواصل. وتشمل علامات صالحة:",
+
+	"closed": "مغلق",
+
+	"delete-category": "حذف فئة",
+
+	"delete-category-desc": "حذف فئة موجودة",
+
+	"delete-thread": "حذف الموضوع",
+
+	"delete-thread-desc": "حذف موضوع موجود",
+
+	"delete-tag": "حذف كلمة دلالية",
+
+	"delete-tag-desc": "حذف علامة موجودة",
+
+	"delete-warning": "هل أنت متأكد أنك تريد حذف",
+
+	"do-not-move": "لا تتحرك",
+
+	"edit-category-desc": "تعديل فئة موجودة",
+
+	"edit-category-title-desc": "الاسم الجديد لفئة",
+
+	"edit-tag": "تحرير علامة",
+
+	"edit-tag-desc": "تعديل علامة موجودة",
+
+	"edit-tag-title-desc": "الاسم الجديد للعلامة",
+
+	"edit-tag-color-desc": "اللون الجديد للعلامة",
+
+	"edit-thread": "تحرير الموضوع",
+
+	"edit-thread-active-desc": "تفعيل / تعطيل موضوع",
+
+	"edit-thread-category-desc": "فئة جديدة للموضوع",
+
+	"edit-thread-closed-desc": "فتح / موضوع انهيار للرد",
+
+	"edit-thread-desc": "تحرير موضوع موجود",
+
+	"edit-thread-hidden-desc": "إخفاء / إظهار موضوع في المنتدى",
+
+	"edit-thread-subject-desc": "موضوع جديد للموضوع",
+
+	"edit-thread-thread-pin-desc": "دبوس / موضوع إزالة تثبيت ل/ من فئة",
+
+	"first-page": "الصفحة الأولى",
+
+	"followed": "يتبع",
+
+	"followed-desc": "مواضيع يتبع",
+
+	"forum": "المنتدى",
+
+	"forums" : "المنتديات",
+
+	"forum-create-login-error": "عذرا، يجب أن تكون مسجلا لإنشاء موضوع",
+
+	"forum-manager": "مدير المنتدى",
+
+	"forum-reply-login-error": "آسف، لديك لتسجيل الدخول للرد على موضوع",
+
+	"forum-setting-description": "تعديل إعدادات المنتدى",
+
+	"hidden": "مخفي",
+
+	"image-desc": "إدراج رابط الصورة",
+
+	"insert": "إدراج",
+
+	"italic": "مائل",
+
+	"last-activity": "النشاط الاخير",
+
+	"last-page": "آخر صفحة",
+
+	"latest": "آخر",
+
+	"latest-desc": "المواضيع مع أحدث المشاركات",
+
+	"list": "المواضيع مع أحدث المشاركات",
+
+	"manage-tags": "إدارة الكلمات",
+
+	"manage-threads": "إدارة المواضيع",
+
+	"most-recent-poster": "معظم المشارك الزوار",
+
+	"move-threads-to": "نقل المواضيع ل",
+
+	"next-replies": "الردود القادمة",
+
+	"new": "جديد",
+
+	"someone-followed-you" : "قام شخص بمتابعتك",
+
+	"new-topic": "موضوع جديد",
+
+	"new-desc": "المواضيع التي تم إنشاؤها مؤخرا",
+
+	"no-record": "لا الموضوع هنا",
+
+	"not-active": "غير فعال",
+
+	"not-closed": "لا مغلق",
+
+	"not-hidden": "غير مخفي",
+
+	"not-pinned": "لا يشبك",
+
+	"number": "Number",
+
+	"original-poster": "الملصق الأصلي",
+
+	"pin": "دبوس",
+
+	"previous-replies": "الردود السابقة",
+
+	"replies-": "الردود",
+
+	"reply-": "الرد",
+
+	"replied-your-post": "أجاب رسالتك في المنتدى",
+
+	"replied-thread-you-follow": "وأجاب على موضوع كنت التالية",
+
+	"size": "حجم",
+
+	"top": "أعلى",
+
+	"top-desc": "الموضوع الأكثر مشاهدة خلال ال 24 ساعة الماضية",
+
+	"topics": "المواضيع",
+
+	"tag": "بطاقة",
+
+	"tags-manager": "الكلمات مدير",
+
+	"tags-manager-desc": "إضافة، عرض، تعديل، وحذف علامات المنتدى",
+
+	"tag-title": "العنوان علامة",
+
+	"tag-color": "بطاقة اللون",
+
+	"thread-pin": "كاتب الموضوع دبوس",
+
+	"thread-delete-not-exist": "الخيط الذي تريد حذفه غير موجود",
+
+	"threads-manager": "المواضيع مدير",
+
+	"threads-manager-desc": "دبوس وتعديل وحذف موضوعات المنتدى",
+
+	"pagination-length-forum": "المنتدى الصفحة طول",
+
+	"pagination-length-forum-desc": "الحد الأقصى لعدد الموضوعات المعروضة في كل صفحة في المنتدى",
+
+	"pagination-length-sub-replies": "جنوب الردود الصفحة طول",
+
+	"pagination-length-sub-replies-desc": "الحد الأقصى ردود الفرعية رقم المعروضة تحت كل مشاركة في موضوع",
+
+	"pagination-length-thread": "موضوع الصفحة طول",
+
+	"pagination-length-thread-desc": "وظائف عدد القصوى المعروضة في كل صفحة في موضوع",
+
+	"pinned": "دبس",
+
+	"strike": "إضراب",
+
+	"submit": "عرض",
+
+	"underline": "أكد",
+
+	"unlike": "مختلف",
+
+	"unlink": "فك ارتباط",
+
+	"add-photo": "إضافة صورة",
+
+	"add-photo-image-desc": "إضافة صورة إضافية لقائمتك",
+
+	"approval-status": "حالة القبول",
+
+	"approved": "موافق عليه",
+
+	"close": "قريب",
+
+	"commented-on-your-listing": "علق على قائمتك",
+
+	"create-listing": "إنشاء قائمة",
+
+	"create-listing-category-desc": "اختر فئة لقائمتك",
+
+	"create-listing-contact-desc": "أدخل التفاصيل الاتصال لإدراج",
+
+	"create-listing-description-desc": "وصف موجز لقائمتك",
+
+	"create-listing-image-desc": "تحميل صورة من القائمة الخاصة بك",
+
+	"create-listing-address-desc": "أدخل عنوانك الكامل من القائمة الخاصة بك بما في ذلك المنطقة والبلد",
+
+	"create-listing-price-desc": "أدخل السعر من القائمة الخاصة بك",
+
+	"create-listing-tags-desc": "الكلمات الرئيسية المرتبطة بها قائمتك مفصولة بفواصل",
+
+	"create-listing-title-desc": "أدخل عنوان من القائمة الخاصة بك",
+
+	"currency": "عملة",
+
+	"currency-desc": "الافتراضي العملة قائمة الأسعار",
+
+	"date": "تاريخ",
+
+	"default-approval": "الموافقة الافتراضي",
+
+	"default-approval-desc": "حالة الموافقة الافتراضي للإدراج تم إنشاؤها حديثا",
+
+	"delete-image-warning": "هل أنت متأكد أنك تريد حذف هذه الصورة؟",
+
+	"delete-listing": "حذف الإدراج",
+
+	"delete-listing-desc": "حذف قائمة",
+
+	"dont-approve": "لا أوافق",
+
+	"edit-listing": "تحرير قائمة",
+
+	"edit-listing-active-desc": "تفعيل / تعطيل الإدراج",
+
+	"edit-listing-approval-desc": "تغيير حالة الموافقة على إدراج",
+
+	"edit-listing-category-desc": "تغيير الفئة لإدراج",
+
+	"edit-listing-contact-desc": "تغيير معلومات الاتصال",
+
+	"edit-listing-desc": "تعديل قائمة القائمة",
+
+	"edit-listing-description-desc": "تعديل وصف لإدراج",
+
+	"edit-listing-featured-desc": "ميزة / قوائم ميزة",
+
+	"edit-listing-address-desc": "تغيير عنوان الإدراج",
+
+	"edit-listing-price-desc": "تغيير سعر الإدراج",
+
+	"edit-listing-tags-desc": "تعديل العلامات لإدراج",
+
+	"edit-listing-title-desc": "تعديل العنوان لإدراج",
+
+	"featured": "متميز",
+
+	"featured-badge-bg-color": "شارك شارة لون الخلفية",
+
+	"featured-badge-bg-color-desc": "لون خلفية شارة مميزة",
+
+	"featured-badge-text-color": "شارك شارة لون الخط",
+
+	"featured-badge-text-color-desc": "لون النص من شارة مميزة",
+
+	"geocode-unsuccessful": "كان الترميز الجغرافي لم تكن ناجحة للأسباب التالية",
+
+	"image-preview": "معاينة الصورة",
+
+	"latest-listings": "أحدث القوائم",
+
+	"listing": "Listing",
+
+	"listing-approval": "قائمة الموافقة",
+
+	"listing-feature": "ميزة هذا العرض",
+
+	"listings": "قوائم",
+
+	"listings-block-limit": "الحد قائمة",
+
+	"listings-block-limit-desc": "تعيين عدد من القوائم لعرضه",
+
+	"listing-length-comment": "نشر طول تعليق",
+
+	"listing-length-comment-desc": "تعيين الحد الأقصى للطول أقصى طول تعليق",
+
+	"listings-manager": "مدير القوائم",
+
+	"listings-manager-desc": "إدارة جميع القوائم",
+
+	"listing-truncate-comment": "نشر تعليق اقتطاع",
+
+	"listing-truncate-comment-desc": "تمكين / تعطيل اقتطاع التعليقات قائمة",
+
+	"manage-listings": "إدارة القوائم",
+
+	"market-place": "السوق",
+
+	"market-place-manager": "مدير السوق",
+
+	"market-place-setting-description": "تعديل إعدادات مكان السوق",
+
+	"max-image-error": "لقد تم تحميلها الحد الأقصى لعدد الصور الممكنة",
+
+	"max-num-listing-photos": "أقصى قدر من قائمة صور",
+
+	"max-num-listing-photos-desc": "الحد الأقصى لعدد الصور بالإرسال التي يمكن تحميلها",
+
+	"move-listings-to": "قوائم الانتقال إلى",
+
+	"my-listings": "القوائم بلدي",
+
+	"new-listing": "قائمة جديدة",
+
+	"no-listing-found": "لا توجد قائمة",
+
+	"not-approved": "لم توافق",
+
+	"not-featured": "لا مميزة",
+
+	"pagination-limit-listings": "طول الصفحة المعروضة",
+
+	"pagination-limit-listings-desc": "عدد العروض بالصفحة",
+
+	"pagination-limit-comments": "نشر التعليقات طول الصفحة",
+
+	"pagination-limit-comments-desc": "عدد من التعليقات على صفحة الإدراج",
+
+	"pending-approval": "في انتظار الموافقة",
+
+	"pending-listings": "في انتظار السوق القوائم",
+
+	"price": "السعر",
+
+	"remove-listing": "إزالة قائمة",
+
+	"user-listings": "القوائم المستخدم",
+
+	"view-details": "عرض تفاصيل",
+
+	"view-profile": "مشاهدة الملف الشخصي",
+
+	"sharer": "مقاسم",
+
+	"profile" : "الصفحة الشخصية",
+
+	"sharer-setting-description": "تعديل إعدادات الخادم",
+
+	"feed-like-type": "تغذية مثل نوع",
+
+	"feed-like-type-desc": "تعيين نوع من نظام مثل الذي تريده لكل الأعلاف، إما مثل منتظم أو رد الفعل",
+
+	"edit-topic": "تحرير الموضوع",
+
+	"forum-edit-login-error": "عذرا، يجب أن تكون مسجلا لتعديل مشاركاتك",
+
+	"forum-edit-user-error": "إما هذا الموضوع غير موجود أو أنك لا تملك صلاحية لتعديل موضوع",
+
+	"forum-followed-note": " ",
+
+	"forum-post-note": " ",
+
+	"topic": "Topic",
+
+	"people-reacted-this": "الناس الذين ردوا على هذا",
+
+	"reacted-to-post": "وكان رد فعل لمشاركتك",
+
+	"reacted-to-photo": "كان رد فعل على صورتك",
+
+	"invite-by-email": "دعوة عن طريق البريد",
+
+	"invite-by-email-desc": "أدخل عنوان بريد صديقك مفصولة بفواصل (،)",
+
+	"send-invites": "إرسال الدعوات",
+
+	"send-invite" : "ارسال دعوة",
+
+	"invite-mail-sent": "تم ارسال دعوة الإلكتروني بنجاح",
+
+	"menu_da2c80b7a070aae13766ebc5dd8c8567_title": "تجريب",
+
+	"menu_3e919239dd3419a80eccdb2e00313bd8_title": "",
+
+	"profile-questions": "أسئلة الشخصي",
+
+	"about-i": "حول",
+
+	"site-editor": "محرر الموقع",
+
+	"layout": "نسق",
+
+	"theme": "موضوع",
+
+	"edit-page-info": "تحرير معلومات الصفحة",
+
+	"edit-column": "تحرير العمود",
+
+	"available-blocks": "كتل المتاحة",
+
+	"footer": "تذييل",
+
+	"header": "رأس",
+
+	"edit-widget": "تحرير القطعة",
+
+	"new-page": "صفحة جديدة",
+
+	"main-header": "رأس الرئيسية",
+
+	"core": "Core",
+
+	"main-footer": "تذييل الرئيسية",
+
+	"save-and-preview": "حفظ ومعاينة",
+
+	"landing-page": "الصفحة المقصودة",
+
+	"signup-activate": "اشترك تنشيط",
+
+	"edit-other-languages": "تعديل لغات أخرى",
+
+	"page-keywords": "كلمات الصفحة",
+
+	"available-menus": "المتاحة القوائم",
+
+	"add-link": "إضافة رابط",
+
+	"menu-structure": "هيكل القائمة",
+
+	"menu-location": "القائمة الموقع",
+
+	"main-menu": "القائمة الرئيسية",
+
+	"footer-menu": "القائمة تذييل",
+
+	"menu-title": "عنوان القائمة",
+
+	"link": "صلة",
+
+	"open-new-window": "افتح في نافذة جديدة",
+
+	"add-menu-item": "إضافة عنصر القائمة",
+
+	"instructions": "تعليمات",
+
+	"menu-drag-instruction": " هنا <strong>عناصر القائمة السحب</strong> من هنا يمكنك إدارة، وترتيب كل عناصر القائمة في الموقع القائمة المحددة. من اليسار يمكنك",
+
+	"ajaxify": "Ajaxify",
+
+	"edit-menu": "تحرير القائمة",
+
+	"login-with": "تسجيل الدخول مع",
+
+	"account-page": "حساب الصفحة",
+
+	"user-profile-page": "العضو الصفحة",
+
+	"notifications-page": "إخطارات الصفحة",
+
+	"friend-requests-page": "صديق يطلب الصفحة",
+
+	"people-you-may-know-page": "أشخاص قد تعرفهم الصفحة",
+
+	"search-page": "صفحة البحث",
+
+	"task-scheduler": "جدول المهام",
+
+	"user-connections": "اتصالات المستخدم",
+
+	"header-account-menu": "القائمة حساب رأس",
+
+	"social-authentication": "مصادقة الاجتماعية",
+
+	"social-authentication-widget-desc": "يعرض الروابط مصادقة الاجتماعية",
+
+	"login-widget-desc": "يعرض نموذج الدخول",
+
+	"signup-widget-desc": "يعرض نموذج الاشتراك",
+
+	"no-saved-post": "هل يتم حفظ أي وظيفة حتى الآن، يمكنك حفظ آخر من مشاركة أي قائمة آخر",
+
+	"layout-editor": "محرر تخطيط",
+
+	"menu-editor": "محرر القائمة",
+
+	"set-as-active": "المجموعة النشطة",
+
+	"landing": "هبوط",
+
+	"ads-create": "إعلانات خلق",
+
+	"blogs-manager": "بلوق مدير",
+
+	"blogs-add-page": "بلوق أضف الصفحة",
+
+	"blog-view-page": "مقالات مشاهدة الصفحة",
+
+	"blogs-menu": "بلوق القائمة",
+
+	"related-blogs": "مدونات ذات الصلة",
+
+	"featured-blogs": "المدونات مميزة",
+
+	"top-blogs": "أعلى مدونات",
+
+	"cdn-servers": "خوادم كندي",
+
+	"add-new-server": "إضافة ملقم جديد",
+
+	"cdn-engine": "محرك CDN",
+
+	"add-server": "إضافة ملقم",
+
+	"server-name": "اسم الخادم",
+
+	"server-description": "خادم الوصف",
+
+	"select-engine": "حدد محرك",
+
+	"disabled": "حدد محرك",
+
+	"enable": "تمكين",
+
+	"disable": "تعطيل",
+
+	"edit-server": "تحرير خادم",
+
+	"process-uploads": "التحميلات عملية",
+
+	"process-uploads-desc": " البرنامج المساعد لمعالجة الملفات المرفوعه جديدة CDN تمكين",
+
+	"engine": "محرك",
+
+	"keep-files": "إبقاء الملفات",
+
+	"keep-files-desc": "تعيين إذا كنت تريد الحفاظ على الملفات على هذا النظام",
+
+	"events-profile-page": "أحداث الملف الشخصي ل",
+
+	"event-create": "الحدث إنشاء",
+
+	"all-events": "كل الأحداث",
+
+	"upcoming-events": "الأحداث القادمة",
+
+	"forum-desc": "هذا البرنامج المساعد يسمح أعضاء لمناقشة مواضيع مختلفة",
+
+	"forum-menu": "المنتدى قائمة",
+
+	"forum-plugin-author": "فريق crea8socialPRO",
+
+	"show-forum-dashboard-link": "رابط المنتدى لوحة القيادة",
+
+	"show-forum-dashboard-link-desc": "رابط مشاهدة المنتدى في لوحة التحكم الرئيسية الرئيسية",
+
+	"show-forum-explorer-link": "رابط المنتدى المستكشف",
+
+	"show-forum-explorer-link-desc": "رابط مشاهدة المنتدى في القائمة مستكشف",
+
+	"show-forum-footer-link": "رابط المنتدى تذييل",
+
+	"show-forum-footer-link-desc": "رابط مشاهدة المنتدى على تذييل",
+
+	"thread": "خيط",
+
+	"threads": "المواضيع",
+
+	"game": "لعبة",
+
+	"featured-games": "ألعاب مميزة",
+
+	"featured-games-desc": "يعرض أحدث ألعاب مميزة",
+
+	"latest-games": "أحدث الألعاب",
+
+	"latest-games-desc": "يعرض أكثر الألعاب التي تمت إضافتها مؤخرا",
+
+	"top-games": "قمة الألعاب",
+
+	"top-games-desc": "يعرض أكثر الألعاب لعبت",
+
+	"display-limit": "الحد يعرض",
+
+	"display-limit-desc": "الحد الأقصى لعدد البند لعرض",
+
+	"edit-game": "تحرير لعبة",
+
+	"all-groups": "جميع المجموعات",
+
+	"group-create": "خلق مجموعة",
+
+	"find-groups": "البحث عن مجموعات",
+
+	"featured-groups": "المجموعات مميزة",
+
+	"top-groups": "رأس المجموعات",
+
+	"discover-desc": "يعرض أعلى الهاش",
+
+	"hashtag": "رابطة هاشتاق",
+
+	"hashtag-menu": "القائمة الهاشتاج",
+
+	"help-manager": "مدير مساعدة",
+
+	"like-type": "مثل نوع",
+
+	"add-listing-picture": "إضافة قائمة صورة",
+
+	"can-create-listing": "يمكن إنشاء قائمة",
+
+	"category-menu": "فئة القائمة",
+
+	"category-menu-desc": "يعرض فئات السوق للملاحة",
+
+	"delete-listing-picture": "حذف قائمة صورة",
+
+	"create-listing-link-desc": "أدخل على الرابط / URL لإدراج (إن وجدت)",
+
+	"edit-listing-link-desc": "تغيير قائمة URL",
+
+	"featured-listing": "قائمة مميزة",
+
+	"featured-listing-desc": "يعرض أحدث القوائم مميزة من السوق",
+
+	"google-map-api-key": "خريطة جوجل API الرئيسية",
+
+	"google-map-api-key-desc": "تعيين مفتاح لاستخدامها بالنسبة لك خريطة جوجل API المستخدمة في البرنامج المساعد",
+
+	"main-menu-desc": "يعرض الروابط السوق للملاحة",
+
+	"marketplace": "السوق",
+
+	"marketplace-desc": "منصة لنشر البضائع والخدمات",
+
+	"marketplace-menu": "السوق القائمة",
+
+	"marketplace-manager": "مدير السوق",
+
+	"marketplace-plugin-author": "فريق crea8socialPRO",
+
+	"marketplace-setting-description": "تعديل إعدادات السوق",
+
+	"no-address": "لا عنوان",
+
+	"no-description": "بدون وصف",
+
+	"show-marketplace-dashboard-link": "رابط سوق لوحة القيادة",
+
+	"show-marketplace-dashboard-link-desc": "مشاهدة الرابط السوق على لوحة الرئيسية",
+
+	"show-marketplace-explorer-link": "رابط مستكشف السوق",
+
+	"show-marketplace-explorer-link-desc": "إظهار ارتباط السوق في القائمة مستكشف",
+
+	"show-marketplace-footer-link": "رابط تذييل السوق",
+
+	"show-marketplace-footer-link-desc": "مشاهدة الرابط السوق على تذييل",
+
+	"user-listings-desc": "يعرض أحدث قوائم للمستخدم على ه / الصفحة الشخصية لها",
+
+	"all-pages": "كل الصفحات",
+
+	"find-pages": "البحث عن صفحات",
+
+	"no-pages-found": "لا توجد صفحات وجدت هنا",
+
+	"page-create": "إنشاء صفحة",
+
+	"featured-pages": "صفحات مميزة",
+
+	"age-range": "الفئة العمرية",
+
+	"both": "على حد سواء",
+
+	"keywords": "الكلمات المفتاحية",
+
+	"default-people-list-type": "افتراضي قائمة الناس نوع",
+
+	"default-people-list-type-desc": "تغيير الناس إدراج نوع رأي",
+
+	"enable-age-filter": "تمكين العمر تصفية",
+
+	"enable-age-filter-desc": "توفير الخيار للحصول على نتيجة البحث تصفية مع التقدم في السن",
+
+	"enable-country-filter": "تمكين تصفية البلد",
+
+	"enable-country-filter-desc": "توفير الخيار للحصول على نتيجة البحث تصفية مع البلاد",
+
+	"enable-feature-filter": "تمكين ميزة تصفية",
+
+	"enable-feature-filter-desc": "توفير الخيار للحصول على نتيجة البحث تصفية مع ميزة",
+
+	"enable-gender-filter": "تمكين تصفية الجنس",
+
+	"enable-gender-filter-desc": "توفير الخيار للحصول على نتيجة البحث تصفية مع الجنسين",
+
+	"enable-online-filter": "تمكين الآن تصفية الحالة",
+
+	"enable-online-filter-desc": "توفير الخيار للحصول على نتيجة البحث تصفية مع الموجودين",
+
+	"online-friends" : "الاصدقاء المتصلين الان",
+
+
+	"feature": "ميزة",
+
+	"featured-members": "الأعضاء المميزون",
+
+	"max-page-result": "الحد الأقصى لعدد المستخدمين في كل صفحة",
+
+	"max-page-result-desc": "تعيين الحد الأقصى لعدد المستخدمين للظهور في كل صفحة",
+
+	"min-age": "عمر دقيقة",
+
+	"max-age": "ماكس عمر",
+
+	"no-member-found": "العثور على أي عضو",
+
+	"online-status": "الموجودين",
+
+	"people-directory": "دليل الناس",
+
+	"people-directory-desc": "والدليل للأعضاء التصفح",
+
+	"people-plugin-author": "فريق crea8socialPRO",
+
+	"people-setting-description": "تعديل إعدادات دليل الناس",
+
+	"say-something": "قل شيئا",
+
+	"search-people": "البحث عن أشخاص",
+
+	"show-people-dashboard-link": "يرتبط الناس لوحة القيادة",
+
+	"show-people-dashboard-link-desc": "رابط مشاهدة الناس دليل على لوحة الرئيسية",
+
+	"show-people-explorer-link": "يرتبط مستكشف الناس",
+
+	"show-people-explorer-link-desc": "رابط مشاهدة الناس دليل على القائمة مستكشف",
+
+	"show-people-footer-link": "ربط تذييل الناس",
+
+	"show-people-footer-link-desc": "رابط مشاهدة الناس دليل على تذييل",
+
+	"top-members": "كبار الأعضاء",
+
+	"activate-email-button": "تفعيل البريد الإلكتروني حصة زر",
+
+	"activate-email-button-desc": "جعل البريد الإلكتروني زر سهم متاحة",
+
+	"activate-facebook-button": "تفعيل الفيسبوك حصة زر",
+
+	"activate-facebook-button-desc": "جعل الفيسبوك زر سهم متاحة",
+
+	"activate-feed-button": "تفعيل تغذية حصة زر",
+
+	"activate-feed-button-desc": "جعل تغذية زر سهم متاحة",
+
+	"activate-googleplus-button": "تفعيل على + Google حصة زر",
+
+	"activate-googleplus-button-desc": "جعل في + Google زر سهم متاحة",
+
+	"activate-linkedin-button": "تفعيل ينكدين حصة زر",
+
+	"activate-linkedin-button-desc": "جعل ينكدين زر سهم متاحة",
+
+	"activate-twitter-button": "تفعيل تويتر حصة زر",
+
+	"activate-twitter-button-desc": "جعل تويتر زر سهم متاحة",
+
+	"button-size": "زر الحجم",
+
+	"button-size-desc": "حصة أزرار حجم",
+
+	"large": "كبير",
+
+	"medium": "متوسط",
+
+	"post-on-feed": "آخر على الأعلاف",
+
+	"videos-manager": "مدير الفيديو",
+
+	"video-categories": "فيديو التصنيفات",
+
+	"parent-category": "الفئة الوالدين",
+
+	"videos-page": "فيديو قائمة الصفحة",
+
+	"all-videos": "كل الفيديوهات",
+
+	"add-new-video": "إضافة فيديو جديد",
+
+	"videos-menu": "القائمة فيديو",
+
+	"friends-videos": "أصدقاء فيديو",
+
+	"my-videos": "مقاطع الفيديو الخاصة بي",
+
+	"search-videos": "البحث عن مقاطع الفيديو",
+
+	"videos-create-page": "أشرطة الفيديو إنشاء الصفحة",
+
+	"source": "المصدر",
+
+	"upload-from-computer": "تحميل من الكمبيوتر",
+
+	"fetch": "جلب",
+
+	"external-url-info": "إدخال وصلات الفيديو الخارجية على سبيل المثال يوتيوب، فيميو ",
+
+	"external-link": "رابط خارجي",
+
+	"add-video": "إضافة فيديو",
+
+	"video-add-error-message": "فشل في إضافة الفيديو، يرجى مراجعة التفاصيل الخاصة بك",
+
+	"video-under-processing": "يتم تحميل الفيديو الخاص بك بنجاح، يرجى وضع الاستعداد بينما نعالج الفيديو.",
+
+	"video-has-been-processed": "الفيديو التي تم تحميلها جاهز الآن",
+
+	"view-video-page": "عرض صفحة الفيديو",
+
+	"video-in-processing": "الفيديو في الوقت الحالي في معالجة",
+
+	"related-video": "فيديوهات ذات علاقة",
+
+	"latest-video": "أحدث فيديو",
+
+	"view-count": "عدد مرات المشاهدة",
+
+	"save-video": "حفظ الفيديو",
+
+	"top-videos": "أفضل فيديو كليب",
+
+	"featured-videos": "فيديو مميزة",
+
+	"fetch-video": "جلب الفيديو",
+
+	"video-not-found-in-link": "لم يتم العثور في الارتباط المنصوص الفيديو",
+
+	"delete-video": "حذف الفيديو",
+
+	"reacted-to-video": "وكان رد فعل على الفيديو",
+
+	"like-your-video": "أحب الفيديو",
+
+	"make-comment-on-your-video": "علق على الفيديو",
+
+	"sent-you-friend-request" : "أرسل اليك طلب صداقة",
+
+	"comment-on-his-video": "فيديو :ad علق على video",
+
+	"comment-on-video": "علق على هذا الفيديو",
+
+	"dislike-your-video": "كره الفيديو",
+
+	"shared-video": "شارك مقطع فيديو",
+
+	"no-videos-found-here": "لم يتم العثور على فيديوهات هنا",
+
+	"recent-videos": "الأخيرة فيديوهات",
+
+	"untitled-video": "فيديو بدون اسم",
+
+	"not-profile-page": "هذه ليست الصفحة الشخصية",
+
+	"comment-on-blog": "علق على بلوق",
+
+	"like-your-blog": "أحب بلوق الخاص بك",
+
+	"view-feed": "عرض تغذية الصفحة",
+
+	"people-voted-this": "الناس الذين صوتوا هذا",
+
+	"no-voters-found": "لا المصوتون العثور على",
+
+	"edit-thread-tags-desc": "تعديل قائمة العلامات",
+
+	"featured-threads": "المواضيع مميزة",
+
+	"featured-topics": "مواضيع مميزة",
+
+	"followed-topics": "مواضيع يتبع",
+
+	"forum-like-note": " ",
+
+	"latest-thread": "أحدث المواضيع",
+
+	"latest-topics": "أحدث الموضوعات",
+
+	"liked-your-post": "اعجبه منشورك",
+
+	"mentioned-you-in-post" : "ذكرك فى تعليق",
+
+	"game-play": "تلعب لعبة",
+
+	"view-game": "مشاهدة لعبة",
+
+	"game-menu": "قائمة لعبة",
+
+	"totalimage": "إجمالي عدد الصور",
+
+	"headingname": "أحدث زوار الملف الشخصي",
+
+	"settings-title": "أحدث زوار الملف الشخصي",
+
+	"settings-description": "أحدث إعدادات زوار الملف الشخصي",
+
+	"profileheadings": " أحدث زوار الملف الشخصي",
+
+	"who-can-see-visitors": "من يمكنه رؤية أحدث زوار ملفي الشخصي",
+
+	"choose-gender-title": "الجنس الآخر فقط",
+
+	"choose-gender-description": "مشاهدة المستخدمين من الجنس الآخر وحده",
+
+	"choose-gender-type": "boolean",
+
+	"choose-gender-value": "1",
+
+	"limit-title": "عدد المستخدمين",
+
+	"limit-description": "تعيين عدد من المستخدمين لعرضه",
+
+	"limit-type": "نص",
+
+	"limit-value": "6",
+
+	"withavatar-title": "المستخدم مع الصورة فقط",
+
+	"withavatar-description": "تظهر فقط للمستخدمين مع الآلهة",
+
+	"withavatar-type": "منطقية",
+
+	"withavatar-value": "1",
+
+	"view-your-profile": "قام بالاطلاع على صفحتك الشخصية",
+
+	"view-your-profile-again": "ينظر التعريف الخاص بك مرة أخرى",
+
+	"featured-listings": "إعلانات مميزة",
+
+	"add-new-music": "إضافة الموسيقى الجديدة",
+
+	"add-new-playlist": "إضافة قائمة تشغيل جديدة",
+
+	"add-music": "إضافة الموسيقى",
+
+	"add-playlist": "أضف قائمة",
+
+	"album": "ألبوم",
+
+	"all-musics": "كل موسيقى",
+
+	"all-playlists": "جميع قوائم التشغيل",
+
+	"artist": "فنان",
+
+	"comment-on-music": "علق على هذه الموسيقى",
+
+	"cover-art": "فن الغلاف",
+
+	"default-music-list-type": "افتراضي قائمة الموسيقى نوع",
+
+	"default-music-list-type-desc": "مع هذا الخيار يمكنك تعيين نوع قائمة الموسيقى",
+
+	"default-playlist-list-type": "افتراضي قائمة التشغيل نوع",
+
+	"default-playlist-list-type-desc": "مع هذا الخيار يمكنك تعيين نوع قائمة التشغيل",
+
+	"default-music-privacy": "افتراضي الموسيقى الخصوصية",
+
+	"default-music-privacy-desc": "تعيين خصوصية الموسيقى الافتراضية لأعضاء الخاص بك عند إضافة موسيقى جديدة",
+
+	"default-playlist-privacy": "افتراضي التشغيل الخصوصية",
+
+	"default-playlist-privacy-desc": "تعيين الخصوصية التشغيل الافتراضية لأعضاء الخاص بك عند إضافة موسيقى جديدة",
+
+	"delete-music": "حذف الموسيقى",
+
+	"delete-playlist": "حذف قائمة التشغيل",
+
+	"dislike-your-music": "يكره الموسيقى الخاصة بك",
+
+	"download-mp3": "تحميل mp3",
+
+	"edit-music": "تحرير الموسيقى",
+
+	"edit-playlist": "تحرير قائمة التشغيل",
+
+	"empty-playlist-error": "يجب أن يحتوي على قائمة التشغيل على الأقل على الموسيقى",
+
+	"enable-music-upload": "تمكين اغاني تحميل",
+
+	"enable-music-upload-desc": "مع هذا الخيار يمكنك تعطيل أو تمكين تحميل الموسيقى",
+
+	"enable-music-download": "تمكين اغاني تحميل",
+
+	"enable-music-download-desc": "تمكين / تعطيل اغاني تحميل",
+
+	"featured-musics": "موسيقى مميزة",
+
+	"featured-musics-desc": "قائمة ظهرت موسيقى",
+
+	"featured-playlists": "قوائم التشغيل مميزة",
+
+	"featured-playlists-desc": "ظهرت قائمة التشغيل",
+
+	"fetch-music": "جلب الموسيقى",
+
+	"friends-musics": "أصدقاء موسيقى",
+
+	"grid": "شبكة",
+
+	"latest-musics": "أحدث موسيقى",
+
+	"latest-musics-desc": "قائمة أحدث موسيقى",
+
+	"latest-playlists": "أحدث قوائم التشغيل",
+
+	"latest-playlists-desc": "قائمة أحدث قوائم التشغيل",
+
+	"like-your-music": "أحب الموسيقى الخاص بك",
+
+	"make-comment-on-your-music": "علق على الموسيقى الخاصة بك",
+
+	"music": "موسيقى",
+
+	"musics": "موسيقى",
+
+	"music-add-error-message": "فشل في إضافة الموسيقى، يرجى مراجعة التفاصيل الخاصة بك",
+
+	"music-categories": "الموسيقى الفئات",
+
+	"music-edit-page": "تحرير الموسيقى الصفحة",
+
+	"music-limit-per-page": "تحرير الموسيقى الصفحة",
+
+	"music-limit-per-page-desc": "تعيين الحد الخاص بك في الصفحة إدراج موسيقى",
+
+	"music-not-found-in-link": "لم يتم العثور في الارتباط المنصوص الموسيقى",
+
+	"music-player": "مشغل الموسيقى",
+
+	"music-plugin setting": "إعدادات الموسيقى المساعد",
+
+	"musics-create-page": "موسيقى إنشاء الصفحة",
+
+	"music-manager": "مدير الموسيقى",
+
+	"musics-manager": "مدير الموسيقى",
+
+	"musics-menu": "موسيقى القائمة",
+
+	"musics-menu-desc": "قائمة القوائم دليل الموسيقى",
+
+	"musics-page": "موسيقى قائمة الصفحة",
+
+	"my-playlists": "بلدي قوائم التشغيل",
+
+	"my-musics": "بلدي موسيقى",
+
+	"number-playlist-display": "عدد من قوائم التشغيل لعرض",
+
+	"number-playlist-display-desc": "تعيين عدد من العازفين لعرضه",
+
+	"no-music-found-here": "لا موسيقى وجدت هنا",
+
+	"no-of-tracks": "عدد المسارات",
+
+	"no-playlist-found-here": "لا يوجد قوائم جدت هنا",
+
+	"play": "لعب",
+
+	"play-count": "عدد اللعب",
+
+	"playlist": "قائمة التشغيل",
+
+	"playlists": "قوائم التشغيل",
+
+	"playlist-add-error-message": "فشل في إضافة قائمة التشغيل، يرجى مراجعة التفاصيل الخاصة بك",
+
+	"playlist-edit-page": "تحرير قائمة التشغيل الصفحة",
+
+	"playlist-categories": "فئات قائمة التشغيل",
+
+	"playlist-limit-per-page": "قائمة قائمة التشغيل لكل صفحة",
+
+	"playlist-limit-per-page-desc": "تعيين الحد الخاص بك في الصفحة إدراج قوائم التشغيل",
+
+	"playlist-create-page": "قائمة التشغيل إنشاء الصفحة",
+
+	"playlist-manager": "مدير التشغيل",
+
+	"playlists-manager": "مدير التشغيل",
+
+	"playlists-menu": "قوائم التشغيل القائمة",
+
+	"playlists-menu-desc": "قائمة العازفين القوائم",
+
+	"playlists-page": "العازفين صفحة البيانات",
+
+	"plays": "مسرحيات",
+
+	"profile-recent-musics": "الملف الشخصي موسيقى الأخيرة",
+
+	"profile-recent-playlists": "الملف الشخصي العازفين الأخيرة",
+
+	"profile-recent-musics-desc": "قائمة صاحب الشخصية الأخيرة موسيقى",
+
+	"profile-recent-playlists-desc": "قائمة صاحب الشخصية الأخيرة قوائم التشغيل",
+
+	"reacted-to-music": "كان رد فعل على الموسيقى الخاصة بك",
+
+	"recent-musics": "موسيقى الأخيرة",
+
+	"recent-playlists": "قوائم التشغيل الأخيرة",
+
+	"related-musics": "موسيقى ذات صلة",
+
+	"related-musics-desc": "ذات الصلة قائمة موسيقى",
+
+	"related-playlists": "قوائم التشغيل ذات الصلة",
+
+	"related-playlists-desc": "قوائم التشغيل ذات الصلة",
+
+	"search-musics": "البحث موسيقى",
+
+	"search-playlists": "البحث قوائم التشغيل",
+
+	"shared-music": "تقاسم الموسيقى",
+
+	"save-music": "حفظ الموسيقى",
+
+	"save-playlist": "حفظ قائمة التشغيل",
+
+	"top-musics": "أعلى موسيقى",
+
+	"top-musics-desc": "قائمة أعلى موسيقى",
+
+	"top-playlists": "أعلى قوائم التشغيل",
+
+	"top-playlists-desc": "قائمة أعلى قوائم التشغيل",
+
+	"track": "مسار",
+
+	"tracks": "المسارات",
+
+	"unknown-artist": "الفنان بدون اسم",
+
+	"untitled-music": "الموسيقى بدون اسم",
+
+	"untitled-playlist": "قائمة التشغيل بدون اسم",
+
+	"uploaded-by": "تم الرفع بواسطة",
+
+	"view-music-page": "عرض الموسيقى الصفحة",
+
+	"view-playlist-page": "عرض الموسيقى الصفحة",
+
+	"photo": "صورة فوتوغرافية",
+
+	"latest-photos": "أحدث صور",
+
+	"add-new-photo": "إضافة صورة جديدة",
+
+	"my-albums": "ألبوماتي",
+
+	"all-albums": "كل الالبومات",
+
+	"search-photos": "بحث صور",
+
+	"search-albums": "البحث الالبومات",
+
+	"photo-title": "عنوان الصورة",
+
+	"photo-description": "وصف الصورة",
+
+	"select-photo": "حدد صورة فوتوغرافية",
+
+	"album-photos": "ألبوم صور",
+
+	"myalbum-photos": "ألبومي صور",
+
+	"album-created": "ألبوم خلق!",
+
+	"photo-created": "صورة تم الإنشاء",
+
+	"photo-permissions": "ضوابط صور",
+
+	"can-add-photo": "يمكن إضافة صور",
+
+	"photo-privacy": "Photo Privacy",
+
+	"album-created-add-photos": "ألبوم مكون، يمكنك إضافة صور",
+
+	"pageheadings": "استعادة الملفات إلى صيغة عمل سابقة",
+
+	"restore-title": "النسخ الاحتياطي واستعادة",
+
+	"restore-description": "استعادة الملفات إلى صيغة عمل سابقة",
+
+	"restore-setting-description": "وضع للنسخ الاحتياطي واستعادة الملفات الخاصة بك",
+
+	"mysql-user-name-title": "الخلية اسم المستخدم",
+
+	"mysql-user-name-desc": "أدخل اسم المستخدم قاعدة البيانات الخاصة بك",
+
+	"mysql-user-name-value": "جذر",
+
+	"mysql-password-title": "الخلية كلمة المرور",
+
+	"mysql-password-desc": "أدخل كلمة المرور قاعدة البيانات الخاصة بك",
+
+	"mysql-password-value": "",
+
+	"mysql-host-name-title": "الخلية اسم المضيف",
+
+	"mysql-host-name-desc": "أدخل اسم المضيف قاعدة البيانات الخاصة بك",
+
+	"mysql-host-name-value": "المضيف المحلي",
+
+	"db-name-title": "قاعدة البيانات",
+
+	"db-name-desc": "أدخل اسم قاعدة البيانات الخاصة بك",
+
+	"db-name-value": "",
+
+	"tables-title": "Backup whole database or select few tables",
+
+	"tables-desc": "ترك القيمة ك * لعمل نسخة احتياطية من قاعدة بيانات كاملة أو تحديد الجداول عن طريق إدخال أسماء الجداول مفصولة بفواصل (على سبيل المثال الصورة، العلامة، مثل)",
+
+	"tables-value": "*",
+
+	"ftp-server-title": "خادم FTP",
+
+	"ftp-server-desc": "توفر لديك خادم بروتوكول نقل الملفات رابط لاستخدامها من أجل النسخ الاحتياطي عن بعد",
+
+	"ftp-server-value": "",
+
+	"ftp-user-name-title": "اسم المستخدم بروتوكول نقل الملفات",
+
+	"ftp-user-name-desc": "توفير اسم المستخدم وبروتوكول نقل الملفات الخاصة بك لاستخدامها من أجل النسخ الاحتياطي عن بعد",
+
+	"ftp-user-name-value": "",
+
+	"ftp-user-pass-title": "كلمة السر بروتوكول نقل الملفات",
+
+	"ftp-user-pass-desc": "توفير كلمة مرور بروتوكول نقل الملفات الخاصة بك لاستخدامها من أجل النسخ الاحتياطي عن بعد",
+
+	"ftp-user-pass-value": "",
+
+	"restore-manager": "استعادة مدير",
+
+	"backup-url": "رابط النسخ الاحتياطي عن بعد",
+
+	"restore-url": "بعد استعادة رابط",
+
+	"enable-store-notifications" : "تفعيل إشعارات المتجر",
+
+	"delete-account-description" : "لحدف حسابك, ادخل كلمة المرور الحالية. ملحوظه: لا يمكنك ان تعيد الحساب مرة اخري بعد حذفه.",
+
+	"block-description" : "عندما تقوم بحظر أحد الاشخاص, فان هذا الشخص لا يمكنه روية المنشورات علي صفحتك, ولا يمكنه ان يذكرك او يدعوك لحدث او جروب او يتواصل معكاو يرسل اليك طلب صداقة.",
+
+	"id": "هوية شخصية",
+
+	"backup-title": "عنوان النسخ الاحتياطي",
+
+	"backup-path": "المضيف النسخ الاحتياطي",
+
+	"host-type": "نوع المضيف",
+
+	"backup-date": "نشاط النسخ الاحتياطي التسجيل",
+
+	"restore-date": "آخر استعادة التسجيل",
+
+	"event-action": "عمل",
+
+	"maximum-upload-audio-size": "الحد الأقصى رفع الصوت الحجم",
+
+	"maximum-upload-audio-size-desc": "تعيين الحد الأقصى لحجم تحميل الصوت من قبل أعضاء الخاص بك، لإضافة مزيد من الحجم يرجى الاتصال بنا",
+
+	"latest-member": "آخر عضو",
+
+	"explore-more": "استكشاف المزيد من الألعاب",
+
+	"create-account": "انشاء حساب",
+
+	"join": "انضم",
+
+	"on": "على",
+
+	"confirm-password" : "تاكيد كلمة المرور",
+
+	"replied-on-your-comment" : "رد علي تعليقك",
+
+	"invited-you-to-page" : "دعاك الي الاعجاب بصفحة",
+
+	"invited-you-to": "دعوتك ل",
+
+	"upload-a-file": "ارفع ملفا",
+
+	"forum-sub-replies-order": "المنتدى الفرعي الردود ترتيب",
+
+	"forum-sub-replies-order-desc": "فرز ترتيب المواضيع ردود الفرعية تصاعديا وتنازليا الطابع الزمني",
+
+	"not-a-group-page": "هذه ليست صفحة مجموعة",
+
+	"explore-top": "استكشاف الأعلى أغانينا",
+
+	"here-latest-music": "وفيما يلي أحدث موسيقى",
+
+	"music-signup-teaser-head-note": "شكرا على الإنصات. الآن الانضمام إليها.",
+
+	"music-signup-teaser-note": "حفظ المسارات، حصة المسارات وإنشاء قوائم تشغيل. جميع مجانا.",
+
+	"music-signup-teaser-create-account": "إنشا حساب :sitetitle",
+
+	"music-signup-teaser-already-have-account": "هل لديك حساب؟",
+
+	"or": "أو",
+
+	"upload-your-own": "تحميل بنفسك",
+
+	"no-photo-found": "لا توجد صور",
+
+	"delete-album": "حذف الألبوم",
+
+	"disable-side-site-sharer": "تعطيل جانبية الموقع شارر",
+
+	"disable-side-site-sharer-desc": "إزالة الموقع المشارك ثابتة في الجانب الأيسر من الصفحة",
+
+	"disable-inline-link-sharer": "تعطيل مضمنة صلة شارر",
+
+	"disable-inline-link-sharer-desc": "إزالة جميع مشاركي صلة",
+
+	"share-site-button-size": "شارر الموقع أزرار الحجم",
+
+	"share-site-button-size-desc": "حجم أزرار للالمشارك الموقع الجانب",
+
+	"latest-videos": "أحدث فيديو",
+
+	"view-category": "عرض تصنيف",
+
+	"watch-latest-videos": "مشاهدة الفيديوهات",
+
+	"watch-top-videos": "مشاهدة فيديو الأعلى",
+
+	"watch-featured-videos": "مشاهدة فيديو مميزة",
+
+	"watch-now": "شاهد الآن",
+
+	"static_page_890706b87588e1e8163205e4b1ac9735_title": "أحكام وشروط",
+
+	"static_page_5a9d79ace981258162ecee11d16e974b_title": "سياسة الخصوصية",
+
+	"tag-people-hint": "العلامة الناس في مشاركتك",
+
+	"check-in": "تحقق في",
+
+	"featured-desc": "المواضيع الموصى بها من قبل المشرفين",
+
+	"help": "مساعدة",
+
+	"sub-help": "فرعية مساعدة",
+
+	"marketplace-permissions": "ضوابط السوق",
+
+	"can-add-music": "يمكن إضافة الموسيقى",
+
+	"can-add-playlist": "يمكن إضافة قائمة التشغيل",
+
+	"search-user": "المستخدم في البحث عن طريق الاسم والبريد الالكتروني واسم المستخدم",
+
+	"successfully-upload-photos": "بنجاح تحميل صور",
+
+	"badges": "شارات",
+
+	"no-badges-available": "لا الشارات المتاحة",
+
+	"add-badges": "إضافة شارة",
+
+	"badge-name": "اسم شارة",
+
+	"badge-color": "شارة اللون",
+
+	"add-badge": "إضافة شارة",
+
+	"edit-badges": "تحرير شارة",
+
+	"save-badge": "حفظ شارة",
+
+	"badge-type": "نوع شارة",
+
+	"default": "افتراضي",
+
+	"contact-page": "الاتصال الصفحة",
+
+	"contact-us": "اتصل بنا",
+
+	"contact-form-message": "ونود أن نسمع منك",
+
+	"message-not-sent": "لم يتم إرسال الرسالة!",
+
+	"message-sent": "تم الارسال!",
+
+	"faq-subject": "الأسئلة الأكثر تكرارا موضوع",
+
+	"faqs": "الأسئلة الأكثر شيوعا",
+
+	"crea8Social-faqs": "Crea8social أسئلة وأجوبة",
+
+	"faq_subject": "الموضوعات التعليمات",
+
+	"modification panel": "لوحة التعديل",
+
+	"add-faq": "إضافة أسئلة وأجوبة",
+
+	"faq-content": "المحتوى التعليمات",
+
+	"faq-categories": "فئات التعليمات",
+
+	"manage category": "إدارة الفئات",
+
+	"update-Faq-category": "تحديث الأسئلة الفئة",
+
+	"add-faqs": "Add Faqs",
+
+	"manage-faqs": "إدارة أسئلة وأجوبة",
+
+	"faqs-manager": "مدير أسئلة وأجوبة",
+
+	"edit-faqs": "تحرير أسئلة وأجوبة",
+
+	"update-faqs": "تحديث أسئلة وأجوبة",
+
+	"manage-faq": "إدارة الأسئلة",
+
+	"all-feedback": "جميع تعليقات",
+
+	"my-feedbacks": "تعليقاتي (ق)",
+
+	"my-feedback": "تعليقاتي",
+
+	"feedback": "ردود الفعل",
+
+	"create-new-feeedback": "إنشاء ملاحظات جديدة",
+
+	"categories-menu": "الفئات",
+
+	"reviewing": "مراجعة",
+
+	"accepted": "قبلت",
+
+	"implemented": "نفذت",
+
+	"implementing": "تحقيق",
+
+	"share-with-us-your-idea": "مشاركة معنا لك أفكار والأسئلة والمشاكل وردود الفعل.",
+
+	"severity": "خطورة",
+
+	"post-feedback": "بعد ردود الفعل",
+
+	"feedback-title": "ردود الفعل عنوان",
+
+	"feedback-creator": "ردود الفعل الخالق",
+
+	"feedback-description": "ردود الفعل الوصف",
+
+	"most-voted-feedback": "ملاحظات الأكثر تقييما",
+
+	"status-menu": "الحالة",
+
+	"feedback-details": "ردود الفعل تفاصيل",
+
+	"manage-feedback": "إدارة التقييم",
+
+	"publish": "نشر",
+
+	"unpublished": "غير منشورة",
+
+	"vote": "تصويت",
+
+	"options": "خيارات",
+
+	"below-are-some": "وفيما يلي بعض الإحصاءات قيمة للملاحظات المقدمة على هذا الموقع",
+
+	"total-feedback": "مجموع الاراء",
+
+	"total-review": "مجموع الاراء تحت المراجعة",
+
+	"total-accepted": "مجموع الاراء المقبولة",
+
+	"total-implementing": "مجموع الاراء تحت التنفيذ",
+
+	"total-implemented": "Total Feedback Implemented:",
+
+	"total-vote": "مجموع الأصوات",
+
+	"add-severity": "إضافة الخطورة",
+
+	"edit-severity": "تحرير خطورة",
+
+	"manage-severity": "إدارة شدة",
+
+	"severity-title": "شدة عنوان",
+
+	"add-categories": "إضافة الفئات",
+
+	"edit-categories": "تحرير الفئات",
+
+	"feedback-manager": "مدير ردود الفعل",
+
+	"severities": "بالقسوة",
+
+	"feedback-mine": "ردود الفعل صورى ردود الفعل الصفحة",
+
+	"feedback-category": "ردود الفعل الفئة",
+
+	"feedback-manage": "إدارة التقييم",
+
+	"feedback-options": "خيارات ردود الفعل",
+
+	"feedback-statistics": "ردود الفعل الاحصائيات",
+
+	"feedback-manage-category": "إدارة ملاحظات الفئة",
+
+	"feedback-add-category": "إضافة ملاحظات الفئة",
+
+	"feedback-severity": "ردود الفعل خطورة",
+
+	"feedback-manage-severity": "إدارة التقييم شدة",
+
+	"feedback-add-severity": "إضافة ملاحظات خطورة",
+
+	"search-feedback": "أدخل كلمة للبحث",
+
+	"livechat": "دردشة مباشرة",
+
+	"livechat-desc": "توفر القطعة LIVECHAT للصفحة، الحدث، مجموعة ولعبة",
+
+	"call": "مكالمة",
+
+	"call-dropped": "الاتصال انقطع",
+
+	"calling": "يدعو ...",
+
+	"can-make-call": "يمكن إجراء مكالمة",
+
+	"connection-timeout": "انتهى وقت محاولة الاتصال",
+
+	"disconnect": "قطع الاتصال",
+
+	"drop": "قطرة",
+
+	"error-in-connection": "خطأ في الاتصال",
+
+	"me": "أنا",
+
+	"mediachat": "MediaChat",
+
+	"mediachat-permissions": "ضوابط MediaChat",
+
+	"mediachat-setting-description": "إعدادات MediaChat",
+
+	"pick": "اختيار",
+
+	"please-wait": "أرجو الإنتظار...",
+
+	"rtcp-sid": "RTC الملف SID",
+
+	"rtcp-sid-desc": " ",
+
+	"twilio-sid": "Twilio SID",
+
+	"twilio-sid-desc": " ",
+
+	"twilio-auth-token": "Twilio مصادقة رمز",
+
+	"twilio-auth-token-desc": "",
+
+	"twilio-api-key": "Twilio مفتاح API",
+
+	"twilio-api-key-desc": " ",
+
+	"twilio-api-secret": "Twilio API السرية",
+
+	"twilio-api-secret-desc": " ",
+
+	"0": "0",
+
+	"1": "0",
+
+	"2": "0",
+
+	"3": "0",
+
+	"default-page-list-type": "افتراضي صفحة قائمة نوع",
+
+	"default-page-list-type-desc": "مع هذا الخيار يمكنك تعيين نوع القائمة الصفحة",
+
+	"like-your-page": "اعجب بالصفحة الخاصة بك",
+
+	"reacted-to-page": "كان رد فعل على صفحتك",
+
+	"friend-request": "طلب صداقة",
+
+	"manage-slideshows": "إدارة عرض الشرائح",
+
+	"publish-post-to-social-media": "السماح للأعضاء بنشر مقالة للوسائل الاعلام الاجتماعية",
+
+	"enable-social-publisher": "تمكين الناشر الاجتماعي",
+
+	"share-on-auto": "مشاركة السيارات على",
+
+	"twitter": "تغريد",
+
+	"as": "كما ترتبط ",
+
+	"spotlight": "ضوء كشاف",
+
+	"profile-spotlight": "أضواء الشخصي",
+
+	"enable-profile-spotlight": "تمكين أضواء الشخصي",
+
+	"manage-spotlight-members": "إدارة أضواء الأعضاء",
+
+	"spotlight-profile": "الملف الضوء",
+
+	"expires-in": "ينتهي في",
+
+	"expired": "منتهية الصلاحية",
+
+	"put-me-there": "وضعني هناك",
+
+	"profile-spotlight-status": "الملف الشخصي الحالة أضواء",
+
+	"subscription-details": "تفاصيل الاشتراك",
+
+	"profile-spotlight-subscription": "الملف الشخصي الاشتراك أضواء",
+
+	"duration": "مدة",
+
+	"spotlight-plans": "خطط أضواء",
+
+	"you-are-not-currently-on-spotlight-profile": "أنت لست حاليا في الملف الشخصي دائرة الضوء.",
+
+	"select-members": "حدد الأعضاء",
+
+	"payment-options": "خيارات الدفع",
+
+	"put-me-here": "وضعني هنا",
+
+	"choose-plan": "اختيار خطة",
+
+	"subscrbe-now": "إشترك الآن!",
+
+	"subscrition-succesful": "كان اشتراكك النجاح. شكر",
+
+	"spotlight-subscription-status": "الحالة الضوء الاشتراك",
+
+	"add-spotlight-member": "إضافة عضو أضواء",
+
+	"spotlight-plan": "خطة دائرة الضوء",
+
+	"spotlight-members": "أضواء الأعضاء",
+
+	"select-one": "اختر واحدا",
+
+	"duration-type": "نوع المدة",
+
+	"update-spotlight-profile": "تحديث الملف الشخصي أضواء",
+
+	"creditgift": "الاعتمادات",
+
+	"credit-and-gift": "رصيد",
+
+	"transactions": "المعاملات",
+
+	"action-date": "إجراءات التسجيل",
+
+	"action-type": "نوع العمل",
+
+	"credits": "الاعتمادات",
+
+	"top-member": "كبار الأعضاء",
+
+	"my-transactions": "معاملاتي",
+
+	"credits-rank": "قروض الرتبة",
+
+	"my-rank": "بلدي قروض الرتبة",
+
+	"action-types": "أنواع العمل والاعتمادات",
+
+	"credit-rank": "الرتبة الائتمان",
+
+	"creditgift-creditrank": "قروض الرتبة",
+
+	"creditgift-manager": "مدير القروض",
+
+	"manage-rank": "إدارة الرتب",
+
+	"rank": "مرتبة",
+
+	"credit": "رصيد",
+
+	"rank-image": "صورة رتبة",
+
+	"add-new-rank": "إضافة رتبة جديدة",
+
+	"credits-statistics": "الاحصائيات الائتمان",
+
+	"number-of-member": "عدد من أعضاء في هذه الرتبة",
+
+	"add-new-category": "إضافة فئة جديدة",
+
+	"richest-member": "أغنى الأعضاء",
+
+	"send-credit": "إرسال الائتمان",
+
+	"send-to-all": "إرسال للكل",
+
+	"unit": "وحدة",
+
+	"sent-credit": "أرسل لك الائتمان",
+
+	"credit-sent": "المرسلة الائتمان",
+
+	"credit-not-sent": "الائتمان لم ترسل",
+
+	"credit-not-enough": "الائتمان غير كافية",
+
+	"all-time-credit": "إجمالي الائتمان كل الوقت",
+
+	"current-balance": "الرصيد الحالي",
+
+	"total-credit-spent": "البقاء إجمالي الائتمان",
+
+	"purchase-credit": "شراء الائتمان",
+
+	"transaction-name": "اسم المعاملة",
+
+	"purchased-by": "تم الشراء بواسطة",
+
+	"transaction-description": "عملية الوصف",
+
+	"purchase": "شراء",
+
+	"credit-purchase": "شراء الائتمان",
+
+	"cost": "كلفة",
+
+	"credit-receipt": "استلام المعاملة",
+
+	"credit-sales": "مبيعات الائتمان",
+
+	"credit-sale-plan": "خطة الائتمان",
+
+	"salesplan-edit": "خطة تحرير المبيعات",
+
+	"purchase-of-credit": "شراء الائتمان",
+
+	"12-hour-format": "تنسيق 12 ساعة",
+
+	"24-hour-format": "تنسيق 24 ساعة",
+
+	"event-time-format": "تنسيق الحدث الوقت",
+
+	"event-time-format-desc": " ",
+
+	"event-date-separator": "حدث فاصل التاريخ",
+
+	"event-date-separator-desc": " ",
+
+	"event-date-order": "الحدث ترتيب التاريخ",
+
+	"event-date-order-desc": " ",
+
+	"space": "الفضاء",
+
+	"dash": "اندفاع",
+
+	"dot": "نقطة",
+
+	"slash": "خفض",
+
+	"day-comes-first": "اليوم يأتي أولا",
+
+	"month-comes-first": "الشهر يأتي أولا",
+
+	"giftshop": "معرض الهدايا",
+
+	"gift-shop": "معرض الهدايا",
+
+	"add-gift": "إضافة هدية",
+
+	"edit-gift": "تحرير هدية",
+
+	"edit-group" : "تحرير المجموعة",
+
+	"gift-category": "هدية الفئة",
+
+	"giftshop-edit": "تحرير الفئة",
+
+	"manage-gift": "إدارة هدية",
+
+	"giftshop-manager": "مدير معرض الهدايا",
+
+	"all-gift": "كل الهدايا",
+
+	"my-gift": "هديتى",
+
+	"my-groups" : "المجموعات الخاصة بك",
+
+	"gift-categories": "الفئات",
+
+	"last-recieved": "أخر الهدايا المستلمة",
+
+	"default-group-list-type": "افتراضي قائمة المجموعة نوع",
+
+	"default-group-list-type-desc": "مع هذا الخيار يمكنك تعيين مجموعة نوع قائمة",
+
+	"user-unavailable-video-call": "هذا المستخدم غير متوفر لمكالمة فيديو",
+
+	"user-unavailable-voice-call": "هذا المستخدم غير متوفر لمكالمة صوتية",
+
+	"add-images": "إضافة صور",
+
+	"add-pictures": "إضافة صور",
+
+	"add-property-picture": "إضافة خاصية الصورة",
+
+	"add-property-plan": "إضافة خطة الملكية",
+
+	"all-properties": "جميع العقارات",
+
+	"available-since": "متاح منذ",
+
+	"can-create-property": "يمكن أن تخلق الملكية",
+
+	"commented-on-your-property": "علق على الممتلكات الخاصة بك",
+
+	"contact-seller": "تواصل مع البائع",
+
+	"delete-property-picture": "حذف صورة الملكية",
+
+	"create-property": "إنشاء الملكية",
+
+	"create-property-category-desc": "اختر فئة الممتلكات الخاصة بك",
+
+	"create-property-contact-desc": "Enter the email or phone number for the property (if any)",
+
+	"create-property-link-desc": "أدخل على الرابط / URL للخاصية (إن وجدت)",
+
+	"create-property-description-desc": "وصف موجز للممتلكات الخاصة بك",
+
+	"create-property-image-desc": "تحميل صورة من الممتلكات الخاصة بك",
+
+	"create-property-images-desc": "تحميل صور إضافية لالممتلكات الخاصة بك",
+
+	"create-property-address-desc": "أدخل العنوان الكامل للممتلكات الخاصة بك بما في ذلك المنطقة والبلد",
+
+	"create-property-price-desc": "أدخل سعر الممتلكات الخاصة بك. (اتركه فارغا إذا مجانا).",
+
+	"create-property-tags-desc": "الكلمات الرئيسية المرتبطة الممتلكات الخاصة بك مفصولة بفواصل",
+
+	"create-property-title-desc": "أدخل عنوان الممتلكات الخاصة بك",
+
+	"days-limit": "أيام الحد",
+
+	"delete-image": "حذف صورة",
+
+	"delete-property": "حذف الملكية",
+
+	"delete-property-desc": "حذف خاصية",
+
+	"edit-property": "خاصية تحرير",
+
+	"edit-property-active-desc": "تفعيل / تعطيل الملكية",
+
+	"edit-property-approval-desc": "تغيير حالة الموافقة على الممتلكات",
+
+	"edit-property-category-desc": "تغيير الفئة للخاصية",
+
+	"edit-property-contact-desc": "تغيير الملكية معلومات الاتصال",
+
+	"edit-property-link-desc": "تغيير URL الملكية",
+
+	"edit-property-desc": "تعديل خاصية القائمة",
+
+	"edit-property-description-desc": "تحرير صفا للممتلكات",
+
+	"edit-property-featured-desc": "خصائص ميزة / الميزة",
+
+	"edit-property-address-desc": "تغيير عنوان العقار",
+
+	"edit-property-price-desc": "تغيير سعر العقار. (اتركه فارغا إذا مجانا)",
+
+	"edit-property-tags-desc": "تعديل العلامات للخاصية",
+
+	"edit-property-title-desc": "تعديل العنوان للخاصية",
+
+	"featured-property": "الملكية متميز",
+
+	"featured-properties": "خصائص مميزة",
+
+	"featured-property-desc": "يعرض أحدث خصائص مميزة من الممتلكات",
+
+	"filter": "فلتر",
+
+	"has-photo": "يوجد صور",
+
+	"image-deleted": "صورة محذوفة",
+
+	"image-not-deleted": "صورة ليس المحذوفة",
+
+	"images": "صور",
+
+	"images-max-error": "الحد الأقصى لعدد الصور المسموح بها (:max) تجاوزت",
+
+	"latest-properties": "أحدث خصائص",
+
+	"property-length-comment": "الملكية تعليق طول",
+
+	"property-length-comment-desc": "تعيين الحد الأقصى للطول أقصى طول تعليق",
+
+	"property-plans": "خطط الملكية",
+
+	"property-truncate-comment": "الملكية تعليق اقتطاع",
+
+	"property-truncate-comment-desc": "تمكين / تعطيل اقتطاع التعليقات الممتلكات",
+
+	"manage-properties": "إدارة العقارات",
+
+	"map": "رسم خريطة",
+
+	"max": "ماكس",
+
+	"max-num-property-photos": "الحد الأقصى للملكية صور",
+
+	"max-num-property-photos-desc": "الحد الأقصى لعدد الصور الممتلكات التي يمكن تحميلها",
+
+	"min": "دقيقة",
+
+	"move-properties-to": "نقل خصائص ل",
+
+	"my-properties": "خصائص بلدي",
+
+	"new-property": "خاصية جديدة",
+
+	"no-property-found": "لا للملكية العثور على",
+
+	"pagination-limit-properties": "طول خصائص الصفحة",
+
+	"pagination-limit-properties-desc": "عدد من الخصائص في كل صفحة",
+
+	"pending-properties": "في انتظار خصائص الملكية",
+
+	"property": "الملكية",
+
+	"plan-days-limit": "خطة يوم الحد",
+
+	"plans": "خطط",
+
+	"price-range": "نطاق السعر",
+
+	"properties": "الخصائص",
+
+	"properties-block-limit": "الحد الملكية",
+
+	"properties-block-limit-desc": "تعيين عدد من الخصائص لعرضه",
+
+	"properties-manager": "مدير العقارات",
+
+	"properties-manager-desc": "إدارة جميع خصائص",
+
+	"property-approval": "الموافقة الملكية",
+
+	"property-feature": "ميزة الملكية",
+
+	"property-desc": "منصة للسلع والخدمات الملكية",
+
+	"property-description": "وصف العقار",
+
+	"property-info": "معلومات الملكية",
+
+	"property-location": "موقع العقار",
+
+	"property-menu": "الملكية القائمة",
+
+	"property-manager": "مدير الملكية",
+
+	"property-permissions": "ضوابط الملكية",
+
+	"property-photos": "صور الملكية",
+
+	"property-plugin-author": "فريق crea8socialPRO",
+
+	"property-setting-description": "تعديل إعدادات الملكية",
+
+	"remove-property": "إزالة الخاصية",
+
+	"search-properties": "خصائص البحث",
+
+	"show-contact": "مشاهدة الاتصال",
+
+	"show-property-dashboard-link": "رابط الملكية لوحة القيادة",
+
+	"show-property-dashboard-link-desc": "تظهر صلة الملكية في لوحة التحكم الرئيسية الرئيسية",
+
+	"show-property-explorer-link": "رابط مستكشف الملكية",
+
+	"show-property-explorer-link-desc": "تظهر صلة الملكية في القائمة مستكشف",
+
+	"show-property-footer-link": "رابط تذييل الملكية",
+
+	"show-property-footer-link-desc": "تظهر صلة الملكية على تذييل",
+
+	"unlimited": "غير محدود",
+
+	"user-properties": "خصائص المستخدم",
+
+	"user-properties-desc": "يعرض أحدث خصائص المستخدم على ه / الصفحة الشخصية لها",
+
+	"visit-website": "زيارة الموقع",
+
+	"polls": "استطلاعات الرأي",
+
+	"files": "ملفات",
+
+	"copyrights": "© عرب فيس 2017, جميع الحقوق محفوظة.",
+
+	"livestream-manager": "مدير البث مباشر",
+
+	"shared-livestream": "شارك البث المياشر",
+
+	"livestream-servers": "خوادم البث المباشر",
+
+	"Livestream" : "بث مباشر",
+
+	"All" : "الكل",
+
+	"mine": "خاص بى",
+
+	"Comedy" : "كوميدي",
+
+	"Sports" : "رياضة",
+
+	"Entertainment" : "التسلية",
+
+	"Economic" : "اقتصاد",
+
+	"Political" : "سياسة",
+
+	"is-live-on": "مباشر الأن",
+
+	"livestream-running": "مباشر الأن",
+
+	"media-type": "نوع الوسائط",
+
+	"video-preview": "صورة العرض",
+
+	"none-streaming": "لا أحد من أصدقائك الأن بالبث المباشر"
+}

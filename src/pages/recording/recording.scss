@@ -1,0 +1,61 @@
+page-recording {
+  .buttton-start-recording.activated,
+  buttton-start-recording {
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .buttton-start-recording:hover:not(.disable-hover) {
+    background-color: #ff6666;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .buttton-stop-recording,
+  .buttton-stop-recording.activated {
+    background-color: orange;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .buttton-stop-recording:hover:not(.disable-hover) {
+    background-color: #ffc966;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .buttton-start-playback,
+  .buttton-start-playback.activated {
+    background-color: green;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .buttton-start-playback:hover:not(.disable-hover) {
+    background-color: #80ff80;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .buttton-stop-playback,
+  .buttton-stop-playback.activated {
+    background-color: blue;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .buttton-stop-playback:hover:not(.disable-hover) {
+    background-color: #387ef5;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+}
