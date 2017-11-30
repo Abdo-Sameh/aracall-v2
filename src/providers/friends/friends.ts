@@ -36,6 +36,17 @@ export class FriendsProvider {
     return this.http.get(this.serverURL + this.KEY + '/all/blocked?userid=' + userId).map((res: any) => res.json());
   }
 
+  blockUser(id){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('id', id );
+    urlSearchParams.append('userid', userId);
+    let body = urlSearchParams.toString()
+    return this.http.post(this.serverURL + this.KEY + '/block/user', body, {headers: headers})
+    .map((res : any ) => res.json());
+  }
+
   getfriendprofile(userID) {
     return new Promise(resolve => {
       this.http.get(this.serverURL + this.KEY + '/profile/details?userid=' + userID).subscribe(data => {

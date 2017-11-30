@@ -15,24 +15,33 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RecordingPage {
   file: MediaObject;
+  name
+  recordCallback
   constructor(private media: Media, public navCtrl: NavController, public navParams: NavParams) {
     if (this.file == null) {
-      this.file = this.media.create(this.createFileName());
+      this.name = 'file:///storage/emulated/0/Recordings/' + this.createFileName();
+      this.file = this.media.create(this.name);
     }
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecordingPage');
   }
-  private createFileName() {
+
+  createFileName() {
     var d = new Date(),
       n = d.getTime(),
-      newFileName = 'Recordings/' + n + ".wav";
+      newFileName = n + ".mp3";
     return newFileName;
+  }
+
+  ionViewWillEnter() {
+    this.recordCallback = this.navParams.get("recordCallback")
   }
 
   startRecording() {
     try {
       this.file.startRecord();
+      window.setTimeout(() => this.file.stopRecord(), 30000);
     }
     catch (e) {
       alert('Could not start recording.');
@@ -42,33 +51,17 @@ export class RecordingPage {
   stopRecording() {
     try {
       this.file.stopRecord();
+      this.file.release();
     }
     catch (e) {
       alert('Could not stop recording.');
     }
   }
 
-  // startPlayback() {
-  //   try {
-  //     this.file.play();
-  //   }
-  //   catch (e) {
-  //     alert('Could not play recording.');
-  //   }
-  // }
-  //
-  // stopPlayback() {
-  //   try {
-  //     this.file.stop();
-  //   }
-  //   catch (e) {
-  //     alert('Could not stop playing recording.');
-  //   }
-  // }
-
   send() {
-    // alert(this.file);
-    this.navCtrl.pop();
+    this.recordCallback(this.name).then(() => {
+      this.navCtrl.pop();
+    });
   }
 
 }

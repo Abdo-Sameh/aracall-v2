@@ -53,7 +53,9 @@ export class AllChatsPage {
       })
 
     } else {
-      this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1 });
+      this.app.getRootNav().push(ChatHandlerPage, {
+        cid: cid, title: title, avatar: avatar, is_blocked: is_blocked, user1: user1
+      });
     }
   }
 
