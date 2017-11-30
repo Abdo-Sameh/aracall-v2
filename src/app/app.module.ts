@@ -16,6 +16,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { FileOpener } from '@ionic-native/file-opener';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { Media, MediaObject } from '@ionic-native/media';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -86,6 +87,7 @@ import { FriendsProvider } from '../providers/friends/friends';
     FileTransfer,
     FileChooser,
     File,
+    Base64ToGallery,
     Media,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,

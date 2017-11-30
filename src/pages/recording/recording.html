@@ -14,7 +14,23 @@
 
 
 <ion-content padding>
-  <p>
+
+  <section class="bg_grey full_vh">
+			<div class="video-call voice-rec">
+				<div class="video-user rec-box"><i class="ion-ios-mic"></i></div>
+				<p class="video-timer rec-timer">0 : {{seconds}}</p>
+			</div>
+			<div class="group-call-btn voice-rec-btn">
+				<a (click)="startRecording()" href="#" class="btn btn-theme btn-lg" *ngIf="flag == 0"> {{'start' | translate}}</a>
+				<a (click)="stopRecording()" href="#" class="btn btn-theme btn-lg" *ngIf="flag == 1"> {{'stop' | translate}}</a>
+				<div class="h-70"></div>
+				<a (click)="playRecording()" href="#" *ngIf="flag == 2" class="btn btn-theme"> {{'play' | translate}}</a>
+				<a (click)="back()" href="#" *ngIf="flag == 2" class="btn btn-theme"> {{'cancel' | translate}}</a>
+				<a (click)="send()" href="#" *ngIf="flag == 2" class="btn btn-theme"> {{'send' | translate}}</a>
+			</div>
+		</section>
+
+  <!-- <p>
     <button (click)="startRecording()" class="buttton-start-recording">
     <ion-icon name="microphone"></ion-icon>
     Start recording
@@ -25,7 +41,7 @@
     <ion-icon name="mic-off"></ion-icon>
     Stop recording
   </button>
-  </p>
+  </p> -->
   <!-- <p>
     <button (click)="startPlayback()" class="buttton-start-playback">
     <ion-icon name="play"></ion-icon>
@@ -38,9 +54,9 @@
     Stop playback
   </button>
   </p> -->
-  <p>
+  <!-- <p>
     <button (click)="send()" class="buttton-stop-playback">
     Send
   </button>
-  </p>
+  </p> -->
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController, ModalController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -233,15 +233,17 @@ export class ChatHandlerPage {
     });
   }
 
-  myCallbackFunction = (image) => {
+  myCallbackFunction = (filePath) => {
     return new Promise((resolve, reject) => {
-      // this.database.upload_image(image).then(data => {
-      //   imagelink = data;
-      //   resolve(data);
-      //   console.log(data)
-      //   this.send();
-      // })
-      // this.feeds.unshift(post);
+      if (this.platform.is('android')) {
+        alert(filePath);
+        let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+        alert(correctPath);
+        let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+        alert(currentName);
+        this.copyFileToLocalDir(correctPath, currentName, currentName, 'image');
+
+      }
     });
   }
 

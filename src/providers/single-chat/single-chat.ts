@@ -29,7 +29,7 @@ var config = {
   storageBucket: "arabcall-a9e54.appspot.com",
   messagingSenderId: "1094528086232"
 };
-
+//http://udsolutions.co.uk/Arabface/arabface/api/89129812/login
 @Injectable()
 export class SingleChatProvider {
   serverURL = 'http://192.168.1.252/arabface/api/'
@@ -74,7 +74,7 @@ friends2
       return '';
     } else {
       targetPath = cordova.file.dataDirectory + image;
-      // alert('targetPaht' + targetPath)
+      alert('targetPaht ' + targetPath)
     }
     var url, options;
 
@@ -90,22 +90,22 @@ friends2
       options['params'].image = filename
     else if (type == 'file')
       options['params'].file = filename
-    // alert(options['params'].cid)
-    // alert(options['params'].theuserid)
-    // alert(options['params'].userid)
+    alert(options['params'].cid)
+    alert(options['params'].theuserid)
+    alert(options['params'].userid)
     const fileTransfer: FileTransferObject = this.transfer.create();
-    // alert('ay 7aga');
-    // let loading: Loading
-    // alert(targetPath);
-    // alert(url);
-    // alert(fileTransfer);
+    alert('ay 7aga');
+    let loading: Loading
+    alert(targetPath);
+    alert(url);
+    alert(fileTransfer);
     fileTransfer.upload(targetPath, url, options, true).then(data => {
-      // alert('ay 7aga 2');
+      alert('ay 7aga 2');
       // loading.dismissAll()
       let response = JSON.parse(data.response);
-      // alert(response['id']);
-      // alert(response['text']);
-      // alert(response['status']);
+      alert(response['id']);
+      alert(response['text']);
+      alert(response['status']);
       if (response['status'] == 0) {
         //this.presentToast('Error while uploading file.');
       } else {

@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { File } from '@ionic-native/file';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 
 /**
  * Generated class for the SignaturePage page.
@@ -15,6 +17,7 @@ import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 })
 export class SignaturePage {
   callback
+  fullPath
   @ViewChild(SignaturePad) public signaturePad: SignaturePad;
 
   public signaturePadOptions: Object = {
@@ -25,7 +28,7 @@ export class SignaturePage {
   };
   public signatureImage: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private base64ToGallery: Base64ToGallery, public file: File, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -48,6 +51,7 @@ export class SignaturePage {
     console.log("Reset Model Screen");
     this.signaturePad.clear();
     this.canvasResize();
+    this.signaturePad.resizeCanvas();
   }
 
   drawCancel() {
@@ -56,9 +60,29 @@ export class SignaturePage {
 
   drawComplete() {
     this.signatureImage = this.signaturePad.toDataURL();
-    this.callback(this.signatureImage).then(() => {
-      this.navCtrl.pop();
-    });
+    this.fullPath = 'file:///'
+    // let blob = new Blob([this.signatureImage], { type: 'image/png' });
+    // console.log(blob);
+    // let time = new Date().getTime();
+    // let fullPath = 'file:///storage/emulated/0/Pictures/' + time + '.jpg';
+    alert('--------------');
+    this.base64ToGallery.base64ToGallery(this.signatureImage, { prefix: '_img' }).then(
+      res => {
+        alert('success ' + res);
+        this.fullPath += res;
+        this.callback(this.fullPath).then(() => {
+          this.navCtrl.pop();
+        });
+     },
+      err => alert('Error saving image to gallery  ' + err)
+    );
+    // this.file.writeFile('file:///storage/emulated/0/Pictures/', time + '.jpg', this.signatureImage)
+    // this.file([blob], 'file:///storage/emulated/0/Pictures/' + new Date().getTime() + '.jpg');
+    // console.log(file);
+    // this.signatureImage = file.name.toString();
+    // console.log(this.signatureImage);
+    alert(this.fullPath);
+
   }
 
   drawClear() {

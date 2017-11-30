@@ -20,6 +20,7 @@ export class GroupChatPage {
   messages
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.group = navParams.get('group');
+    console.log(this.group);
   }
 
   ionViewDidLoad() {
