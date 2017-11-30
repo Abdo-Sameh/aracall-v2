@@ -62,16 +62,12 @@ export class NewChatPage {
          console.log(res)
   });
   this.singleChat.display_single_chat_messages(this.cid).subscribe((res)=>{
-       if(res){
-           this.msgs=res
-           for (let key in this.msgs){
-           this.msgs[key].time = this.edittime(Date.now(),this.msgs[key].time)
+           for (let key in res){
+           res[key].time = this.edittime(Date.now(),res[key].time)
            console.log(this.chats)
-           this.chats.push( this.msgs[key])
+           this.chats.push( res[key])
+            }
 
-       }
-
-   };
        });
 }
 
