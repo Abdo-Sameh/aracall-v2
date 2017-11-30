@@ -50,7 +50,7 @@ export class RecordingPage {
       this.flag = 1;
       var timer = setInterval(() => {
         if (this.flag == 2) {
-          console.log('stop')
+          // console.log('stop')
           clearInterval(timer);
         }
         else if (this.seconds != 30) {

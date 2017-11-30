@@ -65,10 +65,10 @@ export class SignaturePage {
     // console.log(blob);
     // let time = new Date().getTime();
     // let fullPath = 'file:///storage/emulated/0/Pictures/' + time + '.jpg';
-    alert('--------------');
+    // alert('--------------');
     this.base64ToGallery.base64ToGallery(this.signatureImage, { prefix: '_img' }).then(
       res => {
-        alert('success ' + res);
+        // alert('success ' + res);
         this.fullPath += res;
         this.callback(this.fullPath).then(() => {
           this.navCtrl.pop();
@@ -81,7 +81,7 @@ export class SignaturePage {
     // console.log(file);
     // this.signatureImage = file.name.toString();
     // console.log(this.signatureImage);
-    alert(this.fullPath);
+    // alert(this.fullPath);
 
   }
 

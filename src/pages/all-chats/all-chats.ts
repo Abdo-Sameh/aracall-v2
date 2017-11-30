@@ -53,16 +53,22 @@ export class AllChatsPage {
       })
 
     } else {
-      this.app.getRootNav().push(ChatHandlerPage, {
-        cid: cid, title: title, avatar: avatar, is_blocked: is_blocked, user1: user1
-      });
+      this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1 });
     }
   }
 
   userForm = new FormGroup({
     mail: new FormControl(null, [Validators.required])
   });
+  doRefresh(refresher) {
+    this.singleChat.getConversations().subscribe(data => {
+      this.chats = data;
+    })
+      if (refresher != 0)
+        refresher.complete();
+    }
 
+    
   checkinput() {
     if (this.userForm.value.mail == "") { return true } else { return false }
   }
