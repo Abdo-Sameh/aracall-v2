@@ -1,8 +1,31 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams ,AlertController} from 'ionic-angular';
-import { GroupChatProvider } from '../../providers/group-chat/group-chat';
+import { NavController, NavParams, ActionSheetController, Platform, ToastController,AlertController ,Loading ,LoadingController} from 'ionic-angular';
 
-import { GroupInfoPage } from '../../pages/group-info/group-info';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { FilePath } from '@ionic-native/file-path';
+import { FileChooser } from '@ionic-native/file-chooser';
+import * as $ from 'jquery';
+import { Media, MediaObject } from '@ionic-native/media';
+
+import {AudioHandlerPage}  from '../audio-handler/audio-handler'
+import {VideoHandlerPage}  from '../video-handler/video-handler'
+import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
+
+
+import { FriendsProvider } from '../../providers/friends/friends';
+import { GroupChatProvider } from '../../providers/group-chat/group-chat';
+import { FriendProfilePage } from '../friend-profile/friend-profile';
+import { SignaturePage } from '../signature/signature';
+import { GroupInfoPage } from '../group-info/group-info';
+
+import { TabsPage } from '../tabs/tabs';
+
+import { MapLocationPage } from '../map-location/map-location';
+import { RecordingPage } from '../recording/recording';
+import { SettingsProvider } from '../../providers/settings/settings'
+
 
 /**
  * Generated class for the GroupChatPage page.
@@ -18,16 +41,30 @@ import { GroupInfoPage } from '../../pages/group-info/group-info';
 export class GroupChatPage {
 
   group
+  logined_user
   messages
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alert : AlertController ,public groupChat:GroupChatProvider) {
+  currentUserID
+  lastImage: string = null;
+  loading: Loading
+  lastonline
+  friendData
+  emojitext =''
+  remoteavatar
+  the_userId
+  cid
+  is_blocked
+  username
+  chats = []
+  msgs = []
+  settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
+  constructor(private fileChooser: FileChooser, public groupChat: GroupChatProvider, public loadingctrl: LoadingController,public alert :AlertController,public Settings:SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.group = navParams.get('group');
     this.logined_user=localStorage.getItem('userid').replace(/[^0-9]/g, "");
-    this.groupchat.display_single_chat_messages(this.cid).subscribe((res)=>{
+    this.groupChat.display_single_chat_messages(this.cid).subscribe((res)=>{
              for (let key in res) {
               res[key].time = this.edittime(Date.now() , res[key].time)
               this.chats.push(res[key])
               }
-              loading.dismiss()
               });
   }
 
@@ -125,36 +162,36 @@ export class GroupChatPage {
    handleSelection(event) {
      this.emojitext+=event.char;
    }
-   call() {
-     let  loading1 = this.loadingctrl.create({
-         showBackdrop: false
-       });
-       this.groupchat.remoteid(this.username).then(data => {
-       let number = Math.floor(Math.random() * 1000000000);
-         this.groupchat.sendnumber(data, number, 'audio');
-         let avatar = this.remoteavatar;
-         loading1.dismiss()
-         this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
-
-       })
-
-     }
-
-     video() {
-     let  loading1 = this.loadingctrl.create({
-         showBackdrop: false
-       });
-       let number = Math.floor(Math.random() * 1000000000);
-       this.groupchat.remoteid(this.username).then(data => {
-         this.groupchat.sendnumber(data, number, 'video');
-         let avatar = this.remoteavatar;
-         loading1.dismiss()
-         this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
-
-       })
-
-
-     }
+   // call() {
+   //   let  loading1 = this.loadingctrl.create({
+   //       showBackdrop: false
+   //     });
+   //     this.groupChat.remoteid(this.username).then(data => {
+   //     let number = Math.floor(Math.random() * 1000000000);
+   //       this.groupChat.sendnumber(data, number, 'audio');
+   //       let avatar = this.remoteavatar;
+   //       loading1.dismiss()
+   //       this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
+   //
+   //     })
+   //
+   //   }
+   //
+   //   video() {
+   //   let  loading1 = this.loadingctrl.create({
+   //       showBackdrop: false
+   //     });
+   //     let number = Math.floor(Math.random() * 1000000000);
+   //     this.groupChat.remoteid(this.username).then(data => {
+   //       this.groupChat.sendnumber(data, number, 'video');
+   //       let avatar = this.remoteavatar;
+   //       loading1.dismiss()
+   //       this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
+   //
+   //     })
+   //
+   //
+   //   }
 
 
 }

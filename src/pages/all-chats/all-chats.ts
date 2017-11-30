@@ -67,6 +67,8 @@ export class AllChatsPage {
       if (refresher != 0)
         refresher.complete();
     }
+
+    
   checkinput() {
     if (this.userForm.value.mail == "") { return true } else { return false }
   }

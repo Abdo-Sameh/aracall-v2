@@ -15,6 +15,9 @@ import { FilePath } from '@ionic-native/file-path';
   and Angular DI.
 */
 let userId;
+declare var firebase;
+declare var cordova: any;
+
 
 @Injectable()
 export class GroupChatProvider {
@@ -25,7 +28,7 @@ export class GroupChatProvider {
     console.log('Hello GroupChatProvider Provider');
     userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
 
-  
+
   }
 
   getConverstationsList() {

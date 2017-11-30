@@ -45,9 +45,10 @@ friends2
     return this.http.get(this.serverURL + this.KEY + '/chat/messages/check/chat/history?userid=' + userId + '&other_userid=' + other_userid)
       .map((res: any) => res.json());
   }
-  display_single_chat_messages(cid){
-  return  new Observable(observer => {
-  firebase.database().ref('one2one/'+cid+'/messages').orderByChild('time').on('value',function(snapshot) {
+
+  display_single_chat_messages(cid) {
+    return new Observable(observer => {
+      firebase.database().ref('one2one/' + cid + '/messages').orderByChild('time').on('value', function(snapshot) {
         observer.next(snapshot.val())
        })
   })
@@ -76,6 +77,7 @@ friends2
         });
     }).map((res) => res.json());
 
+
   }
 
   sendMessage(cid, theuserid, text, image, type) {
@@ -85,7 +87,7 @@ friends2
       return '';
     } else {
       targetPath = cordova.file.dataDirectory + image;
-      alert('targetPaht' + targetPath)
+      // alert('targetPaht' + targetPath)
     }
     var url, options;
 
@@ -97,47 +99,47 @@ friends2
       mimeType: "multipart/form-data",
       params: { 'userid': userId, 'cid': cid, 'theuserid': theuserid, 'text': text }
     };
-    if(type == 'image')
+    if (type == 'image')
       options['params'].image = filename
-    else if(type == 'file')
+    else if (type == 'file')
       options['params'].file = filename
-    alert(options['params'].cid)
-    alert(options['params'].theuserid)
-    alert(options['params'].userid)
+    // alert(options['params'].cid)
+    // alert(options['params'].theuserid)
+    // alert(options['params'].userid)
     const fileTransfer: FileTransferObject = this.transfer.create();
-    alert('ay 7aga');
+    // alert('ay 7aga');
     // let loading: Loading
-    alert(targetPath);
-    alert(url);
-    alert(fileTransfer);
+    // alert(targetPath);
+    // alert(url);
+    // alert(fileTransfer);
     fileTransfer.upload(targetPath, url, options, true).then(data => {
-      alert('ay 7aga 2');
+      // alert('ay 7aga 2');
       // loading.dismissAll()
       let response = JSON.parse(data.response);
-      alert(response['id']);
-      alert(response['text']);
+      // alert(response['id']);
+      // alert(response['text']);
+      // alert(response['status']);
       if (response['status'] == 0) {
         //this.presentToast('Error while uploading file.');
       } else {
         let fileType = '', img = '';
-        if(type == 'image')
+        if (type == 'image')
           img = response['image']
-        else if(type == 'file')
+        else if (type == 'file')
           fileType = response['file']
 
         firebase.database().ref('one2one/' + cid + '/messages').push({
           'sender_id': userId, 'id': response['id'], 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
-          'text': '', 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
+          'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
 
         });
 
       }
-    }).catch( err => {
-      alert('ay 7aga error');
+    }).catch(err => {
+      // alert('ay 7aga error');
       alert(err);
       //this.presentToast('Error while uploading file.');
     });
-    alert('------------------');
   }
   user = new Observable(observer => {
 firebase.auth().onAuthStateChanged(function(user) {

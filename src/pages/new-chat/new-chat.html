@@ -14,8 +14,8 @@
         <li><a href="#" (click)="view_profile()" style="padding:7px 20px">{{'view-profile' | translate}} </a></li>
         <li><a href="#" (click)="Clear_Conversation()" style="padding:7px 20px">{{'clear-conversation' | translate}}</a></li>
         <li><a href="#" (click)="Report_Conversation()" style="padding:7px 20px">{{'report-conversation' | translate}}</a></li>
-        <li *ngIf="is_blocked==false"><a href="#" (click)="Block(currentUserID)" style="padding:7px 20px">{{'block' | translate}}</a></li>
-        <li *ngIf="is_blocked==true"><a href="#" (click)="unBlock(currentUserID)" style="padding:7px 20px">{{'unblock' | translate}}</a></li>
+        <li *ngIf="is_blocked==false"><a href="#" (click)="Block(the_userId)" style="padding:7px 20px">{{'block' | translate}}</a></li>
+        <li *ngIf="is_blocked==true"><a href="#" (click)="unBlock(the_userid)" style="padding:7px 20px">{{'unblock' | translate}}</a></li>
       </ul>
     </div>
     <div>
@@ -23,7 +23,7 @@
         <img [src]="remoteavatar" width="25" height="25" style="margin-right:5px;float:left;" alt="">
         <div style="float:left;text-align:left;">
           <span style="font-size: 14px;position: relative;top: -6px;">{{username}}</span>
-          <h5 *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null" style="color: #ededed;font-size: 10px;position: relative;top: -9px;">{{lastonline}}</h5>
+          <h5  *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null || is_blocked==false" style="color: #ededed;font-size: 10px;position: relative;top: -9px;">{{lastonline}}</h5>
 
         </div>
 
@@ -33,10 +33,10 @@
 
     <div class="headerico" style="background:none;box-shadow:none;"></div>
     <div>
-      <ion-icon class="headerico" name="ios-videocam"  (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
+      <ion-icon class="headerico" name="ios-videocam"  *ngIf="is_blocked==false" (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
     </div>
     <div>
-      <ion-icon class="headerico" name="ios-call"  (click)="call()" style="background-color:#fff"></ion-icon>
+      <ion-icon class="headerico" name="ios-call" *ngIf="is_blocked==false" (click)="call()" style="background-color:#fff"></ion-icon>
 
     </div>
   </ion-navbar>
@@ -174,6 +174,57 @@
 
      </main>
      <ion-footer>
+       			<!-- <div class="message-box message-box-2"  *ngIf='is_blocked == false || !is_blocked'>
+       				<form>
+       					<div class="container chat-message-box">
+       						<ul class="toggle-icons animated bounceIn">
+       							<li>
+       								<a (click)="recordPage()">
+       									<i class="ion-ios-mic"></i>
+       									<span>Audio</span>
+       								</a>
+       							</li>
+       							<li>
+       								<a href="#">
+       									<i class="ion-videocamera"></i>
+       									<span>Video</span>
+       								</a>
+       							</li>
+       							<li>
+       								<a href="#">
+       									<i class="ion-android-document"></i>
+       									<span>Document</span>
+       								</a>
+       							</li>
+       							<li>
+       								<a (click)="location()">
+       									<i class="ion-location"></i>
+       									<span>Location</span>
+       								</a>
+       							</li>
+       							<li>
+       								<a href="#">
+       									<i class="ion-image"></i>
+       									<span>Gallery</span>
+       								</a>
+       							</li>
+       							<li>
+       								<a href="#">
+       									<i class="ion-compose"></i>
+       									<span>Handwriting</span>
+       								</a>
+       							</li>
+       						</ul>
+       						<div class="type-message">
+                    <a><img name="s" (click)="toggled = !toggled" style="width:19px;height:19px;margin-top:10px" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" src="./assets/images/svg/001-happiness.svg" /></a>
+       							<input type="text" class="form-control" [(ngModel)]="emojitext" [ngModelOptions]="{standalone:true}"  placeholder="Type your message...">
+       							<a href="#"><i class="ion-camera"></i></a>
+       							<a (click)="openMore()"><img style="width:19px;height:19px;margin-top:10px"  class="ion-more" src="./assets/images/svg/more.svg"/></a>
+       							<a (click)="send()"><ion-icon name="md-send"></ion-icon></a>
+       						</div>
+       					</div>
+       				</form>
+       			</div> -->
 
 
     <div class="message-box" *ngIf='is_blocked == false || !is_blocked'>
@@ -199,7 +250,6 @@
 							<img style="width:19px;height:19px;margin-left:7px;margin-top:7px;" src="./assets/images/svg/sort-up.svg"/>
 							<img style="width:19px;height:19px;margin-left:7px;margin-top:7px;" src="./assets/images/svg/sort-down.svg"/>
 						</a>
-            <!-- (keypress)="onfocus()" (focusout)="focusout()" -->
             <input type="text" name="msg" placeholder="Type Message......"  [(ngModel)]="emojitext"  name="email">
             <a href="#" (click)="recordPage()"><i class="ion-ios-mic"></i></a>
             <div class="button"><button (click)="send()" ><ion-icon name="md-send"></ion-icon></button>
