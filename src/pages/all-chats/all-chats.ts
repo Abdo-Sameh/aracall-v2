@@ -60,7 +60,13 @@ export class AllChatsPage {
   userForm = new FormGroup({
     mail: new FormControl(null, [Validators.required])
   });
-
+  doRefresh(refresher) {
+    this.singleChat.getConversations().subscribe(data => {
+      this.chats = data;
+    })
+      if (refresher != 0)
+        refresher.complete();
+    }
   checkinput() {
     if (this.userForm.value.mail == "") { return true } else { return false }
   }

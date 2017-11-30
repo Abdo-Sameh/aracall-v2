@@ -1,19 +1,24 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading ,LoadingController} from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, Platform, ToastController,AlertController ,Loading ,LoadingController} from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
+import { Media, MediaObject } from '@ionic-native/media';
 
 import {AudioHandlerPage}  from '../audio-handler/audio-handler'
 import {VideoHandlerPage}  from '../video-handler/video-handler'
+import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
 import { SignaturePage } from '../signature/signature';
+import { TabsPage } from '../tabs/tabs';
+
+import { MapLocationPage } from '../map-location/map-location';
 import { RecordingPage } from '../recording/recording';
 import {SettingsProvider} from '../../providers/settings/settings'
 /**
@@ -36,20 +41,23 @@ export class ChatHandlerPage {
   loading: Loading
   lastonline
   friendData
-  emojitext
+  emojitext =''
   remoteavatar
   the_userId
   cid
+  is_blocked
   logined_user
   username
   chats = []
   msgs = []
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController,public Settings:SettingsProvider,  public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController,public alert :AlertController,public Settings:SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
       this.cid = navParams.get('cid');
       this.remoteavatar = this.navParams.get('avatar');
       this.the_userId = navParams.get('user1');
       this.logined_user=localStorage.getItem('userid').replace(/[^0-9]/g, "");
+      this.is_blocked = this.navParams.get('is_blocked');
+      console.log('is_blocked')
       this.username= this.navParams.get('title');
       let loading = loadingctrl.create({
       showBackdrop: false
@@ -95,28 +103,37 @@ export class ChatHandlerPage {
      }
 
      else if (elapsed < msPerHour) {
-       return Math.round(elapsed / msPerMinute) + ':minutes ago';
+       return Math.round(elapsed / msPerMinute) + ' minutes ago';
      }
 
      else if (elapsed < msPerDay) {
-       return Math.round(elapsed / msPerHour) + ':hours ago';
+       return Math.round(elapsed / msPerHour) + ' hours ago';
      }
      else if (elapsed < msPerWeek) {
-       return Math.round(elapsed / msPerDay) + ':days ago';
+       return Math.round(elapsed / msPerDay) + ' days ago';
      }
      else if (elapsed < msPerMonth) {
-       return Math.round(elapsed / msPerWeek) + ':weeks ago';
+       return Math.round(elapsed / msPerWeek) + ' weeks ago';
      }
 
 
 
      else if (elapsed < msPerYear) {
-       return Math.round(elapsed / msPerMonth) + ':months ago';
+       return Math.round(elapsed / msPerMonth) + ' months ago';
      }
 
      else {
-       return Math.round(elapsed / msPerYear) + ':years ago';
+       return Math.round(elapsed / msPerYear) + ' years ago';
      }
+   }
+   openMore()
+   {
+     $(document).on('click', '.type-message .ion-more', function() {
+
+       $('.toggle-icons').toggleClass('open');
+     
+   });
+
    }
   dropdown() {
 
@@ -269,16 +286,23 @@ export class ChatHandlerPage {
         }
       }).catch(e => alert(e));
   }
-  send(cid = this.cid , userid = this.logined_user , text = this.emojitext) {
+
+send(cid = this.cid , userid = this.logined_user , text = this.emojitext) {
     this.singleChat.send_message(cid,userid,text).subscribe((res)=>{
       this.emojitext = '';
   });
+}
+location()
+{
+  this.navCtrl.push(MapLocationPage,{id:this.cid,remoteid:this.logined_user});
+}
+handleSelection(event) {
+  this.emojitext+=event.char;
 }
 call() {
   let  loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
-    loading1.present();
     this.singleChat.remoteid(this.username).then(data => {
     let number = Math.floor(Math.random() * 1000000000);
       this.singleChat.sendnumber(data, number, 'audio');
@@ -294,7 +318,6 @@ call() {
   let  loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
-    loading1.present();
     let number = Math.floor(Math.random() * 1000000000);
     this.singleChat.remoteid(this.username).then(data => {
       this.singleChat.sendnumber(data, number, 'video');
@@ -304,6 +327,87 @@ call() {
 
     })
 
+
+  }
+
+  Block(blockedUser) {
+
+    let editGroupName = this.alert.create(
+      {
+        title: 'Block user',
+        message: "Do you want block this user ! ",
+
+        buttons: [
+          {
+            text: 'ok',
+            handler: data =>{
+              this.singleChat.blockUser(blockedUser, this.logined_user).subscribe(res => {
+                loading1.dismiss()
+                console.log(res)
+                if (res.status == 1) {
+
+                  this.navCtrl.push(TabsPage);
+                }
+
+              }
+              )
+            }
+
+          },
+          {
+            'text': 'cancel',
+            role: 'cancel'
+          }
+        ],
+
+      })
+    editGroupName.present()
+    // alert(this.cid)
+    let loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
+
+    // chat/delete/messages
+  }
+  unBlock(blockedUser) {
+    let editGroupName = this.alert.create(
+      {
+        title: 'unBlock user',
+        message: "Do you want unblock this user ! ",
+
+        buttons: [
+          {
+            text: 'ok',
+            handler: data => {
+              this.singleChat.unblockUser(blockedUser, this.logined_user).subscribe(res => {
+                loading1.dismiss()
+
+                if (res.status == 1) {
+
+
+                  // window.location.reload();
+                  this.navCtrl.push(TabsPage);
+
+                }
+                // alert("xxx"+JSON.stringify(res) )
+                //   firebase.database().ref(userID + '/chats').delete();
+              }
+              )
+            }
+
+          },
+          {
+            'text': 'cancel',
+            role: 'cancel'
+          }
+        ],
+
+      })
+    editGroupName.present()
+    // alert(this.cid)
+    let loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
 
   }
 }

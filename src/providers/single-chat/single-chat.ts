@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
-import { Http, Headers, URLSearchParams } from '@angular/http';
+import { Http, Headers,Response, URLSearchParams } from '@angular/http';
 import { Loading } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
@@ -52,17 +52,29 @@ friends2
        })
   })
  }
+
+ send_location(cid, theuserid, location)
+ {
+   let url=this.serverURL + this.KEY + '/chat/send/message?text='+location+'&cid='+cid+ '&theuserid='+theuserid+'&userid='+theuserid
+   console.log(url)
+   return this.http.get(url).do((res) => {
+     firebase.database().ref('one2one/' + cid + '/messages').push({
+       'sender_id': userId, 'id':'1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+       'text': '', 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': '', 'file': '', 'location': location, 'emoji': ''
+     });
+ }).map((res) => res.json());
+
+ }
   send_message(cid, theuserid, text)
   {
-      let url=this.serverURL + this.KEY + '/chat/send/message?text='+text+'&cid='+cid+ '&theuserid='+theuserid
-      console.log(url)
-      return this.http.get(url).do((res: Response) => {
+      let url=this.serverURL + this.KEY + '/chat/send/message?text='+text+'&cid='+cid+ '&theuserid='+theuserid+'&userid='+theuserid
+      return this.http.get(url).do((res) => {
         console.log(res.json())
         firebase.database().ref('one2one/' + cid + '/messages').push({
           'sender_id': userId, 'id':'1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
           'text': text, 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': '', 'file': '', 'location': '', 'emoji': ''
         });
-    }).map((res: Response) => res.json());
+    }).map((res) => res.json());
 
   }
 
@@ -151,6 +163,35 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 }) ;
+
+blockUser(id, userid) {
+   let headers = new Headers();
+   headers.append('Content-Type', 'application/x-www-form-urlencoded');
+   let urlSearchParams = new URLSearchParams();
+   urlSearchParams.append('id', id);
+   urlSearchParams.append('userid', userid);
+   let body = urlSearchParams.toString()
+   return this.http.post(this.serverURL + this.KEY + "/block/user", body, { headers: headers })
+     .map((res: Response) => res.json());
+ }
+ unblockUser(id, userid) {
+   let headers = new Headers();
+   headers.append('Content-Type', 'application/x-www-form-urlencoded');
+   let urlSearchParams = new URLSearchParams();
+   urlSearchParams.append('id', id);
+   urlSearchParams.append('userid', userid);
+   let body = urlSearchParams.toString()
+   return this.http.post(this.serverURL + this.KEY + "/unblock/user", body, { headers: headers })
+     .map((res: Response) => res.json());
+ }
+ isBlocked(id, userid) {
+   return this.http.get(this.serverURL + this.KEY + "/blocked?id=" + id + "&userid=" + userid)
+     .map((res: Response) => res.json());
+ }
+ getAllBlocked(userid) {
+   return this.http.get(this.serverURL + this.KEY + "/all/blocked?userid=" + userid)
+     .map((res: Response) => res.json());
+ }
   sendnumber(id, number, type) {
     remoteid = id;
     firebase.database().ref(id + '/incoming').set({ number, type: type });

@@ -1,9 +1,5 @@
 <!--
-<<<<<<< HEAD
   Generated template for the ChatHandlerPage page.
-=======
-  Generated template for the NewChatPage page.
->>>>>>> 89b11feceb0a7453c965692802f6779b54714dba
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -28,6 +24,7 @@
         <div style="float:left;text-align:left;">
           <span style="font-size: 14px;position: relative;top: -6px;">{{username}}</span>
           <h5 *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null" style="color: #ededed;font-size: 10px;position: relative;top: -9px;">{{lastonline}}</h5>
+
         </div>
 
       </ion-title>
@@ -40,6 +37,7 @@
     </div>
     <div>
       <ion-icon class="headerico" name="ios-call"  (click)="call()" style="background-color:#fff"></ion-icon>
+
     </div>
   </ion-navbar>
 </ion-header>
@@ -68,7 +66,7 @@
              <div class="msgs">
                <!-- <p>ddddd{{y}}</p> -->
 
-               <div *ngFor="let p of chats" (click)="d(p)">
+               <div *ngFor="let p of chats" >
                  <div class="sender_msg" *ngIf="p.from_me == false">
                    <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                      <h4>{{title}}
@@ -177,6 +175,7 @@
      </main>
      <ion-footer>
 
+
     <div class="message-box" *ngIf='is_blocked == false || !is_blocked'>
 
       <form >
@@ -188,8 +187,9 @@
           </div>
           <div class="toggle-icons" style="justify-content:space-around!important;padding-right:10px;">
             <a (click)="presentActionSheet()" href="#"><img style="width:19px;height:19px;"  src="./assets/images/svg/006-image.svg"/></a>
-            <a href="#" (click)="chooseFile()"><img style="width:19px;height:19px;"  src="./assets/images/svg/005-video.svg"/></a>
-            <!-- <img name="s" (click)="toggled = !toggled" style="width:19px;height:19px;" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" src="./assets/images/svg/001-happiness.svg" /> -->
+            <a href="#" (click)="chooseFile()"><img style="width:19px;height:19px;"  src="./assets/images/svg/share.svg"/></a>
+
+            <img name="s" (click)="toggled = !toggled" style="width:19px;height:19px;" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" src="./assets/images/svg/001-happiness.svg" />
 
             <a href="#" (click)="location()"><img style="width:19px;height:19px;"  src="./assets/images/svg/004-placeholder.svg"/></a>
             <a href="#"><img style="width:19px;height:19px;"  class="ion-more" src="./assets/images/svg/more.svg"/></a>

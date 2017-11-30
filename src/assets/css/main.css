@@ -1432,3 +1432,31 @@ Start Profile
 .header_title .menu_btn i {
 	color: #fff !important;
 }
+.message-box-2 .toggle-icons {
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 10;
+}
+.group-call-btn li,
+.message-box-2 .toggle-icons li {
+    float: left;
+	width: 33.333%;
+    text-align: center;
+}
+.group-call-btn li a,
+.message-box-2 .toggle-icons a i {
+	display: inline-block;
+    color: #fff;
+    font-size: 20px;
+    width: 52px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 50%;
+    background: #5c0632;
+}

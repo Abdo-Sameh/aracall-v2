@@ -1,5 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http, Headers, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import { Http, Headers,Response, URLSearchParams } from '@angular/http';
+import { Loading } from 'ionic-angular';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FilePath } from '@ionic-native/file-path';
 
 /*
   Generated class for the GroupChatProvider provider.
@@ -13,9 +20,12 @@ let userId;
 export class GroupChatProvider {
   serverURL = 'http://192.168.1.252/arabface/api/'
   KEY = '89129812'
+  userAvatar=localStorage.getItem('userAvatar')
   constructor(public http: Http) {
     console.log('Hello GroupChatProvider Provider');
     userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
+
+  
   }
 
   getConverstationsList() {
@@ -73,5 +83,39 @@ export class GroupChatProvider {
     return this.http.get(this.serverURL + this.KEY + '/chat/messages/change/group_name?cid=' + cid + "&group_name=" + groupName)
     .map((res: any) => res.json());
   }
+
+  display_single_chat_messages(cid){
+  return  new Observable(observer => {
+  firebase.database().ref('one2one/'+cid+'/messages').orderByChild('time').on('value',function(snapshot) {
+        observer.next(snapshot.val())
+       })
+  })
+ }
+
+ send_location(cid, theuserid, location)
+ {
+   let url=this.serverURL + this.KEY + '/chat/send/message?text='+location+'&cid='+cid+ '&theuserid='+theuserid+'&userid='+theuserid
+   console.log(url)
+   return this.http.get(url).do((res) => {
+     firebase.database().ref('many2many/' + cid + '/messages').push({
+       'sender_id': userId,'sender_avatar':this.userAvatar, 'id':'1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+       'text': '', 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': '', 'file': '', 'location': location, 'emoji': ''
+     });
+ }).map((res) => res.json());
+
+ }
+  send_message(cid, theuserid, text)
+  {
+      let url=this.serverURL + this.KEY + '/chat/send/message?text='+text+'&cid='+cid+ '&theuserid='+theuserid+'&userid='+theuserid
+      console.log(url)
+      return this.http.get(url).do((res) => {
+                            firebase.database().ref('many2many/' + cid + '/messages').push({
+          'sender_id': userId,'sender_avatar':this.userAvatar, 'id':'1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'text': text, 'audio': '', 'video': '', 'call_duration': '','from_me':true, 'image': '', 'file': '', 'location': '', 'emoji': ''
+        });
+    }).map((res) => res.json());
+
+  }
+
 
 }
