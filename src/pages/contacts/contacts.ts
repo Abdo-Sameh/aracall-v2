@@ -31,14 +31,18 @@ export class ContactsPage {
     this.friends.getFriends().subscribe(data => {
       loading.dismiss();
       this.friendsList = data;
+      console.log(data);
     });
   }
 
   goTochatPage(other_userid) {
     this.singleChat.check_chat_history(other_userid).subscribe(res => {
+      console.log(res);
       if (res.status == 1) {
-        this.app.getRootNav().push(ChatHandlerPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
+        this.app.getRootNav().push(ChatHandlerPage, { cid: res.cid, title: res.name, avatar: res.avatar, 'is_blocked': res.is_blocked, user1: res.user1 });
+        // this.app.getRootNav().push(ChatHandlerPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
       } else {
+        // this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1 });
         this.app.getRootNav().push(NewChatPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
       }
     })
