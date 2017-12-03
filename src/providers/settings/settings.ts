@@ -11,7 +11,7 @@ let userId;
 
 @Injectable()
 export class SettingsProvider {
-  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
+  serverURL = 'http://192.168.1.252/arabface/api/'
   KEY = '89129812'
   constructor(public http: Http) {
     userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");

@@ -8,7 +8,7 @@ import { Http, Headers, URLSearchParams } from '@angular/http';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-let apiURL = 'http://udsolutions.co.uk/Arabface/arabface/api/89129812/';
+let apiURL = 'http://192.168.1.252/arabface/api/89129812/';
 
 @Injectable()
 export class AuthProvider {
