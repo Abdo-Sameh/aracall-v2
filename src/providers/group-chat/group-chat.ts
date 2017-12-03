@@ -21,7 +21,7 @@ declare var cordova: any;
 
 @Injectable()
 export class GroupChatProvider {
-  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
+  serverURL = 'http://192.168.1.252/arabface/api/'
   KEY = '89129812'
   userAvatar=localStorage.getItem('userAvatar')
   constructor(public http: Http) {

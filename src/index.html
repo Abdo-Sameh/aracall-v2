@@ -41,11 +41,25 @@
   <script src="./assets/js/adapter-latest.js"></script>
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
-
+  <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+  <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
   <!-- The vendor js is generated during the build process
        It contains all of the dependencies in node_modules -->
   <script src="build/vendor.js"></script>
+  <script>
+  var connection = new RTCMultiConnection();
 
+  // this line is VERY_important
+  connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+
+  // if you want audio+video conferencing
+  connection.session = {
+      audio: true,
+      video: true
+  };
+alert(JSON.stringify(connection))
+  connection.openOrJoin('your-room-id');
+  </script>
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
 

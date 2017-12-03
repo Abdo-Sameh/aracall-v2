@@ -31,7 +31,7 @@ var config = {
 };
 @Injectable()
 export class SingleChatProvider {
-  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
+  serverURL = 'http://192.168.1.252/arabface/api/'
   KEY = '89129812'
 friends2
   constructor(private transfer: FileTransfer, public httpClient: HttpClient, public http: Http) {

@@ -54,13 +54,15 @@ import { SingleChatProvider } from '../providers/single-chat/single-chat';
 import { GroupChatProvider } from '../providers/group-chat/group-chat';
 import { SettingsProvider } from '../providers/settings/settings';
 import { FriendsProvider } from '../providers/friends/friends';
+import { GroupVideoHandlerPage } from './../pages/group-video-handler/group-video-handler';
+import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audio-handler';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage , GroupVideoHandlerPage , GroupAudioHandlerPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,7 @@ import { FriendsProvider } from '../providers/friends/friends';
   entryComponents: [
     MyApp, LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage , GroupVideoHandlerPage , GroupAudioHandlerPage
   ],
   providers: [
     StatusBar,

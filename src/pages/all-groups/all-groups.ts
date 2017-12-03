@@ -49,7 +49,7 @@ export class AllGroupsPage {
   openGroupChat(index) {
     console.log(this.chats[index]);
     this.groupChat.usersCoversation(this.chats[index].cid).subscribe(res => {
-      console.log(res);
+      console.log(this.chats[index])
       this.app.getRootNav().push(GroupChatPage, {
         'messages': res,
         'group' : this.chats[index],
