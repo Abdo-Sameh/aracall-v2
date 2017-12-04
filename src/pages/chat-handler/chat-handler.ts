@@ -8,8 +8,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
 import { Media, MediaObject } from '@ionic-native/media';
 
-import {AudioHandlerPage}  from '../audio-handler/audio-handler'
-import {VideoHandlerPage}  from '../video-handler/video-handler'
+import { AudioHandlerPage } from '../audio-handler/audio-handler'
+import { VideoHandlerPage } from '../video-handler/video-handler'
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 
@@ -32,7 +32,7 @@ declare var cordova: any;
 @Component({
   selector: 'page-chat-handler',
   templateUrl: 'chat-handler.html',
-  styleUrls: ['../../assets/main.css', '../../assets/ionicons.min.css']
+  styleUrls: ['../../assets/main.css']
 })
 export class ChatHandlerPage {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
@@ -42,7 +42,7 @@ export class ChatHandlerPage {
   loading: Loading
   lastonline
   friendData
-  emojitext =''
+  emojitext = ''
   remoteavatar
   the_userId
   cid
@@ -52,15 +52,15 @@ export class ChatHandlerPage {
   chats = []
   msgs = []
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController,public alert :AlertController,public Settings:SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
-      this.cid = navParams.get('cid');
-      this.remoteavatar = this.navParams.get('avatar');
-      this.the_userId = navParams.get('user1');
-      this.logined_user=localStorage.getItem('userid').replace(/[^0-9]/g, "");
-      this.is_blocked = this.navParams.get('is_blocked');
-      console.log('is_blocked')
-      this.username= this.navParams.get('title');
-      let loading = loadingctrl.create({
+  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.cid = navParams.get('cid');
+    this.remoteavatar = this.navParams.get('avatar');
+    this.the_userId = navParams.get('user1');
+    this.logined_user = localStorage.getItem('userid').replace(/[^0-9]/g, "");
+    this.is_blocked = this.navParams.get('is_blocked');
+    console.log('is_blocked')
+    this.username = this.navParams.get('title');
+    let loading = loadingctrl.create({
 
       showBackdrop: false
     });
@@ -79,65 +79,56 @@ export class ChatHandlerPage {
       console.log(res)
     });
 
-    this.singleChat.display_single_chat_messages(this.cid).subscribe((res)=>{
-             for (let key in res) {
-              res[key].time = this.edittime(Date.now() , res[key].time)
-              this.chats.push(res[key])
-              }
-              loading.dismiss()
-              });
+    this.singleChat.display_single_chat_messages(this.cid).subscribe((res) => {
+      for (let key in res) {
+        res[key].time = this.edittime(Date.now(), res[key].time)
+        this.chats.push(res[key])
+      }
+      loading.dismiss()
+    });
+    console.log(this.chats);
   }
 
-  ionViewDidLoad() {
-
-  }
   edittime(current, previous) {
-     var msPerMinute = 60 * 1000;
-     var msPerHour = msPerMinute * 60;
-     var msPerDay = msPerHour * 24;
-     var msPerWeek = 7 * msPerDay;
-     var msPerMonth = msPerDay * 30;
-     var msPerYear = msPerDay * 365;
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerWeek = 7 * msPerDay;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
 
-     var elapsed = current - previous;
+    var elapsed = current - previous;
 
-     if (elapsed < msPerMinute) {
-       return 'now';
-     }
+    if (elapsed < msPerMinute) {
+      return 'now';
+    }
 
-     else if (elapsed < msPerHour) {
-       return Math.round(elapsed / msPerMinute) + ' minutes ago';
-     }
+    else if (elapsed < msPerHour) {
+      return Math.round(elapsed / msPerMinute) + ' minutes ago';
+    }
 
-     else if (elapsed < msPerDay) {
-       return Math.round(elapsed / msPerHour) + ' hours ago';
-     }
-     else if (elapsed < msPerWeek) {
-       return Math.round(elapsed / msPerDay) + ' days ago';
-     }
-     else if (elapsed < msPerMonth) {
-       return Math.round(elapsed / msPerWeek) + ' weeks ago';
-     }
+    else if (elapsed < msPerDay) {
+      return Math.round(elapsed / msPerHour) + ' hours ago';
+    }
+    else if (elapsed < msPerWeek) {
+      return Math.round(elapsed / msPerDay) + ' days ago';
+    }
+    else if (elapsed < msPerMonth) {
+      return Math.round(elapsed / msPerWeek) + ' weeks ago';
+    }
 
+    else if (elapsed < msPerYear) {
+      return Math.round(elapsed / msPerMonth) + ' months ago';
+    }
 
+    else {
+      return Math.round(elapsed / msPerYear) + ' years ago';
+    }
+  }
 
-     else if (elapsed < msPerYear) {
-       return Math.round(elapsed / msPerMonth) + ' months ago';
-     }
-
-     else {
-       return Math.round(elapsed / msPerYear) + ' years ago';
-     }
-   }
-   openMore()
-   {
-     $(document).on('click', '.type-message .ion-more', function() {
-
-       $('.toggle-icons').toggleClass('open');
-
-   });
-
-   }
+  openMore() {
+    $('.toggle-icons').toggleClass('open');
+  }
 
   dropdown() {
 
@@ -158,27 +149,35 @@ export class ChatHandlerPage {
     });
   }
 
-  presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
-      // title: 'Select Image Source',
-      buttons: [
-        {
-          text: 'Library',
-          handler: () => {
-            // alert("lib");
-            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-          }
-        },
-        {
-          text: 'Camera',
-          handler: () => {
-            this.takePicture(this.camera.PictureSourceType.CAMERA);
-          }
-        }
-      ]
-    });
-    actionSheet.present();
+  openGallery(){
+    this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
   }
+
+  openCamera(){
+    this.takePicture(this.camera.PictureSourceType.CAMERA);
+  }
+
+  // presentActionSheet() {
+  //   let actionSheet = this.actionSheetCtrl.create({
+  //     // title: 'Select Image Source',
+  //     buttons: [
+  //       {
+  //         text: 'Library',
+  //         handler: () => {
+  //           // alert("lib");
+  //           this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+  //         }
+  //       },
+  //       {
+  //         text: 'Camera',
+  //         handler: () => {
+  //           this.takePicture(this.camera.PictureSourceType.CAMERA);
+  //         }
+  //       }
+  //     ]
+  //   });
+  //   actionSheet.present();
+  // }
 
   takePicture(sourceType) {
     // Create options for the Camera Dialog
@@ -273,7 +272,6 @@ export class ChatHandlerPage {
     })
   }
 
-
   recordCallbackFunction = (filePath) => {
     return new Promise((resolve, reject) => {
       if (this.platform.is('android')) {
@@ -292,7 +290,6 @@ export class ChatHandlerPage {
       }
     });
   }
-
 
   chooseFile() {
     this.fileChooser.open()
@@ -317,20 +314,22 @@ export class ChatHandlerPage {
       }).catch(e => alert(e));
   }
 
-send(cid = this.cid , userid = this.logined_user , text = this.emojitext) {
-    this.singleChat.send_message(cid,userid,text).subscribe((res)=>{
+  send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
+    this.singleChat.send_message(cid, userid, text).subscribe((res) => {
       this.emojitext = '';
-  });
-}
-location()
-{
-  this.navCtrl.push(MapLocationPage,{id:this.cid,remoteid:this.logined_user});
-}
-handleSelection(event) {
-  this.emojitext+=event.char;
-}
-call() {
-  let  loading1 = this.loadingctrl.create({
+    });
+  }
+
+  location() {
+    this.navCtrl.push(MapLocationPage, { id: this.cid, remoteid: this.logined_user });
+  }
+
+  handleSelection(event) {
+    this.emojitext += event.char;
+  }
+
+  call() {
+    let loading1 = this.loadingctrl.create({
 
       showBackdrop: false
     });
@@ -368,19 +367,16 @@ call() {
         buttons: [
           {
             text: 'ok',
-            handler: data =>{
+            handler: data => {
               this.singleChat.blockUser(blockedUser, this.logined_user).subscribe(res => {
                 loading1.dismiss()
                 console.log(res)
                 if (res.status == 1) {
-
                   this.navCtrl.push(TabsPage);
                 }
-
               }
               )
             }
-
           },
           {
             'text': 'cancel',
@@ -397,6 +393,7 @@ call() {
 
     // chat/delete/messages
   }
+
   unBlock(blockedUser) {
     let editGroupName = this.alert.create(
       {
@@ -411,11 +408,8 @@ call() {
                 loading1.dismiss()
 
                 if (res.status == 1) {
-
-
                   // window.location.reload();
                   this.navCtrl.push(TabsPage);
-
                 }
                 // alert("xxx"+JSON.stringify(res) )
                 //   firebase.database().ref(userID + '/chats').delete();

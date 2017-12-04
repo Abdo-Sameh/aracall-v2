@@ -21,6 +21,7 @@ import { SignaturePage } from '../signature/signature';
 import { GroupInfoPage } from '../group-info/group-info';
 
 import { TabsPage } from '../tabs/tabs';
+import {GroupVideoHandlerPage} from '../group-video-handler/group-video-handler';
 
 import { MapLocationPage } from '../map-location/map-location';
 import { RecordingPage } from '../recording/recording';
@@ -75,6 +76,10 @@ export class GroupChatPage {
   goToGroupInfo() {
 
     this.navCtrl.push(GroupInfoPage, { 'group': this.group })
+  }
+
+  openMore() {
+    $('.toggle-icons').toggleClass('open');
   }
 
   missingRequirments()
@@ -161,6 +166,10 @@ export class GroupChatPage {
    }
    handleSelection(event) {
      this.emojitext+=event.char;
+   }
+
+   video() {
+       this.navCtrl.push(GroupVideoHandlerPage);
    }
    // call() {
    //   let  loading1 = this.loadingctrl.create({
