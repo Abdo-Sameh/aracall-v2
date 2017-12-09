@@ -25,8 +25,8 @@
         </div>
       </ion-title>
     </div>
-    <ion-icon class="headerico" name="ios-call" (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
-    <ion-icon class="headerico" name="ios-videocam" (click)="video()" style="background-color:#fff"></ion-icon>
+    <ion-icon class="headerico" name="ios-videocam" (click)="audio()" style="margin-left: -10px;background-color:#fff"></ion-icon>
+    <ion-icon class="headerico" name="ios-call" (click)="video()" style="background-color:#fff"></ion-icon>
 
     <!-- <h5 style="color:gray;margin-top:11px;margin-left:30px">
       {{group.time}}
@@ -50,14 +50,9 @@
       </div>
     </div>
     <div class="chat_room">
-
       <div class="chat_room_body">
         <div class="container">
-          <!-- <section class="chat_body"> -->
-          <!-- Messages -->
           <div class="msgs">
-            <!-- <p>ddddd{{y}}</p> -->
-
             <div *ngFor="let p of chats">
               <div class="sender_msg" *ngIf="p.from_me == false">
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
@@ -65,42 +60,36 @@
                     </h4>
                   <img [src]="p.image" style=" width: 500px;height: 200px;">
                   <time>{{p.time}}</time>
-
                 </div>
-
                 <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
                   <h4>{{title}}</h4>
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
-
                 </div>
                 <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
-                  <!-- <p>{{p.text}}</p> -->
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
-                  <!--<i class="ion-android-checkbox-outline"></i>-->
                   <time>{{p.time}}</time>
                 </div>
               </div>
-
               <div class="reciever_msg" *ngIf="p.from_me == true">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <img [src]="p.image" style="width: 500px;height: 200px;">
                   <time>{{p.time}}</time>
-
                 </div>
-
                 <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">
                   <h4>{{'you' | translate}}</h4>
                   <p>{{p.text}}</p>
-
                   <time>{{p.time}}</time>
-
                 </div>
                 <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
-
+                  <a href="{{p.avatar}}"> {{p.avatar}}</a>
+                  <time>{{p.time}}</time>
+                </div>
+                <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
+                  <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
                   <time>{{p.time}}</time>
                 </div>
@@ -117,50 +106,50 @@
     <div class="message-box message-box-2">
       <form>
         <div class="container chat-message-box">
-          <ul class="toggle-icons animated bounceIn">
+          <ul class="toggle-icons animated bounceIn" style="margin-bottom: 10px;">
             <li>
               <a (click)="recordPage()" href="#">
-									<i class="ion-ios-mic"></i>
+                  <img src="./assets/images/svg/microphone.svg" style="width:25px; height:25px;">
 									<span>Audio</span>
 								</a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
-									<i class="ion-videocamera"></i>
+									<img src="./assets/images/svg/video-camera.svg" style="width:25px; height:25px;">
 									<span>Video</span>
 								</a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
-									<i class="ion-android-document"></i>
+									<img src="./assets/images/svg/file.svg" style="width:25px; height:25px;">
 									<span>Document</span>
 								</a>
             </li>
             <li>
               <a (click)="location()" href="#">
-									<i class="ion-location"></i>
+									<img src="./assets/images/svg/facebook-placeholder-for-locate-places-on-maps.svg" style="width:25px; height:25px;">
 									<span>Location</span>
 								</a>
             </li>
             <li>
               <a (click)="openGallery()" href="#">
-									<i class="ion-image"></i>
+									<img src="./assets/images/svg/gallery.svg" style="width:25px; height:25px;">
 									<span>Gallery</span>
 								</a>
             </li>
             <li>
               <a (click)="handWriting()" href="#">
-									<i class="ion-compose"></i>
+									<img src="./assets/images/svg/new-file.svg" style="width:25px; height:25px;">
 									<span>Handwriting</span>
 								</a>
             </li>
           </ul>
           <div class="type-message">
-            <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><i class="ion-android-happy"></i></a>
+            <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <input type="text" class="form-control" name="msg" placeholder="Type Message......"  [(ngModel)]="emojitext"  name="email">
-            <a (click)="openCamera()" href="#"><i class="ion-camera"></i></a>
-            <a (click)="openMore()" href="#"><i class="ion-more"></i></a>
-            <a (click)="send()" href="#"><i class="ion-android-send"></i></a>
+            <a (click)="openCamera()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
+            <a (click)="openMore()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
+            <a (click)="send()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>
           </div>
         </div>
       </form>

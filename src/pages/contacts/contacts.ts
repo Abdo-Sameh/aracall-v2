@@ -19,7 +19,9 @@ import { NewChatPage } from '../new-chat/new-chat';
 })
 export class ContactsPage {
   friendsList
+  userId
   constructor(public app: App, public singleChat: SingleChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
   ionViewDidLoad() {
@@ -36,7 +38,7 @@ export class ContactsPage {
   }
 
   goTochatPage(other_userid) {
-    this.singleChat.check_chat_history(other_userid).subscribe(res => {
+    this.singleChat.check_chat_history(other_userid, this.userId).subscribe(res => {
       console.log(res);
       if (res.status == 1) {
         this.app.getRootNav().push(ChatHandlerPage, { cid: res.cid, title: res.name, avatar: res.avatar, 'is_blocked': res.is_blocked, user1: res.user1 });

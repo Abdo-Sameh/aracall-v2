@@ -6,12 +6,57 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>group-video-handler</ion-title>
-  </ion-navbar>
+  <header class="header_title">
+			<div class="container">
+				<!-- <div class="back_btn">
+					<a href="#"><i class="ion-arrow-left-c"></i></a>
+				</div> -->
+				<div class="page_title text-center" style="width: 100%;">
+					<h3>Group Call</h3>
+				</div>
+				<!-- <div class="menu_btn text-right">
+					<a href="#"><i class="ion-android-menu"></i></a>
+				</div> -->
+			</div>
+		</header>
 
 </ion-header>
 <ion-content>
+  <div id="selfVideo">
+  </div>
+
+  <section class="bg_grey full_vh">
+			<ul id="Videos" class="group-call-wrap" style="margin-top: 70px;">
+				<!-- <li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li> -->
+			</ul>
+			<ul class="group-call-btn">
+        <li (click)="acceptCall()" [hidden]="accept">
+					<a href="#"><i class="ion-android-call" style="color: #00ff00"></i></a>
+					<span>Accept</span>
+				</li>
+        <li (click)="denyCall()" [hidden]="deny">
+					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
+					<span>Deny</span>
+				</li>
+				<li [hidden]="mute">
+					<a href="#"><i class="ion-ios-mic-off"></i></a>
+					<span>Mute</span>
+				</li>
+				<li (click)="endCall()" [hidden]="end">
+					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
+					<span>End</span>
+				</li>
+				<li [hidden]="speaker">
+					<a href="#"><i class="ion-android-volume-up"></i></a>
+					<span>Speaker</span>
+				</li>
+			</ul>
+		</section>
 
 <!-- <section class="bg_grey ">
   <div  class="video-call">
@@ -52,6 +97,11 @@
   </ul>
 </section> -->
 
-<button (click)="openOrJoin()">joinOrOpen</button>
+<!-- <button (click)="openOrJoin()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">OpenOrJoin</button> -->
+<!-- <button (click)="join()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">Join</button>
+<button (click)="connect()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">Connect </button> -->
+<!-- <button (click)="leave()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">Leave </button> -->
+
+<!-- <button (click)="getAllUsers()"class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">getAllUsers</button> -->
 
 </ion-content>

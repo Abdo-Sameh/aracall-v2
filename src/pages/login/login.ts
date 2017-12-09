@@ -49,11 +49,11 @@ export class LoginPage {
           console.log(localStorage.setItem('userCover', JSON.stringify(this.responseData.cover)));
           console.log(localStorage.setItem('loggedIn', "1"));
           this.navCtrl.push(TabsPage);
-          return true;
+          // return true;
         }
         else {
           this.Toast("Please enter valid username and password");
-          return false;
+          // return false;
         }
       }, (err) => {
         //Connection failed message

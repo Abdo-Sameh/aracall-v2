@@ -83,12 +83,12 @@ export class CreateGroupPage {
             text: 'ok',
             handler: data => {
               let group_name = data.groupName
-              this.groupChat.createGroup(group_name, this.chosenUsers, this.message).subscribe(res => {
+              this.groupChat.createGroup(group_name, this.chosenUsers, this.message, this.userId).subscribe(res => {
                 console.log(res)
                 if (res.status == 1) {
                   this.groupChat.set_group_name(res.cid, group_name).subscribe(res1 => console.log(res1))
-                  this.groupChat.set_group_admin(res.cid).subscribe(res2 => console.log(res2))
-                  this.groupChat.usersCoversation(res.cid).subscribe(res3 => {
+                  this.groupChat.set_group_admin(res.cid, this.userId).subscribe(res2 => console.log(res2))
+                  this.groupChat.usersCoversation(res.cid, this.userId).subscribe(res3 => {
                     this.message = ''
                     this.chosenUsers = []
                     this.navCtrl.push(GroupChatPage, {

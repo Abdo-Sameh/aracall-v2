@@ -1,16 +1,15 @@
-import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController, ModalController, AlertController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController, AlertController } from 'ionic-angular';
+import { Camera } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
-import { Media, MediaObject } from '@ionic-native/media';
+import { Media } from '@ionic-native/media';
 
 import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
-import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
+// import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 
 import { FriendsProvider } from '../../providers/friends/friends';
@@ -51,8 +50,10 @@ export class ChatHandlerPage {
   username
   chats = []
   msgs = []
+  userId
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
   constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.remoteavatar = this.navParams.get('avatar');
     this.the_userId = navParams.get('user1');
@@ -79,7 +80,7 @@ export class ChatHandlerPage {
       console.log(res)
     });
 
-    this.singleChat.display_single_chat_messages(this.cid).subscribe((res) => {
+    this.singleChat.display_single_chat_messages(this.cid, this.userId).subscribe((res) => {
       for (let key in res) {
         res[key].time = this.edittime(Date.now(), res[key].time)
         this.chats.push(res[key])
@@ -149,11 +150,11 @@ export class ChatHandlerPage {
     });
   }
 
-  openGallery(){
+  openGallery() {
     this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
   }
 
-  openCamera(){
+  openCamera() {
     this.takePicture(this.camera.PictureSourceType.CAMERA);
   }
 
@@ -226,7 +227,7 @@ export class ChatHandlerPage {
     // alert(type);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
-      this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type);
+      this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type, this.userId);
     }, error => {
       // alert(error);
       this.presentToast('Error while storing file.');
@@ -315,7 +316,7 @@ export class ChatHandlerPage {
   }
 
   send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
-    this.singleChat.send_message(cid, userid, text).subscribe((res) => {
+    this.singleChat.send_message(cid, userid, text, this.userId).subscribe((res) => {
       this.emojitext = '';
     });
   }
@@ -333,9 +334,9 @@ export class ChatHandlerPage {
 
       showBackdrop: false
     });
-    this.singleChat.remoteid(this.username).then(data => {
+    this.singleChat.remoteid(this.username, this.userId).then(data => {
       let number = Math.floor(Math.random() * 1000000000);
-      this.singleChat.sendnumber(data, number, 'audio');
+      this.singleChat.sendnumber(data, number, 'audio', this.userId);
       let avatar = this.remoteavatar;
       loading1.dismiss()
       this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
@@ -349,8 +350,8 @@ export class ChatHandlerPage {
       showBackdrop: false
     });
     let number = Math.floor(Math.random() * 1000000000);
-    this.singleChat.remoteid(this.username).then(data => {
-      this.singleChat.sendnumber(data, number, 'video');
+    this.singleChat.remoteid(this.username, this.userId).then(data => {
+      this.singleChat.sendnumber(data, number, 'video', this.userId);
       let avatar = this.remoteavatar;
       loading1.dismiss()
       this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });

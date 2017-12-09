@@ -21,7 +21,9 @@ export class SearchPage {
   friendsList
   friendsnames: any = []
   names = []
+  userId
   constructor(public app: App, public singleChat: SingleChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
   ionViewDidLoad() {
@@ -57,7 +59,7 @@ export class SearchPage {
   }
 
   goTochatPage(other_userid) {
-    this.singleChat.check_chat_history(other_userid).subscribe(res => {
+    this.singleChat.check_chat_history(other_userid, this.userId).subscribe(res => {
       if (res.status == 1) {
         this.app.getRootNav().push(ChatHandlerPage, { cid: res.cid, title: res.name, avatar: res.avatar, 'is_blocked': res.is_blocked, user1: res.user1 });
         // this.app.getRootNav().push(ChatHandlerPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })

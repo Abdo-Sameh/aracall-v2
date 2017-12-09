@@ -39,28 +39,33 @@
   <ion-app></ion-app>
   <script src="./assets/js/firebase.js"></script>
   <script src="./assets/js/adapter-latest.js"></script>
+  <script src="./assets/js/getHTMLMediaElement.js"></script>
   <!-- The polyfills js is generated during the build process -->
-  <script src="build/polyfills.js"></script>
+
 
   <script src="https://cdn.webrtc-experiment.com/RTCMultiConnection.js"></script>
-  <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+    <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
   <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+  <script src="build/polyfills.js"></script>
+  <!-- <script src="//cdn.webrtc-experiment.com/socket.io.js"> </script>
+  <script src="//cdn.webrtc-experiment.com/RTCPeerConnection-v1.5.js"> </script>
+  <script src="//cdn.webrtc-experiment.com/video-conferencing/conference.js"> </script> -->
   <!-- The vendor js is generated during the build process
        It contains all of the dependencies in node_modules -->
   <script src="build/vendor.js"></script>
   <script>
-  var connection = new RTCMultiConnection();
-
-  // this line is VERY_important
-  connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-
-  // if you want audio+video conferencing
-  connection.session = {
-      audio: true,
-      video: true
-  };
-alert(JSON.stringify(connection))
-  connection.openOrJoin('your-room-id');
+//   var connection = new RTCMultiConnection();
+//
+//   // this line is VERY_important
+//   connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+//
+//   // if you want audio+video conferencing
+//   connection.session = {
+//       audio: true,
+//       video: true
+//   };
+// console.log((connection))
+//   connection.openOrJoin('your-room-id');
   </script>
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>

@@ -1,5 +1,5 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading ,LoadingController} from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -8,8 +8,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
 import { Media, MediaObject } from '@ionic-native/media';
 
-import {AudioHandlerPage}  from '../audio-handler/audio-handler'
-import {VideoHandlerPage}  from '../video-handler/video-handler'
+import { AudioHandlerPage } from '../audio-handler/audio-handler'
+import { VideoHandlerPage } from '../video-handler/video-handler'
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 import { FriendsProvider } from '../../providers/friends/friends';
@@ -18,7 +18,7 @@ import { FriendProfilePage } from '../friend-profile/friend-profile';
 import { SignaturePage } from '../signature/signature';
 import { MapLocationPage } from '../map-location/map-location';
 import { RecordingPage } from '../recording/recording';
-import {SettingsProvider} from '../../providers/settings/settings'
+import { SettingsProvider } from '../../providers/settings/settings'
 /**
  * Generated class for the ChatHandlerPage page.
  *
@@ -33,7 +33,7 @@ declare var cordova: any;
 })
 export class NewChatPage {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-@ViewChild('input1') private myinput: ElementRef;
+  @ViewChild('input1') private myinput: ElementRef;
   currentUserID
   lastImage: string = null;
   loading: Loading
@@ -47,80 +47,82 @@ export class NewChatPage {
   username
   chats = []
   msgs = []
+  userId
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController,public Settings:SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
-      this.cid = navParams.get('cid');
-      this.remoteavatar = this.navParams.get('avatar');
-      this.the_userId = navParams.get('user1');
-      this.logined_user=localStorage.getItem('userid').replace(/[^0-9]/g, "");
-      this.username= this.navParams.get('title');
-      let loading = loadingctrl.create({
+  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
+    this.cid = navParams.get('cid');
+    this.remoteavatar = this.navParams.get('avatar');
+    this.the_userId = navParams.get('user1');
+    this.logined_user = localStorage.getItem('userid').replace(/[^0-9]/g, "");
+    this.username = this.navParams.get('title');
+    let loading = loadingctrl.create({
       showBackdrop: false
-      });
-      loading.present();
+    });
+    loading.present();
 
-      this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
-       console.log(res)
-           this.currentUserID = res.id;
-           console.log(this.currentUserID)
-           this.lastonline = res.profile_info[0].value;
-           this.Settings.get_user_chat_settings().subscribe(res => {
-             this.settings[0].last_seen_status = res.last_seen_status
-             this.settings[0].read_receipt = res.read_receipt_status
-           })
-           console.log(res)
+    this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
+      console.log(res)
+      this.currentUserID = res.id;
+      console.log(this.currentUserID)
+      this.lastonline = res.profile_info[0].value;
+      this.Settings.get_user_chat_settings().subscribe(res => {
+        this.settings[0].last_seen_status = res.last_seen_status
+        this.settings[0].read_receipt = res.read_receipt_status
+      })
+      console.log(res)
     });
 
-    this.singleChat.display_single_chat_messages(this.cid).subscribe((res)=>{
-             for (let key in res) {
-              res[key].time = this.edittime(Date.now() , res[key].time)
-              this.chats.push(res[key])
-              }
-              loading.dismiss()
-              });
+    this.singleChat.display_single_chat_messages(this.cid, this.userId).subscribe((res) => {
+      for (let key in res) {
+        res[key].time = this.edittime(Date.now(), res[key].time)
+        this.chats.push(res[key])
+      }
+      loading.dismiss()
+    });
   }
 
   ionViewDidLoad() {
 
   }
   edittime(current, previous) {
-     var msPerMinute = 60 * 1000;
-     var msPerHour = msPerMinute * 60;
-     var msPerDay = msPerHour * 24;
-     var msPerWeek = 7 * msPerDay;
-     var msPerMonth = msPerDay * 30;
-     var msPerYear = msPerDay * 365;
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerWeek = 7 * msPerDay;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
 
-     var elapsed = current - previous;
+    var elapsed = current - previous;
 
-     if (elapsed < msPerMinute) {
-       return 'now';
-     }
+    if (elapsed < msPerMinute) {
+      return 'now';
+    }
 
-     else if (elapsed < msPerHour) {
-       return Math.round(elapsed / msPerMinute) + ':minutes ago';
-     }
+    else if (elapsed < msPerHour) {
+      return Math.round(elapsed / msPerMinute) + ':minutes ago';
+    }
 
-     else if (elapsed < msPerDay) {
-       return Math.round(elapsed / msPerHour) + ':hours ago';
-     }
-     else if (elapsed < msPerWeek) {
-       return Math.round(elapsed / msPerDay) + ':days ago';
-     }
-     else if (elapsed < msPerMonth) {
-       return Math.round(elapsed / msPerWeek) + ':weeks ago';
-     }
+    else if (elapsed < msPerDay) {
+      return Math.round(elapsed / msPerHour) + ':hours ago';
+    }
+    else if (elapsed < msPerWeek) {
+      return Math.round(elapsed / msPerDay) + ':days ago';
+    }
+    else if (elapsed < msPerMonth) {
+      return Math.round(elapsed / msPerWeek) + ':weeks ago';
+    }
 
 
 
-     else if (elapsed < msPerYear) {
-       return Math.round(elapsed / msPerMonth) + ':months ago';
-     }
+    else if (elapsed < msPerYear) {
+      return Math.round(elapsed / msPerMonth) + ':months ago';
+    }
 
-     else {
-       return Math.round(elapsed / msPerYear) + ':years ago';
-     }
-   }
+    else {
+      return Math.round(elapsed / msPerYear) + ':years ago';
+    }
+  }
   dropdown() {
 
     $(document).on('click', '.type-message .toggle-arrow', function() {
@@ -209,7 +211,7 @@ export class NewChatPage {
     alert(type);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
-      this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type);
+      this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type, this.userId);
     }, error => {
       alert(error);
       this.presentToast('Error while storing file.');
@@ -273,25 +275,24 @@ export class NewChatPage {
       }).catch(e => alert(e));
   }
 
-send(cid = this.cid , userid = this.logined_user , text = this.emojitext) {
-    this.singleChat.send_message(cid,userid,text).subscribe((res)=>{
+  send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
+    this.singleChat.send_message(cid, userid, text, this.userId).subscribe((res) => {
       this.emojitext = '';
-  });
-}
-location()
-{
-  this.navCtrl.push(MapLocationPage,{id:this.cid,remoteid:this.logined_user});
-}
-handleSelection(event) {
-  this.emojitext+=event.char;
-}
-call() {
-  let  loading1 = this.loadingctrl.create({
+    });
+  }
+  location() {
+    this.navCtrl.push(MapLocationPage, { id: this.cid, remoteid: this.logined_user });
+  }
+  handleSelection(event) {
+    this.emojitext += event.char;
+  }
+  call() {
+    let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
-    this.singleChat.remoteid(this.username).then(data => {
-    let number = Math.floor(Math.random() * 1000000000);
-      this.singleChat.sendnumber(data, number, 'audio');
+    this.singleChat.remoteid(this.username, this.userId).then(data => {
+      let number = Math.floor(Math.random() * 1000000000);
+      this.singleChat.sendnumber(data, number, 'audio', this.userId);
       let avatar = this.remoteavatar;
       loading1.dismiss()
       this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
@@ -301,12 +302,12 @@ call() {
   }
 
   video() {
-  let  loading1 = this.loadingctrl.create({
+    let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
     let number = Math.floor(Math.random() * 1000000000);
-    this.singleChat.remoteid(this.username).then(data => {
-      this.singleChat.sendnumber(data, number, 'video');
+    this.singleChat.remoteid(this.username, this.userId).then(data => {
+      this.singleChat.sendnumber(data, number, 'video', this.userId);
       let avatar = this.remoteavatar;
       loading1.dismiss()
       this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
