@@ -13,6 +13,8 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+@import '../assets/icons/ionicons';
+
 :host-context(.theme-light) h2 {
   background-color: #eef;
 }

@@ -1,3 +1,71 @@
 page-group-audio-handler {
+  .local-video {
+    width: 100%;
+    object-fit: unset;
+    height: 100vh;
+    float: right;
+    position: absolute;
+  }
 
+  .self-video {
+    position: absolute;
+    float: left;
+    z-index: 1111;
+    width: 25%;
+  }
+
+  .scroll-content p {
+    // margin-top: -95px;
+    // z-index: 999;
+    // position: relative;
+    z-index: 999;
+    position: relative;
+    bottom: 60%;
+    margin: auto;
+    float: none;
+    left: 2%;
+    right: 0;
+    top: 170px;
+    color: #5c0632;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  ion-icon {
+    position: absolute;
+    left: 4%;
+    top: 3%;
+    font-size: 25px !important;
+  }
+
+  .incoming-button {
+    position: absolute;
+    bottom: 15%;
+    left: 28%;
+  }
+
+  .incoming-button .accept {
+    float: left;
+  }
+
+  .incoming-button .deny {
+    margin-left: 156%;
+    float: right;
+    position: absolute;
+  }
+
+  .incoming-button img {
+    width: 46px;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .header_title .page_title {
+    width: 100% !important;
+    font-size: 24px;
+    margin-top: 5px;
+  }
 }

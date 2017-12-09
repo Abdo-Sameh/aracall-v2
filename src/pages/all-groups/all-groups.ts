@@ -20,7 +20,9 @@ import { GroupChatPage } from './../group-chat/group-chat';
 export class AllGroupsPage {
   chats = [];
   chatsCount
+  userId
   constructor(public app: App, public groupChat: GroupChatProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.getConversations();
   }
 
@@ -34,7 +36,7 @@ export class AllGroupsPage {
   }
 
   getConversations() {
-    this.groupChat.getConverstationsList().subscribe(res => {
+    this.groupChat.getConverstationsList(this.userId).subscribe(res => {
       console.log(res);
       for (let i = 0; i < res.length; ++i) {
         if (res[i].type == 'multiple') {
@@ -48,7 +50,7 @@ export class AllGroupsPage {
 
   openGroupChat(index) {
     console.log(this.chats[index]);
-    this.groupChat.usersCoversation(this.chats[index].cid).subscribe(res => {
+    this.groupChat.usersCoversation(this.chats[index].cid, this.userId).subscribe(res => {
       console.log(this.chats[index])
       this.app.getRootNav().push(GroupChatPage, {
         'messages': res,

@@ -23,12 +23,14 @@ import { ChatHandlerPage } from '../../pages/chat-handler/chat-handler';
 })
 export class AllChatsPage {
   chats
+  userId
   constructor(public groupChat: GroupChatProvider, public app: App, public singleChat: SingleChatProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AllChatsPage');
-    this.singleChat.getConversations().subscribe(data => {
+    this.singleChat.getConversations(this.userId).subscribe(data => {
       this.chats = data;
       console.log(data);
     })
@@ -44,7 +46,7 @@ export class AllChatsPage {
 
   openChat(index, type, cid, title, avatar, is_blocked, user1) {
     if (type == 'multiple') {
-      this.groupChat.usersCoversation(this.chats[index].cid).subscribe(res => {
+      this.groupChat.usersCoversation(this.chats[index].cid, this.userId).subscribe(res => {
         console.log(res)
         this.app.getRootNav().push(GroupChatPage, {
           'messages': res,
@@ -61,14 +63,14 @@ export class AllChatsPage {
     mail: new FormControl(null, [Validators.required])
   });
   doRefresh(refresher) {
-    this.singleChat.getConversations().subscribe(data => {
+    this.singleChat.getConversations(this.userId).subscribe(data => {
       this.chats = data;
     })
       if (refresher != 0)
         refresher.complete();
     }
 
-    
+
   checkinput() {
     if (this.userForm.value.mail == "") { return true } else { return false }
   }

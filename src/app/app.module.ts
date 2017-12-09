@@ -18,7 +18,7 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { Media, MediaObject } from '@ionic-native/media';
 import { Globalization } from '@ionic-native/globalization';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
-
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 import { Diagnostic } from '@ionic-native/diagnostic';
 
@@ -103,7 +103,8 @@ import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audi
     GroupChatProvider,
     SettingsProvider,
     Diagnostic,
-    FriendsProvider
+    FriendsProvider,
+    AndroidPermissions
   ]
 })
 export class AppModule { }

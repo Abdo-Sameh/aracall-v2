@@ -41,12 +41,14 @@ export class MorePage {
     localStorage.setItem('userDataID', "" );
     localStorage.setItem('userCover', "" );
     // this.database.signout();
-
+    localStorage.clear();
     this.navCtrl.setRoot(LoginPage);
   }
 
   chatSettings() {
+    console.log('here');
     this.settings.get_user_chat_settings().subscribe(res => {
+      console.log(res);
       this.navCtrl.push(ChatSettingsPage, { 'settings': res })
     })
   }

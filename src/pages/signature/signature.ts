@@ -31,10 +31,6 @@ export class SignaturePage {
   constructor(private base64ToGallery: Base64ToGallery, public file: File, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignaturePage');
-  }
-
   canvasResize() {
     let canvas = document.querySelector('canvas');
     this.signaturePad.set('minWidth', 1);

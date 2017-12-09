@@ -14,48 +14,47 @@
 
 
 <ion-content>
-<main class="page">
-		<!-- Start Menu Settings -->
-		<div class="settings">
+  <main class="page">
+    <!-- Start Menu Settings -->
+    <div class="settings">
 
-			<div class="settings_items">
-				<ul>
-					<li>
-						<a (click)="openaccount()">
+      <div class="settings_items">
+        <ul>
+          <li (click)="openaccount()">
+            <a>
 							<img src="./assets/images/svg/014-man-user.svg" style="width:20px;height:20px"/>
 							<span style=" position: relative;top: 1px;">{{'view-profile' | translate}}</span>
 						</a>
-					</li>
-							<li>
-						<a (click)="chatSettings()">
+          </li>
+          <li (click)="chatSettings()">
+            <a>
 							<img src="./assets/images/svg/interface.svg" style="width:20px;height:20px"/>
-							<span style="    position: relative;
-							top: 1px;">{{'chat-settings' | translate}}</span>
+							<span style="position: relative;top: 1px;">{{'chat-settings' | translate}}</span>
 						</a>
-					</li>
-					<!-- <li>
+          </li>
+          <!-- <li>
 							<a (click)="notificationSettings()">
 								<img src="./assets/images/svg/009-notification-bell.svg" style="width:20px;height:20px"/>
 								<span style="    position: relative;
 								top: 1px;">{{'notifications-settings' | translate}}</span>
 							</a>
 						</li> -->
-						<li>
-								<a (click)="blockedUsers()">
+          <li>
+            <a (click)="blockedUsers()">
 									<img src="./assets/images/svg/013-rounded-block-sign.svg" style="width:20px;height:20px"/>
 									<span style="    position: relative;
 									top: 1px;">{{'blocked-users' | translate}}</span>
 								</a>
-							</li>
-					<li>
-						<a (click)="signout()">
+          </li>
+          <li>
+            <a (click)="signout()">
 							<img src="./assets/images/svg/logout.svg" style="width:20px;height:20px"/>
 							<span>{{'signout' | translate}}</span>
 						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!-- //End Menu Settings -->
-	</main>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- //End Menu Settings -->
+  </main>
 </ion-content>
