@@ -56,6 +56,14 @@ export class SingleChatProvider {
     })
   }
 
+  getReceiver(cid) {
+    return new Observable(Observable => {
+      firebase.database().ref('one2one/' + cid + '/messages').on('value', function(snapshot) {
+        console.log(snapshot);
+      })
+    })
+  }
+
   send_location(cid, theuserid, location, userId) {
     let url = this.serverURL + this.KEY + '/chat/send/message?text=' + location + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + theuserid
     console.log(url)

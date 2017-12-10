@@ -64,10 +64,7 @@ export class MapLocationPage {
           ]
         });
         alert.present();
-
       });
-
-
   }
 
   send() {
@@ -76,19 +73,16 @@ export class MapLocationPage {
     if (url != undefined) {
       this.database.send_location(cid, remoteid, url, this.userId);
       this.navCtrl.pop();
-
     }
   }
-  addInfoWindow(marker, content) {
 
+  addInfoWindow(marker, content) {
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
-
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
     });
-
   }
 
   getlocation() {

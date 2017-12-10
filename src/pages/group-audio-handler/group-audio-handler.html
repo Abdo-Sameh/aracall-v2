@@ -23,6 +23,37 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <section class="bg_grey full_vh">
+			<ul id="audios" class="group-call-wrap" style="margin-top: 70px;">
+				<!-- <li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li>
+				<li class="group-call"></li> -->
+			</ul>
+			<ul class="group-call-btn">
+        <li (click)="acceptCall()" [hidden]="accept">
+					<a href="#"><i class="ion-android-call" style="color: #00ff00"></i></a>
+					<span>Accept</span>
+				</li>
+        <li (click)="denyCall()" [hidden]="deny">
+					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
+					<span>Deny</span>
+				</li>
+				<li [hidden]="mute">
+					<a href="#"><i class="ion-ios-mic-off"></i></a>
+					<span>Mute</span>
+				</li>
+				<li (click)="endCall()" [hidden]="end">
+					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
+					<span>End</span>
+				</li>
+				<li [hidden]="speaker">
+					<a href="#"><i class="ion-android-volume-up"></i></a>
+					<span>Speaker</span>
+				</li>
+			</ul>
+		</section>
 </ion-content>

@@ -126,34 +126,42 @@ export class GroupAudioHandlerPage {
 
 
   initalizeCall() {
+    console.log('before new');
     connection = new RTCMultiConnection();
     connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-
+    console.log('before session');
     // if you want audio+video conferencing
     connection.session = {
       audio: true,
-      video: false
+      video: true
+    };
+    console.log('after session');
+    connection.mediaConstraints = {
+      audio: true,
+      video: true
     };
 
     connection.sdpConstraints.mandatory = {
       OfferToReceiveAudio: true,
-      OfferToReceiveVideo: false
+      OfferToReceiveVideo: true
     };
-    alert('initalize');
 
+    alert('initalize');
+    connection.audiosContainer = document.getElementById('audios');
     connection.onstream = function(event) {
-      var video = event.mediaElement;
-      alert(video);
-      video.id = event.streamid;
-      alert(video.id);
-      var node = document.createElement("LI");
-      node.className = "group-call";
-      video.setAttribute("style", "width: 100%; height: 100%;");
-      video.removeAttribute("controls") ;
-      document.getElementById("Videos").appendChild(node).appendChild(video);
+      console.log(event)
+      // var video = event.mediaElement;
+      // alert(video);
+      // video.id = event.streamid;
+      // alert(video.id);
+      // var node = document.createElement("LI");
+      // node.className = "group-call";
+      // video.setAttribute("style", "width: 100%; height: 100%;");
+      // video.removeAttribute("controls") ;
+      // document.getElementById("Videos").appendChild(node).appendChild(video);
     };
-    // console.log((this.cid * 1000000000).toString(16));
-    if(this.incoming == false){
+    console.log((this.cid * 1000000000).toString(16));
+    if (this.incoming == false) {
       connection.openOrJoin(this.number);
     }
   }
@@ -207,7 +215,7 @@ export class GroupAudioHandlerPage {
         this.groupChat.caller_end_set(member.userid, false);
         if (remotestrean != undefined) { connection.close(); }
 
-        this.groupChat.set_incoming(member.userid, { 0: "undefined" },this.userId)
+        this.groupChat.set_incoming(member.userid, { 0: "undefined" }, this.userId)
         console.log('caller end poped')
       }
       this.navCtrl.pop()

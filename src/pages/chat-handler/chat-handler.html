@@ -60,7 +60,7 @@
         <div class="container">
           <div class="msgs">
             <div *ngFor="let p of chats">
-              <div class="sender_msg" *ngIf="p.from_me == false">
+              <div class="sender_msg" *ngIf="p.sender_id != userId">
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                   <h4>{{title}}
    									</h4>
@@ -73,12 +73,12 @@
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
-                  <h4>{{'you' | translate}}</h4>
+                  <!-- <h4>{{'you' | translate}}</h4> -->
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
                   <time>{{p.time}}</time>
                 </div>
               </div>
-              <div class="reciever_msg" *ngIf="p.from_me == true">
+              <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <img [src]="p.image" style="width: 500px;height: 200px;">
@@ -153,9 +153,9 @@
           <div class="type-message">
             <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <input type="text" class="form-control" name="msg" placeholder="Type Message......"  [(ngModel)]="emojitext"  name="email">
-            <a (click)="openCamera()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <a (click)="openMore()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <a (click)="send()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>
+            <a (click)="openCamera();  vibrate()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
+            <a (click)="openMore(); vibrate()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
+            <a (click)="send(); vibrate()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>
           </div>
         </div>
       </form>

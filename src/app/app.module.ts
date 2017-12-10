@@ -21,7 +21,7 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 import { Diagnostic } from '@ionic-native/diagnostic';
-
+import { Vibration } from '@ionic-native/vibration';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { SignaturePage } from '../pages/signature/signature'
@@ -93,6 +93,7 @@ import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audi
     FilePath,
     FileTransfer,
     Globalization,
+    Vibration,
     FileChooser,
     File,
     Base64ToGallery,
