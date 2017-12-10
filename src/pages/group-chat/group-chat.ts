@@ -195,7 +195,7 @@ export class GroupChatPage {
       }
     }
     loading1.dismiss()
-    this.navCtrl.push(GroupVideoHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: number.toString(16) });
+    this.navCtrl.push(GroupVideoHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "vid" + number.toString(16) });
   }
 
   audio() {
@@ -205,12 +205,12 @@ export class GroupChatPage {
     let number = Math.floor(Math.random() * 1000000000);
     for (let member of this.groupMembers) {
       if (member.userid != this.userId) {
-        this.groupChat.sendnumber(member.userid, "aud" + number.toString(16), 'video', this.userId);
+        this.groupChat.sendnumber(member.userid, "aud" + number.toString(16), 'audio', this.userId);
         console.log(member);
       }
     }
     loading1.dismiss()
-    this.navCtrl.push(GroupAudioHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: number.toString(16) });
+    this.navCtrl.push(GroupAudioHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "aud" + number.toString(16) });
   }
 
   // call() {

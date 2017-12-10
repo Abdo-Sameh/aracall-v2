@@ -133,35 +133,37 @@ export class GroupAudioHandlerPage {
     // if you want audio+video conferencing
     connection.session = {
       audio: true,
-      video: true
+      video: false
     };
     console.log('after session');
     connection.mediaConstraints = {
       audio: true,
-      video: true
+      video: false
     };
 
     connection.sdpConstraints.mandatory = {
       OfferToReceiveAudio: true,
-      OfferToReceiveVideo: true
+      OfferToReceiveVideo: false
     };
 
     alert('initalize');
     connection.audiosContainer = document.getElementById('audios');
     connection.onstream = function(event) {
       console.log(event)
-      // var video = event.mediaElement;
-      // alert(video);
-      // video.id = event.streamid;
-      // alert(video.id);
-      // var node = document.createElement("LI");
-      // node.className = "group-call";
-      // video.setAttribute("style", "width: 100%; height: 100%;");
-      // video.removeAttribute("controls") ;
-      // document.getElementById("Videos").appendChild(node).appendChild(video);
+      var audio = event.mediaElement;
+      event.isAudioMuted
+      alert(audio);
+      audio.id = event.streamid;
+      alert(audio.id);
+      var node = document.createElement("LI");
+      node.className = "group-call";
+      audio.setAttribute("style", "width: 100%; height: 100%;");
+      audio.removeAttribute("controls") ;
+      document.getElementById("audios").appendChild(node).appendChild(audio);
     };
     console.log((this.cid * 1000000000).toString(16));
     if (this.incoming == false) {
+      console.log(this.number)
       connection.openOrJoin(this.number);
     }
   }
@@ -217,6 +219,9 @@ export class GroupAudioHandlerPage {
 
         this.groupChat.set_incoming(member.userid, { 0: "undefined" }, this.userId)
         console.log('caller end poped')
+        connection.attachStreams.forEach(function(localStream) {
+          localStream.stop();
+        });
       }
       this.navCtrl.pop()
     } else {
@@ -236,6 +241,7 @@ export class GroupAudioHandlerPage {
   }
 
   acceptCall() {
+    console.log(this.number);
     connection.openOrJoin(this.number);
     // this.text = true;
     // this.hideavatar = true;
