@@ -26,14 +26,18 @@ export class GroupAudioHandlerPage {
   connection
   //connection = new RTCMultiConnection();
   cid
+  myAvatar
   userId
   incoming
   members = []
+  streamId
   number; timer = true;
   text = "Ringing";
   accept = true; deny = true; end = true; speaker = true; mute = true;
   constructor(public events: Events, private androidPermissions: AndroidPermissions, public navCtrl: NavController, public navParams: NavParams, public groupChat: GroupChatProvider) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
+    this.myAvatar = localStorage.getItem('userAvatar');
+    console.log(this.myAvatar);
     this.cid = navParams.get('cid');
     this.incoming = this.navParams.get('remote');
     this.number = this.navParams.get('number');
@@ -126,16 +130,16 @@ export class GroupAudioHandlerPage {
 
 
   initalizeCall() {
-    console.log('before new');
+    // console.log('before new');
     connection = new RTCMultiConnection();
     connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-    console.log('before session');
+    // console.log('before session');
     // if you want audio+video conferencing
     connection.session = {
       audio: true,
       video: false
     };
-    console.log('after session');
+    // console.log('after session');
     connection.mediaConstraints = {
       audio: true,
       video: false
@@ -155,17 +159,26 @@ export class GroupAudioHandlerPage {
       alert(audio);
       audio.id = event.streamid;
       alert(audio.id);
-      var node = document.createElement("LI");
-      node.className = "group-call";
-      audio.setAttribute("style", "width: 100%; height: 100%;");
+      // var node = document.createElement("LI");
+      // node.className = "group-call";
+      audio.setAttribute("style", "width: 0%; height: 0%;");
       audio.removeAttribute("controls") ;
-      document.getElementById("audios").appendChild(node).appendChild(audio);
+      document.getElementById("audios").appendChild(audio);
     };
     console.log((this.cid * 1000000000).toString(16));
     if (this.incoming == false) {
       console.log(this.number)
+      // var node = document.createElement("LI");
+      // node.className = "group-call";
+      // var img = document.createElement("IMG");
+      // img.setAttribute("src", this.myAvatar);
+      // document.getElementById("images").appendChild(node).appendChild(img)
       connection.openOrJoin(this.number);
     }
+  }
+
+  muteCall() {
+    connection.streamEvents[this.streamId].stream.mute('audio');
   }
 
   openOrJoin() {

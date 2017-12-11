@@ -7,19 +7,20 @@ page-recording {
 
   .voice-rec .rec-box {
     right: 50%;
-    margin-right: -75px;
+    margin-right: -60px;
     background: #5c0632;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 80px;
     color: #fff;
+    border-radius: 10px;
   }
 
   .voice-rec .rec-timer {
     top: 200px;
     right: 50%;
-    margin-right: -32px;
+    margin-right: -23px;
     font-size: 24px;
   }
 
@@ -30,6 +31,9 @@ page-recording {
   }
 
   .voice-rec-btn.group-call-btn a {
-    margin: 0 20px;
+    margin: 0 50px;
+  }
+  .group-call-btn{
+    display: block;
   }
 }

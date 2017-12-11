@@ -20,6 +20,7 @@ import { Globalization } from '@ionic-native/globalization';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { Vibration } from '@ionic-native/vibration';
 import { MyApp } from './app.component';
@@ -96,6 +97,7 @@ import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audi
     Vibration,
     FileChooser,
     File,
+    PhotoViewer,
     Base64ToGallery,
     Media,
     { provide: ErrorHandler, useClass: IonicErrorHandler },

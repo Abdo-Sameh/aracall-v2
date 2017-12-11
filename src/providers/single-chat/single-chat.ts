@@ -147,6 +147,7 @@ export class SingleChatProvider {
       //this.presentToast('Error while uploading file.');
     });
   }
+
   user = new Observable(observer => {
     firebase.auth().onAuthStateChanged(function(user) {
 
@@ -203,11 +204,11 @@ export class SingleChatProvider {
 
   sendnumber(id, number, type, userId) {
     remoteid = id;
-    firebase.database().ref(id + '/incoming').set({ number, type: type });
+    firebase.database().ref('one2one/' + id + '/incoming').set({ number, type: type });
     this.getprofile(userId).then(data => {
       result34 = data;
       console.log(result34)
-      firebase.database().ref(id + '/call_status/caller_data').set({ avatar: result34.avatar, name: result34.name });
+      firebase.database().ref('one2one/' + id + '/call_status/caller_data').set({ avatar: result34.avatar, name: result34.name });
     })
   }
 
@@ -282,40 +283,40 @@ export class SingleChatProvider {
   // }
 
   endcall() {
-    firebase.database().ref(remoteid + '/incoming').set({ 0: "undefined" });
+    firebase.database().ref('one2one/' + remoteid + '/incoming').set({ 0: "undefined" });
 
   }
 
   callee_accept_set(id, value, userId) {
     if (id == undefined) {
-      firebase.database().ref(userId + '/call_status/callee_accept').set(value);
+      firebase.database().ref('one2one/' + userId + '/call_status/callee_accept').set(value);
     }
-    else { firebase.database().ref(id + '/call_status/callee_accept').set(value); }
+    else { firebase.database().ref('one2one/' + id + '/call_status/callee_accept').set(value); }
   }
   callee_deny_set(id, value) {
     if (id == undefined) {
-      firebase.database().ref(userID + '/call_status/callee_deny').set(value);
+      firebase.database().ref('one2one/' + userID + '/call_status/callee_deny').set(value);
     } else {
-      firebase.database().ref(id + '/call_status/callee_deny').set(value);
+      firebase.database().ref('one2one/' + id + '/call_status/callee_deny').set(value);
     }
   }
   calee_recieved_set(id, value, userId) {
-    if (id == undefined) { firebase.database().ref(userId + '/call_status/callee_recieved').set(value); } else {
-      firebase.database().ref(id + '/call_status/callee_recieved').set(value);
+    if (id == undefined) { firebase.database().ref('one2one/' + userId + '/call_status/callee_recieved').set(value); } else {
+      firebase.database().ref('one2one/' + id + '/call_status/callee_recieved').set(value);
     }
   }
 
   callee_end_set(value, userId) {
-    firebase.database().ref(userId + '/call_status/callee_end').set(value);
+    firebase.database().ref('one2one/' + userId + '/call_status/callee_end').set(value);
   }
 
   caller_end_set(id, value) {
-    firebase.database().ref(id + '/call_status/caller_end').set(value);
+    firebase.database().ref('one2one/' + id + '/call_status/caller_end').set(value);
   }
 
   callee_accept_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_accept').on('value', function(snapshot) {
+      firebase.database().ref('one2one/' + id + '/call_status/callee_accept').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -323,7 +324,7 @@ export class SingleChatProvider {
 
   callee_deny_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_deny').on('value', function(snapshot) {
+      firebase.database().ref('one2one/' + id + '/call_status/callee_deny').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -331,7 +332,7 @@ export class SingleChatProvider {
 
   callee_recieved_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_recieved').on('value', function(snapshot) {
+      firebase.database().ref('one2one/' + id + '/call_status/callee_recieved').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -339,7 +340,7 @@ export class SingleChatProvider {
 
   callee_end_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_end').on('value', function(snapshot) {
+      firebase.database().ref('one2one/' + id + '/call_status/callee_end').on('value', function(snapshot) {
         console.log('calee end listen is fired from database')
         observer.next(snapshot.val())
       })
@@ -348,7 +349,7 @@ export class SingleChatProvider {
 
   caller_end_listen(userId) {
     return new Observable(observer => {
-      firebase.database().ref(userId + '/call_status/caller_end').on('value', function(snapshot) {
+      firebase.database().ref('one2one/' + userId + '/call_status/caller_end').on('value', function(snapshot) {
         console.log('caller end listen fired')
         observer.next(snapshot.val())
       })
@@ -362,19 +363,19 @@ export class SingleChatProvider {
 
   set_incoming(id, value, userId) {
     if (id == undefined) {
-      firebase.database().ref(userId + '/incoming').set(value)
+      firebase.database().ref('one2one/' + userId + '/incoming').set(value)
     } else {
-      firebase.database().ref(id + '/incoming').set(value)
+      firebase.database().ref('one2one/' + id + '/incoming').set(value)
     }
   }
 
   set_active(value, userId) {
-    firebase.database().ref(userId + '/active').set(value)
+    firebase.database().ref('one2one/' + userId + '/active').set(value)
   }
 
   caller_data_listen(userId) {
     return new Observable(observer => {
-      firebase.database().ref(userId + '/call_status/caller_data').on('value', function(snapshot) {
+      firebase.database().ref('one2one/' + userId + '/call_status/caller_data').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -382,15 +383,15 @@ export class SingleChatProvider {
 
   set_caller_data(id, userId) {
     if (id == undefined) {
-      firebase.database().ref(userId + '/call_status/caller_data').set({ 0: "undefined" })
+      firebase.database().ref('one2one/' + userId + '/call_status/caller_data').set({ 0: "undefined" })
     } else {
-      firebase.database().ref(id + '/call_status/caller_data').set({ 0: "undefined" })
+      firebase.database().ref('one2one/' + id + '/call_status/caller_data').set({ 0: "undefined" })
     }
   }
 
   incominglistener(userId) {
     return new Observable(observer => {
-      firebase.database().ref(userId + '/incoming').on('value', function(snapshot) {
+      firebase.database().ref('one2one/' + userId + '/incoming').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -476,15 +477,15 @@ export class SingleChatProvider {
               // alert("firebasemsgs"+JSON.stringify(firebasemsgs))
               if (firebasemsgs == null) {
                 for (let v = 0; v < apimsgs.length; v++) {
-                  firebase.database().ref(userID + '/mesages/' + apichat[i].cid).push(apimsgs[v])
+                  firebase.database().ref('one2one/' + userID + '/mesages/' + apichat[i].cid).push(apimsgs[v])
                 }
               } else {
 
                 if (apimsgs.length > firebasemsgs.length) {
 
-                  firebase.database().ref(userID + '/mesages/' + apichat[i].cid).set("undefined")
+                  firebase.database().ref('one2one/' + userID + '/mesages/' + apichat[i].cid).set("undefined")
                   for (let v = 0; v < apimsgs.length; v++) {
-                    firebase.database().ref(userID + '/mesages/' + apichat[i].cid).push(apimsgs[v])
+                    firebase.database().ref('one2one/' + userID + '/mesages/' + apichat[i].cid).push(apimsgs[v])
                   }
                 }
               }

@@ -68,4 +68,42 @@ page-group-audio-handler {
     font-size: 24px;
     margin-top: 5px;
   }
+  .group-call {
+    background-color: #FFF !important;
+  }
+  .group-call {
+    margin: 10px;
+  }
+  .voice-rec.video-call {
+    background: #EEE;
+  }
+
+  .voice-rec .rec-box {
+    right: 50%;
+    margin-right: -60px;
+    background: #5c0632;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  .voice-rec .rec-timer {
+    top: 200px;
+    right: 50%;
+    margin-right: -32px;
+    font-size: 24px;
+  }
+
+  .voice-rec-btn.group-call-btn {
+    top: 400px;
+    bottom: auto;
+    text-align: center;
+  }
+
+  .voice-rec-btn.group-call-btn a {
+    margin: 0 20px;
+  }
 }

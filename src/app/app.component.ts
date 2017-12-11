@@ -22,6 +22,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any;
   checkLogin = localStorage.getItem('loggedIn')
+  avatar
   userId
   constructor(public groupChat: GroupChatProvider, public singleChat: SingleChatProvider, public events: Events, globalization: Globalization, translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
@@ -102,6 +103,7 @@ export class MyApp {
 
     if (localStorage.getItem('loggedIn') == "1") {
       this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
+      this.avatar = localStorage.getItem('userAvatar');
       // if (localStorage.getItem('userid') == undefined) {
       //   this.nav.setRoot(LoginPage)
       //
@@ -111,10 +113,11 @@ export class MyApp {
       // }
 
       //this.getSingleCalls();
+      this.getSingleCalls();
       this.getGroupCalls();
       this.nav.setRoot(TabsPage);
     } else {
-      //this.getSingleCalls();
+      this.getSingleCalls();
       this.getGroupCalls();
       // this.nav.setRoot(TabsPage);
       //     when deploying uncomment the next and comment above
@@ -162,7 +165,7 @@ export class MyApp {
                 console.log('video tab set root true')
                 this.nav.setRoot(GroupVideoHandlerPage, { name: caller_data.name, avatar: caller_data.avatar, number: caller_data1.number, remote: true });
               } else {
-                this.nav.setRoot(GroupAudioHandlerPage, { name: caller_data.name, avatar: caller_data.avatar, number: caller_data1.number, remote: true });
+                this.nav.setRoot(GroupAudioHandlerPage, { name: caller_data.name, avatar: caller_data.avatar, number: caller_data1.number, remote: true, listenerAvatar: this.avatar });
               }
               temp = caller_data1;
             }

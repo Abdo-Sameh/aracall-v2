@@ -36,6 +36,7 @@ export class GroupVideoHandlerPage {
   members = []
   number; timer = true;
   text = "Ringing";
+  streamId
   accept = true; deny = true; end = true; speaker = true; mute = true;
   constructor(public events: Events, private androidPermissions: AndroidPermissions, public navCtrl: NavController, public navParams: NavParams, public groupChat: GroupChatProvider) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
@@ -152,6 +153,7 @@ export class GroupVideoHandlerPage {
       var video = event.mediaElement;
       alert(video);
       video.id = event.streamid;
+      this.streamId = event.streamid;
       alert(video.id);
       var node = document.createElement("LI");
       node.className = "group-call";
@@ -165,10 +167,12 @@ export class GroupVideoHandlerPage {
     }
   }
 
+  muteCall() {
+    connection.streamEvents[this.streamId].stream.mute('audio');
+  }
+
   openOrJoin() {
-
     alert('open');
-
   }
 
   join() {

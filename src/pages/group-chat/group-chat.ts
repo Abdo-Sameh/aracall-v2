@@ -35,7 +35,7 @@ import { SettingsProvider } from '../../providers/settings/settings'
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+declare var cordova: any;
 @Component({
   selector: 'page-group-chat',
   templateUrl: 'group-chat.html',
@@ -89,6 +89,149 @@ export class GroupChatPage {
     $('.toggle-icons').toggleClass('open');
   }
 
+  openGallery() {
+    this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+  }
+
+  openCamera() {
+    this.takePicture(this.camera.PictureSourceType.CAMERA);
+  }
+
+  takePicture(sourceType) {
+    // Create options for the Camera Dialog
+    var options = {
+      quality: 100,
+      sourceType: sourceType,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    };
+    // Get the data of an image
+    this.camera.getPicture(options).then((imagePath) => {
+      alert(imagePath);
+      // Special handling for Android library
+      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+        this.filePath.resolveNativePath(imagePath)
+          .then(filePath => {
+            let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+            let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
+            this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
+          });
+      } else {
+        alert("else");
+        var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
+        var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+        this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
+
+      }
+    }, (err) => {
+      alert(err);
+      this.presentToast('Error while selecting image.');
+    });
+  }
+
+  createFileName() {
+    var d = new Date(),
+      n = d.getTime(),
+      newFileName = n + ".jpg";
+    return newFileName;
+  }
+
+  copyFileToLocalDir(namePath, currentName, newFileName, type) {
+    alert(namePath);
+    alert(currentName);
+    alert(newFileName);
+    alert(type);
+    this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
+      this.lastImage = newFileName;
+      this.groupChat.sendMessage(this.group.cid, this.the_userId, this.emojitext, this.lastImage, type, this.userId);
+    }, error => {
+      alert(error);
+      this.presentToast('Error while storing file.');
+    });
+  }
+
+  presentToast(msg) {
+    let toast = this.toast.create({
+      message: msg,
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
+  }
+
+  handWriting() {
+    // console.log("hand write");
+    this.navCtrl.push(SignaturePage, {
+      callback: this.myCallbackFunction
+    });
+  }
+
+  myCallbackFunction = (filePath) => {
+    return new Promise((resolve, reject) => {
+      if (this.platform.is('android')) {
+        // alert(filePath);
+        let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+        // alert(correctPath);
+        let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+        // alert(currentName);
+        this.copyFileToLocalDir(correctPath, currentName, currentName, 'image');
+      }
+      resolve();
+    });
+  }
+
+  recordPage() {
+    this.navCtrl.push(RecordingPage, {
+      'recordCallback': this.recordCallbackFunction
+    })
+  }
+
+  recordCallbackFunction = (filePath) => {
+    return new Promise((resolve, reject) => {
+      if (this.platform.is('android')) {
+        // alert(filePath);
+        let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+        // alert(correctPath);
+        let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+        // alert(currentName);
+        this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+
+      } else {
+        // alert("else");
+        // var currentName = uri.substr(uri.lastIndexOf('/') + 1);
+        // var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
+        // this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+      }
+      resolve();
+    });
+  }
+
+  chooseFile() {
+    this.fileChooser.open()
+      .then(uri => {
+        // alert(uri);
+        if (this.platform.is('android')) {
+          this.filePath.resolveNativePath(uri)
+            .then(filePath => {
+              // alert(filePath);
+              let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+              // alert(correctPath);
+              let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+              // alert(currentName);
+              this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+            });
+        } else {
+          // alert("else");
+          var currentName = uri.substr(uri.lastIndexOf('/') + 1);
+          var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
+          this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+        }
+      }).catch(e => alert(e));
+  }
+
   missingRequirments() {
     let alertCtrl = this.alert.create({
       title: 'Missing requirments',
@@ -106,8 +249,6 @@ export class GroupChatPage {
     alertCtrl.present()
 
   }
-
-
 
   edittime(current, previous) {
     var msPerMinute = 60 * 1000;
@@ -146,7 +287,6 @@ export class GroupChatPage {
     }
   }
 
-
   dropdown() {
 
     $(document).on('click', '.type-message .toggle-arrow', function() {
@@ -158,26 +298,19 @@ export class GroupChatPage {
     });
   }
 
-
-
   send(cid = this.group.cid, userid = this.userId, text = this.emojitext) {
     this.groupChat.send_message(cid, userid, text, this.userId).subscribe((res) => {
       this.emojitext = '';
     });
   }
+
   location() {
     this.navCtrl.push(MapLocationPage, { id: this.group.cid, remoteid: this.userId });
   }
+
   handleSelection(event) {
     this.emojitext += event.char;
   }
-
-  // video() {
-  //   console.log(this.group.cid);
-  //   this.navCtrl.push(GroupVideoHandlerPage, {
-  //     cid: this.group.cid
-  //   });
-  // }
 
   get_chat_members(cid) {
     this.groupChat.getGroupChatMembers(cid).subscribe(res => { console.log(res); this.groupMembers = res; })
@@ -212,37 +345,5 @@ export class GroupChatPage {
     loading1.dismiss()
     this.navCtrl.push(GroupAudioHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "aud" + number.toString(16) });
   }
-
-  // call() {
-  //   let  loading1 = this.loadingctrl.create({
-  //       showBackdrop: false
-  //     });
-  //     this.groupChat.remoteid(this.username).then(data => {
-  //     let number = Math.floor(Math.random() * 1000000000);
-  //       this.groupChat.sendnumber(data, number, 'audio');
-  //       let avatar = this.remoteavatar;
-  //       loading1.dismiss()
-  //       this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
-  //
-  //     })
-  //
-  //   }
-  //
-  //   video() {
-  //   let  loading1 = this.loadingctrl.create({
-  //       showBackdrop: false
-  //     });
-  //     let number = Math.floor(Math.random() * 1000000000);
-  //     this.groupChat.remoteid(this.username).then(data => {
-  //       this.groupChat.sendnumber(data, number, 'video');
-  //       let avatar = this.remoteavatar;
-  //       loading1.dismiss()
-  //       this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
-  //
-  //     })
-  //
-  //
-  //   }
-
 
 }

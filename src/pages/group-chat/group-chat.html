@@ -25,8 +25,8 @@
         </div>
       </ion-title>
     </div>
-    <ion-icon class="headerico" name="ios-videocam" (click)="audio()" style="margin-left: -10px;background-color:#fff"></ion-icon>
-    <ion-icon class="headerico" name="ios-call" (click)="video()" style="background-color:#fff"></ion-icon>
+    <ion-icon class="headerico" name="ios-videocam" (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
+    <ion-icon class="headerico" name="ios-call" (click)="audio()" style="background-color:#fff"></ion-icon>
 
     <!-- <h5 style="color:gray;margin-top:11px;margin-left:30px">
       {{group.time}}
@@ -110,37 +110,37 @@
             <li>
               <a (click)="recordPage()" href="#">
                   <img src="./assets/images/svg/microphone.svg" style="width:25px; height:25px;">
-									<span>Audio</span>
+									<span>{{'audio' | translate}}</span>
 								</a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
 									<img src="./assets/images/svg/video-camera.svg" style="width:25px; height:25px;">
-									<span>Video</span>
+									<span>{{'video' | translate}}</span>
 								</a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
-									<img src="./assets/images/svg/file.svg" style="width:25px; height:25px;">
-									<span>Document</span>
-								</a>
+                  <img src="./assets/images/svg/attachment-paperclip-symbol-of-interface.svg" style="width:25px; height:25px;">
+                  <span>{{'document' | translate}}</span>
+                </a>
             </li>
             <li>
               <a (click)="location()" href="#">
 									<img src="./assets/images/svg/facebook-placeholder-for-locate-places-on-maps.svg" style="width:25px; height:25px;">
-									<span>Location</span>
+									<span>{{'location' | translate}}</span>
 								</a>
             </li>
             <li>
               <a (click)="openGallery()" href="#">
 									<img src="./assets/images/svg/gallery.svg" style="width:25px; height:25px;">
-									<span>Gallery</span>
+									<span>{{'gallery' | translate}}</span>
 								</a>
             </li>
             <li>
               <a (click)="handWriting()" href="#">
 									<img src="./assets/images/svg/new-file.svg" style="width:25px; height:25px;">
-									<span>Handwriting</span>
+									<span>{{'handwriting' | translate}}</span>
 								</a>
             </li>
           </ul>

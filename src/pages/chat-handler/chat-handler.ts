@@ -1,12 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController, AlertController } from 'ionic-angular';
-import { Camera } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
 import { Media } from '@ionic-native/media';
 import { Vibration } from '@ionic-native/vibration';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
@@ -53,7 +54,7 @@ export class ChatHandlerPage {
   msgs = []
   userId
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.remoteavatar = this.navParams.get('avatar');
@@ -89,6 +90,10 @@ export class ChatHandlerPage {
       loading.dismiss()
     });
     console.log(this.chats);
+  }
+
+  viewImage(path){
+    this.photoViewer.show(path);
   }
 
   edittime(current, previous) {
@@ -163,28 +168,6 @@ export class ChatHandlerPage {
     this.vibration.vibrate(50);
   }
 
-  // presentActionSheet() {
-  //   let actionSheet = this.actionSheetCtrl.create({
-  //     // title: 'Select Image Source',
-  //     buttons: [
-  //       {
-  //         text: 'Library',
-  //         handler: () => {
-  //           // alert("lib");
-  //           this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-  //         }
-  //       },
-  //       {
-  //         text: 'Camera',
-  //         handler: () => {
-  //           this.takePicture(this.camera.PictureSourceType.CAMERA);
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   actionSheet.present();
-  // }
-
   takePicture(sourceType) {
     // Create options for the Camera Dialog
     var options = {
@@ -196,7 +179,7 @@ export class ChatHandlerPage {
 
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
-      // alert(imagePath);
+      alert(imagePath);
       // Special handling for Android library
       if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
         this.filePath.resolveNativePath(imagePath)
@@ -269,6 +252,7 @@ export class ChatHandlerPage {
         this.copyFileToLocalDir(correctPath, currentName, currentName, 'image');
 
       }
+      resolve();
     });
   }
 
@@ -294,6 +278,7 @@ export class ChatHandlerPage {
         // var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
         // this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
       }
+      resolve();
     });
   }
 
@@ -364,8 +349,7 @@ export class ChatHandlerPage {
   }
 
   Block(blockedUser) {
-
-    let editGroupName = this.alert.create(
+    let blockUser = this.alert.create(
       {
         title: 'Block user',
         message: "Do you want block this user ! ",
@@ -389,14 +373,12 @@ export class ChatHandlerPage {
             role: 'cancel'
           }
         ],
-
       })
-    editGroupName.present()
+    blockUser.present()
     // alert(this.cid)
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
-
     // chat/delete/messages
   }
 
@@ -429,13 +411,11 @@ export class ChatHandlerPage {
             role: 'cancel'
           }
         ],
-
       })
     editGroupName.present()
     // alert(this.cid)
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
-
   }
 }

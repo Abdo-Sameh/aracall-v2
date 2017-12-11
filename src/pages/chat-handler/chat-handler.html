@@ -29,15 +29,12 @@
 
       </ion-title>
     </div>
-
-
     <div class="headerico" style="background:none;box-shadow:none;"></div>
     <div>
       <ion-icon class="headerico" name="ios-videocam" *ngIf="is_blocked==false" (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
     </div>
     <div>
       <ion-icon class="headerico" name="ios-call" *ngIf="is_blocked==false" (click)="call()" style="background-color:#fff"></ion-icon>
-
     </div>
   </ion-navbar>
 </ion-header>
@@ -64,7 +61,7 @@
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                   <h4>{{title}}
    									</h4>
-                  <img [src]="p.image" style=" width: 500px;height: 200px;">
+                  <img (click)="viewImage(p.image)" [src]="p.image" style=" width: 500px;height: 200px;">
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
@@ -78,10 +75,11 @@
                   <time>{{p.time}}</time>
                 </div>
               </div>
+
               <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
-                  <img [src]="p.image" style="width: 500px;height: 200px;">
+                  <img (click)="viewImage(p.image)" [src]="p.image" style="width: 500px;height: 200px;">
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">
@@ -108,7 +106,6 @@
 
   </main>
   <ion-footer>
-
     <div class="message-box message-box-2" *ngIf='is_blocked == false'>
       <form>
         <div class="container chat-message-box">
@@ -116,37 +113,37 @@
             <li>
               <a (click)="recordPage()" href="#">
                   <img src="./assets/images/svg/microphone.svg" style="width:25px; height:25px;">
-                  <span>Audio</span>
+                  <span>{{'audio' | translate}}</span>
                 </a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
                   <img src="./assets/images/svg/video-camera.svg" style="width:25px; height:25px;">
-                  <span>Video</span>
+                  <span>{{'video' | translate}}</span>
                 </a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
-                  <img src="./assets/images/svg/file.svg" style="width:25px; height:25px;">
-                  <span>Document</span>
+                  <img src="./assets/images/svg/attachment-paperclip-symbol-of-interface.svg" style="width:25px; height:25px;">
+                  <span>{{'document' | translate}}</span>
                 </a>
             </li>
             <li>
               <a (click)="location()" href="#">
                   <img src="./assets/images/svg/facebook-placeholder-for-locate-places-on-maps.svg" style="width:25px; height:25px;">
-                  <span>Location</span>
+                  <span>{{'location' | translate}}</span>
                 </a>
             </li>
             <li>
               <a (click)="openGallery()" href="#">
                   <img src="./assets/images/svg/gallery.svg" style="width:25px; height:25px;">
-                  <span>Gallery</span>
+                  <span>{{'gallery' | translate}}</span>
                 </a>
             </li>
             <li>
               <a (click)="handWriting()" href="#">
                   <img src="./assets/images/svg/new-file.svg" style="width:25px; height:25px;">
-                  <span>Handwriting</span>
+                  <span>{{'handwriting' | translate}}</span>
                 </a>
             </li>
           </ul>

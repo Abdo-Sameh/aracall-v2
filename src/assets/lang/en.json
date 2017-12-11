@@ -65,6 +65,11 @@
 
   "december": "December",
 
+  "online" : "Online",
+
+  "busy" : "Busy",
+
+  "invisible" : "Invisible",
 
   "additional-pages": "Addition Pages",
 
@@ -102,7 +107,11 @@
 
   "category-updated": "Category topic successfully updated",
 
+  "new-message" : "New Message",
 
+  "new-broadcast" : "New Broadcast",
+
+  "send-message" : "Send message",
 
   "general-image-error": "Failed to process your image",
 
@@ -136,6 +145,14 @@
 
   "site-manager": "Site Manager",
 
+  "view-profile" : "View Profile",
+
+  "online-status" : "Online status",
+
+  "profile-picture" : "Profile picture",
+
+  "change-picture" : "Change picture",
+
   "appearance": "Appearance",
 
   "plugins-manager": "Plugins Manager",
@@ -153,6 +170,8 @@
   "add-phrase": "Add Phrase",
 
   "create": "Create",
+
+  "recording" : "Recording",
 
   "create-language-pack": "Create a pack",
 

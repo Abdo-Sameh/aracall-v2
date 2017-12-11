@@ -7,53 +7,51 @@
 <ion-header>
 
   <header class="header_title">
-			<div class="container">
-				<!-- <div class="back_btn">
+    <div class="container">
+      <!-- <div class="back_btn">
 					<a href="#"><i class="ion-arrow-left-c"></i></a>
 				</div> -->
-				<div class="page_title text-center">
-					<h3>Group Call</h3>
-				</div>
-				<!-- <div class="menu_btn text-right">
+      <div class="page_title text-center">
+        <h3>Group Call</h3>
+      </div>
+      <!-- <div class="menu_btn text-right">
 					<a href="#"><i class="ion-android-menu"></i></a>
 				</div> -->
-			</div>
-		</header>
+    </div>
+  </header>
 
 </ion-header>
 
 
 <ion-content>
   <section class="bg_grey full_vh">
-			<ul id="audios" class="group-call-wrap" style="margin-top: 70px;">
-				<!-- <li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li> -->
-			</ul>
-			<ul class="group-call-btn">
-        <li (click)="acceptCall()" [hidden]="accept">
-					<a href="#"><i class="ion-android-call" style="color: #00ff00"></i></a>
-					<span>Accept</span>
-				</li>
-        <li (click)="denyCall()" [hidden]="deny">
-					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
-					<span>Deny</span>
-				</li>
-				<li [hidden]="mute">
-					<a href="#"><i class="ion-ios-mic-off"></i></a>
-					<span>Mute</span>
-				</li>
-				<li (click)="endCall()" [hidden]="end">
-					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
-					<span>End</span>
-				</li>
-				<li [hidden]="speaker">
-					<a href="#"><i class="ion-android-volume-up"></i></a>
-					<span>Speaker</span>
-				</li>
-			</ul>
-		</section>
+    <div id="audios"></div>
+
+    <div class="video-call voice-rec" style="margin-top: 70px;">
+      <div class="video-user rec-box"><i class="ion-ios-mic"></i></div>
+      <!-- <p class="video-timer rec-timer">0 : {{seconds}}</p> -->
+    </div>
+    <ul class="group-call-btn">
+      <li (click)="acceptCall()" [hidden]="accept">
+        <a href="#"><img src="./assets/images/svg/phone-receiver.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+        <span>{{'accept' | translate}}</span>
+      </li>
+      <li (click)="denyCall()" [hidden]="deny">
+        <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+        <span>{{'deny' | translate}}</span>
+      </li>
+      <li (click)="muteCall()" [hidden]="mute">
+        <a href="#"><i class="ion-ios-mic-off"></i></a>
+        <span>{{'mute' | translate}}</span>
+      </li>
+      <li (click)="endCall()" [hidden]="end">
+        <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px; height:25px; margin-top:15px" /></a>
+        <span>{{'end' | translate}}</span>
+      </li>
+      <li [hidden]="speaker">
+        <a href="#"><img src="./assets/images/svg/speaker.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+        <span>{{'speaker' | translate}}</span>
+      </li>
+    </ul>
+  </section>
 </ion-content>

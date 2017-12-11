@@ -12,59 +12,44 @@
 
 </ion-header>-->
 <ion-header>
-
-
-
-
-      <ion-navbar>
-        <ion-title>{{'voice-call' | translate}}</ion-title>
-
-      </ion-navbar>
-
-    </ion-header>
-
-
-
+  <ion-navbar>
+    <ion-title>{{'voice-call' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content class="page voice-call">
 
   <!--<ion-icon name="md-arrow-back" (click)="goback()"></ion-icon>-->
   <section class="bg_grey full_vh " style="min-height:100vh">
-    <div ></div>
+    <div></div>
     <video class="self-video" #selfVideo autoplay muted></video>
     <video class="local-video" #localVideo autoplay [muted]="mute" [hidden]="hidevideo"></video>
-
     <div class="friend-cover flex-v-center">
       <img style="margin-top: 95px;" [hidden]="hideavatar" [src]="remoteavatar" alt="">
       <h3 [hidden]="hideavatar">{{remotename}}</h3>
       <p class="video-timer" style="right:165px" id="video-timer" [hidden]='timer'></p>
       <p style="text-align:center;color:black;margin:0;" [hidden]="hidetext">{{text}}</p>
-
     </div>
     <ul class="group-call-btn">
-
-
-      <li (click)="mutesound()"id='mute' [hidden]="mutehideend">
-        <a href="#" ><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
-        <span>Mute</span>
+      <li (click)="mutesound()" id='mute' [hidden]="mutehideend">
+        <a href="#"><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
+        <span>{{'mute' | translate}}</span>
       </li>
-      <li (click)="accept()"  [hidden]="hideaccept">
-          <a href="#"><img src="./assets/images/svg/phone-receiver.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-          <span>Accept</span>
-        </li>
-
-
-      <li  (click)="end()" [hidden]="hideend">
+      <li (click)="accept()" [hidden]="hideaccept">
+        <a href="#"><img src="./assets/images/svg/phone-receiver.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+        <span>{{'accept' | translate}}</span>
+      </li>
+      <li (click)="end()" [hidden]="hideend">
         <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-        <span>End</span>
+        <span>{{'end' | translate}}</span>
       </li>
       <li (click)="deny()" [hidden]="hidedeny">
-          <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-          <span>Deny</span>
-        </li>
+        <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+        <span>{{'deny' | translate}}</span>
+      </li>
       <li [hidden]="speaker">
-          <a href="#"><img src="./assets/images/svg/speaker.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-          <span>Speaker</span>
+        <a href="#"><img src="./assets/images/svg/speaker.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+        <span>{{'speaker' | translate}}</span>
       </li>
     </ul>
   </section>

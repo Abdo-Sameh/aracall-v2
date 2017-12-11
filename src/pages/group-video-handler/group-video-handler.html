@@ -25,81 +25,30 @@
 
   <section class="bg_grey full_vh">
 			<ul id="Videos" class="group-call-wrap" style="margin-top: 70px;">
-				<!-- <li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li>
-				<li class="group-call"></li> -->
+
 			</ul>
-			<ul class="group-call-btn">
+      <ul class="group-call-btn">
         <li (click)="acceptCall()" [hidden]="accept">
-					<a href="#"><i class="ion-android-call" style="color: #00ff00"></i></a>
-					<span>Accept</span>
-				</li>
-        <li (click)="denyCall()" [hidden]="deny">
-					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
-					<span>Deny</span>
-				</li>
-				<li [hidden]="mute">
-					<a href="#"><i class="ion-ios-mic-off"></i></a>
-					<span>Mute</span>
-				</li>
-				<li (click)="endCall()" [hidden]="end">
-					<a href="#"><i class="ion-android-call" style="color: #ff0000;"></i></a>
-					<span>End</span>
-				</li>
-				<li [hidden]="speaker">
-					<a href="#"><i class="ion-android-volume-up"></i></a>
-					<span>Speaker</span>
-				</li>
-			</ul>
-		</section>
-
-<!-- <section class="bg_grey ">
-  <div  class="video-call">
-      <div class="video-user"><video  style="    width: 100%; height: 100%" class="self-video" #selfVideo autoplay ></video>
-
-      <video class="local-video" #localVideo autoplay  [hidden]="hidevideo"></video>
-    </div>
-    <div style="height:100px;">
-      <img [hidden]="hideavatar" style ="width: 17%;;left:157px;border-radius: 50%;position:relative;top:165px"   [src]="remoteavatar">
-      <p [hidden]="hideavatar" style="position:relative;">{{remotename}}</p>
-    <p style="text-align:center;color:black;" [hidden]="hidetext">{{text}}</p>
-
-    <p class="video-timer" id="video-timer" [hidden]='timer'></p>
-  </div>
-  </div>
-
-    <ul class="group-call-btn">
-      <li (click)="accept()" [hidden]="hideaccept">
-          <a href="#"><img style="bottom:0px" src="./assets/images/svg/phone-receiver.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-          <span>Accept</span>
+          <a href="#"><img src="./assets/images/svg/phone-receiver.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+          <span>{{'accept' | translate}}</span>
         </li>
-      <li [hidden]="hidedeny"  (click)="deny()">
-          <a href="#"><img style="bottom:0px" src="./assets/images/svg/end-call-button.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-          <span>Deny</span>
-    </li>
-    <li [hidden]="mute">
-        <a href="#" ><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
-        <span>Mute</span>
-    </li>
-    <li (click)="end()" [hidden]="hideend">
-        <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-        <span>End</span>
-    </li>
-    <li [hidden]="speaker">
-        <a href="#"><img src="./assets/images/svg/speaker.svg" style="width:25px;height:25px;margin-top:15px" /></a>
-        <span>Speaker</span>
-    </li>
-  </ul>
-</section> -->
-
-<!-- <button (click)="openOrJoin()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">OpenOrJoin</button> -->
-<!-- <button (click)="join()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">Join</button>
-<button (click)="connect()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">Connect </button> -->
-<!-- <button (click)="leave()" class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">Leave </button> -->
-
-<!-- <button (click)="getAllUsers()"class="rec" style="text-align: center; display: table; margin: 20px auto 30px;">getAllUsers</button> -->
+        <li (click)="denyCall()" [hidden]="deny">
+          <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+          <span>{{'deny' | translate}}</span>
+        </li>
+        <li (click)="muteCall()" [hidden]="mute">
+          <a href="#"><i class="ion-ios-mic-off"></i></a>
+          <span>{{'mute' | translate}}</span>
+        </li>
+        <li (click)="endCall()" [hidden]="end">
+          <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px; height:25px; margin-top:15px" /></a>
+          <span>{{'end' | translate}}</span>
+        </li>
+        <li [hidden]="speaker">
+          <a href="#"><img src="./assets/images/svg/speaker.svg" style="width:25px;height:25px;margin-top:15px" /></a>
+          <span>{{'speaker' | translate}}</span>
+        </li>
+      </ul>
+		</section>
 
 </ion-content>

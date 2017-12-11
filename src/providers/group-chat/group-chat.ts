@@ -3,6 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { Http, Headers, URLSearchParams } from '@angular/http';
+import { Loading } from 'ionic-angular';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+
 
 /*
   Generated class for the GroupChatProvider provider.
@@ -22,18 +25,18 @@ export class GroupChatProvider {
   serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
   KEY = '89129812'
   userAvatar = localStorage.getItem('userAvatar')
-  constructor(public http: Http) {
+  constructor(private transfer: FileTransfer, public http: Http) {
     console.log('Hello GroupChatProvider Provider');
     // userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
   sendnumber(id, number, type, userId) {
     remoteid = id;
-    firebase.database().ref(id + '/incoming').set({ number, type: type });
+    firebase.database().ref('many2many/' + id + '/incoming').set({ number, type: type });
     this.getprofile(userId).then(data => {
       result34 = data;
       console.log(result34)
-      firebase.database().ref(id + '/call_status/caller_data').set({ avatar: result34.avatar, name: result34.name });
+      firebase.database().ref('many2many/' + id + '/call_status/caller_data').set({ avatar: result34.avatar, name: result34.name });
     })
   }
 
@@ -48,7 +51,66 @@ export class GroupChatProvider {
   }
 
   endcall() {
-    firebase.database().ref(remoteid + '/incoming').set({ 0: "undefined" });
+    firebase.database().ref('many2many/' + remoteid + '/incoming').set({ 0: "undefined" });
+  }
+
+  sendMessage(cid, theuserid, text, image, type, userId) {
+    let message, targetPath;
+    var filename = image;
+    if (image === null) {
+      return '';
+    } else {
+      targetPath = cordova.file.dataDirectory + image;
+      // alert('targetPaht ' + targetPath)
+    }
+    var url, options;
+
+    url = this.serverURL + this.KEY + '/chat/send/message';
+    options = {
+      fileKey: type,
+      fileName: filename,
+      chunkedMode: false,
+      mimeType: "multipart/form-data",
+      params: { 'userid': userId, 'cid': cid, 'theuserid': theuserid, 'text': text }
+    };
+    if (type == 'image')
+      options['params'].image = filename
+    else if (type == 'file')
+      options['params'].file = filename
+    // alert(options['params'].cid)
+    // alert(options['params'].theuserid)
+    // alert(options['params'].userid)
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    // alert('ay 7aga');
+    let loading: Loading
+    // alert(targetPath);
+    // alert(url);
+    // alert(fileTransfer);
+    fileTransfer.upload(targetPath, url, options, true).then(data => {
+      // alert('ay 7aga 2');
+      // loading.dismissAll()
+      let response = JSON.parse(data.response);
+      // alert(response['id']);
+      // alert(response['text']);
+      // alert(response['status']);
+      if (response['status'] == 0) {
+        //this.presentToast('Error while uploading file.');
+      } else {
+        let fileType = '', img = '';
+        if (type == 'image')
+          img = response['image']
+        else if (type == 'file')
+          fileType = response['file']
+        firebase.database().ref('many2many/' + cid + '/messages').push({
+          'sender_id': userId, 'id': response['id'], 'type': type, 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
+        });
+      }
+    }).catch(err => {
+      // alert('ay 7aga error');
+      alert('Error while uploading file');
+      //this.presentToast('Error while uploading file.');
+    });
   }
 
   remoteid(title, userId) {
@@ -73,32 +135,36 @@ export class GroupChatProvider {
 
   callee_accept_set(id, value) {
     if (id == undefined) {
-      firebase.database().ref(userID + '/call_status/callee_accept').set(value);
+      firebase.database().ref('many2many/' + userID + '/call_status/callee_accept').set(value);
     }
-    else { firebase.database().ref(id + '/call_status/callee_accept').set(value); }
+    else { firebase.database().ref('many2many/' + id + '/call_status/callee_accept').set(value); }
   }
+
   callee_deny_set(id, value) {
     if (id == undefined) {
-      firebase.database().ref(userID + '/call_status/callee_deny').set(value);
+      firebase.database().ref('many2many/' + userID + '/call_status/callee_deny').set(value);
     } else {
-      firebase.database().ref(id + '/call_status/callee_deny').set(value);
+      firebase.database().ref('many2many/' + id + '/call_status/callee_deny').set(value);
     }
   }
+
   calee_recieved_set(id, value, userId) {
-    if (id == undefined) { firebase.database().ref(userId + '/call_status/callee_recieved').set(value); } else {
-      firebase.database().ref(id + '/call_status/callee_recieved').set(value);
+    if (id == undefined) { firebase.database().ref('many2many/' + userId + '/call_status/callee_recieved').set(value); } else {
+      firebase.database().ref('many2many/' + id + '/call_status/callee_recieved').set(value);
     }
   }
+
   callee_end_set(value, userId) {
-    firebase.database().ref(userId + '/call_status/callee_end').set(value);
+    firebase.database().ref('many2many/' + userId + '/call_status/callee_end').set(value);
   }
+
   caller_end_set(id, value) {
-    firebase.database().ref(id + '/call_status/caller_end').set(value);
+    firebase.database().ref('many2many/' + id + '/call_status/caller_end').set(value);
   }
 
   callee_accept_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_accept').on('value', function(snapshot) {
+      firebase.database().ref('many2many/' + id + '/call_status/callee_accept').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -106,7 +172,7 @@ export class GroupChatProvider {
 
   callee_deny_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_deny').on('value', function(snapshot) {
+      firebase.database().ref('many2many/' + id + '/call_status/callee_deny').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -114,7 +180,7 @@ export class GroupChatProvider {
 
   callee_recieved_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_recieved').on('value', function(snapshot) {
+      firebase.database().ref('many2many/' + id + '/call_status/callee_recieved').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -122,7 +188,7 @@ export class GroupChatProvider {
 
   callee_end_listen(id) {
     return new Observable(observer => {
-      firebase.database().ref(id + '/call_status/callee_end').on('value', function(snapshot) {
+      firebase.database().ref('many2many/' + id + '/call_status/callee_end').on('value', function(snapshot) {
         console.log('calee end listen is fired from database')
         observer.next(snapshot.val())
       })
@@ -131,7 +197,7 @@ export class GroupChatProvider {
 
   caller_end_listen(userId) {
     return new Observable(observer => {
-      firebase.database().ref(userId + '/call_status/caller_end').on('value', function(snapshot) {
+      firebase.database().ref('many2many/' + userId + '/call_status/caller_end').on('value', function(snapshot) {
         console.log('caller end listen fired')
         observer.next(snapshot.val())
       })
@@ -145,19 +211,19 @@ export class GroupChatProvider {
 
   set_incoming(id, value, userId) {
     if (id == undefined) {
-      firebase.database().ref(userId + '/incoming').set(value)
+      firebase.database().ref('many2many/' + userId + '/incoming').set(value)
     } else {
-      firebase.database().ref(id + '/incoming').set(value)
+      firebase.database().ref('many2many/' + id + '/incoming').set(value)
     }
   }
 
   set_active(value, userId) {
-    firebase.database().ref(userId + '/active').set(value)
+    firebase.database().ref('many2many/' + userId + '/active').set(value)
   }
 
   caller_data_listen(userId) {
     return new Observable(observer => {
-      firebase.database().ref(userId + '/call_status/caller_data').on('value', function(snapshot) {
+      firebase.database().ref('many2many/' + userId + '/call_status/caller_data').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
@@ -165,9 +231,9 @@ export class GroupChatProvider {
 
   set_caller_data(id, userId) {
     if (id == undefined) {
-      firebase.database().ref(userId + '/call_status/caller_data').set({ 0: "undefined" })
+      firebase.database().ref('many2many/' + userId + '/call_status/caller_data').set({ 0: "undefined" })
     } else {
-      firebase.database().ref(id + '/call_status/caller_data').set({ 0: "undefined" })
+      firebase.database().ref('many2many/' + id + '/call_status/caller_data').set({ 0: "undefined" })
     }
   }
 
@@ -259,7 +325,7 @@ export class GroupChatProvider {
 
   incominglistener(userId) {
     return new Observable(observer => {
-      firebase.database().ref(userId + '/incoming').on('value', function(snapshot) {
+      firebase.database().ref('many2many/' + userId + '/incoming').on('value', function(snapshot) {
         observer.next(snapshot.val())
       })
     })
