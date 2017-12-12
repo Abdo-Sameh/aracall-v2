@@ -54,25 +54,25 @@
         <div class="container">
           <div class="msgs">
             <div *ngFor="let p of chats">
-              <div class="sender_msg" *ngIf="p.from_me == false">
+              <div class="sender_msg" *ngIf="p.sender_id != userId">
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
-                  <h4>{{title}}
+                  <h4>{{p.sender_name}}
                     </h4>
                   <img [src]="p.image" style=" width: 500px;height: 200px;">
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
-                  <h4>{{title}}</h4>
+                  <h4>{{p.sender_name}}</h4>
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
+                <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
                   <time>{{p.time}}</time>
-                </div>
+                </div> -->
               </div>
-              <div class="reciever_msg" *ngIf="p.from_me == true">
+              <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <img [src]="p.image" style="width: 500px;height: 200px;">
@@ -83,16 +83,16 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
+                <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
                   <time>{{p.time}}</time>
-                </div>
-                <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
+                </div> -->
+                <!-- <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
                   <time>{{p.time}}</time>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

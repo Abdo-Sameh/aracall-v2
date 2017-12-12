@@ -8,6 +8,7 @@ import * as $ from 'jquery';
 import { Media } from '@ionic-native/media';
 import { Vibration } from '@ionic-native/vibration';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
@@ -53,8 +54,9 @@ export class ChatHandlerPage {
   chats = []
   msgs = []
   userId
+  downloadProgress
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private transfer: FileTransfer, private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.remoteavatar = this.navParams.get('avatar');
@@ -92,7 +94,7 @@ export class ChatHandlerPage {
     console.log(this.chats);
   }
 
-  viewImage(path){
+  viewImage(path) {
     this.photoViewer.show(path);
   }
 
@@ -319,9 +321,43 @@ export class ChatHandlerPage {
     this.emojitext += event.char;
   }
 
+  handleFileName(path) {
+    let name = path.substring(path.lastIndexOf('/') + 1);
+    return name;
+  }
+
+  askForDownload(path) {
+    let download = this.alert.create( {
+        title: 'Download',
+        message: "Do you want to download this file ?",
+        buttons: [{
+            text: 'Yes',
+            handler: data => {
+              loading.present();
+              const fileTransfer: FileTransferObject = this.transfer.create();
+              fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
+                alert("File downloaded successfully");
+                loading.dismiss();
+              }).catch((err) => {
+                loading.dismiss();
+                alert(err);
+              });
+            }
+          },
+          {
+            text: 'No',
+            role: 'cancel'
+          }
+        ],
+      })
+    download.present()
+    let loading = this.loadingctrl.create({
+      showBackdrop: false
+    });
+  }
+
   call() {
     let loading1 = this.loadingctrl.create({
-
       showBackdrop: false
     });
     this.singleChat.remoteid(this.username, this.userId).then(data => {
@@ -330,9 +366,7 @@ export class ChatHandlerPage {
       let avatar = this.remoteavatar;
       loading1.dismiss()
       this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
-
     })
-
   }
 
   video() {

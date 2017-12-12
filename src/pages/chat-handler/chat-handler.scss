@@ -193,7 +193,7 @@ page-chat-handler {
 
   .message-box-2 .toggle-icons.open {
     display: block !important;
-    width: calc( 100% - 40px);
+    width: calc(100% - 40px);
     position: static;
     background: #fff;
     border-radius: 3px;
@@ -221,7 +221,7 @@ page-chat-handler {
   }
 
   .message-box-2 .chat-message-box input {
-    width: calc( 100% - 40px);
+    width: calc(100% - 40px);
     position: absolute;
     padding-left: 50px;
     padding-right: 85px;
@@ -251,11 +251,13 @@ page-chat-handler {
 
   .message-box-2 .type-message a:nth-child(5) {
     position: relative;
-    left: calc( 100% - 20px);
+    left: calc(100% - 20px);
   }
 
   .group-call-btn li a,
   .message-box-2 .toggle-icons a i {
     color: #fff !important;
   }
+
+  
 }

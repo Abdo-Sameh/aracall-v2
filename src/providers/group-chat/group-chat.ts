@@ -6,7 +6,6 @@ import { Http, Headers, URLSearchParams } from '@angular/http';
 import { Loading } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
-
 /*
   Generated class for the GroupChatProvider provider.
 
@@ -25,8 +24,11 @@ export class GroupChatProvider {
   serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
   KEY = '89129812'
   userAvatar = localStorage.getItem('userAvatar')
+  userName = localStorage.getItem('userName').replace(/['"]/g, '');
+
   constructor(private transfer: FileTransfer, public http: Http) {
     console.log('Hello GroupChatProvider Provider');
+    console.log(this.userName);
     // userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
@@ -102,7 +104,7 @@ export class GroupChatProvider {
         else if (type == 'file')
           fileType = response['file']
         firebase.database().ref('many2many/' + cid + '/messages').push({
-          'sender_id': userId, 'id': response['id'], 'type': type, 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'sender_id': userId, 'sender_name': this.userName, 'id': response['id'], 'type': type, 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
           'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
         });
       }
@@ -306,7 +308,7 @@ export class GroupChatProvider {
     console.log(url)
     return this.http.get(url).do((res) => {
       firebase.database().ref('many2many/' + cid + '/messages').push({
-        'sender_id': userId, 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+        'sender_id': userId, 'sender_name': this.userName, 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
         'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': location, 'emoji': ''
       });
     }).map((res) => res.json());
@@ -317,7 +319,7 @@ export class GroupChatProvider {
     console.log(url)
     return this.http.get(url).do((res) => {
       firebase.database().ref('many2many/' + cid + '/messages').push({
-        'sender_id': userId, 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+        'sender_id': userId, 'sender_name': this.userName, 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
         'text': text, 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': '', 'emoji': ''
       });
     }).map((res) => res.json());
@@ -330,6 +332,5 @@ export class GroupChatProvider {
       })
     })
   }
-
 
 }

@@ -59,9 +59,13 @@
             <div *ngFor="let p of chats">
               <div class="sender_msg" *ngIf="p.sender_id != userId">
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
-                  <h4>{{title}}
-   									</h4>
+                  <h4>{{title}}</h4>
                   <img (click)="viewImage(p.image)" [src]="p.image" style=" width: 500px;height: 200px;">
+                  <time>{{p.time}}</time>
+                </div>
+                <div class="msg_box sender" *ngIf="p.type == 'file'">
+                  <h4>{{title}}</h4>
+                  <p (click)="askForDownload(p.file)">{{handleFileName(p.file)}}</p>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
@@ -69,17 +73,27 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
-                  <!-- <h4>{{'you' | translate}}</h4> -->
-                  <a href="{{p.avatar}}"> {{p.avatar}}</a>
+                <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
+                  <h4>{{title}}</h4>
+                  <img [src]="p.locationImg" style="width: 500px; height: 200px;">
                   <time>{{p.time}}</time>
                 </div>
+                <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
+                  <h4>{{'you' | translate}}</h4>
+                  <a href="{{p.avatar}}"> {{p.avatar}}</a>
+                  <time>{{p.time}}</time>
+                </div> -->
               </div>
 
               <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
-                  <img (click)="viewImage(p.image)" [src]="p.image" style="width: 500px;height: 200px;">
+                  <img (click)="viewImage(p.image)" [src]="p.image" style="width: 500px; height: 200px;">
+                  <time>{{p.time}}</time>
+                </div>
+                <div class="msg_box reciever" *ngIf="p.type == 'file'">
+                  <h4>{{'you' | translate}}</h4>
+                  <p (click)="askForDownload(p.file)">{{handleFileName(p.file)}}</p>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">
@@ -87,16 +101,21 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
+                <div class="msg_box reciever" *ngIf="p.type =='location'">
+                  <h4>{{'you' | translate}}</h4>
+                  <img [src]="p.locationImg" style="width: 500px; height: 200px;">
+                  <time>{{p.time}}</time>
+                </div>
+                <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
                   <time>{{p.time}}</time>
-                </div>
-                <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
+                </div> -->
+                <!-- <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
                   <time>{{p.time}}</time>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -149,7 +168,7 @@
           </ul>
           <div class="type-message">
             <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <input type="text" class="form-control" name="msg" placeholder="Type Message......"  [(ngModel)]="emojitext"  name="email">
+            <input type="text" class="form-control" name="msg" placeholder="Type Message......" [(ngModel)]="emojitext" name="email">
             <a (click)="openCamera();  vibrate()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <a (click)="openMore(); vibrate()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <a (click)="send(); vibrate()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>

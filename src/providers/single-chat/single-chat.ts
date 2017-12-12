@@ -64,13 +64,14 @@ export class SingleChatProvider {
     })
   }
 
-  send_location(cid, theuserid, location, userId) {
+  send_location(cid, theuserid, location, userId, image) {
     let url = this.serverURL + this.KEY + '/chat/send/message?text=' + location + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + theuserid
     console.log(url)
     return this.http.get(url).do((res) => {
+      console.log(res);
       firebase.database().ref('one2one/' + cid + '/messages').push({
         'sender_id': userId, 'id': '1', 'type': 'location', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
-        'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': location, 'emoji': ''
+        'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': image, 'file': '', 'location': location, 'emoji': ''
       });
     }).map((res) => res.json());
   }
