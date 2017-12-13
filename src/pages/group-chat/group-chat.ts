@@ -1,6 +1,6 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, Platform, ToastController, AlertController, Loading, LoadingController } from 'ionic-angular';
-
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -8,7 +8,6 @@ import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
 import { Media, MediaObject } from '@ionic-native/media';
-
 import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
@@ -61,7 +60,7 @@ export class GroupChatPage {
   chats = []
   msgs = []
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private fileChooser: FileChooser, public groupChat: GroupChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private transfer: FileTransfer, private photoViewer: PhotoViewer, private fileChooser: FileChooser, public groupChat: GroupChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.group = navParams.get('group');
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     console.log(this.group);
@@ -78,6 +77,45 @@ export class GroupChatPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupChatPage');
+  }
+
+  handleFileName(path) {
+    let name = path.substring(path.lastIndexOf('/') + 1);
+    return name;
+  }
+
+  askForDownload(path) {
+    let download = this.alert.create( {
+        title: 'Download',
+        message: "Do you want to download this file ?",
+        buttons: [{
+            text: 'Yes',
+            handler: data => {
+              loading.present();
+              const fileTransfer: FileTransferObject = this.transfer.create();
+              fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
+                alert("File downloaded successfully");
+                loading.dismiss();
+              }).catch((err) => {
+                loading.dismiss();
+                alert(err);
+              });
+            }
+          },
+          {
+            text: 'No',
+            role: 'cancel'
+          }
+        ],
+      })
+    download.present()
+    let loading = this.loadingctrl.create({
+      showBackdrop: false
+    });
+  }
+
+  viewImage(path) {
+    this.photoViewer.show(path);
   }
 
   goToGroupInfo() {
@@ -305,7 +343,7 @@ export class GroupChatPage {
   }
 
   location() {
-    this.navCtrl.push(MapLocationPage, { id: this.group.cid, remoteid: this.userId });
+    this.navCtrl.push(MapLocationPage, { id: this.group.cid, remoteid: this.userId, chatType: 'multiple' });
   }
 
   handleSelection(event) {

@@ -58,7 +58,13 @@
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                   <h4>{{p.sender_name}}
                     </h4>
-                  <img [src]="p.image" style=" width: 500px;height: 200px;">
+                  <img (click)="viewImage(p.image)" [src]="p.image" style=" width: 500px;height: 200px;">
+                  <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a><br>
+                  <time>{{p.time}}</time>
+                </div>
+                <div class="msg_box sender" *ngIf="p.type == 'file'">
+                  <h4>{{p.sender_name}}</h4>
+                  <p (click)="askForDownload(p.file)">{{handleFileName(p.file)}}</p>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
@@ -75,7 +81,13 @@
               <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
-                  <img [src]="p.image" style="width: 500px;height: 200px;">
+                  <img (click)="viewImage(p.image)" [src]="p.image" style="width: 500px;height: 200px;">
+                  <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a><br>
+                  <time>{{p.time}}</time>
+                </div>
+                <div class="msg_box reciever" *ngIf="p.type == 'file'">
+                  <h4>{{'you' | translate}}</h4>
+                  <p (click)="askForDownload(p.file)">{{handleFileName(p.file)}}</p>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">

@@ -314,7 +314,7 @@ export class ChatHandlerPage {
   }
 
   location() {
-    this.navCtrl.push(MapLocationPage, { id: this.cid, remoteid: this.logined_user });
+    this.navCtrl.push(MapLocationPage, { id: this.cid, remoteid: this.logined_user, chatType: 'single' });
   }
 
   handleSelection(event) {

@@ -4,6 +4,7 @@ import { Http } from '@angular/http'
 import { Geolocation, GeolocationOptions, Geoposition, PositionError } from '@ionic-native/geolocation';
 import { ChatHandlerPage } from './../chat-handler/chat-handler';
 import { SingleChatProvider } from './../../providers/single-chat/single-chat';
+import { GroupChatProvider } from './../../providers/group-chat/group-chat';
 import { Diagnostic } from '@ionic-native/diagnostic';
 
 let lat1;
@@ -30,7 +31,7 @@ export class MapLocationPage {
   currentPos: Geoposition;
   lat
   long
-  constructor(public platform: Platform, public diagnostic: Diagnostic, public alertCtrl: AlertController, public loadingctrl: LoadingController, public database: SingleChatProvider, public navCtrl: NavController, public navParams: NavParams, public http: Http, public geolocation: Geolocation) {
+  constructor(public groupChat: GroupChatProvider, public platform: Platform, public diagnostic: Diagnostic, public alertCtrl: AlertController, public loadingctrl: LoadingController, public database: SingleChatProvider, public navCtrl: NavController, public navParams: NavParams, public http: Http, public geolocation: Geolocation) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     cid = this.navParams.get('id');
     remoteid = this.navParams.get('remoteid')
@@ -110,12 +111,16 @@ export class MapLocationPage {
 
   sendLocation() {
     var url = "http://maps.google.com/?q=" + this.lat + "," + this.long;
+    console.log(url)
     var imgLocation = "https://maps.googleapis.com/maps/api/staticmap?size=370x400&zoom=14&markers=color%3Ared%7C" + this.lat + "%2C%20" + this.long;
     console.log(imgLocation);
     console.log(url)
     if (url != undefined) {
       console.log(cid)
-      this.database.send_location(cid, remoteid, url, this.userId, imgLocation);
+      if(this.navParams.get('chatType') == 'single')
+        this.database.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => {});
+      else
+        this.groupChat.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => {});
       this.navCtrl.pop();
     }
   }

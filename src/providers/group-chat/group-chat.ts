@@ -56,6 +56,8 @@ export class GroupChatProvider {
     firebase.database().ref('many2many/' + remoteid + '/incoming').set({ 0: "undefined" });
   }
 
+
+
   sendMessage(cid, theuserid, text, image, type, userId) {
     let message, targetPath;
     var filename = image;
@@ -303,13 +305,13 @@ export class GroupChatProvider {
     })
   }
 
-  send_location(cid, theuserid, location, userId) {
+  send_location(cid, theuserid, location, userId, image) {
     let url = this.serverURL + this.KEY + '/chat/send/message?text=' + location + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + theuserid
     console.log(url)
     return this.http.get(url).do((res) => {
       firebase.database().ref('many2many/' + cid + '/messages').push({
         'sender_id': userId, 'sender_name': this.userName, 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
-        'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': location, 'emoji': ''
+        'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': image, 'file': '', 'location': location, 'emoji': ''
       });
     }).map((res) => res.json());
   }

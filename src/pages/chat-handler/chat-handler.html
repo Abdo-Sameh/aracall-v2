@@ -61,6 +61,7 @@
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                   <h4>{{title}}</h4>
                   <img (click)="viewImage(p.image)" [src]="p.image" style=" width: 500px;height: 200px;">
+                  <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a><br>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box sender" *ngIf="p.type == 'file'">
@@ -73,11 +74,11 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
+                <!-- <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                   <h4>{{title}}</h4>
                   <img [src]="p.locationImg" style="width: 500px; height: 200px;">
                   <time>{{p.time}}</time>
-                </div>
+                </div> -->
                 <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
@@ -89,6 +90,7 @@
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <img (click)="viewImage(p.image)" [src]="p.image" style="width: 500px; height: 200px;">
+                  <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a> <br>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box reciever" *ngIf="p.type == 'file'">
@@ -101,11 +103,11 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box reciever" *ngIf="p.type =='location'">
+                <!-- <div class="msg_box reciever" *ngIf="p.type =='location'">
                   <h4>{{'you' | translate}}</h4>
                   <img [src]="p.locationImg" style="width: 500px; height: 200px;">
                   <time>{{p.time}}</time>
-                </div>
+                </div> -->
                 <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
                   <a href="{{p.avatar}}"> {{p.avatar}}</a>
