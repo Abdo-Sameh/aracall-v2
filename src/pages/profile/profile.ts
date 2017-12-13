@@ -24,6 +24,7 @@ export class ProfilePage {
   newOnlineStatus = ''
   userId
   constructor(public alert: AlertController, public settings: SettingsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.get_user_status();
     this.get_online_status();
     this.getUserData();
@@ -34,14 +35,14 @@ export class ProfilePage {
   }
 
   getUserData() {
-    this.settings.getLoggedInUSerProfile().subscribe(res => {
+    this.settings.getLoggedInUSerProfile(this.userId).subscribe(res => {
       console.log(res)
       this.user = res;
     })
   }
 
   get_user_status() {
-    this.settings.get_user_chat_status().subscribe(res => {
+    this.settings.get_user_chat_status(this.userId).subscribe(res => {
       console.log(res)
       this.userStatus = res.chat_status;
 
@@ -49,7 +50,7 @@ export class ProfilePage {
   }
 
   get_online_status() {
-    this.settings.get_user_chat_online_status().subscribe(res => {
+    this.settings.get_user_chat_online_status(this.userId).subscribe(res => {
       this.onlineStatus = res.online_status;
     })
   }
@@ -66,7 +67,7 @@ export class ProfilePage {
           {
             text: 'save',
             handler: data => {
-              this.settings.set_user_chat_status(data.newStatus).subscribe(res => {
+              this.settings.set_user_chat_status(data.newStatus, this.userId).subscribe(res => {
                 console.log(res)
                 this.userStatus = res.status
               })
@@ -79,7 +80,7 @@ export class ProfilePage {
 
   onChange(online_status) {
     console.log(online_status)
-    this.settings.set_user_chat_online_status(online_status).subscribe(res => {
+    this.settings.set_user_chat_online_status(online_status, this.userId).subscribe(res => {
       console.log(res)
       this.onlineStatus = res.online_status
     })

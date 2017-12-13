@@ -23,12 +23,13 @@ let friends2; let addchat; let getremote; let remoteid; let result34; let apicha
 export class GroupChatProvider {
   serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
   KEY = '89129812'
-  userAvatar = localStorage.getItem('userAvatar')
-  userName = localStorage.getItem('userName').replace(/['"]/g, '');
+  userAvatar
 
   constructor(private transfer: FileTransfer, public http: Http) {
     console.log('Hello GroupChatProvider Provider');
-    console.log(this.userName);
+    this.userAvatar = localStorage.getItem('userAvatar')
+    // this.userName = localStorage.getItem('userName').replace(/['"]/g, '');
+    // console.log(this.userName);
     // userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
@@ -106,7 +107,7 @@ export class GroupChatProvider {
         else if (type == 'file')
           fileType = response['file']
         firebase.database().ref('many2many/' + cid + '/messages').push({
-          'sender_id': userId, 'sender_name': this.userName, 'id': response['id'], 'type': type, 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'sender_id': userId, 'sender_name': localStorage.getItem('userName').replace(/['"]/g, ''), 'id': response['id'], 'type': type, 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
           'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
         });
       }
@@ -310,7 +311,7 @@ export class GroupChatProvider {
     console.log(url)
     return this.http.get(url).do((res) => {
       firebase.database().ref('many2many/' + cid + '/messages').push({
-        'sender_id': userId, 'sender_name': this.userName, 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+        'sender_id': userId, 'sender_name': localStorage.getItem('userName').replace(/['"]/g, ''), 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'location', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
         'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': image, 'file': '', 'location': location, 'emoji': ''
       });
     }).map((res) => res.json());
@@ -321,7 +322,7 @@ export class GroupChatProvider {
     console.log(url)
     return this.http.get(url).do((res) => {
       firebase.database().ref('many2many/' + cid + '/messages').push({
-        'sender_id': userId, 'sender_name': this.userName, 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+        'sender_id': userId, 'sender_name': localStorage.getItem('userName').replace(/['"]/g, ''), 'sender_avatar': this.userAvatar, 'id': '1', 'type': 'message', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
         'text': text, 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': '', 'emoji': ''
       });
     }).map((res) => res.json());

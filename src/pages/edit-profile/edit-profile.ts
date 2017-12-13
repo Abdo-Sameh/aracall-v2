@@ -39,7 +39,7 @@ export class EditProfilePage {
   }
 
   getUserData() {
-    this.settings.getLoggedInUSerProfile().subscribe(res => {
+    this.settings.getLoggedInUSerProfile(this.userId).subscribe(res => {
       this.user = res;
       console.log(this.user);
     })
@@ -187,7 +187,7 @@ export class EditProfilePage {
       console.log('Dismissed toast');
     });
 
-    this.settings.editprofile(this.user.first_name, this.user.last_name, this.user.username, this.user.email_address).subscribe(res => {
+    this.settings.editprofile(this.user.first_name, this.user.last_name, this.user.username, this.user.email_address, this.userId).subscribe(res => {
       this.uploadImage();
       toast.present();
     })

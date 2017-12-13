@@ -89,6 +89,8 @@
 
   "error-occurred": "An error occurred",
 
+  "send-location" : "Send location",
+
   "annoucement-created": "Annoucement successfully created",
 
   "annoucement-updated": "Annoucement successfully updated",

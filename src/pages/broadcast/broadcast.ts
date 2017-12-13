@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { FriendsProvider } from '../../providers/friends/friends';
+import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 
 /**
  * Generated class for the BroadcastPage page.
@@ -19,7 +20,10 @@ export class BroadcastPage {
   friendsnames
   chosenUsers = []
   names
-  constructor(public alertCtrl: AlertController, public loadingctrl: LoadingController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  userId
+  message
+  constructor(public singleChat: SingleChatProvider, public alertCtrl: AlertController, public loadingctrl: LoadingController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
   ionViewDidLoad() {
@@ -65,21 +69,25 @@ export class BroadcastPage {
 
     console.log(this.chosenUsers)
 
-    // for (let o = 0; o < this.chosenUsers.length; o++) {
-    //
-    //   this.database.check_chat_history(this.userid, this.chosenUsers[o].userid).subscribe(res => {
-    //     console.log(res)
-    //     if (res.status == 1) {
-    //       this.database.broadcasting('haveChatHistory', res.cid, this.message, this.userid).subscribe(res2 => {
-    //         console.log(res2)
-    //       })
-    //     } else {
-    //       this.database.broadcasting('', this.chosenUsers[o].userid, this.message, this.userid).subscribe(res2 => {
-    //         console.log(res2)
-    //       })
-    //     }
-    //   })
-    // }
+    for (let o = 0; o < this.chosenUsers.length; o++) {
+
+      this.singleChat.check_chat_history(this.userId, this.chosenUsers[o].userid).subscribe(res => {
+        console.log(res)
+        if (res.status == 1) {
+          this.singleChat.broadcasting('haveChatHistory', res.cid, this.message, this.userId).subscribe(res2 => {
+            console.log(res2)
+            //this.navCtrl.push(ChathandlerPage,{'data':res.cid,'avatar':res.avatar,'title':res.first_name })
+          })
+          //this.navCtrl.push(ChathandlerPage,{'data':res.cid,'avatar': res.avatar,'title':res.first_name })
+        } else {
+          // this.navCtrl.push(NewChatPage,{'data':res.cid,'avatar':res.avatar,'title':res.first_name })
+          this.singleChat.broadcasting('', this.chosenUsers[o].userid, this.message, this.userId).subscribe(res2 => {
+            console.log(res2)
+            //this.navCtrl.push(ChathandlerPage,{'data':res.cid,'avatar':res.avatar,'title':res.first_name })
+          })
+        }
+      })
+    }
     const alert = this.alertCtrl.create({
       title: 'Boroadcast',
       subTitle: 'Boroadcast message sent successfully',

@@ -77,7 +77,7 @@ export class ChatHandlerPage {
       this.currentUserID = res.id;
       console.log(this.currentUserID)
       this.lastonline = res.profile_info[0].value;
-      this.Settings.get_user_chat_settings().subscribe(res => {
+      this.Settings.get_user_chat_settings(this.userId).subscribe(res => {
         this.settings[0].last_seen_status = res.last_seen_status
         this.settings[0].read_receipt = res.read_receipt_status
       })
@@ -308,8 +308,11 @@ export class ChatHandlerPage {
   }
 
   send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
+    // event.preventDefault();
+    // console.log(event)
     this.singleChat.send_message(cid, userid, text, this.userId).subscribe((res) => {
       this.emojitext = '';
+      // $('#send').prop('disabled', false);
     });
   }
 

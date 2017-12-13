@@ -41,22 +41,17 @@ export class MapLocationPage {
     console.log('ionViewDidLoad MaplocationPage');
     this.diagnostic.isLocationEnabled().then(
       (isAvailable) => {
-        // console.log('Is available? ' + isAvailable);
+        // alert("GPS is opened")
         this.getUserPosition();
       }).catch((e) => {
-        console.log(e);
+        alert(e);
         this.diagnostic.switchToLocationSettings();
       });
   }
 
-  ionViewDidEnter() {
-    this.getUserPosition();
-  }
-
-
   getUserPosition() {
     this.options = {
-      maximumAge: 3000, timeout: 5000, enableHighAccuracy: true
+      maximumAge: 3000, timeout: 10000, enableHighAccuracy: true
     };
     this.geolocation.getCurrentPosition(this.options).then((pos: Geoposition) => {
 
@@ -68,7 +63,7 @@ export class MapLocationPage {
       this.addMap(pos.coords.latitude, pos.coords.longitude);
 
     }, (err: PositionError) => {
-      console.log("error : " + err.message);
+      alert("error : " + err.message);
       ;
     })
   }

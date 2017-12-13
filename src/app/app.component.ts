@@ -117,8 +117,8 @@ export class MyApp {
       this.getGroupCalls();
       this.nav.setRoot(TabsPage);
     } else {
-      this.getSingleCalls();
-      this.getGroupCalls();
+      // this.getSingleCalls();
+      // this.getGroupCalls();
       // this.nav.setRoot(TabsPage);
       //     when deploying uncomment the next and comment above
 

@@ -20,7 +20,7 @@
     </div>
     <div>
       <ion-title>
-        <img [src]="remoteavatar" width="25" height="25" style="margin-right:5px;float:left;" alt="">
+        <img [src]="remoteavatar" width="25" height="25" style="margin-right:5px;float:left; border-radius: 100px;" alt="">
         <div style="float:left;text-align:left;">
           <span style="font-size: 14px;position: relative;top: -6px;">{{username}}</span>
           <h5 *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null || is_blocked==false" style="color: #ededed;font-size: 10px;position: relative;top: -9px;">{{lastonline}}</h5>
@@ -173,7 +173,7 @@
             <input type="text" class="form-control" name="msg" placeholder="Type Message......" [(ngModel)]="emojitext" name="email">
             <a (click)="openCamera();  vibrate()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <a (click)="openMore(); vibrate()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <a (click)="send(); vibrate()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>
+            <a id="send" (click)="send(); vibrate()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>
           </div>
         </div>
       </form>

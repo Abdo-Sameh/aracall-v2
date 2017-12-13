@@ -56,6 +56,24 @@ export class SingleChatProvider {
     })
   }
 
+  broadcasting(test = 'haveChatHistory', user, text, userid) {
+    if (test == '') {
+      let body = new URLSearchParams();
+
+      body.append('theuserid', user)
+      body.append('userid', userid)
+      body.append('text', text)
+      let body1 = body.toString();
+      console.log(body1)
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      return this.http.post(this.serverURL + this.KEY + '/chat/send/message', body1, { headers: headers }).map((res: Response) => res.json())
+    } else {
+      return this.http.get(this.serverURL + this.KEY + '/chat/send/message?text=' + text + "&cid=" + user + "&userid=" + userid).map((res: Response) => res.json())
+    }
+  }
+
   getReceiver(cid) {
     return new Observable(Observable => {
       firebase.database().ref('one2one/' + cid + '/messages').on('value', function(snapshot) {

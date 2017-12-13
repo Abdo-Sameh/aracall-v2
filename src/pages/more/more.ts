@@ -20,8 +20,9 @@ import { LoginPage } from './../login/login';
   styleUrls: ['../../assets/main.css', '../../assets/ionicons.min.css']
 })
 export class MorePage {
-
+  userId
   constructor(public settings: SettingsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
   ionViewDidLoad() {
@@ -41,13 +42,13 @@ export class MorePage {
     localStorage.setItem('userDataID', "" );
     localStorage.setItem('userCover', "" );
     // this.database.signout();
-    localStorage.clear();
+    // localStorage.clear();
     this.navCtrl.setRoot(LoginPage);
   }
 
   chatSettings() {
     console.log('here');
-    this.settings.get_user_chat_settings().subscribe(res => {
+    this.settings.get_user_chat_settings(this.userId).subscribe(res => {
       console.log(res);
       this.navCtrl.push(ChatSettingsPage, { 'settings': res })
     })

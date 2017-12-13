@@ -7,46 +7,45 @@ import { Http, Headers, URLSearchParams } from '@angular/http';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-let userId;
 
 @Injectable()
 export class SettingsProvider {
   serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
   KEY = '89129812'
   constructor(public http: Http) {
-    userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
+    //userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     console.log('Hello SettingsProvider Provider');
   }
 
-  getLoggedInUSerProfile() {
+  getLoggedInUSerProfile(userId) {
     return this.http.get(this.serverURL + this.KEY + '/chat/profile?userid=' + userId).map((res: any) => res.json())
   }
 
-  get_user_chat_status() {
+  get_user_chat_status(userId) {
     return this.http.get(this.serverURL + this.KEY + '/chat/profile/get/chat/status?userid=' + userId).map((res: any) => res.json());
   }
 
-  set_user_chat_status(newChatStatus) {
+  set_user_chat_status(newChatStatus, userId) {
     return this.http.get(this.serverURL + this.KEY + '/chat/profile/update/chat/status?userid=' + userId + '&status=' + newChatStatus).map((res: any) => res.json());
   }
 
-  set_user_chat_online_status(newChatStatus) {
+  set_user_chat_online_status(newChatStatus, userId) {
     return this.http.get(this.serverURL + this.KEY + '/chat/profile/update/chat/online_status?userid=' + userId + '&status=' + newChatStatus).map((res: any) => res.json());
   }
 
-  set_user_chat_settings(last_seen_status, read_receipt_status) {
+  set_user_chat_settings(last_seen_status, read_receipt_status, userId) {
     return this.http.get(this.serverURL + this.KEY + '/settings/chat/change/chat_settings?userid=' + userId + '&last_seen_status=' + last_seen_status + '&read_receipt_status=' + read_receipt_status).map((res: any) => res.json());
   }
 
-  get_user_chat_settings() {
+  get_user_chat_settings(userId) {
     return this.http.get(this.serverURL + this.KEY + '/settings/chat/chat_settings?userid=' + userId).map((res: any) => res.json());
   }
 
-  get_user_chat_online_status() {
+  get_user_chat_online_status(userId) {
     return this.http.get(this.serverURL + this.KEY + '/chat/profile/get/chat/online_status?userid=' + userId).map((res: any) => res.json());
   }
 
-  editprofile(firstname, lastname, username, email) {
+  editprofile(firstname, lastname, username, email, userId) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     let urlSearchParams = new URLSearchParams();

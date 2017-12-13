@@ -66,7 +66,7 @@ export class NewChatPage {
       this.currentUserID = res.id;
       console.log(this.currentUserID)
       this.lastonline = res.profile_info[0].value;
-      this.Settings.get_user_chat_settings().subscribe(res => {
+      this.Settings.get_user_chat_settings(this.userId).subscribe(res => {
         this.settings[0].last_seen_status = res.last_seen_status
         this.settings[0].read_receipt = res.read_receipt_status
       })

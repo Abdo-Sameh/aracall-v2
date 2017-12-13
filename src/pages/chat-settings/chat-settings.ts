@@ -15,7 +15,9 @@ import { SettingsProvider } from '../../providers/settings/settings';
 })
 export class ChatSettingsPage {
   chatSettings
+  userId
   constructor(public settings: SettingsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.chatSettings = this.navParams.get('settings')
 
     if (this.chatSettings['last_seen_status'] == "1") {
@@ -44,15 +46,15 @@ export class ChatSettingsPage {
 
       if (item == true) {
         if (read_receipt == true) {
-          this.settings.set_user_chat_settings('1', '1').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('1', '1', this.userId).subscribe(res => console.log(res))
         } else {
-          this.settings.set_user_chat_settings('1', '0').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('1', '0', this.userId).subscribe(res => console.log(res))
         }
       } else {
         if (read_receipt == false) {
-          this.settings.set_user_chat_settings('0', '1').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('0', '1', this.userId).subscribe(res => console.log(res))
         } else {
-          this.settings.set_user_chat_settings('0', '1').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('0', '1', this.userId).subscribe(res => console.log(res))
         }
       }
     } else if (clicked == 'read_receipt') {
@@ -60,15 +62,15 @@ export class ChatSettingsPage {
       console.log('last_seen' + last_seen + 'clicked' + clicked + 'item' + item)
       if (item == true) {
         if (last_seen == true) {
-          this.settings.set_user_chat_settings('1', '1').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('1', '1', this.userId).subscribe(res => console.log(res))
         } else {
-          this.settings.set_user_chat_settings('0', '1').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('0', '1', this.userId).subscribe(res => console.log(res))
         }
       } else {
         if (last_seen == false) {
-          this.settings.set_user_chat_settings('0', '0').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('0', '0', this.userId).subscribe(res => console.log(res))
         } else {
-          this.settings.set_user_chat_settings('1', '0').subscribe(res => console.log(res))
+          this.settings.set_user_chat_settings('1', '0', this.userId).subscribe(res => console.log(res))
         }
       }
     }
