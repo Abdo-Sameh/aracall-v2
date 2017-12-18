@@ -1,5 +1,5 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, Platform, ToastController, Loading, LoadingController, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -7,11 +7,10 @@ import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import * as $ from 'jquery';
 import { Media, MediaObject } from '@ionic-native/media';
-
 import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
-
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
@@ -43,17 +42,19 @@ export class NewChatPage {
   remoteavatar
   the_userId
   cid
+  is_blocked
   logined_user
   username
   chats = []
   msgs = []
   userId
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public photoViewer: PhotoViewer, private transfer: FileTransfer, public alert: AlertController, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.remoteavatar = this.navParams.get('avatar');
     this.the_userId = navParams.get('user1');
+    this.is_blocked = this.navParams.get('is_blocked');
     this.logined_user = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.username = this.navParams.get('title');
     let loading = loadingctrl.create({
@@ -85,6 +86,7 @@ export class NewChatPage {
   ionViewDidLoad() {
 
   }
+
   edittime(current, previous) {
     var msPerMinute = 60 * 1000;
     var msPerHour = msPerMinute * 60;
@@ -100,31 +102,37 @@ export class NewChatPage {
     }
 
     else if (elapsed < msPerHour) {
-      return Math.round(elapsed / msPerMinute) + ':minutes ago';
+      return Math.round(elapsed / msPerMinute) + ' minutes ago';
     }
 
     else if (elapsed < msPerDay) {
-      return Math.round(elapsed / msPerHour) + ':hours ago';
+      return Math.round(elapsed / msPerHour) + ' hours ago';
     }
     else if (elapsed < msPerWeek) {
-      return Math.round(elapsed / msPerDay) + ':days ago';
+      return Math.round(elapsed / msPerDay) + ' days ago';
     }
     else if (elapsed < msPerMonth) {
-      return Math.round(elapsed / msPerWeek) + ':weeks ago';
+      return Math.round(elapsed / msPerWeek) + ' weeks ago';
     }
 
-
-
     else if (elapsed < msPerYear) {
-      return Math.round(elapsed / msPerMonth) + ':months ago';
+      return Math.round(elapsed / msPerMonth) + ' months ago';
     }
 
     else {
-      return Math.round(elapsed / msPerYear) + ':years ago';
+      return Math.round(elapsed / msPerYear) + ' years ago';
     }
   }
-  dropdown() {
 
+  viewImage(path) {
+    this.photoViewer.show(path);
+  }
+
+  openMore() {
+    $('.toggle-icons').toggleClass('open');
+  }
+
+  dropdown() {
     $(document).on('click', '.type-message .toggle-arrow', function() {
       $(this).find("img").toggle();
       $('.toggle-icons').toggleClass('open');
@@ -149,7 +157,7 @@ export class NewChatPage {
         {
           text: 'Library',
           handler: () => {
-            alert("lib");
+            // alert("lib");
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
@@ -164,6 +172,18 @@ export class NewChatPage {
     actionSheet.present();
   }
 
+  openGallery() {
+    this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+  }
+
+  openCamera() {
+    this.takePicture(this.camera.PictureSourceType.CAMERA);
+  }
+
+  // vibrate() {
+  //   this.vibration.vibrate(50);
+  // }
+
   takePicture(sourceType) {
     // Create options for the Camera Dialog
     var options = {
@@ -175,7 +195,7 @@ export class NewChatPage {
 
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
-      alert(imagePath);
+      // alert(imagePath);
       // Special handling for Android library
       if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
         this.filePath.resolveNativePath(imagePath)
@@ -185,14 +205,14 @@ export class NewChatPage {
             this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
           });
       } else {
-        alert("else");
+        // alert("else");
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
 
       }
     }, (err) => {
-      alert(err);
+      // alert(err);
       this.presentToast('Error while selecting image.');
     });
   }
@@ -205,15 +225,15 @@ export class NewChatPage {
   }
 
   copyFileToLocalDir(namePath, currentName, newFileName, type) {
-    alert(namePath);
-    alert(currentName);
-    alert(newFileName);
-    alert(type);
+    // alert(namePath);
+    // alert(currentName);
+    // alert(newFileName);
+    // alert(type);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
       this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type, this.userId);
     }, error => {
-      alert(error);
+      // alert(error);
       this.presentToast('Error while storing file.');
     });
   }
@@ -231,43 +251,69 @@ export class NewChatPage {
   }
 
   handWriting() {
-    console.log("hand write");
+    // console.log("hand write");
     this.navCtrl.push(SignaturePage, {
       callback: this.myCallbackFunction
     });
   }
-  myCallbackFunction = (image) => {
+
+  myCallbackFunction = (filePath) => {
     return new Promise((resolve, reject) => {
-      // this.database.upload_image(image).then(data => {
-      //   imagelink = data;
-      //   resolve(data);
-      //   console.log(data)
-      //   this.send();
-      // })
-      // this.feeds.unshift(post);
+      if (this.platform.is('android')) {
+        // alert(filePath);
+        let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+        // alert(correctPath);
+        let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+        // alert(currentName);
+        this.copyFileToLocalDir(correctPath, currentName, currentName, 'image');
+
+      }
+      resolve();
     });
   }
 
   recordPage() {
-    this.navCtrl.push(RecordingPage);
+    this.navCtrl.push(RecordingPage, {
+      'recordCallback': this.recordCallbackFunction
+    })
+  }
+
+  recordCallbackFunction = (filePath) => {
+    return new Promise((resolve, reject) => {
+      if (this.platform.is('android')) {
+        // alert(filePath);
+        let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+        // alert(correctPath);
+        let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
+        // alert(currentName);
+        this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+
+      } else {
+        // alert("else");
+        // var currentName = uri.substr(uri.lastIndexOf('/') + 1);
+        // var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
+        // this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
+      }
+      resolve();
+    });
   }
 
   chooseFile() {
     this.fileChooser.open()
       .then(uri => {
-        alert(uri);
+        // alert(uri);
         if (this.platform.is('android')) {
           this.filePath.resolveNativePath(uri)
             .then(filePath => {
-              alert(filePath);
+              // alert(filePath);
               let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
-              alert(correctPath);
+              // alert(correctPath);
               let currentName = filePath.substring(filePath.lastIndexOf('/') + 1);
-              alert(currentName);
+              // alert(currentName);
               this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
             });
         } else {
-          alert("else");
+          // alert("else");
           var currentName = uri.substr(uri.lastIndexOf('/') + 1);
           var correctPath = uri.substr(0, uri.lastIndexOf('/') + 1);
           this.copyFileToLocalDir(correctPath, currentName, currentName, 'file');
@@ -275,17 +321,56 @@ export class NewChatPage {
       }).catch(e => alert(e));
   }
 
-  send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
-    this.singleChat.send_message(cid, userid, text, this.userId).subscribe((res) => {
+  send(userid = this.the_userId, text = this.emojitext) {
+    console.log(this.the_userId, text, this.userId);
+    this.singleChat.send_message("", userid, text, this.userId).subscribe((res) => {
       this.emojitext = '';
     });
   }
+
   location() {
-    this.navCtrl.push(MapLocationPage, { id: this.cid, remoteid: this.logined_user });
+    this.navCtrl.push(MapLocationPage, { id: this.cid, remoteid: this.logined_user, chatType: 'single' });
   }
+
   handleSelection(event) {
     this.emojitext += event.char;
   }
+
+  handleFileName(path) {
+    let name = path.substring(path.lastIndexOf('/') + 1);
+    return name;
+  }
+
+  askForDownload(path) {
+    let download = this.alert.create({
+      title: 'Download',
+      message: "Do you want to download this file ?",
+      buttons: [{
+        text: 'Yes',
+        handler: data => {
+          loading.present();
+          const fileTransfer: FileTransferObject = this.transfer.create();
+          fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
+            alert("File downloaded successfully");
+            loading.dismiss();
+          }).catch((err) => {
+            loading.dismiss();
+            alert(err);
+          });
+        }
+      },
+      {
+        text: 'No',
+        role: 'cancel'
+      }
+      ],
+    })
+    download.present()
+    let loading = this.loadingctrl.create({
+      showBackdrop: false
+    });
+  }
+
   call() {
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
@@ -296,9 +381,7 @@ export class NewChatPage {
       let avatar = this.remoteavatar;
       loading1.dismiss()
       this.navCtrl.push(AudioHandlerPage, { avatar, data, number, remote: false });
-
     })
-
   }
 
   video() {
@@ -311,9 +394,68 @@ export class NewChatPage {
       let avatar = this.remoteavatar;
       loading1.dismiss()
       this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
-
     })
+  }
 
+  Block(blockedUser) {
+    let blockUser = this.alert.create({
+      title: 'Block user',
+      message: "Do you want block this user ?",
+      buttons: [
+        {
+          text: 'ok',
+          handler: data => {
+            this.singleChat.blockUser(blockedUser, this.logined_user).subscribe(res => {
+              loading1.dismiss()
+              console.log(res)
+              if (res.status == 1) {
+                this.is_blocked = true;
+                // this.navCtrl.push(TabsPage);
+              }
+            }
+            )
+          }
+        },
+        {
+          'text': 'cancel',
+          role: 'cancel'
+        }
+      ],
+    })
+    blockUser.present()
+    let loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
+  }
 
+  unBlock(blockedUser) {
+    let editGroupName = this.alert.create(
+      {
+        title: 'Unblock user',
+        message: "Do you want unblock this user ?",
+        buttons: [{
+          text: 'Ok',
+          handler: data => {
+            this.friends.unblockUser(blockedUser).subscribe(res => {
+              loading1.dismiss()
+              console.log(res);
+              if (res.status == 1) {
+                this.is_blocked = false;
+                // window.location.reload();
+                // this.navCtrl.pop();
+              }
+            }
+            )
+          }
+        }, {
+          'text': 'Cancel',
+          role: 'cancel'
+        }
+        ],
+      })
+    editGroupName.present()
+    let loading1 = this.loadingctrl.create({
+      showBackdrop: false
+    });
   }
 }

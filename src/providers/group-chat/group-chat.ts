@@ -21,7 +21,7 @@ let friends2; let addchat; let getremote; let remoteid; let result34; let apicha
 
 @Injectable()
 export class GroupChatProvider {
-  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
+  serverURL = 'https://arabface.online/api/'
   KEY = '89129812'
   userAvatar
 

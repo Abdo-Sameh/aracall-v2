@@ -44,7 +44,7 @@ export class AllChatsPage {
     this.navCtrl.push(SearchPage)
   }
 
-  openChat(index, type, cid, title, avatar, is_blocked, user1) {
+  openChat(index, type, cid, title, avatar, is_blocked, user1, user2) {
     if (type == 'multiple') {
       this.groupChat.usersCoversation(this.chats[index].cid, this.userId).subscribe(res => {
         console.log(res)
@@ -55,13 +55,18 @@ export class AllChatsPage {
       })
 
     } else {
-      this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1 });
+      console.log(user1, user2);
+      if(user1 == this.userId)
+        this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1: user2 });
+      else
+        this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1: user1 });
     }
   }
 
   userForm = new FormGroup({
     mail: new FormControl(null, [Validators.required])
   });
+
   doRefresh(refresher) {
     this.singleChat.getConversations(this.userId).subscribe(data => {
       this.chats = data;

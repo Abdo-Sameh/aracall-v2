@@ -10,7 +10,7 @@ import { Http, Headers, URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class SettingsProvider {
-  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
+  serverURL = 'https://arabface.online/api/'
   KEY = '89129812'
   constructor(public http: Http) {
     //userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");

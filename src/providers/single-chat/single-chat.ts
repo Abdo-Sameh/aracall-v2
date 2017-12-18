@@ -32,7 +32,7 @@ var config = {
 };
 @Injectable()
 export class SingleChatProvider {
-  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
+  serverURL = 'https://arabface.online/api/'
   KEY = '89129812'
   friends2
 
@@ -68,9 +68,21 @@ export class SingleChatProvider {
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      return this.http.post(this.serverURL + this.KEY + '/chat/send/message', body1, { headers: headers }).map((res: Response) => res.json())
+      return this.http.post(this.serverURL + this.KEY + '/chat/send/message', body1, { headers: headers }).do((res) => {
+        console.log(res.json())
+        firebase.database().ref('one2one/' + res.json().cid + '/messages').push({
+          'sender_id': userid, 'id': '1', 'type': 'text', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'text': text, 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': '', 'emoji': ''
+        });
+      }).map((res) => res.json());
     } else {
-      return this.http.get(this.serverURL + this.KEY + '/chat/send/message?text=' + text + "&cid=" + user + "&userid=" + userid).map((res: Response) => res.json())
+      return this.http.get(this.serverURL + this.KEY + '/chat/send/message?text=' + text + "&cid=" + user + "&userid=" + userid).do((res) => {
+        // console.log(res.json())
+        firebase.database().ref('one2one/' + res.json().cid + '/messages').push({
+          'sender_id': userid, 'id': '1', 'type': 'text', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
+          'text': text, 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': '', 'emoji': ''
+        });
+      }).map((res) => res.json());
     }
   }
 
@@ -82,7 +94,7 @@ export class SingleChatProvider {
     })
   }
 
-  send_location(cid, theuserid, location, userId, image) {
+  send_location(cid='', theuserid, location, userId, image) {
     let url = this.serverURL + this.KEY + '/chat/send/message?text=' + location + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + theuserid
     console.log(url)
     return this.http.get(url).do((res) => {
@@ -95,10 +107,12 @@ export class SingleChatProvider {
   }
 
   send_message(cid, theuserid, text, userId) {
-    let url = this.serverURL + this.KEY + '/chat/send/message?text=' + text + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + theuserid
+    console.log(cid, theuserid, userId)
+    let url = this.serverURL + this.KEY + '/chat/send/message?text=' + text + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + userId
+    console.log(url)
     return this.http.get(url).do((res) => {
       console.log(res.json())
-      firebase.database().ref('one2one/' + cid + '/messages').push({
+      firebase.database().ref('one2one/' + res.json().cid + '/messages').push({
         'sender_id': userId, 'id': '1', 'type': 'text', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
         'text': text, 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': '', 'file': '', 'location': '', 'emoji': ''
       });

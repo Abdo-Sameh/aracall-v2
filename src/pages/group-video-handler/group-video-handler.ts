@@ -147,14 +147,14 @@ export class GroupVideoHandlerPage {
       OfferToReceiveAudio: true,
       OfferToReceiveVideo: true
     };
-    alert('initalize');
+    // alert('initalize');
 
     connection.onstream = function(event) {
       var video = event.mediaElement;
-      alert(video);
+      // alert(video);
       video.id = event.streamid;
       this.streamId = event.streamid;
-      alert(video.id);
+      // alert(video.id);
       var node = document.createElement("LI");
       node.className = "group-call";
       video.setAttribute("style", "width: 100%; height: 100%;");
@@ -172,16 +172,16 @@ export class GroupVideoHandlerPage {
   }
 
   openOrJoin() {
-    alert('open');
+    // alert('open');
   }
 
   join() {
-    alert('join');
+    // alert('join');
     connection.open('room-id')
   }
 
   connect() {
-    alert('connect');
+    // alert('connect');
     connection.connect('room-id');
   }
 
@@ -193,12 +193,12 @@ export class GroupVideoHandlerPage {
       var hisNativePeer = user.peer;
       var hisIncomingStreams = user.peer.getRemoteStreams();
       var hisDataChannels = user.channels;
-      alert(user);
+      // alert(user);
     });
   }
 
   leave() {
-    alert('you are leaving')
+    // alert('you are leaving')
     connection.attachStreams.forEach(function(localStream) {
       localStream.stop();
     });

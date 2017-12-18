@@ -85,6 +85,7 @@ export class ChatHandlerPage {
     });
 
     this.singleChat.display_single_chat_messages(this.cid, this.userId).subscribe((res) => {
+      this.chats = []
       for (let key in res) {
         res[key].time = this.edittime(Date.now(), res[key].time)
         this.chats.push(res[key])
@@ -140,7 +141,6 @@ export class ChatHandlerPage {
   }
 
   dropdown() {
-
     $(document).on('click', '.type-message .toggle-arrow', function() {
       $(this).find("img").toggle();
       $('.toggle-icons').toggleClass('open');
@@ -181,7 +181,7 @@ export class ChatHandlerPage {
 
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
-      alert(imagePath);
+      // alert(imagePath);
       // Special handling for Android library
       if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
         this.filePath.resolveNativePath(imagePath)
@@ -308,11 +308,8 @@ export class ChatHandlerPage {
   }
 
   send(cid = this.cid, userid = this.logined_user, text = this.emojitext) {
-    // event.preventDefault();
-    // console.log(event)
     this.singleChat.send_message(cid, userid, text, this.userId).subscribe((res) => {
       this.emojitext = '';
-      // $('#send').prop('disabled', false);
     });
   }
 
@@ -325,8 +322,13 @@ export class ChatHandlerPage {
   }
 
   handleFileName(path) {
-    let name = path.substring(path.lastIndexOf('/') + 1);
-    return name;
+    let type = path.substring(path.lastIndexOf('.') + 1);
+    if(type == 'mp3' || type == 'wav' || type == 'm4a' || type == 'ogg')
+      return "<audio controls><source src=" + path +"></audio>";
+    else if(type == 'mp4' || type == 'avi' || type == 'flv' || type == 'gif' || type == 'rmvb' || type == 'mpeg')
+      return "<video controls><source src=" + path +"></video>";
+    else
+      return path.substring(path.lastIndexOf('/') + 1);
   }
 
   askForDownload(path) {
@@ -389,7 +391,7 @@ export class ChatHandlerPage {
     let blockUser = this.alert.create(
       {
         title: 'Block user',
-        message: "Do you want block this user ! ",
+        message: "Do you want block this user ?",
 
         buttons: [
           {
@@ -399,7 +401,8 @@ export class ChatHandlerPage {
                 loading1.dismiss()
                 console.log(res)
                 if (res.status == 1) {
-                  this.navCtrl.push(TabsPage);
+                  this.is_blocked = true;
+                  // this.navCtrl.push(TabsPage);
                 }
               }
               )
@@ -422,29 +425,24 @@ export class ChatHandlerPage {
   unBlock(blockedUser) {
     let editGroupName = this.alert.create(
       {
-        title: 'unBlock user',
-        message: "Do you want unblock this user ! ",
-
-        buttons: [
-          {
-            text: 'ok',
+        title: 'Unblock user',
+        message: "Do you want unblock this user ?",
+        buttons: [{
+            text: 'Ok',
             handler: data => {
-              this.singleChat.unblockUser(blockedUser, this.logined_user).subscribe(res => {
+              this.friends.unblockUser(blockedUser).subscribe(res => {
                 loading1.dismiss()
-
+                console.log(res);
                 if (res.status == 1) {
+                  this.is_blocked = false;
                   // window.location.reload();
-                  this.navCtrl.push(TabsPage);
+                  // this.navCtrl.pop();
                 }
-                // alert("xxx"+JSON.stringify(res) )
-                //   firebase.database().ref(userID + '/chats').delete();
               }
               )
             }
-
-          },
-          {
-            'text': 'cancel',
+          }, {
+            'text': 'Cancel',
             role: 'cancel'
           }
         ],

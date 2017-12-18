@@ -44,7 +44,7 @@ export class MapLocationPage {
         // alert("GPS is opened")
         this.getUserPosition();
       }).catch((e) => {
-        alert(e);
+        // alert(e);
         this.diagnostic.switchToLocationSettings();
       });
   }

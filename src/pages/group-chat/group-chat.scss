@@ -1,4 +1,18 @@
 page-group-chat {
+  .toolbar-title-ios {
+  	position: relative;
+    left: -36px;
+    top: 5px;
+  }
+  .toolbar-title-ios img+div span {
+    width: 93px;
+  overflow: hidden !important;
+  display: block;
+  text-overflow: ellipsis;
+}
+.header.header-ios .toolbar-title-ios img+div span {
+  overflow: hidden !important;
+}
   .rec-btn {
     position: absolute;
     top: 0;
@@ -107,7 +121,7 @@ page-group-chat {
     top: -14px;
   }
 
-  
+
 
   ion-footer {
     position: fixed !important;
@@ -140,6 +154,10 @@ page-group-chat {
   .headerico {
     background: none;
     box-shadow: none;
+  }
+
+  audio {
+      width: 100%;
   }
 
   .group-call-btn,

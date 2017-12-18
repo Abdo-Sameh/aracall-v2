@@ -116,6 +116,8 @@ export class RecordingPage {
   }
 
   back() {
+    this.file.stop();
+    this.file.release();
     this.navCtrl.pop();
   }
 }

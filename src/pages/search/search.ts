@@ -22,21 +22,35 @@ export class SearchPage {
   friendsnames: any = []
   names = []
   userId
+  searchRes
+  searchQuery
   constructor(public app: App, public singleChat: SingleChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
-    let loading = this.loadingctrl.create({
-      showBackdrop: false
-    });
-    loading.present();
-    this.friends.getFriends().subscribe(data => {
-      loading.dismiss();
-      this.friendsList = data;
-      this.friendsnames = data;
-    });
+    // let loading = this.loadingctrl.create({
+    //   showBackdrop: false
+    // });
+    // loading.present();
+    // this.friends.getFriends().subscribe(data => {
+    //   loading.dismiss();
+    //   this.friendsList = data;
+    //   this.friendsnames = data;
+    // });
+  }
+
+  search(term) {
+    if (term != '') {
+      this.friends.search(term, 'user', this.userId).subscribe(res => {
+        // loading.dismiss();
+        console.log(res);
+        this.searchRes = res.users;
+      })
+    }else{
+      this.searchRes = [];
+    }
   }
 
   onInput(evt) {
@@ -64,7 +78,7 @@ export class SearchPage {
         this.app.getRootNav().push(ChatHandlerPage, { cid: res.cid, title: res.name, avatar: res.avatar, 'is_blocked': res.is_blocked, user1: res.user1 });
         // this.app.getRootNav().push(ChatHandlerPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
       } else {
-        this.app.getRootNav().push(NewChatPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
+        this.app.getRootNav().push(NewChatPage, { cid: res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked, user1: res.user1 })
       }
     })
   }

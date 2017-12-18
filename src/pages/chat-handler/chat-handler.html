@@ -15,7 +15,7 @@
         <li><a href="#" (click)="Clear_Conversation()" style="padding:7px 20px">{{'clear-conversation' | translate}}</a></li>
         <li><a href="#" (click)="Report_Conversation()" style="padding:7px 20px">{{'report-conversation' | translate}}</a></li>
         <li *ngIf="is_blocked==false"><a href="#" (click)="Block(the_userId)" style="padding:7px 20px">{{'block' | translate}}</a></li>
-        <li *ngIf="is_blocked==true"><a href="#" (click)="unBlock(the_userid)" style="padding:7px 20px">{{'unblock' | translate}}</a></li>
+        <li *ngIf="is_blocked==true"><a href="#" (click)="unBlock(the_userId)" style="padding:7px 20px">{{'unblock' | translate}}</a></li>
       </ul>
     </div>
     <div>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="msg_box sender" *ngIf="p.type == 'file'">
                   <h4>{{title}}</h4>
-                  <p (click)="askForDownload(p.file)">{{handleFileName(p.file)}}</p>
+                  <p (click)="askForDownload(p.file)" [innerHTML]="handleFileName(p.file)"></p>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
@@ -74,16 +74,7 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <!-- <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
-                  <h4>{{title}}</h4>
-                  <img [src]="p.locationImg" style="width: 500px; height: 200px;">
-                  <time>{{p.time}}</time>
-                </div> -->
-                <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
-                  <h4>{{'you' | translate}}</h4>
-                  <a href="{{p.avatar}}"> {{p.avatar}}</a>
-                  <time>{{p.time}}</time>
-                </div> -->
+
               </div>
 
               <div class="reciever_msg" *ngIf="p.sender_id == userId">
@@ -95,7 +86,7 @@
                 </div>
                 <div class="msg_box reciever" *ngIf="p.type == 'file'">
                   <h4>{{'you' | translate}}</h4>
-                  <p (click)="askForDownload(p.file)">{{handleFileName(p.file)}}</p>
+                  <p (click)="askForDownload(p.file)" [innerHTML]="handleFileName(p.file)"></p>
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">
@@ -103,21 +94,7 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-                <!-- <div class="msg_box reciever" *ngIf="p.type =='location'">
-                  <h4>{{'you' | translate}}</h4>
-                  <img [src]="p.locationImg" style="width: 500px; height: 200px;">
-                  <time>{{p.time}}</time>
-                </div> -->
-                <!-- <div class="msg_box reciever" *ngIf="p.avatar!='' && p.image=='' && p.text==''">
-                  <h4>{{'you' | translate}}</h4>
-                  <a href="{{p.avatar}}"> {{p.avatar}}</a>
-                  <time>{{p.time}}</time>
-                </div> -->
-                <!-- <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
-                  <h4>{{'you' | translate}}</h4>
-                  <a href="{{p.avatar}}"> {{p.avatar}}</a>
-                  <time>{{p.time}}</time>
-                </div> -->
+
               </div>
             </div>
           </div>

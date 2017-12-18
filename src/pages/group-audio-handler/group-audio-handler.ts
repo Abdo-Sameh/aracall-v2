@@ -150,15 +150,15 @@ export class GroupAudioHandlerPage {
       OfferToReceiveVideo: false
     };
 
-    alert('initalize');
+    // alert('initalize');
     connection.audiosContainer = document.getElementById('audios');
     connection.onstream = function(event) {
       console.log(event)
       var audio = event.mediaElement;
       event.isAudioMuted
-      alert(audio);
+      // alert(audio);
       audio.id = event.streamid;
-      alert(audio.id);
+      // alert(audio.id);
       // var node = document.createElement("LI");
       // node.className = "group-call";
       audio.setAttribute("style", "width: 0%; height: 0%;");
@@ -182,16 +182,16 @@ export class GroupAudioHandlerPage {
   }
 
   openOrJoin() {
-    alert('open');
+    // alert('open');
   }
 
   join() {
-    alert('join');
+    // alert('join');
     connection.open('room-id')
   }
 
   connect() {
-    alert('connect');
+    // alert('connect');
     connection.connect('room-id');
   }
 
@@ -203,12 +203,12 @@ export class GroupAudioHandlerPage {
       var hisNativePeer = user.peer;
       var hisIncomingStreams = user.peer.getRemoteStreams();
       var hisDataChannels = user.channels;
-      alert(user);
+      // alert(user);
     });
   }
 
   leave() {
-    alert('you are leaving')
+    // alert('you are leaving')
     connection.attachStreams.forEach(function(localStream) {
       localStream.stop();
     });

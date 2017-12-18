@@ -41,6 +41,7 @@ export class EditProfilePage {
   getUserData() {
     this.settings.getLoggedInUSerProfile(this.userId).subscribe(res => {
       this.user = res;
+      this.userAvatar = res.avatar;
       console.log(this.user);
     })
   }
@@ -53,14 +54,12 @@ export class EditProfilePage {
           text: 'Library',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-
           }
         },
         {
           text: 'Camera',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.CAMERA);
-
           }
         }
       ]
@@ -88,7 +87,7 @@ export class EditProfilePage {
             this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
           });
       } else {
-        alert("else");
+        // alert("else");
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
@@ -111,8 +110,7 @@ export class EditProfilePage {
       this.lastImage = newFileName;
       this.userAvatar = this.pathForImage(this.lastImage);
     }, error => {
-      alert(error);
-
+      // alert(error);
       this.presentToast('Error while storing file.');
     });
   }
@@ -150,7 +148,7 @@ export class EditProfilePage {
     // Destination URL
     var url, options;
 
-    url = "https://arabface.online/demo/api/147896325/profile/change/avatar";
+    url = "https://arabface.online/api/89129812/profile/change/avatar";
     options = {
       fileKey: "avatar",
       fileName: filename,

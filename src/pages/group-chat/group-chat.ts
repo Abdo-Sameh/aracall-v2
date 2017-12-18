@@ -80,8 +80,13 @@ export class GroupChatPage {
   }
 
   handleFileName(path) {
-    let name = path.substring(path.lastIndexOf('/') + 1);
-    return name;
+    let type = path.substring(path.lastIndexOf('.') + 1);
+    if(type == 'mp3' || type == 'wav' || type == 'm4a' || type == 'ogg')
+      return "<audio controls><source src=" + path +"></audio>";
+    else if(type == 'mp4' || type == 'avi' || type == 'flv' || type == 'gif' || type == 'rmvb' || type == 'mpeg')
+      return "<video controls><source src=" + path +"></video>";
+    else
+      return path.substring(path.lastIndexOf('/') + 1) ;
   }
 
   askForDownload(path) {
@@ -145,7 +150,7 @@ export class GroupChatPage {
     };
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
-      alert(imagePath);
+      // alert(imagePath);
       // Special handling for Android library
       if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
         this.filePath.resolveNativePath(imagePath)
@@ -155,7 +160,7 @@ export class GroupChatPage {
             this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
           });
       } else {
-        alert("else");
+        // alert("else");
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName(), 'image');
@@ -175,15 +180,15 @@ export class GroupChatPage {
   }
 
   copyFileToLocalDir(namePath, currentName, newFileName, type) {
-    alert(namePath);
-    alert(currentName);
-    alert(newFileName);
-    alert(type);
+    // alert(namePath);
+    // alert(currentName);
+    // alert(newFileName);
+    // alert(type);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
       this.groupChat.sendMessage(this.group.cid, this.the_userId, this.emojitext, this.lastImage, type, this.userId);
     }, error => {
-      alert(error);
+      // alert(error);
       this.presentToast('Error while storing file.');
     });
   }

@@ -14,7 +14,7 @@ import 'rxjs/add/operator/do';
 let userId;
 @Injectable()
 export class FriendsProvider {
-  serverURL = 'http://udsolutions.co.uk/Arabface/arabface/api/'
+  serverURL = 'https://arabface.online/api/'
   KEY = '89129812'
   constructor(public http: Http) {
     console.log('Hello FriendsProvider Provider');
@@ -36,15 +36,15 @@ export class FriendsProvider {
     return this.http.get(this.serverURL + this.KEY + '/all/blocked?userid=' + userId).map((res: any) => res.json());
   }
 
-  blockUser(id){
+  blockUser(id) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     let urlSearchParams = new URLSearchParams();
-    urlSearchParams.append('id', id );
+    urlSearchParams.append('id', id);
     urlSearchParams.append('userid', userId);
     let body = urlSearchParams.toString()
-    return this.http.post(this.serverURL + this.KEY + '/block/user', body, {headers: headers})
-    .map((res : any ) => res.json());
+    return this.http.post(this.serverURL + this.KEY + '/block/user', body, { headers: headers })
+      .map((res: any) => res.json());
   }
 
   getfriendprofile(userID) {
@@ -74,8 +74,22 @@ export class FriendsProvider {
 
   profileDetailsApiCall(theUserId) {
     return this.http.get(this.serverURL + this.KEY + '/profile/details?userid=' + userId + '&the_userid=' + theUserId)
-    .map((res: any) => res.json());
+      .map((res: any) => res.json());
 
+  }
+
+  // search(term, userid) {
+  //   return new Observable(observer => {
+  //     this.http.get(this.serverURL + this.KEY + '/search?userid=' + userid + '&type=' + 'user' + '&term=' + term).subscribe(data => {
+  //         let data1 = data.text();
+  //         data = JSON.parse(data1);
+  //         observer.next(data);
+  //       })
+  //   })
+  // }
+  search(term, type, userid) {
+    return this.http.get(this.serverURL + this.KEY + '/search?userid=' + userid + '&type=' + type + '&term=' + term)
+      .map((res: any) => res.json());
   }
 
 }

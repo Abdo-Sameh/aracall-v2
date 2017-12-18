@@ -1,4 +1,18 @@
 page-chat-handler {
+  .toolbar-title-ios {
+  	position: relative;
+  	left: -25px;
+  	top: 13px;
+  }
+    .toolbar-title-ios img+div span {
+      width: 93px;
+    overflow: hidden !important;
+    display: block;
+    text-overflow: ellipsis;
+  }
+  .header.header-ios .toolbar-title-ios img+div span {
+    overflow: hidden !important;
+  }
   .rec-btn {
     position: absolute;
     top: 0;
@@ -15,6 +29,10 @@ page-chat-handler {
 
   .rec-btn.open {
     opacity: 1;
+  }
+
+  audio {
+      width: 100%;
   }
 
   .rec {
@@ -258,6 +276,4 @@ page-chat-handler {
   .message-box-2 .toggle-icons a i {
     color: #fff !important;
   }
-
-  
 }
