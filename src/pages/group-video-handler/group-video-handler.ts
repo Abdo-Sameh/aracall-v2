@@ -219,7 +219,6 @@ export class GroupVideoHandlerPage {
         this.groupChat.caller_end_set(member.userid, true)
         this.groupChat.caller_end_set(member.userid, false);
         if (remotestrean != undefined) { connection.close(); }
-
         this.groupChat.set_incoming(member.userid, { 0: "undefined" }, this.userId)
         console.log('caller end poped')
       }

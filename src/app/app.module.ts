@@ -57,6 +57,7 @@ import { SettingsProvider } from '../providers/settings/settings';
 import { FriendsProvider } from '../providers/friends/friends';
 import { GroupVideoHandlerPage } from './../pages/group-video-handler/group-video-handler';
 import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audio-handler';
+import { NativeRingtones } from '@ionic-native/native-ringtones';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,8 @@ import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audi
     PhotoViewer,
     Base64ToGallery,
     Media,
+   NativeRingtones
+    ,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
     SingleChatProvider,

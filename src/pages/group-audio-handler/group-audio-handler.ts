@@ -4,6 +4,7 @@ import { GroupChatProvider } from '../../providers/group-chat/group-chat';
 import { ChatHandlerPage } from '../chat-handler/chat-handler';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
+import { NativeRingtones } from '@ionic-native/native-ringtones';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { Subscription } from "rxjs";
 import { Observable } from 'rxjs/Rx';
@@ -34,7 +35,7 @@ export class GroupAudioHandlerPage {
   number; timer = true;
   text = "Ringing";
   accept = true; deny = true; end = true; speaker = true; mute = true;
-  constructor(public events: Events, private androidPermissions: AndroidPermissions, public navCtrl: NavController, public navParams: NavParams, public groupChat: GroupChatProvider) {
+  constructor(public events: Events, private androidPermissions: AndroidPermissions,private ringtones: NativeRingtones, public navCtrl: NavController, public navParams: NavParams, public groupChat: GroupChatProvider) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.myAvatar = localStorage.getItem('userAvatar');
     console.log(this.myAvatar);
@@ -114,6 +115,8 @@ export class GroupAudioHandlerPage {
       // console.log(this.remotename)
       // this.hidevideo = true;
       // this.time = true;
+      this.ringtones.playRingtone('assets/tone.mp3');
+
       this.groupChat.calee_recieved_set(undefined, true, this.userId);
 
       this.groupChat.caller_end_listen(this.userId).subscribe(data => {

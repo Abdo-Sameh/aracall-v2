@@ -19,22 +19,23 @@ let remotestrean = undefined;
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-
+export declare var RTCMultiConnection: any;
+let connection;
 @Component({
   selector: 'page-video-handler',
   templateUrl: 'video-handler.html',
 })
 export class VideoHandlerPage {
-  @ViewChild('localVideo') localVideo;
-  @ViewChild('selfVideo') selfVideo;
+
   private tick: string;
+  streamId
   userId
   private subscription: Subscription; timer = true
   number; remotename; hideavatar = false; remoteavatar; speaker; hidetext = true; time = true; text = "Ringing"; incoming; hideaccept = true; hidedeny = true; hideend = true; mute = true; hidevideo = true;
   constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public db: SingleChatProvider) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     document.addEventListener("backbutton", onBackKeyDown, false);
-
+    this.initalizeCall();
     function onBackKeyDown() {
       this.end();
     }
@@ -135,26 +136,61 @@ export class VideoHandlerPage {
     console.log('ionViewDidLoad Videohandler2Page');
   }
 
-  ngOnInit() {
-    console.log('inside ng on init')
-    remotevideo = this.localVideo.nativeElement;
-    localvideo = this.selfVideo.nativeElement;
-    navigator.getUserMedia({ audio: true, video: true }, (stream) => {
-      localvideo.srcObject = stream
-      pc = new RTCPeerConnection(servers);
-      this.db.placelistener(this.number).subscribe(data => {
-        var array = $.map(data, function(value, index) {
-          return [value];
-        });
-        this.readmessage(data);
-      })
-      pc.addStream(stream)
-      this.init();
-      if (this.incoming == true) {
-        this.call();
-      }
-    }, (err) => console.error(err))
+  initalizeCall() {
+    connection = new RTCMultiConnection();
+    connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+
+    // if you want audio+video conferencing
+    connection.session = {
+      audio: true,
+      video: true
+    };
+
+    connection.sdpConstraints.mandatory = {
+      OfferToReceiveAudio: true,
+      OfferToReceiveVideo: true
+    };
+    alert('initalize');
+
+    connection.onstream = function(event) {
+      var video = event.mediaElement;
+      alert(video);
+      video.id = event.streamid;
+      this.streamId = event.streamid;
+      alert(video.id);
+      var node = document.createElement("LI");
+      node.className = "group-call";
+      video.setAttribute("style", "width: 100%; height: 100%;");
+      video.removeAttribute("controls") ;
+      document.getElementById("Videos").appendChild(node).appendChild(video);
+    };
+    // console.log((this.cid * 1000000000).toString(16));
+    if(this.incoming == false){
+      alert(this.number);
+      connection.openOrJoin(this.number);
+    }
   }
+
+  // ngOnInit() {
+  //   console.log('inside ng on init')
+  //   remotevideo = this.localVideo.nativeElement;
+  //   localvideo = this.selfVideo.nativeElement;
+  //   navigator.getUserMedia({ audio: true, video: true }, (stream) => {
+  //     localvideo.srcObject = stream
+  //     pc = new RTCPeerConnection(servers);
+  //     this.db.placelistener(this.number).subscribe(data => {
+  //       var array = $.map(data, function(value, index) {
+  //         return [value];
+  //       });
+  //       this.readmessage(data);
+  //     })
+  //     pc.addStream(stream)
+  //     this.init();
+  //     if (this.incoming == true) {
+  //       this.call();
+  //     }
+  //   }, (err) => console.error(err))
+  // }
 
   init() {
     pc.onicecandidate = (event => (event.candidate) ? this.sendmessage(myid, JSON.stringify({ 'ice': event.candidate })) : console.log("Sent All Ice"));
@@ -231,6 +267,7 @@ export class VideoHandlerPage {
       console.log('callee end setroot')
       this.navCtrl.setRoot(TabsPage, { tabIndex: 0 })
     }
+    connection.close();
   }
 
   deny() {
@@ -245,6 +282,7 @@ export class VideoHandlerPage {
   }
 
   accept() {
+    connection.openOrJoin(this.number);
     this.hidetext = true;
     this.hideavatar = true;
     this.db.callee_accept_set(undefined, true, this.userId);
