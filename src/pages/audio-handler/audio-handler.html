@@ -21,6 +21,7 @@
 
   <!--<ion-icon name="md-arrow-back" (click)="goback()"></ion-icon>-->
   <section class="bg_grey full_vh " style="min-height:100vh">
+    <div id="audios"></div>
     <div></div>
     <video class="self-video" #selfVideo autoplay muted></video>
     <video class="local-video" #localVideo autoplay [muted]="mute" [hidden]="hidevideo"></video>
@@ -31,7 +32,11 @@
       <p style="text-align:center;color:black;margin:0;" [hidden]="hidetext">{{text}}</p>
     </div>
     <ul class="group-call-btn">
-      <li (click)="mutesound()" id='mute' [hidden]="mutehideend">
+      <li (click)="unmuteCall()" id='mute' [hidden]="unmute">
+        <a href="#"><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
+        <span>{{'unmute' | translate}}</span>
+      </li>
+      <li (click)="muteCall()" id='mute' [hidden]="mutehideend">
         <a href="#"><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
         <span>{{'mute' | translate}}</span>
       </li>

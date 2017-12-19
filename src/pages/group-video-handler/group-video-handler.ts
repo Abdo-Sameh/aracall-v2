@@ -5,6 +5,8 @@ import { ChatHandlerPage } from '../chat-handler/chat-handler';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { NativeRingtones } from '@ionic-native/native-ringtones';
+
 import { Subscription } from "rxjs";
 import { Observable } from 'rxjs/Rx';
 import * as $ from 'jquery'
@@ -22,7 +24,7 @@ let remotestrean = undefined;
  */
 // let connection = new RTCMultiConnection();
 export declare var RTCMultiConnection: any;
-let connection;
+let connection, streamId;
 @Component({
   selector: 'page-group-video-handler',
   templateUrl: 'group-video-handler.html',
@@ -37,12 +39,14 @@ export class GroupVideoHandlerPage {
   number; timer = true;
   text = "Ringing";
   streamId
-  accept = true; deny = true; end = true; speaker = true; mute = true;
-  constructor(public events: Events, private androidPermissions: AndroidPermissions, public navCtrl: NavController, public navParams: NavParams, public groupChat: GroupChatProvider) {
+  name
+  accept = true; deny = true; end = true; speaker = true; mute = true; unmute = true;
+  constructor(public events: Events, private androidPermissions: AndroidPermissions, private ringtones: NativeRingtones, public navCtrl: NavController, public navParams: NavParams, public groupChat: GroupChatProvider) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.incoming = this.navParams.get('remote');
     this.number = this.navParams.get('number');
+    this.name = this.navParams.get('name');
     this.members = this.navParams.get('members');
     this.initalizeCall();
     if (this.incoming != true) {
@@ -61,27 +65,31 @@ export class GroupVideoHandlerPage {
       this.groupChat.callee_recieved_listen(this.cid).subscribe(data => {
         if (data == true) { this.text = "Ringing" }
       })
-      this.groupChat.callee_accept_listen(this.cid).subscribe(data => {
-        console.log('accept listen is' + data)
-        if (data == true) {
-          this.timer = false;
-          this.speaker = false;
-          // this.hideavatar = true; this.hidetext = true; this.hidevideo = false; this.mute = false;
-          let counter = 0;
-          let iteration = 0;
-          setInterval(function(newseconds) {
-            var minutes = iteration;
-            var seconds = counter;
-            counter++;
-            if (seconds == 59) {
-              iteration++;
-              counter = 0;
-            }
-            var timer = minutes + ':' + seconds;
-            $(".video-timer").html(timer);
-          }, 1000);
-        }
-      })
+      for (let member of this.members) {
+        this.groupChat.callee_accept_listen(member.userid).subscribe(data => {
+          console.log('accept listen is' + data)
+          if (data == true) {
+            this.timer = false;
+            this.speaker = false;
+            // this.hideavatar = true;
+            // this.hidetext = true; this.hidevideo = false;
+            this.mute = false;
+            let counter = 0;
+            let iteration = 0;
+            setInterval(function(newseconds) {
+              var minutes = iteration;
+              var seconds = counter;
+              counter++;
+              if (seconds == 59) {
+                iteration++;
+                counter = 0;
+              }
+              var timer = minutes + ':' + seconds;
+              $(".video-timer").html(timer);
+            }, 1000);
+          }
+        })
+      }
       this.groupChat.callee_end_listen(this.cid).subscribe(data => {
         console.log('callee end data ' + data)
         if (data == true) {
@@ -104,6 +112,9 @@ export class GroupVideoHandlerPage {
       // this.remoteavatar = this.navParams.get('avatar')
       // this.remotename = this.navParams.get('name')
       this.accept = false;
+      this.ringtones.getRingtone().then((ringtones) => {
+        this.ringtones.playRingtone(ringtones[0]['Url']);
+      });
       this.deny = false;
       this.end = true;
       this.mute = true;
@@ -153,22 +164,36 @@ export class GroupVideoHandlerPage {
       var video = event.mediaElement;
       // alert(video);
       video.id = event.streamid;
-      this.streamId = event.streamid;
+      streamId = event.streamid;
       // alert(video.id);
       var node = document.createElement("LI");
       node.className = "group-call";
       video.setAttribute("style", "width: 100%; height: 100%;");
-      video.removeAttribute("controls") ;
+      video.removeAttribute("controls");
       document.getElementById("Videos").appendChild(node).appendChild(video);
     };
     // console.log((this.cid * 1000000000).toString(16));
-    if(this.incoming == false){
+    if (this.incoming == false) {
       connection.openOrJoin(this.number);
     }
   }
 
   muteCall() {
-    connection.streamEvents[this.streamId].stream.mute('audio');
+    this.unmute = false;
+    this.mute = true;
+    connection.streamEvents[streamId].stream.mute('audio');
+    connection.attachStreams.forEach(function(stream) {
+      stream.mute(); // mute all tracks
+    });
+  }
+
+  unmuteCall() {
+    this.unmute = true;
+    this.mute = false;
+    connection.streamEvents[streamId].stream.unmute('audio');
+    connection.attachStreams.forEach(function(stream) {
+      stream.unmute(); // mute all tracks
+    });
   }
 
   openOrJoin() {
@@ -208,6 +233,9 @@ export class GroupVideoHandlerPage {
 
   endCall() {
     this.events.publish('callended', "user");
+    this.ringtones.getRingtone().then((ringtones) => {
+      this.ringtones.playRingtone(ringtones[3]['Url']);
+    });
     // audioTracks.enabled = false
     if (this.incoming != true) {
       for (let member of this.members) {
@@ -241,9 +269,12 @@ export class GroupVideoHandlerPage {
 
   acceptCall() {
     connection.openOrJoin(this.number);
+    this.ringtones.getRingtone().then((ringtones) => {
+      this.ringtones.playRingtone(ringtones[0]['Url']);
+    });
     // this.text = true;
     // this.hideavatar = true;
-    this.groupChat.callee_accept_set(undefined, true);
+    this.groupChat.callee_accept_set(this.userId, true);
     // this.hidevideo = false;
     this.mute = false;
     this.accept = true;
@@ -258,6 +289,9 @@ export class GroupVideoHandlerPage {
 
   denyCall() {
     this.events.publish('callended', "user")
+    this.ringtones.getRingtone().then((ringtones) => {
+      this.ringtones.playRingtone(ringtones[0]['Url']);
+    });
     this.groupChat.callee_deny_set(undefined, true);
     this.groupChat.callee_deny_set(undefined, false);
     this.groupChat.calee_recieved_set(undefined, false, this.userId)

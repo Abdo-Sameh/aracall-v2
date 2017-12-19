@@ -41,8 +41,12 @@
         <span>{{'deny' | translate}}</span>
       </li>
       <li (click)="muteCall()" [hidden]="mute">
-        <a href="#"><i class="ion-ios-mic-off"></i></a>
+        <a href="#"><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
         <span>{{'mute' | translate}}</span>
+      </li>
+      <li (click)="unmuteCall()" [hidden]="unmute">
+        <a href="#"><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
+        <span>{{'unmute' | translate}}</span>
       </li>
       <li (click)="endCall()" [hidden]="end">
         <a href="#"><img src="./assets/images/svg/end-call-button.svg" style="width:25px; height:25px; margin-top:15px" /></a>

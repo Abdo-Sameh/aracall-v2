@@ -63,6 +63,7 @@
         "cordova-plugin-ionic-webview": "^1.1.11",
         "cordova-plugin-media": "^3.0.1",
         "cordova-plugin-native-ringtones": "^0.2.5",
+        "cordova-plugin-nativeaudio": "^3.0.9",
         "cordova-plugin-photo-library": "^2.1.0",
         "cordova-plugin-splashscreen": "^4.1.0",
         "cordova-plugin-vibration": "^2.1.6",
@@ -111,7 +112,8 @@
             "cordova-plugin-compat": {},
             "cordova-plugin-file-transfer": {},
             "com-sarriaroman-photoviewer": {},
-            "cordova-plugin-native-ringtones": {}
+            "cordova-plugin-native-ringtones": {},
+            "cordova-plugin-nativeaudio": {}
         },
         "platforms": [
             "android"

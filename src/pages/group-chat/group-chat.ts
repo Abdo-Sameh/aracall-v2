@@ -371,7 +371,7 @@ export class GroupChatPage {
       }
     }
     loading1.dismiss()
-    this.navCtrl.push(GroupVideoHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "vid" + number.toString(16) });
+    this.navCtrl.push(GroupVideoHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "vid" + number.toString(16), name: this.group.group_name });
   }
 
   audio() {
@@ -386,7 +386,7 @@ export class GroupChatPage {
       }
     }
     loading1.dismiss()
-    this.navCtrl.push(GroupAudioHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "aud" + number.toString(16) });
+    this.navCtrl.push(GroupAudioHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "aud" + number.toString(16), name: this.group.group_name });
   }
 
 }
