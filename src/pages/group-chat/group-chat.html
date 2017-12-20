@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <div class="dropdown" style="float: right; margin-right: 20px; margin-top: 12px;">
+    <div class="dropdown header-dropdown">
 
       <ion-icon class="dropdown-toggle" data-toggle="dropdown" name="more" style="color:#fff"></ion-icon>
       <ul class="dropdown-menu dropdown-right" style="margin-top: 19px !important;">
@@ -19,13 +19,13 @@
     </div>
     <div>
       <ion-title>
-        <div style="float:left;text-align:left;">
-          <div style="margin-right:5px;float:left;width:25px;height:25px;"> </div>
-          <span (click)="goToGroupInfo()" style="font-size:16px;text-align:center;position:relative;">{{group.title}}</span>
+        <div class="box-title">
+          <div class="box-img"> </div>
+          <span class="b-title" (click)="goToGroupInfo()">{{group.title}}</span>
         </div>
       </ion-title>
     </div>
-    <ion-icon class="headerico" name="ios-videocam" (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
+    <ion-icon class="headerico headerico-video" name="ios-videocam" (click)="video()"></ion-icon>
     <ion-icon class="headerico" name="ios-call" (click)="audio()" style="background-color:#fff"></ion-icon>
 
     <!-- <h5 style="color:gray;margin-top:11px;margin-left:30px">
@@ -158,7 +158,7 @@
           </ul>
           <div class="type-message">
             <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <input type="text" class="form-control" name="msg" placeholder="Type Message......"  [(ngModel)]="emojitext"  name="email">
+            <input type="text" class="form-control" name="msg" placeholder="{{'type-message' | translate}}"  [(ngModel)]="emojitext"  name="email">
             <a (click)="openCamera()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <a (click)="openMore()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <a (click)="send()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>

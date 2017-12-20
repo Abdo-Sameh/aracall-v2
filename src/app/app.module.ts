@@ -26,7 +26,6 @@ import { Vibration } from '@ionic-native/vibration';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { SignaturePage } from '../pages/signature/signature'
-import { UploadImagePage } from '../pages/upload-image/upload-image';
 import { FriendProfilePage } from './../pages/friend-profile/friend-profile';
 import { GroupInfoPage } from './../pages/group-info/group-info';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
@@ -63,7 +62,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
+    LoginPage, SignaturePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
     GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage , GroupVideoHandlerPage , GroupAudioHandlerPage
   ],
@@ -84,7 +83,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp, LoginPage, SignaturePage, UploadImagePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
+    MyApp, LoginPage, SignaturePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
     GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage , GroupVideoHandlerPage , GroupAudioHandlerPage
   ],

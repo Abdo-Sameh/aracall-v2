@@ -365,6 +365,7 @@ export class ChatHandlerPage {
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
+    loading1.present();
     this.singleChat.remoteid(this.username, this.userId).then(data => {
       let number = Math.floor(Math.random() * 1000000000);
       this.singleChat.sendnumber(data, number, 'audio', this.userId);
@@ -378,11 +379,12 @@ export class ChatHandlerPage {
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
+    loading1.present();
     let number = Math.floor(Math.random() * 1000000000);
     this.singleChat.remoteid(this.username, this.userId).then(data => {
       this.singleChat.sendnumber(data, number, 'video', this.userId);
       let avatar = this.remoteavatar;
-      loading1.dismiss()
+      loading1.dismiss();
       this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
     })
   }

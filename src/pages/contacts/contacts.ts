@@ -37,6 +37,22 @@ export class ContactsPage {
     });
   }
 
+  // swipeEvent(e) {
+  //   console.log(e.direction)
+  //   if (e.direction == '1') {
+  //     this.navCtrl.parent.select(1);
+  //   }
+  //   // else if (e.direction == '4') {
+  //   //   this.navCtrl.parent.select(0);
+  //   // }
+  //   // else if (e.direction == '1') {
+  //   //   this.navCtrl.parent.select(1);
+  //   // }
+  //   // else if (e.direction == '3') {
+  //   //   this.navCtrl.parent.select(3);
+  //   // }
+  // }
+
   goTochatPage(other_userid) {
     this.singleChat.check_chat_history(other_userid, this.userId).subscribe(res => {
       console.log(res);

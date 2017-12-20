@@ -125,7 +125,7 @@ body {
 .add-btn {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   z-index: 9999;
   background: #5c0632;
   width: 40px;
@@ -467,27 +467,35 @@ body {
 }
 
 .mr-5 {
-  margin-right: 5px !important;
+  margin-left: 5px !important;
 }
 
 .mr-10 {
-  margin-right: 10px !important;
+  margin-left: 10px !important;
 }
 
 .mr-15 {
-  margin-right: 15px !important;
+  margin-left: 15px !important;
 }
 
 .mr-20 {
-  margin-right: 20px !important;
+  margin-left: 20px !important;
 }
 
 .mr-30 {
-  margin-right: 30px !important;
+  margin-left: 30px !important;
 }
 
 .fz-11 {
   font-size: 11px !important;
+}
+
+.pull-left {
+  float: right !important;
+}
+
+.pull-right {
+  float: left !important;
 }
 
 /*============================
@@ -1603,7 +1611,7 @@ Start Profile
 
 .contact_item .checkbox {
   position: absolute;
-  right: 25px;
+  left: 25px;
   top: 30px;
 }
 
@@ -1629,14 +1637,14 @@ Start Profile
 
 .contact_item .contact_info {
   width: 75%;
-  float: left;
+  float: right !important;
   overflow: hidden;
   position: relative;
 }
 
 .contact_item .contact_img {
   width: 25%;
-  float: left;
+  float: right !important;
 }
 
 .contact_item .contact_img img {
@@ -1665,6 +1673,12 @@ Start Profile
 
 .searchbar-md .searchbar-input {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14) !important;
+  text-align: right;
+}
+
+.searchbar-search-icon {
+  float: right;
+  right: 16px;
 }
 
 .type-message .toggle-arrow img:last-child {
@@ -1748,28 +1762,41 @@ ion-navbar.toolbar {
   width: 19px !important;
   height: 19px !important;
 }
+
 .box-title {
-  float:left;text-align:left;
+  float: right;
+  text-align: right;
 }
+
 .box-img {
-  margin-right:10px !important;float:left;width:25px;height:25px;
+  margin-left: 10px !important;
+  float: right;
+  width: 25px;
+  height: 25px;
 }
+
 .b-title {
-  font-size:16px;text-align:center;position:relative;
+  font-size: 16px;
+  text-align: center;
+  position: relative;
   display: block;
   width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   direction: ltr;
 }
+
 .header-dropdown {
-  float: right; margin-right: 20px !important; margin-top: 12px !important;
+  float: left;
+  margin-top: 12px !important;
+  margin-left: 15px !important;
 }
+
 .headerico {
-  float: right;
+  float: left;
   color: #fff;
   margin-top: 0;
-  margin-right: 25px;
+  margin-left: 25px;
   margin-bottom: 5px;
   width: 30px;
   height: 30px;
@@ -1784,11 +1811,12 @@ ion-navbar.toolbar {
   position: relative;
   top: -14px;
 }
+
 .headerico-video {
-  margin-left: -10px;background-color:#fff;
+  background-color: #fff;
 }
-.group-call-btn,
-.message-box-2 .toggle-icons {
+
+.group-call-btn, .message-box-2 .toggle-icons {
   position: absolute;
   bottom: 15%;
   left: 0;
@@ -1800,15 +1828,13 @@ ion-navbar.toolbar {
   z-index: 10;
 }
 
-.group-call-btn li,
-.message-box-2 .toggle-icons li {
+.group-call-btn li, .message-box-2 .toggle-icons li {
   float: left;
   width: 33.333%;
   text-align: center;
 }
 
-.group-call-btn li a,
-.message-box-2 .toggle-icons a i {
+.group-call-btn li a, .message-box-2 .toggle-icons a i {
   display: inline-block;
   color: #fff;
   font-size: 20px;
@@ -1824,8 +1850,7 @@ ion-navbar.toolbar {
   transform: rotate(135deg);
 }
 
-.group-call-btn li span,
-.message-box-2 .toggle-icons span {
+.group-call-btn li span, .message-box-2 .toggle-icons span {
   display: block;
   color: #5c0632;
   font-size: 14px;
@@ -1872,45 +1897,70 @@ ion-navbar.toolbar {
   border: none;
 }
 
-.message-box-2 .type-message a:nth-child(1),
-.message-box-2 .type-message a:nth-child(3),
-.message-box-2 .type-message a:nth-child(4) {
+.message-box-2 .type-message a:nth-child(1), .message-box-2 .type-message a:nth-child(3), .message-box-2 .type-message a:nth-child(4) {
   position: absolute;
   top: 0;
   z-index: 2;
 }
 
 .message-box-2 .type-message a:nth-child(1) {
-  left: 15px;
+  right: 15px;
 }
 
 .message-box-2 .type-message a:nth-child(3) {
-  right: 55px;
+  left: 55px;
 }
 
 .message-box-2 .type-message a:nth-child(4) {
-  right: 90px;
+  left: 90px;
 }
 
 .message-box-2 .type-message a:nth-child(5) {
   position: relative;
-  left: calc( 100% - 20px);
+  right: calc( 100% - 20px);
   top: 3px;
 }
 
-.group-call-btn li a,
-.message-box-2 .toggle-icons a i {
+.group-call-btn li a, .message-box-2 .toggle-icons a i {
   color: #fff !important;
 }
 
-.input-create-group {
-  width:85%;margin-left:7.5% !important;
+.message-box-2 .type-message a:nth-child(5) img {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
+
+.dropdown-right {
+  left: 0 !important;
+  right: auto !important;
+}
+
+.b-title-float {
+  float: right;
+  text-align: right;
+  overflow: hidden;
+}
+
+.input-create-group {
+  width: 85%;
+  margin-right: 7.5% !important;
+}
+
 video {
   width: 100%;
 }
 
 ion-fab {
-    bottom: 20px;
-    right: 20px;
+  bottom: 20px;
+  left: 20px;
+}
+
+.searchbar-md .searchbar-clear-icon {
+  left: 13px !important;
+  top: 0;
+}
+
+.back-button {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }

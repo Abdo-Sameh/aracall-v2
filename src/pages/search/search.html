@@ -4,8 +4,8 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-content>
-  <ion-searchbar type="text" [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}" (ionInput)="search(searchQuery)"></ion-searchbar>
+<ion-content >
+  <ion-searchbar type="text" placeholder="{{'search' | translate}}" [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}" (ionInput)="search(searchQuery)"></ion-searchbar>
   <form #userForm="ngForm" (ngSubmit)="onclick(userForm.value)">
     <main class="page">
       <div class="bg_color">

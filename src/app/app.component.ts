@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Inject } from '@angular/core';
 import { Platform, Nav, Events } from 'ionic-angular';
+import { DOCUMENT } from '@angular/platform-browser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
@@ -24,13 +25,12 @@ export class MyApp {
   checkLogin = localStorage.getItem('loggedIn')
   avatar
   userId
-  constructor(public groupChat: GroupChatProvider, public singleChat: SingleChatProvider, public events: Events, globalization: Globalization, translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(@Inject(DOCUMENT) private document, public groupChat: GroupChatProvider, public singleChat: SingleChatProvider, public events: Events, globalization: Globalization, translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     platform.ready().then(() => {
-      // translate.setDefaultLang('en');
-      // platform.setDir('ltr', true);
-
-      //  this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main.css');
+      // translate.setDefaultLang('ar');
+      // platform.setDir('rtl', true);
+      //  this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main-ar.css');
 
       globalization.getPreferredLanguage()
         .then(res => {
@@ -38,10 +38,10 @@ export class MyApp {
           translate.setDefaultLang((res.value).split("-")[0]);
           if (translate.getDefaultLang() == "ar") {
             platform.setDir('rtl', true);
-            //this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main-ar.css');
+            this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main-ar.css');
           } else {
             platform.setDir('ltr', true);
-            //this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main.css');
+            this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main.css');
           }
         });
 

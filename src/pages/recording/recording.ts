@@ -23,8 +23,6 @@ export class RecordingPage {
   public seconds: number = 0;
   constructor(public filePath: File, private media: Media, public navCtrl: NavController, public navParams: NavParams) {
 
-
-
     this.filePath.checkDir('file:///storage/emulated/0/', 'Recordings').then(() => {
       // Media Directory Exists, do nothing.
       // alert('Media Storage Loaded');
@@ -43,7 +41,6 @@ export class RecordingPage {
       }).catch(err => {
         // alert('CRITICAL ERROR. MEDIA STORAGE DIRECTORY FAILED TO BE CREATED:' + err);
         // alert('Because of this, media files cannot be stored or loaded locally');
-
       });
     });
   }
@@ -64,8 +61,6 @@ export class RecordingPage {
   }
 
   startRecording() {
-
-
     try {
       this.file.startRecord();
       window.setTimeout(() => this.file.stopRecord(), 30000);

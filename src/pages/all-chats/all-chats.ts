@@ -36,6 +36,22 @@ export class AllChatsPage {
     })
   }
 
+  // swipeEvent(e) {
+  //   console.log(e)
+  //   if (e.direction == '2') {
+  //     this.navCtrl.parent.select(2);
+  //   }
+  //   // else if (e.direction == '4') {
+  //   //   this.navCtrl.parent.select(0);
+  //   // }
+  //   // else if (e.direction == '1') {
+  //   //   this.navCtrl.parent.select(1);
+  //   // }
+  //   // else if (e.direction == '3') {
+  //   //   this.navCtrl.parent.select(3);
+  //   // }
+  // }
+
   newBroadcast() {
     this.app.getRootNav().push(BroadcastPage);
   }

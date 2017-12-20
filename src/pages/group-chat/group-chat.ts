@@ -363,6 +363,7 @@ export class GroupChatPage {
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
+    loading1.present();
     let number = Math.floor(Math.random() * 1000000000);
     for (let member of this.groupMembers) {
       if (member.userid != this.userId) {
@@ -378,6 +379,7 @@ export class GroupChatPage {
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
+    loading1.present();
     let number = Math.floor(Math.random() * 1000000000);
     for (let member of this.groupMembers) {
       if (member.userid != this.userId) {

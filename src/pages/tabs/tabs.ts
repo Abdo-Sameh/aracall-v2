@@ -31,6 +31,8 @@ export class TabsPage {
     console.log('ionViewDidLoad TabsPage');
   }
 
+  
+
   more() {
     this.navCtrl.push(MorePage);
   }

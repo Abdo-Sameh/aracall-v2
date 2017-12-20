@@ -22,7 +22,7 @@ let remotestrean = undefined;
  * on Ionic pages and navigation.
  */
 export declare var RTCMultiConnection: any;
-let connection, streamId;
+let connection, streamId, timer1, timer2;
 @Component({
   selector: 'page-video-handler',
   templateUrl: 'video-handler.html',
@@ -72,8 +72,8 @@ export class VideoHandlerPage {
           this.speaker = false;
           this.hideavatar = true; this.hidetext = true; this.hidevideo = false; this.mute = false;
           let counter = 0;
-          let iteration = 0;
-          setInterval(function(newseconds) {
+          let iteration = 0; this.timer = false
+          timer1 = setInterval(function() {
             var minutes = iteration;
             var seconds = counter;
             counter++;
@@ -81,8 +81,8 @@ export class VideoHandlerPage {
               iteration++;
               counter = 0;
             }
-            var timer = minutes + ':' + seconds;
-            $(".video-timer").html(timer);
+            var Timer = minutes + ':' + seconds;
+            $(".video-timer").html(Timer);
           }, 1000);
         }
       })
@@ -184,7 +184,7 @@ export class VideoHandlerPage {
   muteCall() {
     this.unmute = false;
     this.mute = true;
-    connection.streamEvents[streamId].stream.mute('audio');
+    // connection.streamEvents[streamId].stream.mute('audio');
     connection.attachStreams.forEach(function(stream) {
       stream.mute(); // mute all tracks
     });
@@ -193,7 +193,7 @@ export class VideoHandlerPage {
   unmuteCall() {
     this.unmute = true;
     this.mute = false;
-    connection.streamEvents[streamId].stream.unmute('audio');
+    // connection.streamEvents[streamId].stream.unmute('audio');
     connection.attachStreams.forEach(function(stream) {
       stream.unmute(); // mute all tracks
     });
@@ -239,6 +239,7 @@ export class VideoHandlerPage {
       this.db.set_incoming(remoteid, { 0: "undefined" }, this.userId)
       console.log('caller end poped')
       connection.close();
+      clearInterval(timer1);
       this.navCtrl.pop()
     } else {
       this.db.calee_recieved_set(undefined, false, this.userId)
@@ -252,6 +253,7 @@ export class VideoHandlerPage {
       this.db.set_incoming(undefined, { 0: "undefined" }, this.userId)
       console.log('callee end setroot')
       connection.close();
+      clearInterval(timer2);
       this.navCtrl.pop()
     }
 
@@ -284,10 +286,19 @@ export class VideoHandlerPage {
     this.hideaccept = true;
     this.hidedeny = true;
     this.hideend = false;
-    //hide style of caller
-    // this.db.caller_end_listen().subscribe(data => {
-    //   if (data == true){this.end()}
-    // })
+    let counter = 0;
+    let iteration = 0; this.timer = false
+    timer2 = setInterval(function() {
+      var minutes = iteration;
+      var seconds = counter;
+      counter++;
+      if (seconds == 59) {
+        iteration++;
+        counter = 0;
+      }
+      var Timer = minutes + ':' + seconds;
+      $(".video-timer").html(Timer);
+    }, 1000);
 
   }
 }

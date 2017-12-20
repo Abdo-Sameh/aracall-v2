@@ -6,12 +6,12 @@
 -->
 
 
-<ion-content>
+<ion-content >
 
-  <ion-fab right bottom style="right: 20px; bottom: 15px;">
+  <ion-fab>
     <button ion-fab style="color:0c9fcb">
 	<ion-icon>
-    <img src="./assets/images/svg/001-add.svg" style="width:20px; height:20px;"> 
+    <img src="./assets/images/svg/001-add.svg" style="width:20px; height:20px;">
 	</ion-icon>
 
 	</button>
@@ -26,7 +26,8 @@
   <main class="page">
     <div class="bg_color">
       <div class="contacts">
-        <div class="container">
+        <div  class="container">
+
           <ion-refresher (ionRefresh)="doRefresh($event);">
             <ion-refresher-content refreshingSpinner="circles">
             </ion-refresher-content>

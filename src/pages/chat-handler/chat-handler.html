@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <div class="dropdown" style="float: right; margin-right: 20px; margin-top: 12px;">
+    <div class="dropdown header-dropdown">
 
       <ion-icon class="dropdown-toggle" data-toggle="dropdown" name="more" style="color:#fff"></ion-icon>
 
@@ -20,8 +20,8 @@
     </div>
     <div>
       <ion-title>
-        <img [src]="remoteavatar" width="25" height="25" style="margin-right:5px;float:left; border-radius: 100px;" alt="">
-        <div style="float:left;text-align:left;">
+        <img [src]="remoteavatar" width="25" height="25" class="box-img" alt="">
+        <div class="b-title b-title-float">
           <span style="font-size: 14px;position: relative;top: -6px;">{{username}}</span>
           <h5 *ngIf="settings[0].last_seen_status == '1' || settings[0].last_seen_status == null || is_blocked==false" style="color: #ededed;font-size: 10px;position: relative;top: -9px;">{{lastonline}}</h5>
 
@@ -29,12 +29,12 @@
 
       </ion-title>
     </div>
-    <div class="headerico" style="background:none;box-shadow:none;"></div>
+    <!-- <div class="headerico" style="background:none;box-shadow:none;"></div> -->
     <div>
-      <ion-icon class="headerico" name="ios-videocam" *ngIf="is_blocked==false" (click)="video()" style="margin-left: -10px;background-color:#fff"></ion-icon>
+      <ion-icon class="headerico headerico-video" name="ios-videocam" *ngIf="is_blocked==false" (click)="video()"></ion-icon>
     </div>
     <div>
-      <ion-icon class="headerico" name="ios-call" *ngIf="is_blocked==false" (click)="call()" style="background-color:#fff"></ion-icon>
+      <ion-icon class="headerico" name="ios-call" *ngIf="is_blocked==false" (click)="call()"></ion-icon>
     </div>
   </ion-navbar>
 </ion-header>
@@ -147,7 +147,7 @@
           </ul>
           <div class="type-message">
             <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <input type="text" class="form-control" name="msg" placeholder="Type Message......" [(ngModel)]="emojitext" name="email">
+            <input type="text" class="form-control" name="msg" placeholder="{{'type-message' | translate}}" [(ngModel)]="emojitext" name="email">
             <a (click)="openCamera();  vibrate()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <a (click)="openMore(); vibrate()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
             <a id="send" (click)="send(); vibrate()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>

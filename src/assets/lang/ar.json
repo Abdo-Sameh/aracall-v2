@@ -496,6 +496,18 @@
 
 	"version": "الإصدار",
 
+	"new-broadcast" : "رسالة جماعية جديدة",
+
+	"audio" : "تسجيل صوت",
+
+	"document" : "مستند",
+
+	"handwriting" : "كتابة باليد",
+
+	"gallery" : "المعرض",
+
+	"type-message" : "اكتب رسالة",
+
 	"send-me-notifications-when" : "يرسل الي التطبيق الاشعارات عندما ",
 
 	"visit-plugin-site": "زيارة موقع المساعد",

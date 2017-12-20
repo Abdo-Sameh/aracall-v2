@@ -534,6 +534,8 @@
 
   "save-settings": "Save settings",
 
+  "type-message" : "Type a message",
+
   "general-settings-description": "Manage general settings like site title,description,keywords and more settings you can find below",
 
   "upload-site-logo": "Upload site logo",

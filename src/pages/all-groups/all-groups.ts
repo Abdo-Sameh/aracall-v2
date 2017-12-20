@@ -31,6 +31,22 @@ export class AllGroupsPage {
 
   }
 
+  // swipeEvent(e) {
+  //   console.log(e.direction);
+  //   if (e.direction == '2') {
+  //     this.navCtrl.parent.select(2);
+  //   }
+  //   else if (e.direction == '4') {
+  //     this.navCtrl.parent.select(4);
+  //   }
+  //   // else if (e.direction == '1') {
+  //   //   this.navCtrl.parent.select(1);
+  //   // }
+  //   // else if (e.direction == '3') {
+  //   //   this.navCtrl.parent.select(3);
+  //   // }
+  // }
+
   newGroup() {
     this.app.getRootNav().push(CreateGroupPage);
   }

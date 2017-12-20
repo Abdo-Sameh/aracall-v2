@@ -30,11 +30,11 @@
                     <input id="profile-upload" type="file" class="hide">
                   </div>
                 </div>
-                <h1 style="text-align:center;font-size:22px">{{user.first_name }} {{ user.last_name}}</h1>
+                <h1 style="text-align:center;font-size:22px;margin-bottom:20px;">{{user.first_name }} {{ user.last_name}}</h1>
 
                 <div class="form-group mb-15">
                   <label for="status">{{'status' | translate}}</label><a href="#" (click)="changeStatus()" style="    padding: 4px 0px 2px 13px;
-									margin-bottom: 10px;" class="btn btn-theme btn-sm pull-right"><img src="./assets/images/svg/edit.svg" class="mr-15" style="width:14px;height:14px"/></a>
+									margin-bottom: 10px;" class="btn btn-theme btn-sm pull-right"><img src="./assets/images/svg/edit.svg" style="width:14px;height:14px;margin-right:15px;"/></a>
                   <div class="clearfix"></div>
                   <textarea class="form-control" id="status" disabled>{{userStatus}}</textarea>
                 </div>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="form-group mt-30 mb-30">
-                  <input type="submit" (click)="editProfilePage()" value="Edit Profile" class="btn btn-theme">
+                  <input type="submit" (click)="editProfilePage()" value="{{'edit-profile' | translate}}" class="btn btn-theme">
                 </div>
               </form>
             </div>

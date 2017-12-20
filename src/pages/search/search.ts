@@ -41,6 +41,22 @@ export class SearchPage {
     // });
   }
 
+  // swipeEvent(e) {
+  //   console.log(e.direction);
+  //   if (e.direction == '1') {
+  //     this.navCtrl.parent.select(1);
+  //   }
+  //   else if (e.direction == '4') {
+  //     this.navCtrl.parent.select(0);
+  //   }
+  //   // else if (e.direction == '1') {
+  //   //   this.navCtrl.parent.select(1);
+  //   // }
+  //   // else if (e.direction == '3') {
+  //   //   this.navCtrl.parent.select(3);
+  //   // }
+  // }
+
   search(term) {
     if (term != '') {
       this.friends.search(term, 'user', this.userId).subscribe(res => {

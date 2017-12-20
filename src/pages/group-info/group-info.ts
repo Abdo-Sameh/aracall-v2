@@ -6,7 +6,6 @@ import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 
 import { GroupChatProvider } from '../../providers/group-chat/group-chat';
-import { UploadImagePage } from '../upload-image/upload-image';
 import { AddMemberPage } from '../add-member/add-member';
 /**
  * Generated class for the GroupInfoPage page.
@@ -120,10 +119,10 @@ export class GroupInfoPage {
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
       this.group.group_cover = this.pathForImage(this.lastImage);
-      this.navCtrl.push(UploadImagePage, {
-        cid: this.group.cid,
-        image: this.lastImage
-      })
+      // this.navCtrl.push(UploadImagePage, {
+      //   cid: this.group.cid,
+      //   image: this.lastImage
+      // })
     }, error => {
       this.presentToast('Error while storing file.');
     });
