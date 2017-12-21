@@ -165,14 +165,22 @@ export class VideoHandlerPage {
       streamId = video.id
       // var node = document.createElement("LI");
       // node.className = "group-call";
-      video.setAttribute("style", "width: 150px; height: 150px;");
-      video.removeAttribute("controls");
+      // video.setAttribute("style", "width: 150px; height: 150px;");
+
       alert($('.video-user').children().length);
-      if($('.video-user').children().length == 0)
+      if ($('.video-user').children().length == 0) {
+        video.setAttribute("style", "width: 150px; height: 150px;");
+        video.removeAttribute("controls");
         document.getElementById("video-user").appendChild(video);
-      else
+      }
+      else {
+        video.setAttribute("style", "width: 100%; height: 100%;");
+        video.removeAttribute("controls");
         document.getElementById("video-call").appendChild(video);
+
+      }
     };
+
     // console.log((this.cid * 1000000000).toString(16));
     if (incoming == false) {
       // alert(this.number);

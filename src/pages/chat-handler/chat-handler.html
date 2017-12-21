@@ -151,8 +151,8 @@
             <a (click)="openCamera();  vibrate()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:25px;height:25px;"></a>
             <a (click)="openMore(); vibrate()" href="#"><img src="./assets/images/svg/plus-icon.svg" style="width:25px;height:25px;"></a>
             <a id="send" (click)="send(); vibrate()" href="#" class="mic-send">
-              <img src="./assets/images/svg/mic-icon.svg" style="width:25px;height:25px;">
-              <img class="rotate-img" src="./assets/images/svg/send-icon.svg" style="width:22px;height:22px;">
+              <img (click)="recordPage();" src="./assets/images/svg/mic-icon.svg" style="width:25px;height:25px;">
+              <img (click)="send();" class="rotate-img" src="./assets/images/svg/send-icon.svg" style="width:22px;height:22px;">
             </a>
           </div>
         </div>

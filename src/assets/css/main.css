@@ -1595,6 +1595,7 @@ Start Profile
 
 .toolbar-title-md {
   color: #FFF !important;
+  padding-left: 0 !important;
 }
 
 .contact_item {
@@ -1748,31 +1749,47 @@ ion-navbar.toolbar {
   width: 19px !important;
   height: 19px !important;
 }
+
 .box-title {
-  float:left;text-align:left;
+  float: left;
+  text-align: left;
 }
+
 .box-img {
-  margin-right:10px !important;float:left;width:25px;height:25px;
+  float: left;
+  width: 25px;
+  height: 25px;
 }
+
 .b-title {
-  font-size:176px;text-align:center;position:relative;
+  font-size: 176px;
+  text-align: center;
+  position: relative;
   display: block;
   width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   direction: ltr;
 }
+.b-title h5 {
+  text-align: left;
+  margin-left: 12px !important;
+}
 .b-title span {
   font-size: 17px !important;
 }
+
 .header-dropdown {
-  float: right; margin-right: 20px !important; margin-top: 12px !important;
+  float: right;
+  margin-right: 20px !important;
+  margin-top: 12px !important;
 }
+
 .headerico {
   float: right;
   color: #fff;
   margin-top: 0;
-  margin-right: 25px;
+  margin-right: 20px;
   margin-bottom: 5px;
   width: 33px;
   height: 33px;
@@ -1787,50 +1804,51 @@ ion-navbar.toolbar {
   position: relative;
   top: -11px;
 }
+
 .dropdown-toggle.ion-md-more {
   position: relative;
   top: 5px;
 }
+
 .headerico-video {
-  margin-left: -10px;background-color:#fff;
+  margin-left: -10px;
+  background-color: #fff;
 }
+
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
 }
+
 .animated.bounceIn {
   animation-duration: .75s;
 }
+
 .bounceIn {
   animation-name: bounceIn;
 }
+
 @keyframes bounceIn {
   from, 20%, 40%, 60%, 80%, to {
     animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
-
   0% {
     opacity: 0;
     transform: scale3d(.3, .3, .3);
   }
-
   20% {
     transform: scale3d(1.1, 1.1, 1.1);
   }
-
   40% {
     transform: scale3d(.9, .9, .9);
   }
-
   60% {
     opacity: 1;
     transform: scale3d(1.03, 1.03, 1.03);
   }
-
   80% {
     transform: scale3d(.97, .97, .97);
   }
-
   to {
     opacity: 1;
     transform: scale3d(1, 1, 1);
@@ -1840,8 +1858,8 @@ ion-navbar.toolbar {
 .bounceIn {
   animation-name: bounceIn;
 }
-.group-call-btn,
-.message-box-2 .toggle-icons {
+
+.group-call-btn, .message-box-2 .toggle-icons {
   position: absolute;
   bottom: 15%;
   left: 0;
@@ -1853,15 +1871,13 @@ ion-navbar.toolbar {
   z-index: 10;
 }
 
-.group-call-btn li,
-.message-box-2 .toggle-icons li {
+.group-call-btn li, .message-box-2 .toggle-icons li {
   float: left;
   width: 33.333%;
   text-align: center;
 }
 
-.group-call-btn li a,
-.message-box-2 .toggle-icons a b {
+.group-call-btn li a, .message-box-2 .toggle-icons a b {
   display: inline-block;
   color: #fff;
   font-size: 20px;
@@ -1877,8 +1893,7 @@ ion-navbar.toolbar {
   transform: rotate(135deg);
 }
 
-.group-call-btn li span,
-.message-box-2 .toggle-icons span {
+.group-call-btn li span, .message-box-2 .toggle-icons span {
   display: block;
   color: #5c0632;
   font-size: 14px;
@@ -1889,7 +1904,6 @@ ion-navbar.toolbar {
 
 .message-box-2 .toggle-icons.open {
   display: block !important;
-  width: calc( 100% - 40px);
   position: static;
   background: #fff;
   border-radius: 20px;
@@ -1911,10 +1925,12 @@ ion-navbar.toolbar {
   justify-content: center;
   align-items: center;
 }
+
 .message-box-2 .toggle-icons a b img {
   width: 25px;
   height: 25px;
 }
+
 .message-box-2 .toggle-icons span {
   font-size: 12px;
 }
@@ -1931,12 +1947,10 @@ ion-navbar.toolbar {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   border: none;
   height: 42px;
-border-radius: 20px;
+  border-radius: 20px;
 }
 
-.message-box-2 .type-message a:nth-child(1),
-.message-box-2 .type-message a:nth-child(3),
-.message-box-2 .type-message a:nth-child(4) {
+.message-box-2 .type-message a:nth-child(1), .message-box-2 .type-message a:nth-child(3), .message-box-2 .type-message a:nth-child(4) {
   position: absolute;
   top: 0;
   z-index: 2;
@@ -1959,43 +1973,48 @@ border-radius: 20px;
   left: calc( 100% - 33px);
   top: 0;
   background: #5c0632;
-    width: 40px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 40px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .message-box-2 .type-message a:nth-child(5) img:last-child {
   display: none;
 }
 
-.message-box-2 .type-message a:nth-child(2) img,
-.message-box-2 .type-message a:nth-child(2) img {
+.message-box-2 .type-message a:nth-child(1) img, .message-box-2 .type-message a:nth-child(2) img {
   margin-top: 8px;
 }
-.message-box-2 .type-message a:nth-child(3) img {
+
+.message-box-2 .type-message a:nth-child(4) img, .message-box-2 .type-message a:nth-child(3) img {
   margin: 8px 5px 0;
 }
 
-.group-call-btn li a,
-.message-box-2 .toggle-icons a i {
+.group-call-btn li a, .message-box-2 .toggle-icons a i {
   color: #fff !important;
 }
 
 .input-create-group {
-  width:85%;margin-left:7.5% !important;
+  width: 85%;
+  margin-left: 7.5% !important;
 }
+
 video {
   width: 100%;
 }
 
 ion-fab {
-    bottom: 20px;
-    right: 20px;
+  bottom: 20px;
+  right: 20px;
 }
-button[ion-fab] ion-label {
-    right: 55px;
 
+button[ion-fab] ion-label {
+  right: 55px;
+}
+
+[_nghost-c3] {
+  text-align: left;
 }

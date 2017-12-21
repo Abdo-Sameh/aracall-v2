@@ -1603,6 +1603,7 @@ Start Profile
 
 .toolbar-title-md {
   color: #FFF !important;
+  padding-right: 0 !important;
 }
 
 .contact_item {
@@ -1769,7 +1770,6 @@ ion-navbar.toolbar {
 }
 
 .box-img {
-  margin-left: 10px !important;
   float: right;
   width: 25px;
   height: 25px;
@@ -1784,6 +1784,7 @@ ion-navbar.toolbar {
   overflow: hidden;
   text-overflow: ellipsis;
   direction: ltr;
+  margin-right: 12px !important;
 }
 
 .b-title span {
@@ -1800,7 +1801,7 @@ ion-navbar.toolbar {
   float: left;
   color: #fff;
   margin-top: 0;
-  margin-left: 25px;
+  margin-left: 20px;
   margin-bottom: 5px;
   width: 33px;
   height: 33px;
@@ -1915,7 +1916,6 @@ ion-navbar.toolbar {
 
 .message-box-2 .toggle-icons.open {
   display: block !important;
-  width: calc( 100% - 40px);
   position: static;
   background: #fff;
   border-radius: 20px;
@@ -2050,5 +2050,7 @@ ion-fab {
 }
 button[ion-fab] ion-label {
     left: 55px;
-
+}
+emoji-content {
+  text-align: right !important;
 }

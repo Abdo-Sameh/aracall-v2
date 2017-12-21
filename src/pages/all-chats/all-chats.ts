@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, App } from 'ionic-angular';
+import { NavController, NavParams, App, LoadingController } from 'ionic-angular';
 import { SingleChatProvider } from './../../providers/single-chat/single-chat';
 import { GroupChatProvider } from './../../providers/group-chat/group-chat';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
@@ -24,7 +24,7 @@ import { ChatHandlerPage } from '../../pages/chat-handler/chat-handler';
 export class AllChatsPage {
   chats
   userId
-  constructor(public groupChat: GroupChatProvider, public app: App, public singleChat: SingleChatProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public loadingCtrl: LoadingController, public groupChat: GroupChatProvider, public app: App, public singleChat: SingleChatProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
@@ -61,9 +61,15 @@ export class AllChatsPage {
   }
 
   openChat(index, type, cid, title, avatar, is_blocked, user1, user2) {
+    let loading = this.loadingCtrl.create({
+      content: 'Loading',
+      spinner: 'bubbles'
+    });
+    loading.present();
     if (type == 'multiple') {
       this.groupChat.usersCoversation(this.chats[index].cid, this.userId).subscribe(res => {
         console.log(res)
+        loading.dismiss();
         this.app.getRootNav().push(GroupChatPage, {
           'messages': res,
           'group' : this.chats[index],
@@ -72,6 +78,7 @@ export class AllChatsPage {
 
     } else {
       console.log(user1, user2);
+      loading.dismiss();
       if(user1 == this.userId)
         this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1: user2 });
       else

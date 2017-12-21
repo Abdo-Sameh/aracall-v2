@@ -58,6 +58,7 @@ import { GroupVideoHandlerPage } from './../pages/group-video-handler/group-vide
 import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audio-handler';
 import { NativeRingtones } from '@ionic-native/native-ringtones';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { LongPressModule } from 'ionic-long-press';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
     SignaturePadModule,
     EmojiPickerModule.forRoot(),
     HttpClientModule,
+    LongPressModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

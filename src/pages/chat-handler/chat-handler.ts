@@ -103,8 +103,13 @@ export class ChatHandlerPage {
       $(".type-message input").blur(function() {
         $(".mic-send img").toggle();
       });
+      $("body").click(function(e) {
+        if (!$(e.target).is(".message-box-2 .type-message a:nth-child(4),.message-box-2 .type-message a:nth-child(4) *,.toggle-icons,.toggle-icons *")) {
+          $(".toggle-icons").removeClass("open");
+        }
+      });
     });
-  
+
   }
 
   viewImage(path) {
@@ -375,7 +380,10 @@ export class ChatHandlerPage {
 
   call() {
     let loading1 = this.loadingctrl.create({
-      showBackdrop: false
+      showBackdrop: false,
+      content: 'Calling',
+      spinner: 'dots'
+
     });
     loading1.present();
     this.singleChat.remoteid(this.username, this.userId).then(data => {
@@ -389,7 +397,10 @@ export class ChatHandlerPage {
 
   video() {
     let loading1 = this.loadingctrl.create({
-      showBackdrop: false
+      showBackdrop: false,
+      content: 'Calling',
+      spinner: 'dots',
+
     });
     loading1.present();
     let number = Math.floor(Math.random() * 1000000000);

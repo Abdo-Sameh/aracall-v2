@@ -84,6 +84,11 @@ export class GroupChatPage {
       $(".type-message input").blur(function() {
         $(".mic-send img").toggle();
       });
+      $("body").click(function(e) {
+        if (!$(e.target).is(".message-box-2 .type-message a:nth-child(4),.message-box-2 .type-message a:nth-child(4) *,.toggle-icons,.toggle-icons *")) {
+          $(".toggle-icons").removeClass("open");
+        }
+      });
     });
   }
 

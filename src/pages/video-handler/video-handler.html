@@ -2,58 +2,14 @@
 
   <ion-navbar>
     <ion-title>Video call</ion-title>
-
   </ion-navbar>
 
 </ion-header>
 
 
-<!-- <ion-content>
-  <ion-icon name="md-arrow-back" (click)="goback()"></ion-icon>
-
-<video class="self-video" #selfVideo autoplay muted></video>
-<video class="local-video" #localVideo autoplay [muted]="mute" [hidden]="hidevideo"></video>
-<div style="text-align:center">
-<p style="text-align:center;color:black;" [hidden]="hidetext">{{text}}</p>
-</div>
-<div>
-<button ion-button (click)="accept()" [hidden]="hideaccept">Accept</button>
-<button ion-button (click)="deny()" [hidden]="hidedeny">Deny</button>
-<img style="float: right;
-    position: absolute;
-    left: 21%;" [hidden]="hideaccept" src="./assets/img/accept.png" (click)="accept()">
-<img style="    float: left;
-    position: absolute;
-    right: 21%;" [hidden]="hidedeny" src="./assets/img/deny.png" (click)="deny()" >
-
-</div>
-
-<div style="text-align:center;margin-left: -5%;" >
-  <ion-icon name="appname-customicon4" (click)="end()" [hidden]="hideend"></ion-icon>
-  <img src="https://lh3.googleusercontent.com/RA2TYPdwn1Rckr41wfHlIMtNQd_ruRVPrxrObhr5b5mNtUDvVg5QKOmhUBwbJq4RQg=w170" (click)="end()" [hidden]="hideend">
-<button ion-button (click)="end()" [hidden]="hideend">Endcall</button>
-</div>
-<div style="text-align:center;">
-
-  <img [hidden]="hideavatar" style ="bottom: 51%;left: 45%;width: 14%;border-radius: 50%;border: 3px solid;"   [src]="remoteavatar">
-<p [hidden]="hideavatar" style="bottom: 44%;">{{remotename}}</p>
-</div>
-
-</ion-content>  -->
-<!--
-  Generated template for the VideohandlerPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-
-
 <ion-content>
 
   <!-- <video class="self-video" #selfVideo autoplay muted></video> -->
-
 
   <section class="bg_grey ">
     <div id="video-call" class="video-call">
@@ -88,11 +44,11 @@
         <span>Deny</span>
       </li>
       <li [hidden]="mute" (click)="muteCall()">
-        <a href="#"><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
+        <a href="#"><img src="./assets/images/svg/mic-icon.svg" style="width:20px;height:20px;margin-top:15px" /></a>
         <span>{{'mute' | translate}}</span>
       </li>
       <li [hidden]="unmute" (click)="unmuteCall()">
-        <a href="#"><img src="./assets/images/svg/005-mute-volume-interface-symbol.svg" style="width:20px;height:20px;margin-top:15px" /></a>
+        <a href="#"><img src="./assets/images/svg/microphone-with-slash-interface-symbol-for-mute-audio.svg" style="width:20px;height:20px;margin-top:15px" /></a>
         <span>{{'unmute' | translate}}</span>
       </li>
       <li (click)="end()" [hidden]="hideend">
