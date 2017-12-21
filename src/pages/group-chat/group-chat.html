@@ -121,47 +121,50 @@
           <ul class="toggle-icons animated bounceIn" style="margin-bottom: 10px;">
             <li>
               <a (click)="recordPage()" href="#">
-                  <img src="./assets/images/svg/microphone.svg" style="width:25px; height:25px;">
-									<span>{{'audio' | translate}}</span>
-								</a>
+                  <b><img src="./assets/images/svg/microphone.svg"></b>
+                  <span>{{'audio' | translate}}</span>
+                </a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
-									<img src="./assets/images/svg/video-camera.svg" style="width:25px; height:25px;">
-									<span>{{'video' | translate}}</span>
-								</a>
+                  <b><img src="./assets/images/svg/video-camera.svg"></b>
+                  <span>{{'video' | translate}}</span>
+                </a>
             </li>
             <li>
               <a (click)="chooseFile()" href="#">
-                  <img src="./assets/images/svg/attachment-paperclip-symbol-of-interface.svg" style="width:25px; height:25px;">
+                  <b><img src="./assets/images/svg/attachment-paperclip-symbol-of-interface.svg"></b>
                   <span>{{'document' | translate}}</span>
                 </a>
             </li>
             <li>
               <a (click)="location()" href="#">
-									<img src="./assets/images/svg/facebook-placeholder-for-locate-places-on-maps.svg" style="width:25px; height:25px;">
-									<span>{{'location' | translate}}</span>
-								</a>
+                  <b><img src="./assets/images/svg/facebook-placeholder-for-locate-places-on-maps.svg"></b>
+                  <span>{{'location' | translate}}</span>
+                </a>
             </li>
             <li>
               <a (click)="openGallery()" href="#">
-									<img src="./assets/images/svg/gallery.svg" style="width:25px; height:25px;">
-									<span>{{'gallery' | translate}}</span>
-								</a>
+                  <b><img src="./assets/images/svg/gallery.svg"></b>
+                  <span>{{'gallery' | translate}}</span>
+                </a>
             </li>
             <li>
               <a (click)="handWriting()" href="#">
-									<img src="./assets/images/svg/new-file.svg" style="width:25px; height:25px;">
-									<span>{{'handwriting' | translate}}</span>
-								</a>
+                  <b><img src="./assets/images/svg/new-file.svg"></b>
+                  <span>{{'handwriting' | translate}}</span>
+                </a>
             </li>
           </ul>
           <div class="type-message">
-            <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <input type="text" class="form-control" name="msg" placeholder="{{'type-message' | translate}}"  [(ngModel)]="emojitext"  name="email">
-            <a (click)="openCamera()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <a (click)="openMore()" href="#"><img src="./assets/images/svg/more-options.svg" style="width:20px;height:20px; margin-top: 5px;"></a>
-            <a (click)="send()" href="#"><img src="./assets/images/svg/send-button.svg" style="width:25px;height:25px;"></a>
+            <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:25px;height:25px;"></a>
+            <input type="text" class="form-control" name="msg" placeholder="{{'type-message' | translate}}" [(ngModel)]="emojitext" name="email">
+            <a (click)="openCamera(); " href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:25px;height:25px;"></a>
+            <a (click)="openMore();" href="#"><img src="./assets/images/svg/plus-icon.svg" style="width:25px;height:25px;"></a>
+            <a id="send"  href="#" class="mic-send">
+              <img (click)="recordPage()" src="./assets/images/svg/mic-icon.svg" style="width:25px;height:25px;">
+              <img (click)="send();" class="rotate-img" src="./assets/images/svg/send-icon.svg" style="width:22px;height:22px;">
+            </a>
           </div>
         </div>
       </form>

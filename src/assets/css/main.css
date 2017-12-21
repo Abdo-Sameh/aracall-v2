@@ -1755,12 +1755,15 @@ ion-navbar.toolbar {
   margin-right:10px !important;float:left;width:25px;height:25px;
 }
 .b-title {
-  font-size:16px;text-align:center;position:relative;
+  font-size:176px;text-align:center;position:relative;
   display: block;
   width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   direction: ltr;
+}
+.b-title span {
+  font-size: 17px !important;
 }
 .header-dropdown {
   float: right; margin-right: 20px !important; margin-top: 12px !important;
@@ -1771,8 +1774,8 @@ ion-navbar.toolbar {
   margin-top: 0;
   margin-right: 25px;
   margin-bottom: 5px;
-  width: 30px;
-  height: 30px;
+  width: 33px;
+  height: 33px;
   background: #fff;
   color: #5c0632;
   -webkit-box-shadow: 0 0 2px #fff;
@@ -1780,12 +1783,62 @@ ion-navbar.toolbar {
   font-size: 24px;
   text-align: center;
   border-radius: 50%;
-  line-height: 30px;
+  line-height: 33px;
   position: relative;
-  top: -14px;
+  top: -11px;
+}
+.dropdown-toggle.ion-md-more {
+  position: relative;
+  top: 5px;
 }
 .headerico-video {
   margin-left: -10px;background-color:#fff;
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.animated.bounceIn {
+  animation-duration: .75s;
+}
+.bounceIn {
+  animation-name: bounceIn;
+}
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
 }
 .group-call-btn,
 .message-box-2 .toggle-icons {
@@ -1808,7 +1861,7 @@ ion-navbar.toolbar {
 }
 
 .group-call-btn li a,
-.message-box-2 .toggle-icons a i {
+.message-box-2 .toggle-icons a b {
   display: inline-block;
   color: #fff;
   font-size: 20px;
@@ -1839,7 +1892,7 @@ ion-navbar.toolbar {
   width: calc( 100% - 40px);
   position: static;
   background: #fff;
-  border-radius: 3px;
+  border-radius: 20px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   padding-top: 20px;
   margin: 0;
@@ -1849,12 +1902,19 @@ ion-navbar.toolbar {
   margin-bottom: 20px;
 }
 
-.message-box-2 .toggle-icons a i {
+.message-box-2 .toggle-icons a b {
   width: 42px;
   height: 42px;
-  line-height: 42px;
+  line-height: 0;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
-
+.message-box-2 .toggle-icons a b img {
+  width: 25px;
+  height: 25px;
+}
 .message-box-2 .toggle-icons span {
   font-size: 12px;
 }
@@ -1867,9 +1927,11 @@ ion-navbar.toolbar {
   width: calc( 100% - 40px);
   position: absolute;
   padding-left: 50px;
-  padding-right: 85px;
+  padding-right: 90px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   border: none;
+  height: 42px;
+border-radius: 20px;
 }
 
 .message-box-2 .type-message a:nth-child(1),
@@ -1894,8 +1956,27 @@ ion-navbar.toolbar {
 
 .message-box-2 .type-message a:nth-child(5) {
   position: relative;
-  left: calc( 100% - 20px);
-  top: 3px;
+  left: calc( 100% - 33px);
+  top: 0;
+  background: #5c0632;
+    width: 40px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-box-2 .type-message a:nth-child(5) img:last-child {
+  display: none;
+}
+
+.message-box-2 .type-message a:nth-child(2) img,
+.message-box-2 .type-message a:nth-child(2) img {
+  margin-top: 8px;
+}
+.message-box-2 .type-message a:nth-child(3) img {
+  margin: 8px 5px 0;
 }
 
 .group-call-btn li a,
@@ -1913,4 +1994,8 @@ video {
 ion-fab {
     bottom: 20px;
     right: 20px;
+}
+button[ion-fab] ion-label {
+    right: 55px;
+
 }

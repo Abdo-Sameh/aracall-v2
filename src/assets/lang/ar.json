@@ -102,6 +102,8 @@
 
 	"tools": "أدوات",
 
+	"you" : "أنت",
+
 	"user-manager": "إدارة المستخدمين",
 
 	"language-manager": "اللغات",
@@ -198,7 +200,7 @@
 
   "group-info" : "معلومات المجموعة",
 
-  "participants" : "المشاركين",
+  "participants" : "الأعضاء",
 
   "group-admin" : "مشرف المجموعة",
 
@@ -3074,7 +3076,7 @@
 
 	"view-details": "عرض تفاصيل",
 
-	"view-profile": "مشاهدة الملف الشخصي",
+	"view-profile": "عرض الملف الشخصي",
 
 	"sharer": "مقاسم",
 

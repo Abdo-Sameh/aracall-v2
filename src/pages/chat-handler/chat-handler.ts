@@ -95,6 +95,18 @@ export class ChatHandlerPage {
     console.log(this.chats);
   }
 
+  ionViewDidLoad() {
+    $(document).ready(function() {
+      $(".type-message input").focus(function() {
+        $(".mic-send img").toggle();
+      });
+      $(".type-message input").blur(function() {
+        $(".mic-send img").toggle();
+      });
+    });
+  
+  }
+
   viewImage(path) {
     this.photoViewer.show(path);
   }
@@ -323,38 +335,38 @@ export class ChatHandlerPage {
 
   handleFileName(path) {
     let type = path.substring(path.lastIndexOf('.') + 1);
-    if(type == 'mp3' || type == 'wav' || type == 'm4a' || type == 'ogg')
-      return "<audio controls><source src=" + path +"></audio>";
-    else if(type == 'mp4' || type == 'avi' || type == 'flv' || type == 'gif' || type == 'rmvb' || type == 'mpeg')
-      return "<video controls><source src=" + path +"></video>";
+    if (type == 'mp3' || type == 'wav' || type == 'm4a' || type == 'ogg')
+      return "<audio controls><source src=" + path + "></audio>";
+    else if (type == 'mp4' || type == 'avi' || type == 'flv' || type == 'gif' || type == 'rmvb' || type == 'mpeg')
+      return "<video controls><source src=" + path + "></video>";
     else
       return path.substring(path.lastIndexOf('/') + 1);
   }
 
   askForDownload(path) {
-    let download = this.alert.create( {
-        title: 'Download',
-        message: "Do you want to download this file ?",
-        buttons: [{
-            text: 'Yes',
-            handler: data => {
-              loading.present();
-              const fileTransfer: FileTransferObject = this.transfer.create();
-              fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
-                alert("File downloaded successfully");
-                loading.dismiss();
-              }).catch((err) => {
-                loading.dismiss();
-                alert(err);
-              });
-            }
-          },
-          {
-            text: 'No',
-            role: 'cancel'
-          }
-        ],
-      })
+    let download = this.alert.create({
+      title: 'Download',
+      message: "Do you want to download this file ?",
+      buttons: [{
+        text: 'Yes',
+        handler: data => {
+          loading.present();
+          const fileTransfer: FileTransferObject = this.transfer.create();
+          fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
+            alert("File downloaded successfully");
+            loading.dismiss();
+          }).catch((err) => {
+            loading.dismiss();
+            alert(err);
+          });
+        }
+      },
+      {
+        text: 'No',
+        role: 'cancel'
+      }
+      ],
+    })
     download.present()
     let loading = this.loadingctrl.create({
       showBackdrop: false
@@ -430,23 +442,23 @@ export class ChatHandlerPage {
         title: 'Unblock user',
         message: "Do you want unblock this user ?",
         buttons: [{
-            text: 'Ok',
-            handler: data => {
-              this.friends.unblockUser(blockedUser).subscribe(res => {
-                loading1.dismiss()
-                console.log(res);
-                if (res.status == 1) {
-                  this.is_blocked = false;
-                  // window.location.reload();
-                  // this.navCtrl.pop();
-                }
+          text: 'Ok',
+          handler: data => {
+            this.friends.unblockUser(blockedUser).subscribe(res => {
+              loading1.dismiss()
+              console.log(res);
+              if (res.status == 1) {
+                this.is_blocked = false;
+                // window.location.reload();
+                // this.navCtrl.pop();
               }
-              )
             }
-          }, {
-            'text': 'Cancel',
-            role: 'cancel'
+            )
           }
+        }, {
+          'text': 'Cancel',
+          role: 'cancel'
+        }
         ],
       })
     editGroupName.present()

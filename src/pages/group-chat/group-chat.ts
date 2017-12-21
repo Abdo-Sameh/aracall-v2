@@ -77,6 +77,14 @@ export class GroupChatPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GroupChatPage');
+    $(document).ready(function() {
+      $(".type-message input").focus(function() {
+        $(".mic-send img").toggle();
+      });
+      $(".type-message input").blur(function() {
+        $(".mic-send img").toggle();
+      });
+    });
   }
 
   handleFileName(path) {
