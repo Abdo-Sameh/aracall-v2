@@ -1,19 +1,20 @@
 page-video-handler {
-.local-video {
+  .local-video {
     width: 100%;
     object-fit: unset;
     height: 100vh;
     float: right;
     position: absolute;
-}
-.self-video {
-position: absolute  ;
-;
+  }
+
+  .self-video {
+    position: absolute;
     float: left;
     z-index: 1111;
     width: 25%;
-}
-.scroll-content p {
+  }
+
+  .scroll-content p {
     // margin-top: -95px;
     // z-index: 999;
     // position: relative;
@@ -25,33 +26,54 @@ position: absolute  ;
     left: 2%;
     right: 0;
     top: 170px;
-    color:#5c0632;
-    font-size:16px;
+    color: #5c0632;
+    font-size: 16px;
     text-align: center;
-}
-ion-icon {
+  }
+
+  ion-icon {
     position: absolute;
     left: 4%;
     top: 3%;
     font-size: 25px !important;
-}
+  }
 
-.incoming-button {
-
+  .incoming-button {
     position: absolute;
     bottom: 15%;
     left: 28%;
-}
-.incoming-button .accept {
-        float: left;
-}
-.incoming-button .deny {
+  }
+
+  .incoming-button .accept {
+    float: left;
+  }
+
+  .incoming-button .deny {
     margin-left: 156%;
     float: right;
     position: absolute;
+  }
 
-}
-.incoming-button img {
+  .incoming-button img {
     width: 46px;
-}
+  }
+
+  .video-user {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 30px;
+    right: 30px;
+  }
+
+  .group-call-wrap,
+  .video-call {
+    position: absolute;
+    width: 100%;
+    max-width: 768px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

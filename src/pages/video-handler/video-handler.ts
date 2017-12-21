@@ -22,7 +22,7 @@ let remotestrean = undefined;
  * on Ionic pages and navigation.
  */
 export declare var RTCMultiConnection: any;
-let connection, streamId, timer1, timer2;
+let connection, streamId, timer1, timer2, incoming;
 @Component({
   selector: 'page-video-handler',
   templateUrl: 'video-handler.html',
@@ -33,7 +33,7 @@ export class VideoHandlerPage {
   streamId
   userId
   private subscription: Subscription; timer = true; unmute = true;
-  number; remotename; hideavatar = false; remoteavatar; speaker; hidetext = true; time = true; text = "Ringing"; incoming; hideaccept = true; hidedeny = true; hideend = true; mute = true; hidevideo = true;
+  number; remotename; hideavatar = false; remoteavatar; speaker; hidetext = true; time = true; text = "Ringing"; hideaccept = true; hidedeny = true; hideend = true; mute = true; hidevideo = true;
   constructor(public events: Events, public navCtrl: NavController, private ringtones: NativeRingtones, public navParams: NavParams, public db: SingleChatProvider) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     document.addEventListener("backbutton", onBackKeyDown, false);
@@ -42,7 +42,7 @@ export class VideoHandlerPage {
       this.end();
     }
     database = this.db;
-    this.incoming = this.navParams.get('remote');
+    incoming = this.navParams.get('remote');
     this.number = this.navParams.get('number');
     remoteid = this.navParams.get('data');
     number = this.number;
@@ -50,7 +50,7 @@ export class VideoHandlerPage {
     sendMessage = this.sendmessage
 
     this.initalizeCall();
-    if (this.incoming != true) {
+    if (incoming != true) {
       //caller
       this.remoteavatar = this.navParams.get('avatar')
       this.remotename = this.navParams.get('name')
@@ -167,10 +167,13 @@ export class VideoHandlerPage {
       node.className = "group-call";
       video.setAttribute("style", "width: 100%; height: 100%;");
       video.removeAttribute("controls");
-      document.getElementById("Videos").appendChild(node).appendChild(video);
+      if(incoming == false)
+        document.getElementById("video-user").appendChild(node).appendChild(video);
+      else
+        document.getElementById("video-call").appendChild(node).appendChild(video);
     };
     // console.log((this.cid * 1000000000).toString(16));
-    if (this.incoming == false) {
+    if (incoming == false) {
       // alert(this.number);
       connection.openOrJoin(this.number);
     }
@@ -226,7 +229,7 @@ export class VideoHandlerPage {
       this.ringtones.playRingtone(ringtones[0]['Url']);
     });
     // audioTracks.enabled = false
-    if (this.incoming != true) {
+    if (incoming != true) {
       this.db.calee_recieved_set(remoteid, false, this.userId)
       //caller
       this.db.callee_accept_set(remoteid, false, this.userId)
