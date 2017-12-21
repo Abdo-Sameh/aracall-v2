@@ -163,14 +163,15 @@ export class VideoHandlerPage {
       this.streamId = event.streamid;
       // alert(video.id);
       streamId = video.id
-      var node = document.createElement("LI");
-      node.className = "group-call";
+      // var node = document.createElement("LI");
+      // node.className = "group-call";
       video.setAttribute("style", "width: 100%; height: 100%;");
       video.removeAttribute("controls");
+      alert(incoming);
       if(incoming == false)
-        document.getElementById("video-user").appendChild(node).appendChild(video);
+        document.getElementById("video-user").appendChild(video);
       else
-        document.getElementById("video-call").appendChild(node).appendChild(video);
+        document.getElementById("video-call").appendChild(video);
     };
     // console.log((this.cid * 1000000000).toString(16));
     if (incoming == false) {
