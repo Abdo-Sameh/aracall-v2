@@ -165,10 +165,10 @@ export class VideoHandlerPage {
       streamId = video.id
       // var node = document.createElement("LI");
       // node.className = "group-call";
-      video.setAttribute("style", "width: 100%; height: 100%;");
+      video.setAttribute("style", "width: 150px; height: 150px;");
       video.removeAttribute("controls");
-      alert(incoming);
-      if(incoming == false)
+      alert($('.video-user').children().length);
+      if($('.video-user').children().length == 0)
         document.getElementById("video-user").appendChild(video);
       else
         document.getElementById("video-call").appendChild(video);
@@ -244,6 +244,7 @@ export class VideoHandlerPage {
       console.log('caller end poped')
       connection.close();
       clearInterval(timer1);
+      clearInterval(timer2);
       this.navCtrl.pop()
     } else {
       this.db.calee_recieved_set(undefined, false, this.userId)
@@ -257,6 +258,7 @@ export class VideoHandlerPage {
       this.db.set_incoming(undefined, { 0: "undefined" }, this.userId)
       console.log('callee end setroot')
       connection.close();
+      clearInterval(timer1);
       clearInterval(timer2);
       this.navCtrl.pop()
     }
