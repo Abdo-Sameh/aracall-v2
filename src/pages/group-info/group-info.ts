@@ -4,6 +4,7 @@ import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
+import { TranslateService } from '@ngx-translate/core';
 
 import { GroupChatProvider } from '../../providers/group-chat/group-chat';
 import { AddMemberPage } from '../add-member/add-member';
@@ -24,9 +25,11 @@ export class GroupInfoPage {
   lastImage: string = null;
   groupMembers
   numberOfParticipants
+  userId
   customized_group_name = []
-  constructor(public alert: AlertController, public groupChat: GroupChatProvider, public toast: ToastController, public platform: Platform, public actionSheetCtrl: ActionSheetController, private filePath: FilePath, private file: File, public camera: Camera, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public translate: TranslateService, public alert: AlertController, public groupChat: GroupChatProvider, public toast: ToastController, public platform: Platform, public actionSheetCtrl: ActionSheetController, private filePath: FilePath, private file: File, public camera: Camera, public navCtrl: NavController, public navParams: NavParams) {
     this.group = navParams.get('group');
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     console.log(this.group);
     this.get_chat_members(this.group.cid);
   }
@@ -171,17 +174,22 @@ export class GroupInfoPage {
   }
 
   openEditPage() {
+    let message, title, cancel, save;
+    this.translate.get('group-name').subscribe(value => { title = value; })
+    this.translate.get('change-group-name').subscribe(value => { message = value; })
+    this.translate.get('save').subscribe(value => { save = value; })
+    this.translate.get('cancel').subscribe(value => { cancel = value; })
     let editGroupName = this.alert.create(
       {
-        title: 'Group name',
-        message: "Edit group name",
+        title: title,
+        message: message,
         inputs: [{
           name: 'newName',
           placeholder: this.group.group_name
         }],
         buttons: [
           {
-            text: 'save',
+            text: save,
             handler: data => {
               this.groupChat.edit_group_name(this.group.cid, data.newName).subscribe(res => {
                 if (res.status == 1) {
@@ -196,6 +204,9 @@ export class GroupInfoPage {
                 }
               })
             }
+          }, {
+            'text': cancel,
+            role: 'cancel'
           }
         ]
       })

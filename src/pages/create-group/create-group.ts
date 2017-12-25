@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { FriendsProvider } from '../../providers/friends/friends';
 import { GroupChatProvider } from '../../providers/group-chat/group-chat';
-
+import { TranslateService } from '@ngx-translate/core';
 import { GroupChatPage } from '../../pages/group-chat/group-chat';
 
 /**
@@ -24,7 +24,7 @@ export class CreateGroupPage {
   chosenUsers = []
   message
   userId
-  constructor(public groupChat: GroupChatProvider, public alert: AlertController, public loadingctrl: LoadingController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public translate: TranslateService, public groupChat: GroupChatProvider, public alert: AlertController, public loadingctrl: LoadingController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
@@ -71,16 +71,22 @@ export class CreateGroupPage {
     }
 
     console.log(this.chosenUsers)
+
+    let message, title, cancel, ok;
+    this.translate.get('group-name').subscribe(value => { title = value; })
+    this.translate.get('enter-group-name').subscribe(value => { message = value; })
+    this.translate.get('ok').subscribe(value => { ok = value; })
+    this.translate.get('cancel').subscribe(value => { cancel = value; })
+
     let editGroupName = this.alert.create(
       {
-        title: 'Group name',
+        title: title,
         inputs: [{
           name: 'groupName',
-          placeholder: 'Enter group name !'
         }],
         buttons: [
           {
-            text: 'ok',
+            text: ok,
             handler: data => {
               let group_name = data.groupName
               this.groupChat.createGroup(group_name, this.chosenUsers, this.message, this.userId).subscribe(res => {
@@ -98,6 +104,9 @@ export class CreateGroupPage {
                 }
               })
             }
+          }, {
+            text: cancel,
+            role: 'cancel'
           }
         ]
       })

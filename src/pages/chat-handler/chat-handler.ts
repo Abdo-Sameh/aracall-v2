@@ -9,7 +9,7 @@ import { Media } from '@ionic-native/media';
 import { Vibration } from '@ionic-native/vibration';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-
+import { TranslateService } from '@ngx-translate/core';
 import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
 // import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
@@ -56,7 +56,7 @@ export class ChatHandlerPage {
   userId
   downloadProgress
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private transfer: FileTransfer, private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public translate: TranslateService, private transfer: FileTransfer, private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.remoteavatar = this.navParams.get('avatar');
@@ -216,7 +216,7 @@ export class ChatHandlerPage {
       }
     }, (err) => {
       // alert(err);
-      this.presentToast('Error while selecting image.');
+      // this.presentToast('Error while selecting image.');
     });
   }
 
@@ -380,7 +380,7 @@ export class ChatHandlerPage {
 
   call() {
     let loading1 = this.loadingctrl.create({
-      showBackdrop: false,
+      showBackdrop: true,
       content: 'Calling',
       spinner: 'dots'
 
@@ -397,7 +397,7 @@ export class ChatHandlerPage {
 
   video() {
     let loading1 = this.loadingctrl.create({
-      showBackdrop: false,
+      showBackdrop: true,
       content: 'Calling',
       spinner: 'dots',
 
@@ -413,61 +413,65 @@ export class ChatHandlerPage {
   }
 
   Block(blockedUser) {
-    let blockUser = this.alert.create(
-      {
-        title: 'Block user',
-        message: "Do you want block this user ?",
+    let message, title, cancel, ok;
+    this.translate.get('block-user').subscribe(value => { title = value; })
+    this.translate.get('want-to-block-this-user').subscribe(value => { message = value; })
+    this.translate.get('ok').subscribe(value => { ok = value; })
+    this.translate.get('cancel').subscribe(value => { cancel = value; })
 
-        buttons: [
-          {
-            text: 'ok',
-            handler: data => {
-              this.singleChat.blockUser(blockedUser, this.logined_user).subscribe(res => {
-                loading1.dismiss()
-                console.log(res)
-                if (res.status == 1) {
-                  this.is_blocked = true;
-                  // this.navCtrl.push(TabsPage);
-                }
+    let blockUser = this.alert.create({
+        title: title,
+        message: message,
+        buttons: [{
+          text: ok,
+          handler: data => {
+            this.singleChat.blockUser(blockedUser, this.logined_user).subscribe(res => {
+              loading1.dismiss()
+              console.log(res)
+              if (res.status == 1) {
+                this.is_blocked = true;
+                // this.navCtrl.push(TabsPage);
               }
-              )
             }
-          },
-          {
-            'text': 'cancel',
-            role: 'cancel'
+            )
           }
+        }, {
+          'text': cancel,
+          role: 'cancel'
+        }
         ],
       })
     blockUser.present()
-    // alert(this.cid)
     let loading1 = this.loadingctrl.create({
       showBackdrop: false
     });
-    // chat/delete/messages
   }
 
   unBlock(blockedUser) {
+    let message, title, cancel, ok;
+    this.translate.get('unblock').subscribe(value => { title = value; })
+    this.translate.get('want-to-unblock-this-user').subscribe(value => { message = value; })
+    this.translate.get('ok').subscribe(value => { ok = value; })
+    this.translate.get('cancel').subscribe(value => { cancel = value; })
+
     let editGroupName = this.alert.create(
       {
-        title: 'Unblock user',
-        message: "Do you want unblock this user ?",
+        title: title,
+        message: message,
         buttons: [{
-          text: 'Ok',
+          text: ok,
           handler: data => {
             this.friends.unblockUser(blockedUser).subscribe(res => {
               loading1.dismiss()
               console.log(res);
               if (res.status == 1) {
                 this.is_blocked = false;
-                // window.location.reload();
-                // this.navCtrl.pop();
               }
             }
             )
           }
         }, {
-          'text': 'Cancel',
+          'text': cancel,
           role: 'cancel'
         }
         ],

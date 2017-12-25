@@ -1188,6 +1188,14 @@
 
 	"block" : "حظر",
 
+	"change-group-name" : "تغيير اسم المجموعة",
+
+	"sorry-you-cant-send-messages" : "لا يمكنك الرد علي هذه المحادثة",
+
+	"want-to-unblock-this-user" : "هل تريد الغاء الحظر لهذا المستخدم ؟",
+
+	"want-to-block-this-user" : "هل تريد حظر هذا المستخدم ؟",
+
 	"search-here" : "ابحث هنا ...",
 
 	"block-user": "حظر المستخدم",
@@ -1482,7 +1490,7 @@
 
 	"chat": "دردشة",
 
-	"online": "عبر الانترنت",
+	"online": "متاح",
 
 	"busy": "مشغول",
 
@@ -1618,11 +1626,15 @@
 
 	"is-already-group-member": "المستخدم المحدد هو بالفعل عضو في هذه المجموعة",
 
-	"member-added-successfully": "وأضاف عضو بنجاح",
+	"member-added-successfully": "تم اضافة العضو بنجاح",
 
 	"invited-you-to-event" : "دعاك الي الحدث",
 
 	"added-you-to-group": "اضافك الى هذه المجموعة",
+
+	"enter-group-name" : "ادخل اسم المجموعة",
+
+	"account-settings-menu" : "قائمة اعدادات الحساب",
 
 	"added" : "تمت الاضافة",
 
@@ -2019,6 +2031,10 @@
 	"time-pm": "مساء",
 
 	"start-time": "وقت البدء",
+
+	"start" : "بدأ",
+
+	"stop" : "ايقاف",
 
 	"end-time": "وقت الانتهاء",
 
@@ -3457,7 +3473,7 @@
 
 	"no-member-found": "العثور على أي عضو",
 
-	"online-status": "الموجودين",
+	"online-status": "حالة الاتصال",
 
 	"people-directory": "دليل الناس",
 
@@ -3811,13 +3827,15 @@
 
 	"no-playlist-found-here": "لا يوجد قوائم جدت هنا",
 
-	"play": "لعب",
+	"play": "تشغيل",
 
 	"play-count": "عدد اللعب",
 
 	"playlist": "قائمة التشغيل",
 
 	"playlists": "قوائم التشغيل",
+
+	"send-location" : "أرسل موقعك",
 
 	"playlist-add-error-message": "فشل في إضافة قائمة التشغيل، يرجى مراجعة التفاصيل الخاصة بك",
 

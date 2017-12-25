@@ -200,7 +200,7 @@ export class GroupAudioHandlerPage {
   muteCall() {
     this.unmute = false;
     this.mute = true;
-    connection.streamEvents[streamId].stream.mute('audio');
+    // connection.streamEvents[streamId].stream.mute('audio');
     connection.attachStreams.forEach(function(stream) {
       stream.mute(); // mute all tracks
     });
@@ -209,7 +209,7 @@ export class GroupAudioHandlerPage {
   unmuteCall() {
     this.unmute = true;
     this.mute = false;
-    connection.streamEvents[streamId].stream.unmute('audio');
+    // connection.streamEvents[streamId].stream.unmute('audio');
     connection.attachStreams.forEach(function(stream) {
       stream.unmute(); // mute all tracks
     });

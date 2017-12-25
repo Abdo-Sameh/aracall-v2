@@ -24,7 +24,7 @@
 
     <div class="user_cover" [ngStyle]="{ 'background-image': 'url('  + group.group_cover + ')'}">
 
-      <div class="profile-editors" style="top:48px;right:45px;bottom:auto;">
+      <div *ngIf="userId == group.group_admin" class="profile-editors" style="top:48px;right:45px;bottom:auto;">
         <div class="file-input file-input-profile">
           <label for="profile-upload">
               <i class="fa fa-camera"></i>
@@ -88,8 +88,8 @@
 
 
             </div>
-            <div class="pull-right">
-              <a (click)="deleteMember(i,member.userid)" href="#" *ngIf="member.userid != group_admin"><img src="./assets/images/svg/rubbish-bin.svg" class="mr-15" style="width:17px;height:17px"/></a>
+            <div *ngIf="member.userid != group.group_admin && userId == group.group_admin" class="pull-right">
+              <a (click)="deleteMember(i,member.userid)" href="#" ><img src="./assets/images/svg/rubbish-bin.svg" class="mr-15" style="width:17px;height:17px"/></a>
             </div>
             <div class="pull-right">
               <h6 *ngIf="member.userid == group.group_admin" href="#" style="color:#5c0632;font-weight:400" class="btn  btn-xs">{{'group-admin' | translate}}</h6>

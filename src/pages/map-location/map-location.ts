@@ -7,10 +7,7 @@ import { SingleChatProvider } from './../../providers/single-chat/single-chat';
 import { GroupChatProvider } from './../../providers/group-chat/group-chat';
 import { Diagnostic } from '@ionic-native/diagnostic';
 
-let lat1;
-let long1;
 let cid, remoteid;
-let isenabled: boolean = false;
 
 /**
  * Generated class for the MaplocationPage page.
@@ -35,23 +32,40 @@ export class MapLocationPage {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     cid = this.navParams.get('id');
     remoteid = this.navParams.get('remoteid')
+    this.isLocationAvailable();
+  }
+  doRefresh(refresher) {
+    this.isLocationAvailable();
+    if (refresher != 0)
+      refresher.complete();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MaplocationPage');
-    this.diagnostic.isLocationEnabled().then(
-      (isAvailable) => {
-        // alert("GPS is opened")
+    // this.diagnostic.isLocationEnabled().then(
+    //   (isAvailable) => {
+    //     // alert("GPS is opened")
+    //     this.getUserPosition();
+    //   }).catch((e) => {
+    //     // alert(e);
+    //     this.diagnostic.switchToLocationSettings();
+    //   });
+  }
+
+  isLocationAvailable() {
+    this.diagnostic.isLocationAvailable()
+      .then((isAvailable) => {
         this.getUserPosition();
-      }).catch((e) => {
-        // alert(e);
+      })
+      .catch((error: any) => {
+        alert('Location is:' + error);
         this.diagnostic.switchToLocationSettings();
       });
   }
 
   getUserPosition() {
     this.options = {
-      maximumAge: 3000, timeout: 10000, enableHighAccuracy: true
+      maximumAge: 3000, timeout: 3000, enableHighAccuracy: true
     };
     this.geolocation.getCurrentPosition(this.options).then((pos: Geoposition) => {
 
@@ -63,7 +77,8 @@ export class MapLocationPage {
       this.addMap(pos.coords.latitude, pos.coords.longitude);
 
     }, (err: PositionError) => {
-      alert("error : " + err.message);
+      alert("Open GPS")
+      this.diagnostic.switchToLocationSettings();
       ;
     })
   }
@@ -112,10 +127,10 @@ export class MapLocationPage {
     console.log(url)
     if (url != undefined) {
       console.log(cid)
-      if(this.navParams.get('chatType') == 'single')
-        this.database.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => {});
+      if (this.navParams.get('chatType') == 'single')
+        this.database.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => { });
       else
-        this.groupChat.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => {});
+        this.groupChat.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => { });
       this.navCtrl.pop();
     }
   }

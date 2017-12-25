@@ -2041,7 +2041,9 @@ ion-fab {
 
 .searchbar-md .searchbar-clear-icon {
   left: 13px !important;
-  top: 0;
+}
+.searchbar-clear-icon .button .button-md .button-clear .button-clear-md{
+  left: 13px !important;
 }
 
 .back-button {

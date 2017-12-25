@@ -181,7 +181,7 @@ export class GroupChatPage {
       }
     }, (err) => {
       alert(err);
-      this.presentToast('Error while selecting image.');
+      // this.presentToast('Error while selecting image.');
     });
   }
 

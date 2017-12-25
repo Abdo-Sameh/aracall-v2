@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 import { FriendsProvider } from '../../providers/friends/friends';
 import { GroupChatProvider } from '../../providers/group-chat/group-chat';
@@ -23,7 +24,7 @@ export class AddMemberPage {
   currentMembers
   names
   cid
-  constructor(public toast: ToastController, public groupChat: GroupChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public translate: TranslateService, public toast: ToastController, public groupChat: GroupChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.currentMembers = this.navParams.get('currentMembers');
     this.cid = this.navParams.get('id');
   }
@@ -39,13 +40,13 @@ export class AddMemberPage {
       this.friendsList = data;
       this.friendsnames = data;
 
-    for (let current = 0; current < this.currentMembers.length; current++) {
-      for (let all = 0; all < this.friendsnames.length; all++) {
-        if (this.friendsnames[all].userid == this.currentMembers[current].userid) {
-          this.friendsnames.splice(all, 1)
+      for (let current = 0; current < this.currentMembers.length; current++) {
+        for (let all = 0; all < this.friendsnames.length; all++) {
+          if (this.friendsnames[all].userid == this.currentMembers[current].userid) {
+            this.friendsnames.splice(all, 1)
+          }
         }
       }
-    }
     });
   }
 
@@ -78,11 +79,13 @@ export class AddMemberPage {
   }
 
   add_member(index, userid) {
+    let message;
+    this.translate.get('member-added-successfully').subscribe(value => { message = value; })
     this.groupChat.add_group_member(this.cid, userid).subscribe(res => {
       console.log(res)
       if (res) {
         let toast = this.toast.create({
-          message: 'Member added successfully', duration: 2000
+          message: message, duration: 2000
 
         })
         toast.present()

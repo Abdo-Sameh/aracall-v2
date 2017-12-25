@@ -147,7 +147,7 @@
           </ul>
           <div class="type-message">
             <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:25px;height:25px;"></a>
-            <input type="text" class="form-control" name="msg" placeholder="{{'type-message' | translate}}" [(ngModel)]="emojitext" name="email">
+            <input type="text" class="form-control" name="msg" autocomplete="off" placeholder="{{'type-message' | translate}}" [(ngModel)]="emojitext" name="email">
             <a (click)="openCamera();  vibrate()" href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:25px;height:25px;"></a>
             <a (click)="openMore(); vibrate()" href="#"><img src="./assets/images/svg/plus-icon.svg" style="width:25px;height:25px;"></a>
             <a id="send" (click)="send(); vibrate()" href="#" class="mic-send">
@@ -160,7 +160,7 @@
     </div>
 
     <div class="message-box message-box-2" *ngIf='is_blocked == true'>
-      <p style="text-align:center; color:#5c0632; font-weight:600;">Sorry you can't send messages !!</p>
+      <p style="text-align:center; color:#5c0632; font-weight:600;">{{'sorry-you-cant-send-messages' | translate}}</p>
     </div>
 
   </ion-footer>
