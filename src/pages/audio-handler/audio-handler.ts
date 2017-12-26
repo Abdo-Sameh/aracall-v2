@@ -4,7 +4,8 @@ import { ChatHandlerPage } from '../chat-handler/chat-handler';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { Component, ViewChild } from '@angular/core';
 import { NativeRingtones } from '@ionic-native/native-ringtones';
-
+import { NativeAudio } from '@ionic-native/native-audio';
+import { Vibration } from '@ionic-native/vibration';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import * as $ from 'jquery'
 let database, remotevideo, localvideo, sendMessage, number, remoteid;
@@ -30,11 +31,13 @@ export class AudioHandlerPage {
   userId
   unmute = true;
   number; remotename; hideavatar = false; remoteavatar; speaker; mutehideend = true; hidetext = true; text = "Connecting"; incoming; hideaccept = true; hidedeny = true; hideend = true; mute = true; hidevideo = true;
-  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams,private ringtones: NativeRingtones, public db: SingleChatProvider) {
+  constructor(private vibration: Vibration, private nativeAudio: NativeAudio, public events: Events, public navCtrl: NavController, public navParams: NavParams, private ringtones: NativeRingtones, public db: SingleChatProvider) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.remoteavatar = this.navParams.get('avatar')
     this.remotename = this.navParams.get('name')
     document.addEventListener("backbutton", onBackKeyDown, false);
+    this.nativeAudio.preloadComplex('iphone_6_original', 'assets/sounds/iphone_6_original.mp3', 1, 1, 0);
+    this.nativeAudio.preloadComplex('Phone_Ringing_8x-Mike_Koenig-696238708', 'assets/sounds/Phone_Ringing_8x-Mike_Koenig-696238708.mp3', 1, 1, 0);
 
     function onBackKeyDown() {
       this.end();
@@ -56,7 +59,7 @@ export class AudioHandlerPage {
       this.hidetext = false;
       this.mutehideend = true;
       this.speaker = true;
-
+      this.nativeAudio.loop('Phone_Ringing_8x-Mike_Koenig-696238708');
 
       this.db.callee_recieved_listen(remoteid).subscribe(data => {
         if (data == true) { this.text = "Ringing"; this.timer = true }
@@ -106,8 +109,11 @@ export class AudioHandlerPage {
       //callee
 
       console.log(this.remotename)
-      this.ringtones.getRingtone().then((ringtones) => {
-      this.ringtones.playRingtone(ringtones[0]['Url']);});
+      this.nativeAudio.loop('iphone_6_original');
+      this.vibration.vibrate([2000,1000,2000,1000,2000,1000,2000,1000,2000,1000,2000,1000,2000]);
+      // this.ringtones.getRingtone().then((ringtones) => {
+      //   this.ringtones.playRingtone(ringtones[0]['Url']);
+      // });
       this.hideaccept = false;
       this.hidedeny = false;
       this.hideend = true;
@@ -212,12 +218,15 @@ export class AudioHandlerPage {
 
   end() {
     this.events.publish('callended', "user");
-    this.ringtones.getRingtone().then((ringtones) => {
-    this.ringtones.playRingtone(ringtones[0]['Url']);});
+
+    // this.ringtones.getRingtone().then((ringtones) => {
+    //   this.ringtones.playRingtone(ringtones[0]['Url']);
+    // });
     // audioTracks.enabled = false
     if (this.incoming != true) {
+      this.nativeAudio.stop('Phone_Ringing_8x-Mike_Koenig-696238708');
+      this.nativeAudio.unload('Phone_Ringing_8x-Mike_Koenig-696238708');
       this.db.calee_recieved_set(remoteid, false, this.userId)
-      //caller
       this.db.callee_accept_set(remoteid, false, this.userId)
       this.db.callee_deny_set(remoteid, false)
       this.db.set_caller_data(remoteid, this.userId)
@@ -229,10 +238,10 @@ export class AudioHandlerPage {
       clearInterval(timer1);
       this.navCtrl.pop()
     } else {
+      this.nativeAudio.stop('iphone_6_original');
+      this.nativeAudio.unload('iphone_6_original');
+      this.vibration.vibrate(0);
       this.db.calee_recieved_set(undefined, false, this.userId)
-      //callee
-      this.ringtones.getRingtone().then((ringtones) => {
-      this.ringtones.playRingtone(ringtones[3]['Url']);});
       this.db.callee_accept_set(undefined, false, this.userId)
       this.db.callee_deny_set(undefined, false)
       this.db.set_caller_data(undefined, this.userId)
@@ -249,8 +258,14 @@ export class AudioHandlerPage {
   }
   deny() {
     this.events.publish('callended', "user")
-    this.ringtones.getRingtone().then((ringtones) => {
-    this.ringtones.playRingtone(ringtones[3]['Url']);});
+    this.nativeAudio.stop('iphone_6_original');
+    this.nativeAudio.unload('iphone_6_original');
+    this.nativeAudio.stop('Phone_Ringing_8x-Mike_Koenig-696238708');
+    this.nativeAudio.unload('Phone_Ringing_8x-Mike_Koenig-696238708');
+    this.vibration.vibrate(0);
+    // this.ringtones.getRingtone().then((ringtones) => {
+    //   this.ringtones.playRingtone(ringtones[3]['Url']);
+    // });
     this.db.callee_deny_set(undefined, true);
     this.db.callee_deny_set(undefined, false);
     this.db.calee_recieved_set(undefined, false, this.userId)
@@ -258,23 +273,18 @@ export class AudioHandlerPage {
     console.log('callee deny setroot')
     this.navCtrl.setRoot(TabsPage, { tabIndex: 0 })
   }
-  mutesound() {
-    // audioTracks.setGain(.2); // or gainController.off();
-    $(document).on('click', '#mute', function() {
-      for (var i = 0, l = audioTracks.length; i < l; i++) {
-        audioTracks[i].enabled = !audioTracks[i].enabled;
-      }
 
-    })
-
-    // alert(audioTracks)
-
-  }
   accept() {
     //  alert("!")
+    this.nativeAudio.stop('iphone_6_original');
+    this.nativeAudio.unload('iphone_6_original');
+    this.nativeAudio.stop('Phone_Ringing_8x-Mike_Koenig-696238708');
+    this.nativeAudio.unload('Phone_Ringing_8x-Mike_Koenig-696238708');
+    this.vibration.vibrate(0);
     connection.openOrJoin(this.number);
-    this.ringtones.getRingtone().then((ringtones) => {
-    this.ringtones.playRingtone(ringtones[3]['Url']);});
+    // this.ringtones.getRingtone().then((ringtones) => {
+    //   this.ringtones.playRingtone(ringtones[3]['Url']);
+    // });
     this.mutehideend = false;
     this.hidetext = true;
     this.hideavatar = false;

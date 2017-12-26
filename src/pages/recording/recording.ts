@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Media, MediaObject } from '@ionic-native/media';
 import { NavController, NavParams } from 'ionic-angular';
 import { File } from '@ionic-native/file';
+import { MusicControls } from '@ionic-native/music-controls';
 // import {Timer} from './itimer';
 
 /**
@@ -21,7 +22,7 @@ export class RecordingPage {
   recordCallback
   flag = 0;
   public seconds: number = 0;
-  constructor(public filePath: File, private media: Media, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private musicControls: MusicControls, public filePath: File, private media: Media, public navCtrl: NavController, public navParams: NavParams) {
 
     this.filePath.checkDir('file:///storage/emulated/0/', 'Recordings').then(() => {
       // Media Directory Exists, do nothing.

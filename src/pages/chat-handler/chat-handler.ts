@@ -86,8 +86,10 @@ export class ChatHandlerPage {
     this.singleChat.display_single_chat_messages(this.cid, this.userId).subscribe((res) => {
       this.chats = []
       for (let key in res) {
-        res[key].time = this.edittime(Date.now(), res[key].time)
-        this.chats.push(res[key])
+        if (res[key].cleared != this.userId) {
+          res[key].time = this.edittime(Date.now(), res[key].time)
+          this.chats.push(res[key])
+        }
       }
       loading.dismiss()
     });
@@ -163,6 +165,47 @@ export class ChatHandlerPage {
     });
     $(document).on('click', '.toggle-icons .ion-more', function() {
       $('.chat-message-box .dropdown').toggleClass('open');
+    });
+  }
+
+  clearConversation() {
+    let editGroupName = this.alert.create({
+      title: 'Delete conversation',
+      message: "Do you want to clear this conversation ?",
+      buttons: [
+        {
+          text: 'ok',
+          handler: data => {
+            this.singleChat.deleteConversation(this.userId, this.cid).subscribe(res => {
+              loading1.dismiss()
+              console.log(res)
+              if (res.status == 1) {
+                for(let i = 0; i < this.chats.length; ++i){
+                  this.singleChat.deleteMessage(this.cid, this.chats[i].id, this.userId);
+                }
+                // this.database.Delete_conversationfirebase(this.cid)
+                // window.location.reload();
+                // this.navCtrl.push(TabsPage);
+
+              }
+              // alert("xxx"+JSON.stringify(res) )
+              //   firebase.database().ref(userID + '/chats').delete();
+            }
+            );
+          }
+
+        },
+        {
+          'text': 'cancel',
+          role: 'cancel'
+        }
+      ],
+
+    })
+    editGroupName.present()
+    // alert(this.cid)
+    let loading1 = this.loadingctrl.create({
+      showBackdrop: false
     });
   }
 
@@ -419,27 +462,27 @@ export class ChatHandlerPage {
     this.translate.get('cancel').subscribe(value => { cancel = value; })
 
     let blockUser = this.alert.create({
-        title: title,
-        message: message,
-        buttons: [{
-          text: ok,
-          handler: data => {
-            this.singleChat.blockUser(blockedUser, this.logined_user).subscribe(res => {
-              loading1.dismiss()
-              console.log(res)
-              if (res.status == 1) {
-                this.is_blocked = true;
-                // this.navCtrl.push(TabsPage);
-              }
+      title: title,
+      message: message,
+      buttons: [{
+        text: ok,
+        handler: data => {
+          this.singleChat.blockUser(blockedUser, this.logined_user).subscribe(res => {
+            loading1.dismiss()
+            console.log(res)
+            if (res.status == 1) {
+              this.is_blocked = true;
+              // this.navCtrl.push(TabsPage);
             }
-            )
           }
-        }, {
-          'text': cancel,
-          role: 'cancel'
+          )
         }
-        ],
-      })
+      }, {
+        'text': cancel,
+        role: 'cancel'
+      }
+      ],
+    })
     blockUser.present()
     let loading1 = this.loadingctrl.create({
       showBackdrop: false

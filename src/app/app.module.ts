@@ -58,6 +58,7 @@ import { GroupVideoHandlerPage } from './../pages/group-video-handler/group-vide
 import { GroupAudioHandlerPage } from './../pages/group-audio-handler/group-audio-handler';
 import { NativeRingtones } from '@ionic-native/native-ringtones';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { MusicControls } from '@ionic-native/music-controls';
 import { LongPressModule } from 'ionic-long-press';
 
 @NgModule({
@@ -65,7 +66,7 @@ import { LongPressModule } from 'ionic-long-press';
     MyApp,
     LoginPage, SignaturePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage , GroupVideoHandlerPage , GroupAudioHandlerPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage, GroupVideoHandlerPage, GroupAudioHandlerPage
   ],
   imports: [
     BrowserModule,
@@ -87,7 +88,7 @@ import { LongPressModule } from 'ionic-long-press';
   entryComponents: [
     MyApp, LoginPage, SignaturePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
-    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage , GroupVideoHandlerPage , GroupAudioHandlerPage
+    GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage, GroupVideoHandlerPage, GroupAudioHandlerPage
   ],
   providers: [
     StatusBar,
@@ -103,7 +104,8 @@ import { LongPressModule } from 'ionic-long-press';
     PhotoViewer,
     Base64ToGallery,
     Media,
-   NativeRingtones,
+    NativeRingtones,
+    MusicControls,
     NativeAudio,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,

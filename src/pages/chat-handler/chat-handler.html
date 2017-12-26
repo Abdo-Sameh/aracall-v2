@@ -12,7 +12,7 @@
 
       <ul class="dropdown-menu dropdown-right" style="margin-top: 19px !important;">
         <li><a href="#" (click)="view_profile()" style="padding:7px 20px">{{'view-profile' | translate}} </a></li>
-        <li><a href="#" (click)="Clear_Conversation()" style="padding:7px 20px">{{'clear-conversation' | translate}}</a></li>
+        <li><a href="#" (click)="clearConversation()" style="padding:7px 20px">{{'clear-conversation' | translate}}</a></li>
         <li><a href="#" (click)="Report_Conversation()" style="padding:7px 20px">{{'report-conversation' | translate}}</a></li>
         <li *ngIf="is_blocked==false"><a href="#" (click)="Block(the_userId)" style="padding:7px 20px">{{'block' | translate}}</a></li>
         <li *ngIf="is_blocked==true"><a href="#" (click)="unBlock(the_userId)" style="padding:7px 20px">{{'unblock' | translate}}</a></li>
