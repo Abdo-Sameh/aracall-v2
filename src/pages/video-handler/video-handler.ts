@@ -167,7 +167,7 @@ export class VideoHandlerPage {
       // node.className = "group-call";
       // video.setAttribute("style", "width: 150px; height: 150px;");
 
-      alert($('.video-user').children().length);
+      // alert($('.video-user').children().length);
       if ($('.video-user').children().length == 0) {
         video.setAttribute("style", "width: 150px; height: 150px;");
         video.removeAttribute("controls");

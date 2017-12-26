@@ -14,7 +14,6 @@ import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
 // import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
-
 import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';

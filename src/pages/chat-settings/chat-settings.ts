@@ -19,18 +19,20 @@ export class ChatSettingsPage {
   constructor(public settings: SettingsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.chatSettings = this.navParams.get('settings')
+    console.log(this.chatSettings);
 
     if (this.chatSettings['last_seen_status'] == "1") {
       this.chatSettings['last_seen_status'] = true
     } else {
       this.chatSettings['last_seen_status'] = false
     }
-
+    console.log(this.chatSettings['last_seen_status']);
     if (this.chatSettings['read_receipt_status'] == "1") {
       this.chatSettings['read_receipt_status'] = true
     } else {
       this.chatSettings['read_receipt_status'] = false
     }
+    console.log(this.chatSettings['read_receipt_status']);
   }
 
   ionViewDidLoad() {

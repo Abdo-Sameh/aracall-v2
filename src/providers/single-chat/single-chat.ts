@@ -95,11 +95,11 @@ export class SingleChatProvider {
   }
 
   send_location(cid='', theuserid, location, userId, image) {
-    let url = this.serverURL + this.KEY + '/chat/send/message?text=' + location + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + theuserid
+    let url = this.serverURL + this.KEY + '/chat/send/message?text=' + location + '&cid=' + cid + '&theuserid=' + theuserid + '&userid=' + userId
     console.log(url)
     return this.http.get(url).do((res) => {
-      console.log(res);
-      firebase.database().ref('one2one/' + cid + '/messages').push({
+      console.log(res.json().cid);
+      firebase.database().ref('one2one/' + res.json().cid + '/messages').push({
         'sender_id': userId, 'id': '1', 'type': 'location', 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
         'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': image, 'file': '', 'location': location, 'emoji': ''
       });
@@ -167,7 +167,7 @@ export class SingleChatProvider {
         else if (type == 'file')
           fileType = response['file']
 
-        firebase.database().ref('one2one/' + cid + '/messages').push({
+        firebase.database().ref('one2one/' + response['cid'] + '/messages').push({
           'sender_id': userId, 'id': response['id'], 'type': type, 'time': new Date().getTime(), 'message': '', 'is_read': false, 'is_received': false,
           'text': '', 'audio': '', 'video': '', 'call_duration': '', 'from_me': true, 'image': img, 'file': fileType, 'location': '', 'emoji': ''
 

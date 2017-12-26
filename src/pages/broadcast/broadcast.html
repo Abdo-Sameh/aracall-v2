@@ -15,25 +15,79 @@
 
 <ion-content>
   <ion-searchbar type="text" placeholder="{{'search' | translate}}" (ionInput)="onInput($event)"></ion-searchbar>
-  <form #userForm="ngForm" (ngSubmit)="onclick(userForm.value)">
+  <!-- <form #userForm="ngForm" (ngSubmit)="onclick(userForm.value)"> -->
     <main class="page">
       <div class="bg_color">
         <div class="contacts">
           <div class="container">
-            <div class="contact_item online user" *ngFor="let p of friendsnames">
+            <div class="contact_item online user" *ngFor="let p of friendsnames; let i = index;">
               <div class="contact_img">
                 <img [src]="p.avatar" style="border-radius:50%" alt="Arab Call" title="Arab Call">
               </div>
               <div class="contact_info">
                 <h3>{{p.name}}</h3>
               </div>
-              <ion-checkbox (ngModel)=p.name [name]="p.userid"></ion-checkbox>
+              <ion-checkbox (ngModel)=p.name [name]="p.userid" (ionChange)="add(p, i)"></ion-checkbox>
             </div>
             <!-- //Contact Item -->
           </div>
         </div>
       </div>
-      <div class="typing">
+      <div class="message-box message-box-2">
+        <form>
+          <div class="container chat-message-box">
+            <ul class="toggle-icons animated bounceIn" style="margin-bottom: 10px;">
+              <li>
+                <a (click)="recordPage()" href="#">
+                    <b><img src="./assets/images/svg/microphone.svg"></b>
+                    <span>{{'audio' | translate}}</span>
+                  </a>
+              </li>
+              <li>
+                <a (click)="chooseFile()" href="#">
+                    <b><img src="./assets/images/svg/video-camera.svg"></b>
+                    <span>{{'video' | translate}}</span>
+                  </a>
+              </li>
+              <li>
+                <a (click)="chooseFile()" href="#">
+                    <b><img src="./assets/images/svg/attachment-paperclip-symbol-of-interface.svg"></b>
+                    <span>{{'document' | translate}}</span>
+                  </a>
+              </li>
+              <li>
+                <a (click)="location()" href="#">
+                    <b><img src="./assets/images/svg/facebook-placeholder-for-locate-places-on-maps.svg"></b>
+                    <span>{{'location' | translate}}</span>
+                  </a>
+              </li>
+              <li>
+                <a (click)="openGallery()" href="#">
+                    <b><img src="./assets/images/svg/gallery.svg"></b>
+                    <span>{{'gallery' | translate}}</span>
+                  </a>
+              </li>
+              <li>
+                <a (click)="handWriting()" href="#">
+                    <b><img src="./assets/images/svg/new-file.svg"></b>
+                    <span>{{'handwriting' | translate}}</span>
+                  </a>
+              </li>
+            </ul>
+            <div class="type-message">
+              <a (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" href="#"><img src="./assets/images/svg/emoticon-with-happy-face.svg" style="width:25px;height:25px;"></a>
+              <input type="text" class="form-control" name="msg" autocomplete="off" placeholder="{{'type-message' | translate}}" [(ngModel)]="emojitext" name="email">
+              <a (click)="openCamera(); " href="#"><img src="./assets/images/svg/photo-camera.svg" style="width:25px;height:25px;"></a>
+              <a (click)="openMore();" href="#"><img src="./assets/images/svg/plus-icon.svg" style="width:25px;height:25px;"></a>
+              <a id="send" (click)="send();" class="mic-send">
+                <img (click)="recordPage();" src="./assets/images/svg/mic-icon.svg" style="width:25px;height:25px;">
+                <img (click)="send();" class="rotate-img" src="./assets/images/svg/send-icon.svg" style="width:22px;height:22px;">
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="typing">
         <div class="message-box">
           <div class="input-group" style="width:85%;margin-left:7.5%">
             <input type="text" class="form-control" placeholder="{{'type-message' | translate}}" name="msg" [(ngModel)]="message">
@@ -41,10 +95,9 @@
 							<button class="btn btn-default" type="submit" style="margin-top: -26px"><ion-icon name="md-send"></ion-icon></button>
 						</span>
           </div>
-          <!-- /input-group -->
         </div>
-      </div>
+      </div> -->
     </main>
+  <!-- </form> -->
 
-  </form>
 </ion-content>

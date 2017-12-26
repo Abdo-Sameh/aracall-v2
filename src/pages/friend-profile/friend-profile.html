@@ -29,16 +29,16 @@
     <div class="contact-options flex-h-center mt-20">
       <p style="width: 80%;text-align:center; font-weight: 600;">{{status}}</p>
       <a href="#" class="c-option flex-v-center flex-h-center">
-        <i class="fa fa-phone"></i> <span (click)="VoiceCall()">{{'voice-call' | translate}}</span>
+        <i class="fa fa-phone"></i> <span (click)="voiceCall()">{{'voice-call' | translate}}</span>
       </a>
       <a href="#" class="c-option flex-v-center flex-h-center">
         <i class="fa fa-envelope"></i> <span (click)="SendMessage()" >{{'send-message' | translate}}</span>
       </a>
       <a href="#" class="c-option flex-v-center flex-h-center">
-        <i class="fa fa-video-camera"></i> <span (click)="VideoCall()">{{'video-call' | translate}}</span>
+        <i class="fa fa-video-camera"></i> <span (click)="videoCall()">{{'video-call' | translate}}</span>
       </a>
       <a href="#" class="c-option flex-v-center flex-h-center">
-        <i class="fa fa-ban"></i> <span (click)="Block(Friend_Id)">{{'block-friend' | translate}}</span>
+        <i class="fa fa-ban"></i> <span (click)="block()">{{'block-friend' | translate}}</span>
       </a>
     </div>
   </main>

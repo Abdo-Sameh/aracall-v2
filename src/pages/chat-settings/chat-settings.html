@@ -19,7 +19,7 @@
 
       <a href="#" class="list-group-item">
         <div>
-          <ion-toggle [(ngModel)]="settings['last_seen_status']" value="1" id="radio_1_1" (ionChange)="change_value('last_seen',settings['last_seen_status'])" [ngModelOptions]="{ standalone :true}" class="pull-right"></ion-toggle>
+          <ion-toggle [(ngModel)]="chatSettings['last_seen_status']" (ionChange)="change_value('last_seen',chatSettings['last_seen_status'])" [ngModelOptions]="{ standalone :true}" class="pull-right"></ion-toggle>
           <!-- <input type="checkbox" id="check_2" class="check_2" value="1" *ngIf="settings['notify-site-mention-you'] == '1'" checked>
                 <input type="checkbox" id="check_2" class="check_2" value="0" *ngIf="settings['notify-site-mention-you'] == '0'"> -->
           <label for="radio_1_2" class="pull-left" style="margin-top:12px">{{'last-seen' | translate}}</label>
@@ -32,7 +32,7 @@
 
       <a href="#" class="list-group-item">
         <div>
-          <ion-toggle [(ngModel)]="settings['read_receipt_status']" (ionChange)="change_value('read_receipt',settings['read_receipt_status'])" id="radio_1_2" [ngModelOptions]="{ standalone :true}" value="2" class="pull-right"></ion-toggle>
+          <ion-toggle [(ngModel)]="chatSettings['read_receipt_status']" (ionChange)="change_value('read_receipt',chatSettings['read_receipt_status'])" [ngModelOptions]="{ standalone :true}" class="pull-right"></ion-toggle>
           <!-- <input type="checkbox" id="check_2" class="check_2" value="1" *ngIf="settings['notify-site-mention-you'] == '1'" checked>
                   <input type="checkbox" id="check_2" class="check_2" value="0" *ngIf="settings['notify-site-mention-you'] == '0'"> -->
           <label for="radio_1_1" class="pull-left" style="margin-top:12px">Read receipt settings</label>

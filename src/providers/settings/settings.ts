@@ -17,6 +17,12 @@ export class SettingsProvider {
     console.log('Hello SettingsProvider Provider');
   }
 
+  profileDetailsApiCall(userId) {
+    return this.http.get(this.serverURL + this.KEY + '/profile/details?userid=' + userId + '&the_userid=' + userId)
+      .map((res: any) => res.json());
+
+  }
+
   getLoggedInUSerProfile(userId) {
     return this.http.get(this.serverURL + this.KEY + '/chat/profile?userid=' + userId).map((res: any) => res.json())
   }

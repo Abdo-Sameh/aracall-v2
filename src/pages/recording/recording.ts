@@ -75,6 +75,7 @@ export class RecordingPage {
         }
         else {
           clearInterval(timer);
+          this.stopRecording();
         }
       }, 1000);
     }

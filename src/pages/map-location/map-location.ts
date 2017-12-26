@@ -28,10 +28,13 @@ export class MapLocationPage {
   currentPos: Geoposition;
   lat
   long
+  chosenUsers
   constructor(public groupChat: GroupChatProvider, public platform: Platform, public diagnostic: Diagnostic, public alertCtrl: AlertController, public loadingctrl: LoadingController, public database: SingleChatProvider, public navCtrl: NavController, public navParams: NavParams, public http: Http, public geolocation: Geolocation) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     cid = this.navParams.get('id');
     remoteid = this.navParams.get('remoteid')
+    this.chosenUsers = this.navParams.get('users')
+
     this.isLocationAvailable();
   }
   doRefresh(refresher) {
@@ -129,6 +132,12 @@ export class MapLocationPage {
       console.log(cid)
       if (this.navParams.get('chatType') == 'single')
         this.database.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => { });
+      else if (this.navParams.get('chatType') == 'broadcast') {
+        for (let i = 0; i < this.chosenUsers.length; ++i) {
+          this.database.send_location('', this.chosenUsers[i].userid, url, this.userId, imgLocation).subscribe((res) => { });
+        }
+        this.navCtrl.pop();
+      }
       else
         this.groupChat.send_location(cid, remoteid, url, this.userId, imgLocation).subscribe((res) => { });
       this.navCtrl.pop();

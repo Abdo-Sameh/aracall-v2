@@ -94,7 +94,7 @@ export class EditProfilePage {
 
       }
     }, (err) => {
-      this.presentToast('Error while selecting image.');
+      // this.presentToast('Error while selecting image.');
     });
   }
 
@@ -111,7 +111,7 @@ export class EditProfilePage {
       this.userAvatar = this.pathForImage(this.lastImage);
     }, error => {
       // alert(error);
-      this.presentToast('Error while storing file.');
+      // this.presentToast('Error while storing file.');
     });
   }
 
@@ -165,12 +165,12 @@ export class EditProfilePage {
       this.loading.dismissAll()
       let response = JSON.parse(data.response);
       if (response['status'] == 0) {
-        this.presentToast('Error while uploading file.');
+        // this.presentToast('Error while uploading file.');
       } else {
         this.presentToast(message);
       }
     }, err => {
-      this.presentToast('Error while uploading file.');
+      // this.presentToast('Error while uploading file.');
     });
   }
 
