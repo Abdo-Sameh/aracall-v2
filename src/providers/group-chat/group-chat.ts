@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { Http, Headers, URLSearchParams } from '@angular/http';
-import { Loading } from 'ionic-angular';
+import { Loading, LoadingController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 /*
@@ -25,7 +25,7 @@ export class GroupChatProvider {
   KEY = '89129812'
   userAvatar
 
-  constructor(private transfer: FileTransfer, public http: Http) {
+  constructor(public loadingCtrl: LoadingController, private transfer: FileTransfer, public http: Http) {
     console.log('Hello GroupChatProvider Provider');
     this.userAvatar = localStorage.getItem('userAvatar')
     // this.userName = localStorage.getItem('userName').replace(/['"]/g, '');
@@ -55,6 +55,63 @@ export class GroupChatProvider {
 
   endcall() {
     firebase.database().ref('many2many/' + remoteid + '/incoming').set({ 0: "undefined" });
+  }
+
+  changeGroupAvatar(cid, image, userId){
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Uploading ...',
+      showBackdrop: true
+    });
+    loading.present();
+    let message, targetPath;
+    var filename = image;
+    if (image === null) {
+      return '';
+    } else {
+      targetPath = cordova.file.dataDirectory + image;
+      // alert('targetPaht ' + targetPath)
+    }
+    var url, options;
+    url = this.serverURL + this.KEY + '/chat/group/change/cover';
+    options = {
+      fileKey: 'image',
+      fileName: filename,
+      chunkedMode: false,
+      mimeType: "multipart/form-data",
+      params: { 'userid': userId, 'cid': cid, 'image': filename }
+    };
+    //
+    // alert(options['params'].cid)
+    // alert(options['params'].image)
+    // alert(options['params'].userid)
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    // alert('ay 7aga');
+    // alert(targetPath);
+    // alert(url);
+    // alert(fileTransfer);
+    fileTransfer.upload(targetPath, url, options, true).then(data => {
+      // alert('ay 7aga 2');
+      // loading.dismissAll()
+      let response = JSON.parse(data.response);
+      // alert(response['id']);
+      // alert(response['text']);
+      // alert(response['status']);
+      if (response['status'] == 0) {
+        loading.dismiss();
+        return response['data_one'];
+        // this.presentToast('Error while uploading file.');
+      } else {
+        loading.dismiss();
+        return null;
+          // img = response['data_one'];
+      }
+    }).catch(err => {
+      // alert('ay 7aga error');
+      alert('Error while uploading file');
+      return null;
+      //this.presentToast('Error while uploading file.');
+    });
   }
 
 

@@ -34,7 +34,7 @@ export class CreateGroupPage {
       showBackdrop: false
     });
     loading.present();
-    this.friends.getFriends().subscribe(data => {
+    this.friends.getFriends(this.userId).subscribe(data => {
       loading.dismiss();
       this.friendsList = data;
       this.friendsnames = data;

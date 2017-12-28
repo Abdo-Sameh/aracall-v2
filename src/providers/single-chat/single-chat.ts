@@ -56,16 +56,11 @@ export class SingleChatProvider {
     })
   }
 
-  deleteMessage(cid, id, userid) {
-    // return new Observable(observer => {
-      var updates = {};
-      console.log(firebase.database().ref('one2one/' + cid + '/messages/').equalTo(id));
-      updates['one2one/' + cid + '/messages/' + id] = userid;
-      // firebase.database().ref('one2one/' + cid + '/messages/' + id).on('value', function(snapshot) {
-        firebase.database.ref().update(updates);
-        // observer.next(snapshot.val())
-      // })
-    // })
+  deleteMessage(cid, id, userid, key) {
+    return new Observable(observer => {
+      firebase.database().ref('one2one/' + cid + '/messages/' + key).update({'cleared' : userid})
+    })
+
   }
 
   broadcasting(test = 'haveChatHistory', user, text, userid) {

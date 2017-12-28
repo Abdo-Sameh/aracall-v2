@@ -15,7 +15,9 @@ import { FriendsProvider } from '../../providers/friends/friends'
 })
 export class BlockedUsersPage {
   blocked
+  userId
   constructor(public toastCtrl: ToastController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.getAllBlocked();
   }
 
@@ -24,13 +26,13 @@ export class BlockedUsersPage {
   }
 
   getAllBlocked() {
-    this.friends.getAllBlocked().subscribe(res => {
+    this.friends.getAllBlocked(this.userId).subscribe(res => {
       this.blocked = res;
     });
   }
 
   unblockUser(id, index) {
-    this.friends.unblockUser(id).subscribe(res => {
+    this.friends.unblockUser(id, this.userId).subscribe(res => {
       if (res.status == 1) {
         let toast = this.toastCtrl.create({
           message: 'User unblocked successfully',

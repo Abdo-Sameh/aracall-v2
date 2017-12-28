@@ -30,7 +30,7 @@ export class ContactsPage {
       showBackdrop: false
     });
     loading.present();
-    this.friends.getFriends().subscribe(data => {
+    this.friends.getFriends(this.userId).subscribe(data => {
       loading.dismiss();
       this.friendsList = data;
       console.log(data);
@@ -61,7 +61,7 @@ export class ContactsPage {
         // this.app.getRootNav().push(ChatHandlerPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
       } else {
         // this.app.getRootNav().push(ChatHandlerPage, { cid, title, avatar, 'is_blocked': is_blocked, user1 });
-        this.app.getRootNav().push(NewChatPage, { 'data': res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked })
+        this.app.getRootNav().push(NewChatPage, { cid: res.cid, 'avatar': res.avatar, 'title': res.name, 'is_blocked': res.is_blocked, user1: res.user1 })
       }
     })
   }

@@ -42,6 +42,7 @@ export class ChatHandlerPage {
   lastImage: string = null;
   loading: Loading
   lastonline
+  keys = []
   friendData
   emojitext = ''
   remoteavatar
@@ -70,7 +71,7 @@ export class ChatHandlerPage {
     });
     loading.present();
 
-    this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
+    this.friends.profileDetailsApiCall(this.the_userId, this.userId).subscribe(res => {
       console.log(res)
       this.friendData = res;
       this.currentUserID = res.id;
@@ -86,7 +87,8 @@ export class ChatHandlerPage {
     this.singleChat.display_single_chat_messages(this.cid, this.userId).subscribe((res) => {
       this.chats = []
       for (let key in res) {
-        if (res[key].cleared != this.userId) {
+        if (res[key].cleared != this.userId || res[key].cleared == '') {
+          this.keys.push(key);
           res[key].time = this.edittime(Date.now(), res[key].time)
           this.chats.push(res[key])
         }
@@ -110,7 +112,6 @@ export class ChatHandlerPage {
         }
       });
     });
-
   }
 
   viewImage(path) {
@@ -124,34 +125,22 @@ export class ChatHandlerPage {
     var msPerWeek = 7 * msPerDay;
     var msPerMonth = msPerDay * 30;
     var msPerYear = msPerDay * 365;
-
     var elapsed = current - previous;
 
-    if (elapsed < msPerMinute) {
+    if (elapsed < msPerMinute)
       return 'now';
-    }
-
-    else if (elapsed < msPerHour) {
+    else if (elapsed < msPerHour)
       return Math.round(elapsed / msPerMinute) + ' minutes ago';
-    }
-
-    else if (elapsed < msPerDay) {
+    else if (elapsed < msPerDay)
       return Math.round(elapsed / msPerHour) + ' hours ago';
-    }
-    else if (elapsed < msPerWeek) {
+    else if (elapsed < msPerWeek)
       return Math.round(elapsed / msPerDay) + ' days ago';
-    }
-    else if (elapsed < msPerMonth) {
+    else if (elapsed < msPerMonth)
       return Math.round(elapsed / msPerWeek) + ' weeks ago';
-    }
-
-    else if (elapsed < msPerYear) {
+    else if (elapsed < msPerYear)
       return Math.round(elapsed / msPerMonth) + ' months ago';
-    }
-
-    else {
+    else
       return Math.round(elapsed / msPerYear) + ' years ago';
-    }
   }
 
   openMore() {
@@ -172,30 +161,22 @@ export class ChatHandlerPage {
     let editGroupName = this.alert.create({
       title: 'Delete conversation',
       message: "Do you want to clear this conversation ?",
-      buttons: [
-        {
+      buttons: [{
           text: 'ok',
           handler: data => {
             this.singleChat.deleteConversation(this.userId, this.cid).subscribe(res => {
-              loading1.dismiss()
+              loading.dismiss()
               console.log(res)
               if (res.status == 1) {
-                for(let i = 0; i < this.chats.length; ++i){
-                  this.singleChat.deleteMessage(this.cid, this.chats[i].id, this.userId);
+                for (let i = 0; i < this.chats.length; ++i) {
+                  console.log(i + " " + this.chats[i] + " " + this.keys[i]);
+                  this.singleChat.deleteMessage(this.cid, this.chats[i].id, this.userId, this.keys[i]).subscribe(res => {})
                 }
-                // this.database.Delete_conversationfirebase(this.cid)
-                // window.location.reload();
-                // this.navCtrl.push(TabsPage);
-
               }
-              // alert("xxx"+JSON.stringify(res) )
-              //   firebase.database().ref(userID + '/chats').delete();
             }
             );
           }
-
-        },
-        {
+        }, {
           'text': 'cancel',
           role: 'cancel'
         }
@@ -204,7 +185,7 @@ export class ChatHandlerPage {
     })
     editGroupName.present()
     // alert(this.cid)
-    let loading1 = this.loadingctrl.create({
+    let loading = this.loadingctrl.create({
       showBackdrop: false
     });
   }
@@ -270,15 +251,16 @@ export class ChatHandlerPage {
   }
 
   copyFileToLocalDir(namePath, currentName, newFileName, type) {
-    // alert(namePath);
-    // alert(currentName);
-    // alert(newFileName);
-    // alert(type);
+    alert(namePath);
+    alert(currentName);
+    alert(newFileName);
+    alert(type);
+    alert(cordova.file.dataDirectory);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
       this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type, this.userId);
     }, error => {
-      // alert(error);
+      alert(JSON.stringify(error));
       this.presentToast('Error while storing file.');
     });
   }
@@ -425,7 +407,6 @@ export class ChatHandlerPage {
       showBackdrop: true,
       content: 'Calling',
       spinner: 'dots'
-
     });
     loading1.present();
     this.singleChat.remoteid(this.username, this.userId).then(data => {
@@ -503,7 +484,7 @@ export class ChatHandlerPage {
         buttons: [{
           text: ok,
           handler: data => {
-            this.friends.unblockUser(blockedUser).subscribe(res => {
+            this.friends.unblockUser(blockedUser, this.userId).subscribe(res => {
               loading1.dismiss()
               console.log(res);
               if (res.status == 1) {

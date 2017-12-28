@@ -11,17 +11,15 @@ import 'rxjs/add/operator/do';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-let userId;
 @Injectable()
 export class FriendsProvider {
   serverURL = 'https://arabface.online/api/'
   KEY = '89129812'
   constructor(public http: Http) {
     console.log('Hello FriendsProvider Provider');
-    userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
-  unblockUser(id) {
+  unblockUser(id, userId) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     let urlSearchParams = new URLSearchParams();
@@ -32,11 +30,11 @@ export class FriendsProvider {
       .map((res: any) => res.json());
   }
 
-  getAllBlocked() {
+  getAllBlocked(userId) {
     return this.http.get(this.serverURL + this.KEY + '/all/blocked?userid=' + userId).map((res: any) => res.json());
   }
 
-  blockUser(id) {
+  blockUser(id, userId) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     let urlSearchParams = new URLSearchParams();
@@ -57,7 +55,7 @@ export class FriendsProvider {
     })
   }
 
-  getFriends() {
+  getFriends(userId) {
     return new Observable(observer => {
       let urlSearchParams = new URLSearchParams();
       urlSearchParams.append('userid', userId)
@@ -72,7 +70,7 @@ export class FriendsProvider {
     })
   }
 
-  profileDetailsApiCall(theUserId) {
+  profileDetailsApiCall(theUserId, userId) {
     return this.http.get(this.serverURL + this.KEY + '/profile/details?userid=' + userId + '&the_userid=' + theUserId)
       .map((res: any) => res.json());
 

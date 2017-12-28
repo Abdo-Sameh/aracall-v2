@@ -121,7 +121,10 @@ export class GroupInfoPage {
   copyFileToLocalDir(namePath, currentName, newFileName) {
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
-      this.group.group_cover = this.pathForImage(this.lastImage);
+      this.groupChat.changeGroupAvatar(this.group.cid, this.lastImage, this.userId);
+
+
+      // this.group.group_cover = this.pathForImage(this.lastImage);
       // this.navCtrl.push(UploadImagePage, {
       //   cid: this.group.cid,
       //   image: this.lastImage

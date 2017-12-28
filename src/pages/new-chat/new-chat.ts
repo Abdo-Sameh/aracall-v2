@@ -28,7 +28,7 @@ declare var cordova: any;
 @Component({
   selector: 'page-new-chat',
   templateUrl: 'new-chat.html',
-  styleUrls: ['../../assets/main.css', '../../assets/ionicons.min.css']
+  styleUrls: ['../../assets/main.css']
 })
 export class NewChatPage {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
@@ -61,9 +61,10 @@ export class NewChatPage {
       showBackdrop: false
     });
     loading.present();
-
-    this.friends.profileDetailsApiCall(this.the_userId).subscribe(res => {
+    console.log(this.the_userId + " " + this.userId)
+    this.friends.profileDetailsApiCall(this.the_userId, this.userId).subscribe(res => {
       console.log(res)
+      this.friendData = res;
       this.currentUserID = res.id;
       console.log(this.currentUserID)
       this.lastonline = res.profile_info[0].value;
@@ -84,7 +85,19 @@ export class NewChatPage {
   }
 
   ionViewDidLoad() {
-
+    $(document).ready(function() {
+      $(".type-message input").focus(function() {
+        $(".mic-send img").toggle();
+      });
+      $(".type-message input").blur(function() {
+        $(".mic-send img").toggle();
+      });
+      $("body").click(function(e) {
+        if (!$(e.target).is(".message-box-2 .type-message a:nth-child(4),.message-box-2 .type-message a:nth-child(4) *,.toggle-icons,.toggle-icons *")) {
+          $(".toggle-icons").removeClass("open");
+        }
+      });
+    });
   }
 
   edittime(current, previous) {
@@ -373,8 +386,11 @@ export class NewChatPage {
 
   call() {
     let loading1 = this.loadingctrl.create({
-      showBackdrop: false
+      showBackdrop: true,
+      content: 'Calling',
+      spinner: 'dots'
     });
+    loading1.present();
     this.singleChat.remoteid(this.username, this.userId).then(data => {
       let number = Math.floor(Math.random() * 1000000000);
       this.singleChat.sendnumber(data, number, 'audio', this.userId);
@@ -386,13 +402,17 @@ export class NewChatPage {
 
   video() {
     let loading1 = this.loadingctrl.create({
-      showBackdrop: false
+      showBackdrop: true,
+      content: 'Calling',
+      spinner: 'dots',
+
     });
+    loading1.present();
     let number = Math.floor(Math.random() * 1000000000);
     this.singleChat.remoteid(this.username, this.userId).then(data => {
       this.singleChat.sendnumber(data, number, 'video', this.userId);
       let avatar = this.remoteavatar;
-      loading1.dismiss()
+      loading1.dismiss();
       this.navCtrl.push(VideoHandlerPage, { name: this.username, avatar, data, number, remote: false });
     })
   }
@@ -436,7 +456,7 @@ export class NewChatPage {
         buttons: [{
           text: 'Ok',
           handler: data => {
-            this.friends.unblockUser(blockedUser).subscribe(res => {
+            this.friends.unblockUser(blockedUser, this.userId).subscribe(res => {
               loading1.dismiss()
               console.log(res);
               if (res.status == 1) {

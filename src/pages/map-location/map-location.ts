@@ -34,9 +34,9 @@ export class MapLocationPage {
     cid = this.navParams.get('id');
     remoteid = this.navParams.get('remoteid')
     this.chosenUsers = this.navParams.get('users')
-
     this.isLocationAvailable();
   }
+
   doRefresh(refresher) {
     this.isLocationAvailable();
     if (refresher != 0)
@@ -45,14 +45,6 @@ export class MapLocationPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MaplocationPage');
-    // this.diagnostic.isLocationEnabled().then(
-    //   (isAvailable) => {
-    //     // alert("GPS is opened")
-    //     this.getUserPosition();
-    //   }).catch((e) => {
-    //     // alert(e);
-    //     this.diagnostic.switchToLocationSettings();
-    //   });
   }
 
   isLocationAvailable() {
@@ -102,7 +94,6 @@ export class MapLocationPage {
   }
 
   addMarker() {
-
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
@@ -120,7 +111,6 @@ export class MapLocationPage {
   }
 
   //https://maps.googleapis.com/maps/api/staticmap?size=370x400&zoom=14&markers=color%3Ared%7C30.0556004%2C%2031.1981732
-
 
   sendLocation() {
     var url = "http://maps.google.com/?q=" + this.lat + "," + this.long;
@@ -143,66 +133,4 @@ export class MapLocationPage {
       this.navCtrl.pop();
     }
   }
-  //
-  // addInfoWindow(marker, content) {
-  //
-  //   let infoWindow = new google.maps.InfoWindow({
-  //     content: content
-  //   });
-  //
-  //   google.maps.event.addListener(marker, 'click', () => {
-  //     infoWindow.open(this.map, marker);
-  //   });
-  //
-  // }
-  //
-  // getlocation() {
-  //
-  //   let optionsGPS = { timeout: 4000, enableHighAccuracy: true };
-  //   this.geolocation.getCurrentPosition(optionsGPS).then((resp) => {
-  //     lat1 = resp.coords.latitude;
-  //     long1 = resp.coords.longitude;
-  //     let latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-  //     // currentPosMarker.setPosition(latLng);
-  //
-  //     let mapOptions = {
-  //       center: latLng,
-  //       zoom: 15,
-  //       mapTypeId: google.maps.MapTypeId.ROADMAP
-  //     }
-  //
-  //     this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  //
-  //     let marker = new google.maps.Marker({
-  //       map: this.map,
-  //       animation: google.maps.Animation.DROP,
-  //       position: this.map.getCenter()
-  //     });
-  //
-  //     let content = "<h4>Information!</h4>";
-  //
-  //     this.addInfoWindow(marker, content);
-  //   }).catch((err) => {
-  //     isenabled = true;
-  //     let alert = this.alertCtrl.create({
-  //       title: 'Open GPS',
-  //       subTitle: 'You need active the GPS',
-  //       buttons: [
-  //
-  //         {
-  //           text: 'OK',
-  //           handler: () => {
-  //             this.navCtrl.pop();
-  //             this.diagnostic.switchToLocationSettings();
-  //
-  //             console.log('Buy clicked');
-  //           }
-  //         }
-  //       ]
-  //     });
-  //     alert.present();
-  //     // this.diagnostic.switchToLocationSettings();
-  //   });
-  // }
-
 }

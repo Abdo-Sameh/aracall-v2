@@ -22,10 +22,12 @@ export class AddMemberPage {
   friendsList
   chosenUsers = []
   currentMembers
+  userId
   names
   cid
   constructor(public translate: TranslateService, public toast: ToastController, public groupChat: GroupChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.currentMembers = this.navParams.get('currentMembers');
+    this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = this.navParams.get('id');
   }
 
@@ -35,7 +37,7 @@ export class AddMemberPage {
       showBackdrop: false
     });
     loading.present();
-    this.friends.getFriends().subscribe(data => {
+    this.friends.getFriends(this.userId).subscribe(data => {
       loading.dismiss();
       this.friendsList = data;
       this.friendsnames = data;

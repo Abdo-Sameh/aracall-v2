@@ -171,9 +171,13 @@
 
   "add-phrase": "Add Phrase",
 
+  "account-settings-menu" : "Account Settings"
+
   "create": "Create",
 
   "recording" : "Recording",
+
+  "there-are-no-groups" : "There are no groups",
 
   "create-language-pack": "Create a pack",
 
