@@ -20,6 +20,7 @@ import { NewChatPage } from '../new-chat/new-chat';
 export class ContactsPage {
   friendsList
   userId
+  online_status
   constructor(public app: App, public singleChat: SingleChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
@@ -33,6 +34,9 @@ export class ContactsPage {
     this.friends.getFriends(this.userId).subscribe(data => {
       loading.dismiss();
       this.friendsList = data;
+      for(let i = 0; i < this.friendsList.length; ++i){
+        // if(this.friendsList[i].online_time)
+      }
       console.log(data);
     });
   }

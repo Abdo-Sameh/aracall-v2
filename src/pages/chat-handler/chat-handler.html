@@ -74,9 +74,7 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-
               </div>
-
               <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
@@ -94,7 +92,6 @@
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
                 </div>
-
               </div>
             </div>
           </div>

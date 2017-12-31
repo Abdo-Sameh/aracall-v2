@@ -13,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
 // import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
-
+import { TimeProvider } from './../../providers/time/time';
 import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
@@ -56,7 +56,7 @@ export class ChatHandlerPage {
   userId
   downloadProgress
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(public translate: TranslateService, private transfer: FileTransfer, private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public time: TimeProvider, public translate: TranslateService, private transfer: FileTransfer, private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.remoteavatar = this.navParams.get('avatar');
@@ -76,7 +76,8 @@ export class ChatHandlerPage {
       this.friendData = res;
       this.currentUserID = res.id;
       console.log(this.currentUserID)
-      this.lastonline = res.profile_info[0].value;
+      console.log(res.profile_info[0].value)
+      this.lastonline = this.getTime(res.profile_info[0].value * 1000);
       this.Settings.get_user_chat_settings(this.userId).subscribe(res => {
         this.settings[0].last_seen_status = res.last_seen_status
         this.settings[0].read_receipt = res.read_receipt_status
@@ -87,9 +88,9 @@ export class ChatHandlerPage {
     this.singleChat.display_single_chat_messages(this.cid, this.userId).subscribe((res) => {
       this.chats = []
       for (let key in res) {
-        if (res[key].cleared != this.userId || res[key].cleared == '') {
+        if ((res[key].cleared != this.userId || res[key].cleared == '') && res[key].cleared != 'both') {
           this.keys.push(key);
-          res[key].time = this.edittime(Date.now(), res[key].time)
+          res[key].time = this.getTime(res[key].time)
           this.chats.push(res[key])
         }
       }
@@ -118,29 +119,8 @@ export class ChatHandlerPage {
     this.photoViewer.show(path);
   }
 
-  edittime(current, previous) {
-    var msPerMinute = 60 * 1000;
-    var msPerHour = msPerMinute * 60;
-    var msPerDay = msPerHour * 24;
-    var msPerWeek = 7 * msPerDay;
-    var msPerMonth = msPerDay * 30;
-    var msPerYear = msPerDay * 365;
-    var elapsed = current - previous;
-
-    if (elapsed < msPerMinute)
-      return 'now';
-    else if (elapsed < msPerHour)
-      return Math.round(elapsed / msPerMinute) + ' minutes ago';
-    else if (elapsed < msPerDay)
-      return Math.round(elapsed / msPerHour) + ' hours ago';
-    else if (elapsed < msPerWeek)
-      return Math.round(elapsed / msPerDay) + ' days ago';
-    else if (elapsed < msPerMonth)
-      return Math.round(elapsed / msPerWeek) + ' weeks ago';
-    else if (elapsed < msPerYear)
-      return Math.round(elapsed / msPerMonth) + ' months ago';
-    else
-      return Math.round(elapsed / msPerYear) + ' years ago';
+  getTime(time) {
+    return this.time.getTime(time);
   }
 
   openMore() {
@@ -162,31 +142,41 @@ export class ChatHandlerPage {
       title: 'Delete conversation',
       message: "Do you want to clear this conversation ?",
       buttons: [{
-          text: 'ok',
-          handler: data => {
-            this.singleChat.deleteConversation(this.userId, this.cid).subscribe(res => {
-              loading.dismiss()
-              console.log(res)
-              if (res.status == 1) {
-                for (let i = 0; i < this.chats.length; ++i) {
-                  console.log(i + " " + this.chats[i] + " " + this.keys[i]);
-                  this.singleChat.deleteMessage(this.cid, this.chats[i].id, this.userId, this.keys[i]).subscribe(res => {})
-                }
+        text: 'ok',
+        handler: data => {
+          this.singleChat.deleteConversation(this.userId, this.cid).subscribe(res => {
+            loading.present()
+            console.log(res)
+            let len = this.chats.length
+            if (res.status == 1) {
+              if (len == 0)
+                loading.dismiss();
+              for (let i = 0; i < len; ++i) {
+                console.log(i + " " + this.chats[0] + " " + this.keys[i]);
+                if(this.chats[0].cleared != '')
+                  this.singleChat.deleteMessage(this.cid, this.chats[0].id, 'both', this.keys[i]).subscribe(res => {})
+                else if(this.chats[0].cleared == '')
+                  this.singleChat.deleteMessage(this.cid, this.chats[0].id, this.userId, this.keys[i]).subscribe(res => {})
+                console.log(i + " " + len)
+                if (i == len - 1)
+                  loading.dismiss();
               }
             }
-            );
           }
-        }, {
-          'text': 'cancel',
-          role: 'cancel'
+          );
         }
+      }, {
+        'text': 'cancel',
+        role: 'cancel'
+      }
       ],
 
     })
     editGroupName.present()
     // alert(this.cid)
     let loading = this.loadingctrl.create({
-      showBackdrop: false
+      showBackdrop: false,
+      content: 'Deleting ...'
     });
   }
 

@@ -12,7 +12,7 @@ import { AudioHandlerPage } from '../audio-handler/audio-handler'
 import { VideoHandlerPage } from '../video-handler/video-handler'
 import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
-
+import { TimeProvider } from './../../providers/time/time';
 import { FriendsProvider } from '../../providers/friends/friends';
 import { GroupChatProvider } from '../../providers/group-chat/group-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
@@ -56,11 +56,13 @@ export class GroupChatPage {
   cid
   is_blocked
   username
-  groupMembers
+  groupMembers = []
   chats = []
+  leftGroup
   msgs = []
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(private transfer: FileTransfer, private photoViewer: PhotoViewer, private fileChooser: FileChooser, public groupChat: GroupChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public time: TimeProvider, private transfer: FileTransfer, private photoViewer: PhotoViewer, private fileChooser: FileChooser, public groupChat: GroupChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.leftGroup = true;
     this.group = navParams.get('group');
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     console.log(this.group);
@@ -68,11 +70,12 @@ export class GroupChatPage {
     this.groupChat.display_single_chat_messages(this.group.cid).subscribe((res) => {
       console.log(res);
       for (let key in res) {
-        res[key].time = this.edittime(Date.now(), res[key].time)
+        res[key].time = this.getTime(res[key].time)
         this.chats.push(res[key])
       }
     });
     console.log(this.chats);
+
   }
 
   ionViewDidLoad() {
@@ -94,38 +97,38 @@ export class GroupChatPage {
 
   handleFileName(path) {
     let type = path.substring(path.lastIndexOf('.') + 1);
-    if(type == 'mp3' || type == 'wav' || type == 'm4a' || type == 'ogg')
-      return "<audio controls><source src=" + path +"></audio>";
-    else if(type == 'mp4' || type == 'avi' || type == 'flv' || type == 'gif' || type == 'rmvb' || type == 'mpeg')
-      return "<video controls><source src=" + path +"></video>";
+    if (type == 'mp3' || type == 'wav' || type == 'm4a' || type == 'ogg')
+      return "<audio controls><source src=" + path + "></audio>";
+    else if (type == 'mp4' || type == 'avi' || type == 'flv' || type == 'gif' || type == 'rmvb' || type == 'mpeg')
+      return "<video controls><source src=" + path + "></video>";
     else
-      return path.substring(path.lastIndexOf('/') + 1) ;
+      return path.substring(path.lastIndexOf('/') + 1);
   }
 
   askForDownload(path) {
-    let download = this.alert.create( {
-        title: 'Download',
-        message: "Do you want to download this file ?",
-        buttons: [{
-            text: 'Yes',
-            handler: data => {
-              loading.present();
-              const fileTransfer: FileTransferObject = this.transfer.create();
-              fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
-                alert("File downloaded successfully");
-                loading.dismiss();
-              }).catch((err) => {
-                loading.dismiss();
-                alert(err);
-              });
-            }
-          },
-          {
-            text: 'No',
-            role: 'cancel'
-          }
-        ],
-      })
+    let download = this.alert.create({
+      title: 'Download',
+      message: "Do you want to download this file ?",
+      buttons: [{
+        text: 'Yes',
+        handler: data => {
+          loading.present();
+          const fileTransfer: FileTransferObject = this.transfer.create();
+          fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
+            alert("File downloaded successfully");
+            loading.dismiss();
+          }).catch((err) => {
+            loading.dismiss();
+            alert(err);
+          });
+        }
+      },
+      {
+        text: 'No',
+        role: 'cancel'
+      }
+      ],
+    })
     download.present()
     let loading = this.loadingctrl.create({
       showBackdrop: false
@@ -306,41 +309,8 @@ export class GroupChatPage {
 
   }
 
-  edittime(current, previous) {
-    var msPerMinute = 60 * 1000;
-    var msPerHour = msPerMinute * 60;
-    var msPerDay = msPerHour * 24;
-    var msPerWeek = 7 * msPerDay;
-    var msPerMonth = msPerDay * 30;
-    var msPerYear = msPerDay * 365;
-
-    var elapsed = current - previous;
-
-    if (elapsed < msPerMinute) {
-      return 'now';
-    }
-
-    else if (elapsed < msPerHour) {
-      return Math.round(elapsed / msPerMinute) + ' minutes ago';
-    }
-
-    else if (elapsed < msPerDay) {
-      return Math.round(elapsed / msPerHour) + ' hours ago';
-    }
-    else if (elapsed < msPerWeek) {
-      return Math.round(elapsed / msPerDay) + ' days ago';
-    }
-    else if (elapsed < msPerMonth) {
-      return Math.round(elapsed / msPerWeek) + ' weeks ago';
-    }
-
-    else if (elapsed < msPerYear) {
-      return Math.round(elapsed / msPerMonth) + ' months ago';
-    }
-
-    else {
-      return Math.round(elapsed / msPerYear) + ' years ago';
-    }
+  getTime(time) {
+    return this.time.getTime(time);
   }
 
   dropdown() {
@@ -369,7 +339,15 @@ export class GroupChatPage {
   }
 
   get_chat_members(cid) {
-    this.groupChat.getGroupChatMembers(cid).subscribe(res => { console.log(res); this.groupMembers = res; })
+    this.groupChat.getGroupChatMembers(cid).subscribe(res => { console.log(res); this.groupMembers = res;
+      for (let i = 0; i < this.groupMembers.length; ++i) {
+        if (this.groupMembers[i].userid == this.userId) {
+          console.log('yes')
+          this.leftGroup = false;
+        }
+      }
+      $("#group_chat_footer").show();
+     })
   }
 
   video() {
@@ -402,6 +380,37 @@ export class GroupChatPage {
     }
     loading1.dismiss()
     this.navCtrl.push(GroupAudioHandlerPage, { cid: this.group.cid, members: this.groupMembers, remote: false, number: "aud" + number.toString(16), name: this.group.group_name });
+  }
+
+  leaveGroup() {
+    let leaveGroupAlert = this.alert.create(
+      {
+        title: 'Leave Group',
+        message: 'Are you sure you want to leave this group ?',
+        buttons: [
+          {
+            text: 'ok',
+            handler: data => {
+              this.groupChat.delete_group_member(this.group.cid, this.userId).subscribe(
+                (res) => {
+                  console.log(res)
+                  if (res.status == 1) {
+                    this.leftGroup = true;
+                    // this.navCtrl.pop();
+                    // this.groupMembers.splice(index, 1)
+                    // this.numberOfParticipants -= 1
+                  }
+                }
+              )
+            }
+          },
+          {
+            text: 'Cancle',
+            role: 'cancle'
+          }
+        ]
+      })
+    leaveGroupAlert.present()
   }
 
 }

@@ -10,9 +10,10 @@
 
       <ion-icon class="dropdown-toggle" data-toggle="dropdown" name="more" style="color:#fff"></ion-icon>
       <ul class="dropdown-menu dropdown-right" style="margin-top: 19px !important;">
-        <li><a href="#" (click)="goToGroupInfo()" style="padding:7px 20px">{{'view-group-info' | translate}}</a></li>
+        <li *ngIf="leftGroup == false"><a href="#" (click)="goToGroupInfo()" style="padding:7px 20px">{{'view-group-info' | translate}}</a></li>
         <li><a href="#" (click)="Clear_Conversation()" style="padding:7px 20px">{{'clear-conversation' | translate}}</a></li>
         <li><a href="#" (click)="Report_Conversation()" style="padding:7px 20px">{{'report-conversation' | translate}}</a></li>
+        <li *ngIf="leftGroup == false"><a href="#" (click)="leaveGroup()" style="padding:7px 20px">{{'leave-group' | translate}}</a></li>
         <!-- <li  *ngIf="is_blocked==false"><a href="#"  (click)="Block(currentUserID)" style="padding:7px 20px">Block</a></li>
 					  <li *ngIf="is_blocked==true"><a href="#"  (click)="unBlock(currentUserID)" style="padding:7px 20px">Unblock</a></li> -->
       </ul>
@@ -113,9 +114,9 @@
     </div>
   </main>
 
-  <ion-footer>
+  <ion-footer id="group_chat_footer" style="display: none;">
 
-    <div class="message-box message-box-2">
+    <div class="message-box message-box-2" *ngIf='leftGroup == false'>
       <form>
         <div class="container chat-message-box">
           <ul class="toggle-icons animated bounceIn" style="margin-bottom: 10px;">
@@ -170,9 +171,9 @@
       </form>
     </div>
 
-    <!-- <div class="message-box message-box-2" *ngIf='is_blocked == true'>
-      <p style="text-align:center;color:#5c0632 ;font-weight:600">Sorry you can't send messages !!</p>
-    </div> -->
+    <div class="message-box message-box-2" *ngIf='leftGroup == true'>
+      <p style="text-align:center;color:#5c0632 ;font-weight:600">Sorry you have left this group</p>
+    </div>
 
   </ion-footer>
 </ion-content>

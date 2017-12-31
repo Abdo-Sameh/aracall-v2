@@ -60,6 +60,7 @@ import { NativeRingtones } from '@ionic-native/native-ringtones';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { MusicControls } from '@ionic-native/music-controls';
 import { LongPressModule } from 'ionic-long-press';
+import { TimeProvider } from '../providers/time/time';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { LongPressModule } from 'ionic-long-press';
     SettingsProvider,
     Diagnostic,
     FriendsProvider,
-    AndroidPermissions
+    AndroidPermissions,
+    TimeProvider
   ]
 })
 export class AppModule { }

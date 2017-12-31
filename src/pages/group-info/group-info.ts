@@ -139,13 +139,10 @@ export class GroupInfoPage {
   }
 
   deleteMember(index, userid) {
-
-    let deleleGroupMember = this.alert.create(
-      {
+    let deleleGroupMember = this.alert.create({
         title: 'Delete member',
         message: 'Do you want to delete this member?',
-        buttons: [
-          {
+        buttons: [{
             text: 'ok',
             handler: data => {
               this.groupChat.delete_group_member(this.group.cid, userid).subscribe(
