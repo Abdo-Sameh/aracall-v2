@@ -137,6 +137,10 @@ export class ChatHandlerPage {
     });
   }
 
+  deleteMessage(){
+    // this.singleChat.deleteMessage(this.cid, this.chats[0].id, 'both', this.keys[i]).subscribe(res => { })
+  }
+
   clearConversation() {
     let message, title, cancel, ok;
     this.translate.get('delete-conversation').subscribe(value => { title = value; })
@@ -195,23 +199,46 @@ export class ChatHandlerPage {
   }
 
   openGallery() {
-    var options = {
-      maximumImagesCount: 15,
-      quality: 100,
-      saveToPhotoAlbum: false,
-      correctOrientation: true
-    };
-
-    this.imagePicker.getPictures(options).then((results) => {
-      for (var i = 0; i < results.length; i++) {
-        console.log('Image URI: ' + results[i]);
-      }
-    }, (err) => { });
+    // var options = {
+    //   maximumImagesCount: 15,
+    //   quality: 100,
+    //   saveToPhotoAlbum: false,
+    //   correctOrientation: true
+    // };
+    //
+    // this.imagePicker.getPictures(options).then((results) => {
+    //   for (var i = 0; i < results.length; i++) {
+    //     console.log('Image URI: ' + results[i]);
+    //   }
+    // }, (err) => { });
     this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
   }
 
   openCamera() {
     this.takePicture(this.camera.PictureSourceType.CAMERA);
+  }
+
+  active() {
+    document.getElementById("myDropdown").classList.toggle("show");
+    $('ion-backdrop').show();
+  }
+
+  downloadImage(path){
+    let loading = this.loadingctrl.create({
+      showBackdrop: false,
+      content: 'Downloading ...'
+    });
+    loading.present();
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    fileTransfer.download(path, 'file:///storage/emulated/0/Download/' + this.handleFileName(path)).then((success) => {
+      alert("Image downloaded successfully");
+      loading.dismiss();
+    }).catch((err) => {
+      loading.dismiss();
+      alert(err);
+    });
+
+    document.getElementById("myDropdown").classList.toggle("show");
   }
 
   vibrate() {

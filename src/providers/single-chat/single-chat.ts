@@ -186,7 +186,6 @@ export class SingleChatProvider {
         });
         loading.dismiss();
       }
-
     }).catch(err => {
       // alert('ay 7aga error');
       alert('Error while uploading file');

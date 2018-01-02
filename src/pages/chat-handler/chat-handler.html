@@ -41,6 +41,18 @@
 
 
 <ion-content>
+  <!-- <ion-backdrop disable-activated="" role="presentation" tappable="" style="opacity: 0.5; display: none;"></ion-backdrop> -->
+  <!-- <div class="alert-wrapper" >
+    <div class="alert-head">
+
+      <h2 class="alert-title" id="alert-hdr-0">delete-conversation</h2>
+    </div>
+    <div class="alert-message" id="alert-msg-0">want-to-delete-this-conv</div>
+
+    <div class="alert-button-group" ng-reflect-klass="alert-button-group" ng-reflect-ng-class="[object Object]">
+      <button ion-button="alert-button" class="alert-button alert-button-md alert-button-default alert-button-default-md"><span class="button-inner">ok</span><div class="button-effect"></div></button><button ion-button="alert-button" class="alert-button alert-button-md alert-button-default alert-button-default-md"><span class="button-inner">cancel</span><div class="button-effect"></div></button></div>
+  </div> -->
+
   <main class="page" #scrollMe [scrollTop]="scrollMe.scrollHeight" style='overflow:scroll;overflow-x:hidden;max-height:200px;'>
     <div class="rec-btn">
       <div>
@@ -60,7 +72,11 @@
               <div class="sender_msg" *ngIf="p.sender_id != userId">
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                   <h4>{{title}}</h4>
-                  <img (click)="viewImage(p.image)" [src]="p.image" style=" width: 500px;height: 200px;">
+                  <img ion-long-press (click)="viewImage(p.image)" [interval]="500" (onPressing)="active()" [src]="p.image" style=" width: 500px;height: 200px;">
+                  <div id="myDropdown" class="dropdown-content">
+                    <a (click)="downloadImage(p.image)">{{'download' | translate}}</a>
+                    <a (click)="deleteMessage(p.image)">{{'delete' | translate}}</a>
+                  </div>
                   <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a><br>
                   <time>{{p.time}}</time>
                 </div>
@@ -70,6 +86,9 @@
                   <time>{{p.time}}</time>
                 </div>
                 <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
+                  <div id="myDropdown" class="dropdown-content">
+                    <a (click)="deleteMessage(p.image)">{{'delete' | translate}}</a>
+                  </div>
                   <h4>{{title}}</h4>
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>
@@ -78,7 +97,12 @@
               <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
-                  <img (click)="viewImage(p.image)" [src]="p.image" style="width: 500px; height: 200px;">
+                  <img ion-long-press (click)="viewImage(p.image)" [interval]="500" (onPressing)="active()" [src]="p.image" style=" width: 500px;height: 200px;">
+
+                  <div id="myDropdown" class="alert-wrapper" class="dropdown-content" style="opacity: 1; transform: scale(1);">
+                    <a (click)="downloadImage(p.image)">{{'download' | translate}}</a>
+                    <a (click)="deleteMessage(p.image)">{{'delete' | translate}}</a>
+                  </div>
                   <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a> <br>
                   <time>{{p.time}}</time>
                 </div>
