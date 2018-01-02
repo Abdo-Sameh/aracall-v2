@@ -5,7 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-content>
-
+  <ion-refresher (ionRefresh)="doRefresh($event);">
+    <ion-refresher-content refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
   <main class="page">
     <div class="bg_color">
       <div class="contacts">
@@ -15,7 +18,7 @@
               <img [src]="p.avatar" style="border-radius:50%" alt="Arab Call" title="Arab Call">
             </div>
             <div class="contact_info">
-              <div class="ion-record pull-right" *ngIf="p.online_status == 0" style="color:green;margin-right:10px"></div>
+              <div class="pull-right" *ngIf="p.online_status == 0"><img src="./assets/images/svg/circular-shape-silhouette.svg" style="width: 10px; height: 10px; margin-top: 20px;"></div>
               <div class="ion-record pull-right" *ngIf="p.online_status == 1" style="color:red;margin-right:10px"></div>
               <div class="ion-record pull-right" *ngIf="p.online_status == 2" style="color:rgb(124, 124, 124);margin-right:10px"></div>
               <h3>{{p.name}}</h3>

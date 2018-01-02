@@ -10,6 +10,10 @@
     <div class="bg_color">
       <div class="contacts">
         <div class="container">
+          <ion-refresher (ionRefresh)="doRefresh($event);">
+            <ion-refresher-content refreshingSpinner="circles">
+            </ion-refresher-content>
+          </ion-refresher>
           <div *ngIf="chatsCount== 0 ">
             <p class="well " style="font-size:20px;font-weight:500;margin:10px;color:#5c0632;text-align:center;padding:10px">{{'there-are-no-groups' | translate}} </p>
           </div>

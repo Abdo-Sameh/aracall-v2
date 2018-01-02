@@ -1514,6 +1514,8 @@
 
 	"delete-conversation": "حذف المحادثة",
 
+	"want-to-delete-this-conv" : "هل تريد حقا حذف هذا المحادثة ؟",
+
 	"send": "إرسال",
 
 	"press-enter-to-send": "دخول الصحافة لإرسال",
@@ -1839,6 +1841,8 @@
 	"edit-album": "تعديل الألبوم",
 
 	"uploading": "تحميل ....",
+
+	"loading" : "تحميل ..."
 
 	"save-album": "حفظ الألبوم",
 

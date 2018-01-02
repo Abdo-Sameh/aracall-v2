@@ -19,7 +19,7 @@ import { SingleChatProvider } from '../../providers/single-chat/single-chat';
 import { FriendProfilePage } from '../friend-profile/friend-profile';
 import { SignaturePage } from '../signature/signature';
 import { TabsPage } from '../tabs/tabs';
-
+import { ImagePicker } from '@ionic-native/image-picker';
 import { MapLocationPage } from '../map-location/map-location';
 import { RecordingPage } from '../recording/recording';
 import { SettingsProvider } from '../../providers/settings/settings'
@@ -56,7 +56,7 @@ export class ChatHandlerPage {
   userId
   downloadProgress
   settings = [{ 'last_seen_status': '', 'read_receipt': '' }];
-  constructor(public time: TimeProvider, public translate: TranslateService, private transfer: FileTransfer, private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private imagePicker: ImagePicker, public time: TimeProvider, public translate: TranslateService, private transfer: FileTransfer, private photoViewer: PhotoViewer, public vibration: Vibration, private fileChooser: FileChooser, public singleChat: SingleChatProvider, public loadingctrl: LoadingController, public alert: AlertController, public Settings: SettingsProvider, public media: Media, public toast: ToastController, private filePath: FilePath, private file: File, public platform: Platform, public camera: Camera, public actionSheetCtrl: ActionSheetController, public friends: FriendsProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
     this.cid = navParams.get('cid');
     this.remoteavatar = this.navParams.get('avatar');
@@ -138,11 +138,17 @@ export class ChatHandlerPage {
   }
 
   clearConversation() {
+    let message, title, cancel, ok;
+    this.translate.get('delete-conversation').subscribe(value => { title = value; })
+    this.translate.get('want-to-delete-this-conv').subscribe(value => { message = value; })
+    this.translate.get('ok').subscribe(value => { ok = value; })
+    this.translate.get('cancel').subscribe(value => { cancel = value; })
+
     let editGroupName = this.alert.create({
-      title: 'Delete conversation',
-      message: "Do you want to clear this conversation ?",
+      title: title,
+      message: message,
       buttons: [{
-        text: 'ok',
+        text: ok,
         handler: data => {
           this.singleChat.deleteConversation(this.userId, this.cid).subscribe(res => {
             loading.present()
@@ -153,10 +159,10 @@ export class ChatHandlerPage {
                 loading.dismiss();
               for (let i = 0; i < len; ++i) {
                 console.log(i + " " + this.chats[0] + " " + this.keys[i]);
-                if(this.chats[0].cleared != '')
-                  this.singleChat.deleteMessage(this.cid, this.chats[0].id, 'both', this.keys[i]).subscribe(res => {})
-                else if(this.chats[0].cleared == '')
-                  this.singleChat.deleteMessage(this.cid, this.chats[0].id, this.userId, this.keys[i]).subscribe(res => {})
+                if (this.chats[0].cleared != '')
+                  this.singleChat.deleteMessage(this.cid, this.chats[0].id, 'both', this.keys[i]).subscribe(res => { })
+                else if (this.chats[0].cleared == '')
+                  this.singleChat.deleteMessage(this.cid, this.chats[0].id, this.userId, this.keys[i]).subscribe(res => { })
                 console.log(i + " " + len)
                 if (i == len - 1)
                   loading.dismiss();
@@ -166,7 +172,7 @@ export class ChatHandlerPage {
           );
         }
       }, {
-        'text': 'cancel',
+        'text': cancel,
         role: 'cancel'
       }
       ],
@@ -189,6 +195,18 @@ export class ChatHandlerPage {
   }
 
   openGallery() {
+    var options = {
+      maximumImagesCount: 15,
+      quality: 100,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    };
+
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+        console.log('Image URI: ' + results[i]);
+      }
+    }, (err) => { });
     this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
   }
 

@@ -51,9 +51,16 @@ export class AllGroupsPage {
     this.app.getRootNav().push(CreateGroupPage);
   }
 
+  doRefresh(refresher) {
+    this.getConversations()
+      if (refresher != 0)
+        refresher.complete();
+    }
+
   getConversations() {
     this.groupChat.getConverstationsList(this.userId).subscribe(res => {
       console.log(res);
+      this.chats = []
       for (let i = 0; i < res.length; ++i) {
         if (res[i].type == 'multiple') {
           this.chats.push(res[i])

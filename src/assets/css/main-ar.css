@@ -2039,11 +2039,8 @@ ion-fab {
   left: 20px;
 }
 
-.searchbar-md .searchbar-clear-icon {
-  left: 13px !important;
-}
-.searchbar-clear-icon .button .button-md .button-clear .button-clear-md{
-  left: 13px !important;
+.searchbar-clear-icon {
+  display: none !important;
 }
 
 .back-button {

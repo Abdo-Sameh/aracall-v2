@@ -97,9 +97,10 @@ export class CreateGroupPage {
                   this.groupChat.usersCoversation(res.cid, this.userId).subscribe(res3 => {
                     this.message = ''
                     this.chosenUsers = []
-                    this.navCtrl.push(GroupChatPage, {
-                      'messages': res3, 'chatUserName': group_name, 'cid': res.cid, 'group_admin': this.userId
-                    })
+                    this.navCtrl.pop();
+                    // this.navCtrl.push(GroupChatPage, {
+                    //   'messages': res3, 'chatUserName': group_name, 'cid': res.cid, 'group_admin': this.userId
+                    // })
                   })
                 }
               })

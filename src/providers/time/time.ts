@@ -14,6 +14,16 @@ export class TimeProvider {
   constructor(public http: HttpClient, public translate: TranslateService) {
     console.log('Hello TimeProvider Provider');
   }
+
+  checkOnline(time){
+    time /= 1000;
+    var timeNow = new Date().getTime() / 1000;
+    console.log(time + " " + timeNow)
+    var time_elapsed = timeNow - time;
+    var seconds = Math.round(time_elapsed);
+    return seconds;
+  }
+
   getTime(time_ago) {
     setTimeout("", 10000);
     time_ago /= 1000;

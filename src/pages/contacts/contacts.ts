@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, App } from 'ionic-angular';
 import { FriendsProvider } from '../../providers/friends/friends';
 import { SingleChatProvider } from '../../providers/single-chat/single-chat';
+import { TimeProvider } from './../../providers/time/time';
 
 import { ChatHandlerPage } from '../chat-handler/chat-handler';
 import { NewChatPage } from '../new-chat/new-chat';
@@ -21,7 +22,7 @@ export class ContactsPage {
   friendsList
   userId
   online_status
-  constructor(public app: App, public singleChat: SingleChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public time: TimeProvider, public app: App, public singleChat: SingleChatProvider, public friends: FriendsProvider, public loadingctrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.userId = localStorage.getItem('userid').replace(/[^0-9]/g, "");
   }
 
@@ -34,11 +35,40 @@ export class ContactsPage {
     this.friends.getFriends(this.userId).subscribe(data => {
       loading.dismiss();
       this.friendsList = data;
-      for(let i = 0; i < this.friendsList.length; ++i){
-        // if(this.friendsList[i].online_time)
+      for (let i = 0; i < this.friendsList.length; ++i) {
+        if (this.checkOnline(this.friendsList[i].online_time * 1000) < 60) {
+          this.friendsList[i].online_status = 0;
+        } else {
+          this.friendsList[i].online_status = -1;
+        }
       }
       console.log(data);
     });
+  }
+
+  checkOnline(time) {
+    return this.time.checkOnline(time);
+  }
+
+  doRefresh(refresher) {
+    let loading = this.loadingctrl.create({
+      showBackdrop: false
+    });
+    loading.present();
+    this.friends.getFriends(this.userId).subscribe(data => {
+      loading.dismiss();
+      this.friendsList = data;
+      for(let i = 0; i < this.friendsList.length; ++i){
+        if(this.checkOnline(this.friendsList[i].online_time * 1000) < 60){
+          this.friendsList[i].online_status = 0;
+        }else{
+          this.friendsList[i].online_status = -1;
+        }
+      }
+      console.log(data);
+    });
+    if (refresher != 0)
+      refresher.complete();
   }
 
   // swipeEvent(e) {

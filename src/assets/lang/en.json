@@ -109,6 +109,8 @@
 
   "category-updated": "Category topic successfully updated",
 
+  "want-to-delete-this-conv" : "Do you want to clear this conversation ?",
+
   "new-message" : "New Message",
 
   "new-broadcast" : "New Broadcast",

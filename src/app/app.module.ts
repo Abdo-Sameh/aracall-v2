@@ -61,6 +61,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 import { MusicControls } from '@ionic-native/music-controls';
 import { LongPressModule } from 'ionic-long-press';
 import { TimeProvider } from '../providers/time/time';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { TimeProvider } from '../providers/time/time';
     Globalization,
     Vibration,
     FileChooser,
+    ImagePicker,
     File,
     PhotoViewer,
     Base64ToGallery,
