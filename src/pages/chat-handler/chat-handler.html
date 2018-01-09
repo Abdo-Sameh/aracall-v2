@@ -68,14 +68,14 @@
       <div class="chat_room_body">
         <div class="container">
           <div class="msgs">
-            <div *ngFor="let p of chats">
+            <div *ngFor="let p of chats; let i = index;">
               <div class="sender_msg" *ngIf="p.sender_id != userId">
                 <div class="msg_box sender" *ngIf="p.image!='' && p.text==''">
                   <h4>{{title}}</h4>
-                  <img ion-long-press (click)="viewImage(p.image)" [interval]="500" (onPressing)="active()" [src]="p.image" style=" width: 500px;height: 200px;">
-                  <div id="myDropdown" class="dropdown-content">
+                  <img ion-long-press (click)="viewImage(p.image)" [interval]="500" (onPressing)="active(p.id)" [src]="p.image" style=" width: 500px;height: 200px;">
+                  <div id="{{p.id}}myDropdown" class="dropdown-content">
                     <a (click)="downloadImage(p.image)">{{'download' | translate}}</a>
-                    <a (click)="deleteMessage(p.image)">{{'delete' | translate}}</a>
+                    <a (click)="deleteMessage(i)">{{'delete' | translate}}</a>
                   </div>
                   <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a><br>
                   <time>{{p.time}}</time>
@@ -85,9 +85,9 @@
                   <p (click)="askForDownload(p.file)" [innerHTML]="handleFileName(p.file)"></p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box sender" *ngIf="p.text!='' && p.image==''">
-                  <div id="myDropdown" class="dropdown-content">
-                    <a (click)="deleteMessage(p.image)">{{'delete' | translate}}</a>
+                <div ion-long-press class="msg_box sender" [interval]="500" (onPressing)="active(p.id)" *ngIf="p.text!='' && p.image==''">
+                  <div id="{{p.id}}myDropdown" class="dropdown-content">
+                    <a (click)="deleteMessage(i)">{{'delete' | translate}}</a>
                   </div>
                   <h4>{{title}}</h4>
                   <p>{{p.text}}</p>
@@ -97,11 +97,11 @@
               <div class="reciever_msg" *ngIf="p.sender_id == userId">
                 <div class="msg_box reciever" *ngIf="p.image!='' && p.text==''">
                   <h4>{{'you' | translate}}</h4>
-                  <img ion-long-press (click)="viewImage(p.image)" [interval]="500" (onPressing)="active()" [src]="p.image" style=" width: 500px;height: 200px;">
+                  <img ion-long-press (click)="viewImage(p.image)" [interval]="500" (onPressing)="active(p.id)" [src]="p.image" style=" width: 500px;height: 200px;">
 
-                  <div id="myDropdown" class="alert-wrapper" class="dropdown-content" style="opacity: 1; transform: scale(1);">
+                  <div id="{{p.id}}myDropdown" class="alert-wrapper" class="dropdown-content" style="opacity: 1; transform: scale(1);">
                     <a (click)="downloadImage(p.image)">{{'download' | translate}}</a>
-                    <a (click)="deleteMessage(p.image)">{{'delete' | translate}}</a>
+                    <a (click)="deleteMessage(i)">{{'delete' | translate}}</a>
                   </div>
                   <a *ngIf="p.type == 'location'" href="{{p.location}}"> {{p.location}}</a> <br>
                   <time>{{p.time}}</time>
@@ -111,7 +111,10 @@
                   <p (click)="askForDownload(p.file)" [innerHTML]="handleFileName(p.file)"></p>
                   <time>{{p.time}}</time>
                 </div>
-                <div class="msg_box reciever" *ngIf="p.text!='' && p.image==''">
+                <div ion-long-press class="msg_box reciever" [interval]="500" (onPressing)="active(p.id)" *ngIf="p.text!='' && p.image==''">
+                  <div id="{{p.id}}myDropdown" class="dropdown-content">
+                    <a (click)="deleteMessage(i)">{{'delete' | translate}}</a>
+                  </div>
                   <h4>{{'you' | translate}}</h4>
                   <p>{{p.text}}</p>
                   <time>{{p.time}}</time>

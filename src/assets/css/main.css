@@ -124,7 +124,7 @@ body {
 
 .add-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: 70px;
   right: 20px;
   z-index: 9999;
   background: #5c0632;
@@ -1623,45 +1623,46 @@ Start Profile
 }
 
 .contact_item {
-  padding: 7px 0;
-  border-top: 1px solid #CCC;
-  overflow: hidden;
+  padding: 13px 0 !important;
+  border-top: 1px solid #CCC !important;
+  overflow: hidden !important;
 }
 
 .contact_item .contact_info {
-  width: 75%;
-  float: left;
-  overflow: hidden;
-  position: relative;
+  width: auto !important;
+  float: none !important;
+  overflow: hidden !important;
+  position: relative !important;
 }
 
 .contact_item .contact_img {
-  width: 25%;
-  float: left;
+  width: 25% !important;
+  float: left !important;
+  margin-right: 13px !important;
 }
 
 .contact_item .contact_img img {
-  width: 50px;
-  height: 50px;
-  margin: auto;
-  text-align: center;
-  float: none;
-  display: block;
-  position: relative;
+  width: 65px !important;
+  height: 65px !important;
+  margin: auto !important;
+  text-align: center !important;
+  float: none !important;
+  display: block !important;
+  position: relative !important;
 }
 
 .contact_item .contact_info h3 {
-  color: #212121;
-  font-weight: 400;
-  font-size: 16px;
+  color: #212121 !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
 }
 
 .contact_item .contact_info p {
-  font-size: 12px;
-  white-space: nowrap;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 14px !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .searchbar-md .searchbar-input {
@@ -1787,16 +1788,15 @@ ion-navbar.toolbar {
 
 .headerico {
   float: right;
-  color: #fff;
   margin-top: 0;
   margin-right: 20px;
   margin-bottom: 5px;
-  width: 33px;
+  width: 27px;
   height: 33px;
-  background: #fff;
-  color: #5c0632;
-  -webkit-box-shadow: 0 0 2px #fff;
-  box-shadow: 0 0 2px #fff;
+  /* background: #fff; */
+  color: #fff;
+  /* -webkit-box-shadow: 0 0 2px #fff; */
+  /* box-shadow: 0 0 2px #fff; */
   font-size: 24px;
   text-align: center;
   border-radius: 50%;
@@ -1804,7 +1804,12 @@ ion-navbar.toolbar {
   position: relative;
   top: -11px;
 }
-
+.ion-ios-videocam:before {
+    content: "" !important;
+}
+.ion-ios-call:before {
+    content: "\f13d" !important;
+}
 .dropdown-toggle.ion-md-more {
   position: relative;
   top: 5px;
@@ -1812,7 +1817,8 @@ ion-navbar.toolbar {
 
 .headerico-video {
   margin-left: -10px;
-  background-color: #fff;
+  /* background-color: #fff; */
+
 }
 
 .animated {
@@ -2017,4 +2023,118 @@ button[ion-fab] ion-label {
 
 [_nghost-c3] {
   text-align: left;
+}
+
+.d-flex {
+  display: flex;
+  padding: 0 20px;
+  }
+.d-flex-justify {
+  justify-content: space-between;
+}
+.app-logo {
+  display: inline-block;
+  margin-left: 15px;
+  position: relative;
+    top: -7px;
+}
+.d-flex a {
+  color: #fff !important;
+}
+.d-flex-top {
+  margin-top: -5px;
+  margin-bottom: -22px;
+}
+.d-flex-top i {
+  color:#fff;font-size:18px;top: -6px;
+  position: relative;
+}
+.d-flex-bottom span {
+  font-size: 20px;
+}
+.tab-button-text {
+    font-size: 16px !important;
+    color: #fff;
+    transform: none !important;
+}
+.sidebar-profile {
+  padding: 25px 24px;
+  background: linear-gradient(rgba(94, 5, 51, 0.5),rgba(29, 83, 167, 0.5)),url(../images/aracall.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.sidebar-profile-image {
+  overflow: hidden;
+}
+.sidebar-profile-image img {
+  width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+}
+.list-md {
+  margin: 0 !important;
+}
+.item-md {
+  padding: 0 !important;
+      background-color: #efefef;
+}
+.menu_items .label {
+  text-align: left;
+    padding-left: 25px;
+    font-size: 16px;
+    color: #333;
+}
+.menu_items .label img {
+  width: 13px;
+  margin: 0 7px;
+  vertical-align: top;
+  position: relative;
+  top: 1px;
+}
+.logout a {
+  color: #fff !important;
+      margin-top: 25px;
+      margin-right: 20px;
+      background: #5e0533;
+      font-weight: 700;
+}
+.item-inner {
+    border-bottom: 1px solid #dedede !important;
+}
+.scroll-content {
+  padding-bottom: 55px !important;
+}
+ion-fab {
+  bottom: 70px !important
+}
+.d-info {
+  margin: 40px 0 10px;
+}
+.d-info img {
+  color: #6a073a;
+  font-size: 33px;
+  border: 1px solid #5e0533;
+  width: 50px;
+  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  padding: 11px;
+  display: inline-block;
+  text-align: center;
+}
+.edit-profile {
+  position: relative;
+}
+.edit-profile img {
+  width: 150px !important;
+  height: 150px !important;
+}
+.edit-profile label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+    margin: 0 !important;
 }

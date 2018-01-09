@@ -47,6 +47,7 @@ import { SearchPage } from '../pages/search/search'
 import { TabsPage } from '../pages/tabs/tabs';
 import { AllChatsPage } from './../pages/all-chats/all-chats';
 import { ContactsPage } from './../pages/contacts/contacts';
+import { InfoPage } from './../pages/info/info';
 import { AllGroupsPage } from './../pages/all-groups/all-groups';
 import { GroupChatPage } from './../pages/group-chat/group-chat';
 import { AuthProvider } from '../providers/auth/auth';
@@ -63,10 +64,11 @@ import { LongPressModule } from 'ionic-long-press';
 import { TimeProvider } from '../providers/time/time';
 import { ImagePicker } from '@ionic-native/image-picker';
 
+
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage, SignaturePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
+    LoginPage, SignaturePage, InfoPage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
     GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage, GroupVideoHandlerPage, GroupAudioHandlerPage
   ],
@@ -88,7 +90,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp, LoginPage, SignaturePage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
+    MyApp, LoginPage, SignaturePage, InfoPage, FriendProfilePage, GroupInfoPage, EditProfilePage, MapLocationPage, VideoHandlerPage, ChatHandlerPage,
     ProfilePage, CreateGroupPage, BroadcastPage, MorePage, AudioHandlerPage, AddMemberPage, SearchPage, TabsPage, AllChatsPage, ContactsPage, AllGroupsPage,
     GroupChatPage, ChatSettingsPage, BlockedUsersPage, NotificationSettingsPage, RecordingPage, NewChatPage, GroupVideoHandlerPage, GroupAudioHandlerPage
   ],
