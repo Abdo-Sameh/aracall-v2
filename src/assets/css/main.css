@@ -1707,7 +1707,6 @@ Start Profile
 
 .tabs-ios .tabbar {
   background: #5c0632 !important;
-  top: 20px !important;
 }
 
 .tabs-ios .tab-button, .tabs-ios .tab-button-icon {
@@ -1718,9 +1717,7 @@ Start Profile
   background-color: transparent !important;
 }
 
-ion-navbar.toolbar {
-  background: linear-gradient(to top, #5c0632 70%, #fff 5%) !important;
-}
+
 
 .back-button-text {
   display: none !important;
@@ -2017,4 +2014,28 @@ button[ion-fab] ion-label {
 
 [_nghost-c3] {
   text-align: left;
+}
+.statusbar {
+  display: none;
+}
+
+.ios .scroll-content {
+  margin-top: 50px !important;
+  /* margin-bottom: 47px !important; */
+}
+ion-navbar.toolbar {
+  background: #5c0632 !important;
+}
+.header-ios {
+  /* top: 25px !important; */
+}
+.header-ios  + .content-ios  {
+  /* top: 28px !important; */
+}
+.fab-ios {
+  bottom: 40px !important;
+}
+ion-icon[class*="search-icon1"] {
+    -webkit-mask-image: url("../images/svg/search.svg");
+    mask-image: url("../images/svg/search.svg");
 }

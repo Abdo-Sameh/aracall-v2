@@ -2053,3 +2053,27 @@ button[ion-fab] ion-label {
 emoji-content {
   text-align: right !important;
 }
+.statusbar {
+  display: none;
+}
+
+.ios .scroll-content {
+  margin-top: 50px !important;
+  /* margin-bottom: 47px !important; */
+}
+ion-navbar.toolbar {
+  background: #5c0632 !important;
+}
+.header-ios {
+  /* top: 25px !important; */
+}
+.header-ios  + .content-ios  {
+  /* top: 28px !important; */
+}
+.fab-ios {
+  bottom: 40px !important;
+}
+ion-icon[class*="search-icon1"] {
+    -webkit-mask-image: url("../images/svg/search.svg");
+    mask-image: url("../images/svg/search.svg");
+}
