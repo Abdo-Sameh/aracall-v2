@@ -124,7 +124,7 @@ body {
 
 .add-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: 70px;
   left: 20px;
   z-index: 9999;
   background: #5c0632;
@@ -1631,45 +1631,46 @@ Start Profile
 }
 
 .contact_item {
-  padding: 7px 0;
-  border-top: 1px solid #CCC;
-  overflow: hidden;
+  padding: 13px 0 !important;
+  border-top: 1px solid #CCC !important;
+  overflow: hidden !important;
 }
 
 .contact_item .contact_info {
-  width: 75%;
-  float: right !important;
-  overflow: hidden;
-  position: relative;
+  width: auto !important;
+  float: none !important;
+  overflow: hidden !important;
+  position: relative !important;
 }
 
 .contact_item .contact_img {
-  width: 25%;
+  width: 25% !important;
   float: right !important;
+  margin-left: 13px !important;
 }
 
 .contact_item .contact_img img {
-  width: 50px;
-  height: 50px;
-  margin: auto;
-  text-align: center;
-  float: none;
-  display: block;
-  position: relative;
+  width: 65px !important;
+  height: 65px !important;
+  margin: auto !important;
+  text-align: center !important;
+  float: none !important;
+  display: block !important;
+  position: relative !important;
 }
 
 .contact_item .contact_info h3 {
-  color: #212121;
-  font-weight: 400;
-  font-size: 16px;
+  color: #212121 !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
 }
 
 .contact_item .contact_info p {
-  font-size: 12px;
-  white-space: nowrap;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 14px !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .searchbar-md .searchbar-input {
@@ -1721,7 +1722,7 @@ Start Profile
 
 .tabs-ios .tabbar {
   background: #5c0632 !important;
-  top: 20px !important;
+  /* top: 20px !important; */
 }
 
 .tabs-ios .tab-button, .tabs-ios .tab-button-icon {
@@ -1729,7 +1730,7 @@ Start Profile
 }
 
 .toolbar-background-ios {
-  background-color: transparent !important;
+  background-color: #5c0632 !important;
 }
 
 ion-navbar.toolbar {
@@ -1750,8 +1751,18 @@ ion-navbar.toolbar {
 }
 
 .toolbar-ios .headerico {
-  top: 9px;
-  right: -10px;
+  top: 36px !important;
+  left: 120px !important;
+  width: 22px !important;
+position: absolute !important;
+float: none !important;
+}
+.toolbar-ios .headerico-video {
+  top: 34px !important;
+  left: 70px !important;
+  width: 27px !important;
+  position: absolute !important;
+  float: none !important;
 }
 
 .toggle-ios {
@@ -1770,7 +1781,8 @@ ion-navbar.toolbar {
 }
 
 .box-img {
-  float: right;
+  position: absolute;
+  right: 0;
   width: 25px;
   height: 25px;
 }
@@ -1790,40 +1802,51 @@ ion-navbar.toolbar {
 .b-title span {
   font-size: 17px !important;
 }
-
+.toolbar-content .title {
+  width: auto !important;
+}
 .header-dropdown {
   float: left;
-  margin-top: 12px !important;
+  margin-top: 18px !important;
   margin-left: 15px !important;
 }
-
+.ios .header-dropdown {
+  margin-top: 12px !important;
+}
 .headerico {
   float: left;
-  color: #fff;
   margin-top: 0;
   margin-left: 20px;
   margin-bottom: 5px;
-  width: 33px;
-  height: 33px;
-  background: #fff;
-  color: #5c0632;
-  -webkit-box-shadow: 0 0 2px #fff;
-  box-shadow: 0 0 2px #fff;
+  width: 22px;
+  /* background: #fff; */
+  color: #fff;
+  /* -webkit-box-shadow: 0 0 2px #fff; */
+  /* box-shadow: 0 0 2px #fff; */
   font-size: 24px;
   text-align: center;
   border-radius: 50%;
   line-height: 33px;
   position: relative;
-  top: -11px;
+  top: -9px !important;
+  left: 40px !important;
 }
-
+.ion-ios-videocam:before {
+    content: "" !important;
+}
+.ion-ios-call:before {
+    content: "\f13d" !important;
+}
 .dropdown-toggle.ion-md-more {
   position: relative;
-  top: 5px;
+  top: 3px;
 }
 
 .headerico-video {
-  background-color: #fff;
+  left: 20px !important;
+  width: 27px !important;
+  top: -11px !important;
+  /* background-color: #fff; */
 }
 .animated {
   animation-duration: 1s;
@@ -2020,7 +2043,8 @@ border-radius: 20px;
 }
 
 .b-title-float {
-  float: right;
+  position: absolute;
+  right: 25px;
   text-align: right;
   overflow: hidden;
 }
@@ -2056,13 +2080,9 @@ emoji-content {
 .statusbar {
   display: none;
 }
-
-.ios .scroll-content {
-  margin-top: 50px !important;
-  /* margin-bottom: 47px !important; */
-}
 ion-navbar.toolbar {
   background: #5c0632 !important;
+  padding-bottom: 10px;
 }
 .header-ios {
   /* top: 25px !important; */
@@ -2076,4 +2096,168 @@ ion-navbar.toolbar {
 ion-icon[class*="search-icon1"] {
     -webkit-mask-image: url("../images/svg/search.svg");
     mask-image: url("../images/svg/search.svg");
+}
+
+.d-flex {
+  display: flex;
+  padding: 0 20px;
+  }
+.d-flex-justify {
+  justify-content: space-between;
+}
+.app-logo {
+  display: inline-block;
+  margin-right: 15px;
+  position: relative;
+    top: -7px;
+}
+.d-flex a {
+  color: #fff !important;
+}
+.d-flex-top {
+  margin-top: -5px;
+  margin-bottom: -22px;
+}
+.d-flex-top i {
+  color:#fff;font-size:18px;top: -6px;
+  position: relative;
+}
+.d-flex-bottom span {
+  font-size: 20px;
+}
+.tab-button-text {
+    font-size: 16px !important;
+    color: #fff;
+    transform: none !important;
+}
+.tab-button-text {
+    font-size: 16px !important;
+    color: #fff;
+    transform: none !important;
+}
+.sidebar-profile {
+  padding: 25px 24px;
+  background: linear-gradient(rgba(94, 5, 51, 0.5),rgba(29, 83, 167, 0.5)),url(../images/aracall.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.sidebar-profile-image {
+  overflow: hidden;
+}
+.sidebar-profile-image img {
+  width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+}
+.list-md {
+  margin: 0 !important;
+}
+.item-md {
+  padding: 0 !important;
+      background-color: #efefef;
+}
+.menu_items .label {
+  text-align: right;
+    padding-left: 25px;
+    font-size: 16px;
+    color: #333;
+}
+.menu_items .label img {
+  width: 13px;
+  margin: 0 7px;
+  vertical-align: top;
+  position: relative;
+  top: 1px;
+}
+.logout {
+  text-align: left !important;
+}
+.logout a {
+  color: #fff !important;
+      margin-top: 25px;
+      margin-left: 20px;
+      background: #5e0533;
+      font-weight: 700;
+}
+.contact_item.online .contact_info .pull-right {
+  float: left !important;
+}
+.item-inner {
+    border-bottom: 1px solid #dedede !important;
+}
+.scroll-content {
+  margin-bottom: 40px !important;
+}
+.ios .scroll-content {
+  margin-top: 40px !important;
+  margin-bottom: 0 !important;
+}
+ion-fab {
+  bottom: 70px !important
+}
+.d-info {
+  margin: 40px 15px 10px;
+}
+.d-info img {
+  color: #6a073a;
+  font-size: 33px;
+  border: 1px solid #5e0533;
+  width: 50px;
+  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  padding: 11px;
+  display: inline-block;
+  text-align: center;
+}
+.edit-profile {
+  position: relative;
+}
+.edit-profile img {
+  width: 150px !important;
+  height: 150px !important;
+}
+.edit-profile label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  margin: 0 !important;
+}
+.ios .ion-page.show-page ~ .nav-decor {
+  background: none !important;
+}
+.tabs-ios {
+  top: 50px !important;
+}
+.toolbar-ios ion-title {
+  left: 70px !important;
+  display: inline-block !important;
+}
+.toolbar-title-ios img + div span {
+  width: 140px !important;
+}
+.ios .back-button.show-back-button {
+    /* transform: rotateY(180deg) !important; */
+    top: 5px;
+}
+.title-ios {
+  height: auto !important;
+  min-height: 0 !important;
+  padding-bottom: 20px !important;
+}
+.title-ios, .toolbar-title-ios {
+  position: static !important;
+}
+.toolbar-title-ios .b-title-float {
+position: absolute !important;
+right: 45px !important;
+top: 11px !important;
+}
+.toolbar-title-ios .box-img {
+position: absolute;
+right: 15px;
+top: 15px;
 }

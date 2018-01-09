@@ -1,1 +1,40 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+
+      <ion-title style="text-align:center">{{'menu' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="sidebar-profile">
+      <div class="sidebar-profile-image">
+        <img src="{{avatar}}" class="pull-left" alt="">
+        <span (click)="editProfile()" class="badge pull-right" style="    margin-top: 23px;
+    background: #ffffff;
+    color: #5e0533;">{{'edit'| translate}}</span>
+      </div>
+      <div class="sidebar-profile-info">
+        <h4 style="color:#fff;">{{userName}}</h4>
+      </div>
+    </div>
+    <div class="menu_items">
+
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages" class="menu_items" (click)="openPage(p)">
+
+              <img src="{{p.icon}}">
+
+                  <span>{{p.title | translate}} </span>
+               </button>
+      </ion-list>
+    </div>
+    <div class="logout text-right">
+      <a href="#" (click)="signout()" class="btn">{{'logout' | translate}}</a>
+    </div>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

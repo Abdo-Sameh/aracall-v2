@@ -57,7 +57,7 @@ export class AllChatsPage {
   }
 
   newMessage() {
-    this.navCtrl.push(SearchPage)
+    this.app.getRootNav().push(SearchPage)
   }
 
   openChat(index, type, cid, title, avatar, is_blocked, user1, user2) {

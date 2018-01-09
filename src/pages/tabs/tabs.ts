@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { AllGroupsPage } from '../all-groups/all-groups';
 import { AllChatsPage } from '../all-chats/all-chats';
 import { SearchPage } from '../search/search';
@@ -24,14 +23,23 @@ export class TabsPage {
   Search = SearchPage
   mySelectedIndex: number;
   unreadMessagesCount
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+    this.menu = menu;
+    this.menu.enable(true)
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
   }
 
-  
+  openMenu() {
+    console.log(this.menu)
+    this.menu.open();
+  }
+
+  searchPage() {
+    this.navCtrl.push(SearchPage);
+  }
 
   more() {
     this.navCtrl.push(MorePage);

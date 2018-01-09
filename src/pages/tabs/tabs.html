@@ -4,12 +4,28 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-tabs tabsPlacement="top" [selectedIndex]="mySelectedIndex">
-  <ion-tab class="maintab" [root]="chatRoot" tabBadge="{{unreadMessagesCount}}" tabIcon="appname-customicon3"></ion-tab>
-  <ion-tab class="maintab" class="aaa" [root]="groupRoot" tabIcon="appname-customicon2"></ion-tab>
-  <ion-tab class="maintab" [root]="contactsRoot" tabIcon="appname-customicon1"></ion-tab>
-  <ion-tab [root]="Search" tabIcon="search" tabIcon="search-icon1"></ion-tab>
-  <ion-tab [root]="Search"><img src="./assets/images/svg/search.svg"></ion-tab>
 
-  <ion-tab (ionSelect)="more()" tabIcon="more"></ion-tab>
+
+<header class="header_title" style="top:0; min-height: 50px;">
+  <div class="container">
+    <div class="d-flex d-flex-justify d-flex-top">
+      <div>
+        <a (click)="openMenu()" >
+          <ion-icon name="menu"></ion-icon>
+        </a>
+        <h4 class="app-logo">ARACALL</h4>
+      </div>
+      <div>
+        <a (click)="searchPage()" href="#"><i class="fa fa-search"></i></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<ion-tabs tabsPlacement="top" [selectedIndex]="mySelectedIndex" style="top: 40px;">
+  <ion-tab class="maintab" [root]="chatRoot" tabTitle="{{'chats' | translate}}" ></ion-tab>
+  <ion-tab class="maintab" class="aaa" [root]="groupRoot" tabTitle="{{'groups' | translate}}"></ion-tab>
+  <ion-tab class="maintab" [root]="contactsRoot" tabTitle="{{'contacts' | translate}}"></ion-tab>
+  <!-- <ion-tab [root]="Search" tabTitle="Search"></ion-tab>
+  <ion-tab (ionSelect)="more()" tabIcon="more"></ion-tab> -->
 </ion-tabs>

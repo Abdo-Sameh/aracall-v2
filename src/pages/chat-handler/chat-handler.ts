@@ -137,8 +137,11 @@ export class ChatHandlerPage {
     });
   }
 
-  deleteMessage(){
-    // this.singleChat.deleteMessage(this.cid, this.chats[0].id, 'both', this.keys[i]).subscribe(res => { })
+  deleteMessage(index){
+    if (this.chats[index].cleared != '')
+      this.singleChat.deleteMessage(this.cid, this.chats[index].id, 'both', this.keys[index]).subscribe(res => { })
+    else if (this.chats[index].cleared == '')
+      this.singleChat.deleteMessage(this.cid, this.chats[index].id, this.userId, this.keys[index]).subscribe(res => { })
   }
 
   clearConversation() {
@@ -218,8 +221,8 @@ export class ChatHandlerPage {
     this.takePicture(this.camera.PictureSourceType.CAMERA);
   }
 
-  active() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  active(id) {
+    document.getElementById(id + "myDropdown").classList.toggle("show");
     $('ion-backdrop').show();
   }
 
@@ -286,16 +289,16 @@ export class ChatHandlerPage {
   }
 
   copyFileToLocalDir(namePath, currentName, newFileName, type) {
-    alert(namePath);
-    alert(currentName);
-    alert(newFileName);
-    alert(type);
-    alert(cordova.file.dataDirectory);
+    // alert(namePath);
+    // alert(currentName);
+    // alert(newFileName);
+    // alert(type);
+    // alert(cordova.file.dataDirectory);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
       this.singleChat.sendMessage(this.cid, this.the_userId, this.emojitext, this.lastImage, type, this.userId);
     }, error => {
-      alert(JSON.stringify(error));
+      // alert(JSON.stringify(error));
       this.presentToast('Error while storing file.');
     });
   }

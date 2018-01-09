@@ -37,9 +37,9 @@
 
   "delete-post": "Delete Post",
 
-	"share-message" : "Do you want to share this post on your timeline ?",
+  "share-message": "Do you want to share this post on your timeline ?",
 
-	"share-response" : "Shared successfully",
+  "share-response": "Shared successfully",
 
   "january": "January",
 
@@ -65,11 +65,11 @@
 
   "december": "December",
 
-  "online" : "Online",
+  "online": "Online",
 
-  "busy" : "Busy",
+  "busy": "Busy",
 
-  "invisible" : "Invisible",
+  "invisible": "Invisible",
 
   "additional-pages": "Addition Pages",
 
@@ -89,7 +89,7 @@
 
   "error-occurred": "An error occurred",
 
-  "send-location" : "Send location",
+  "send-location": "Send location",
 
   "annoucement-created": "Annoucement successfully created",
 
@@ -109,13 +109,13 @@
 
   "category-updated": "Category topic successfully updated",
 
-  "want-to-delete-this-conv" : "Do you want to clear this conversation ?",
+  "want-to-delete-this-conv": "Do you want to clear this conversation ?",
 
-  "new-message" : "New Message",
+  "new-message": "New Message",
 
-  "new-broadcast" : "New Broadcast",
+  "new-broadcast": "New Broadcast",
 
-  "send-message" : "Send message",
+  "send-message": "Send message",
 
   "general-image-error": "Failed to process your image",
 
@@ -149,13 +149,13 @@
 
   "site-manager": "Site Manager",
 
-  "view-profile" : "View Profile",
+  "view-profile": "View Profile",
 
-  "online-status" : "Online status",
+  "online-status": "Online status",
 
-  "profile-picture" : "Profile picture",
+  "profile-picture": "Profile picture",
 
-  "change-picture" : "Change picture",
+  "change-picture": "Change picture",
 
   "appearance": "Appearance",
 
@@ -173,13 +173,17 @@
 
   "add-phrase": "Add Phrase",
 
-  "account-settings-menu" : "Account Settings"
+  "account-settings-menu": "Account Settings",
 
   "create": "Create",
 
-  "recording" : "Recording",
+  "chats": "Chats",
 
-  "there-are-no-groups" : "There are no groups",
+  "contacts": "Contacts",
+
+  "recording": "Recording",
+
+  "there-are-no-groups": "There are no groups",
 
   "create-language-pack": "Create a pack",
 
@@ -217,7 +221,7 @@
 
   "search-phrase-placeholder": "Search for phrases in this language",
 
-  "shared-your-post" : "shared your post",
+  "shared-your-post": "shared your post",
 
   "country-manager": "Country Manager",
 
@@ -259,7 +263,7 @@
 
   "external-link": "External link",
 
-  "no-feeds-found" : "No feeds found",
+  "no-feeds-found": "No feeds found",
 
   "add": "Add",
 
@@ -309,7 +313,7 @@
 
   "replied-on-your-comment": "replied on your comment",
 
-  "mentioned-you-in-post" : "mentioned you in this post",
+  "mentioned-you-in-post": "mentioned you in this post",
 
   "like-your-item": "like your posts,photos e.t.c",
 
@@ -317,17 +321,17 @@
 
   "posts": "Posts",
 
-  "add-you-as" : "add you as",
+  "add-you-as": "add you as",
 
   "all-events": "All",
 
-  "request-sent" : "Request sent",
+  "request-sent": "Request sent",
 
   "invites": "Invites",
 
-  "invited-you-to-event" : "invited you to event",
+  "invited-you-to-event": "invited you to event",
 
-  "started-following-you" : "started following you",
+  "started-following-you": "started following you",
 
   "yours": "Yours",
 
@@ -343,39 +347,39 @@
 
   "go": "Go",
 
-  "chat-settings" : "Chat Settings",
+  "chat-settings": "Chat Settings",
 
-  "notifications-settings" : "Notifications Settings",
+  "notifications-settings": "Notifications Settings",
 
-  "blocked-users" : "Blocked Users",
+  "blocked-users": "Blocked Users",
 
-  "signout" : "Logout",
+  "signout": "Logout",
 
-  "mute-notifications" : "Mute notifications",
+  "mute-notifications": "Mute notifications",
 
-  "group-info" : "Group Info",
+  "group-info": "Group Info",
 
-  "participants" : "Participants",
+  "participants": "Participants",
 
-  "group-admin" : "Group admin",
+  "group-admin": "Group admin",
 
-  "view-group-info" : "View group info",
+  "view-group-info": "View group info",
 
-	"clear-conversation" : "Clear conversation",
+  "clear-conversation": "Clear conversation",
 
-	"report-conversation" : "Report conversation",
+  "report-conversation": "Report conversation",
 
-  "handwrite-a-message" : "handwrite a message",
+  "handwrite-a-message": "handwrite a message",
 
-  "voice-call" : "Voice call",
+  "voice-call": "Voice call",
 
-  "video-call" : "Video call",
+  "video-call": "Video call",
 
-  "block-friend" : "Block friend",
+  "block-friend": "Block friend",
 
 
 
-  "tag-people-in-your-post" : "Tag people in your post",
+  "tag-people-in-your-post": "Tag people in your post",
 
   "manage-ban-filters": "Manage ban filters",
 
@@ -449,7 +453,7 @@
 
   "required": "Required",
 
-  "invalid-email" : "Invalid email",
+  "invalid-email": "Invalid email",
 
   "custom-field-required-description": "Set if you want this custom field to be required in the form",
 
@@ -540,7 +544,7 @@
 
   "save-settings": "Save settings",
 
-  "type-message" : "Type a message",
+  "type-message": "Type a message",
 
   "general-settings-description": "Manage general settings like site title,description,keywords and more settings you can find below",
 
@@ -622,13 +626,13 @@
 
   "add-you-as-admin": "add you as admin",
 
-  "added-you-to-group" : "added you to group",
+  "added-you-to-group": "added you to group",
 
   "post-on-timeline": "posted on your wall",
 
   "write-comment": "Write comment ...",
 
-  "made-you-moderator" : "made you moderator of",
+  "made-you-moderator": "made you moderator of",
 
   "user-settings-description": "Manage user settings, control who can register,manage welcome signup step, account activation e.t.c",
 
@@ -1881,9 +1885,11 @@
   "enable-avatar-upload-desc": "Enable/disable user to upload avatar on registration",
 
   "arabface_footer": "Arabface",
+
   "arabface_footer2": "Arabface",
 
   "adv_footer": "Advertising",
+
   "adv_footer2": "Advertising",
 
   "about_footer": "About",
@@ -1893,13 +1899,17 @@
   "business_title": "Business",
 
   "adv_policy_footer": "Advertising Policies",
+
   "adv_policy_footer2": "Advertising Policies",
 
   "informations_footer": "Enquiries and Information",
 
   "legal_title_footer": "Legal",
 
+  "info": "Info",
+
   "terms_services_footer": "Terms of Services",
+
   "terms_services_footer2": "Terms of Services",
 
   "privacy_footer": "Privacy Policy",
