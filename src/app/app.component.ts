@@ -34,22 +34,22 @@ export class MyApp {
   constructor(public menu: MenuController, @Inject(DOCUMENT) private document, public groupChat: GroupChatProvider, public singleChat: SingleChatProvider, public events: Events, globalization: Globalization, translate: TranslateService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
     platform.ready().then(() => {
-      translate.setDefaultLang('en');
-      platform.setDir('ltr', true);
-       this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main.css');
+      // translate.setDefaultLang('ar');
+      // platform.setDir('rtl', true);
+      //  this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main-ar.css');
 
-      // globalization.getPreferredLanguage()
-      //   .then(res => {
-      //     translate.use((res.value).split("-")[0]);
-      //     translate.setDefaultLang((res.value).split("-")[0]);
-      //     if (translate.getDefaultLang() == "ar") {
-      //       platform.setDir('rtl', true);
-      //       this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main-ar.css');
-      //     } else {
-      //       platform.setDir('ltr', true);
-      //       this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main.css');
-      //     }
-      //   });
+      globalization.getPreferredLanguage()
+        .then(res => {
+          translate.use((res.value).split("-")[0]);
+          translate.setDefaultLang((res.value).split("-")[0]);
+          if (translate.getDefaultLang() == "ar") {
+            platform.setDir('rtl', true);
+            this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main-ar.css');
+          } else {
+            platform.setDir('ltr', true);
+            this.document.getElementById('appstyle').setAttribute('href', 'assets/css/main.css');
+          }
+        });
 
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

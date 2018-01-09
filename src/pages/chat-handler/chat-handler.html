@@ -8,8 +8,7 @@
   <ion-navbar>
     <div class="dropdown header-dropdown">
 
-      <ion-icon class="dropdown-toggle" data-toggle="dropdown" name="more" style="color:#fff"></ion-icon>
-
+      <img class="dropdown-toggle" data-toggle="dropdown" name="more" src="./assets/images/svg/flat-more.svg" width="22">
       <ul class="dropdown-menu dropdown-right" style="margin-top: 19px !important;">
         <li><a href="#" (click)="view_profile()" style="padding:7px 20px">{{'view-profile' | translate}} </a></li>
         <li><a href="#" (click)="clearConversation()" style="padding:7px 20px">{{'clear-conversation' | translate}}</a></li>
@@ -30,11 +29,11 @@
       </ion-title>
     </div>
     <!-- <div class="headerico" style="background:none;box-shadow:none;"></div> -->
-    <div>
-      <ion-icon class="headerico headerico-video" name="ios-videocam" *ngIf="is_blocked==false" (click)="video()"></ion-icon>
+    <div class="headerico headerico-video">
+      <img src="./assets/images/svg/flat-video.svg" *ngIf="is_blocked==false" (click)="video()">
     </div>
-    <div>
-      <ion-icon class="headerico" name="ios-call" *ngIf="is_blocked==false" (click)="call()"></ion-icon>
+    <div class="headerico">
+      <img src="./assets/images/svg/flat-phone.svg" *ngIf="is_blocked==false" (click)="call()">
     </div>
   </ion-navbar>
 </ion-header>
